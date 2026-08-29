@@ -3,8 +3,9 @@
 **Buck** — a public instrument that makes the US dollar system legible: where
 federal money comes from, where every dollar of spending goes, how the
 Treasury's and the Fed's plumbing works, and how it transmits to markets and
-the rates people pay. Product context: `IDEA.md` (confirmed pitch); `PLAN.md`
-(forthcoming) will fix the stack and data model.
+the rates people pay. Product context: `IDEA.md` (confirmed pitch);
+`docs/MISSION.md` (mission/values — briefs trace to it); `PLAN.md`
+(decisions, phases, schema); build spec: `ORCHESTRATION_PROMPT.md`.
 
 ## Source of truth & change flow
 

@@ -1,0 +1,35 @@
+id: price.cpi_u.all_items
+label: CPI-U, all items
+definition: >
+  The Consumer Price Index for All Urban Consumers, all items, not
+  seasonally adjusted (series CUUR0000SA0) — the government's main measure
+  of what a fixed basket of consumer goods and services costs, indexed to a
+  1982-84 base of 100. Used here to put dollar figures in real (inflation-
+  adjusted) terms; not a price in dollars itself.
+
+agency: U.S. Bureau of Labor Statistics
+dataset: Consumer Price Index for All Urban Consumers (CPI-U), U.S. city average, all items, NSA
+dataset_url: https://www.bls.gov/cpi/data.htm
+unit: index_point
+magnitude: ones
+accounting_concept: price_index
+cadence: monthly
+citation: >
+  U.S. Bureau of Labor Statistics, Consumer Price Index for All Urban
+  Consumers: All Items in U.S. City Average, series CUUR0000SA0. Accessed
+  {access_date}.
+
+revision_policy:
+  status: mixed
+  note: >
+    BLS occasionally reissues a month's index with a corrected value; detect
+    by comparing the returned value for a (year, period) pair against the
+    last-ingested value, not just by trusting "latest observation wins."
+
+notes:
+  - >
+    An index point is not a dollar amount and is never summed with USD
+    series (accounting_concept and unit both differ from every fiscal.*
+    series) — it is a divisor/deflator, applied only at the presentation
+    boundary when a chapter explicitly shows a "real terms" comparison,
+    attributed as such.

@@ -1,0 +1,489 @@
+---
+id: where-the-money-goes
+chapter: 1
+title: Where the money goes
+standfirst: >
+  How a dollar reaches the federal government, how it leaves, and what the
+  difference between those two flows is — and is not.
+route: /report/where-the-money-goes
+kind: scrollytelling
+status: draft
+written: 2026-08-29
+sources: ./SOURCES.md
+definitions: ./definitions.yaml
+---
+
+{/*
+================================================================================
+PLACEHOLDER CONTRACT — read this before implementing the page.
+================================================================================
+
+This file is prose plus six markers. It contains NO numbers. Every figure a
+reader sees is resolved from the database at render time through a `<Num>`,
+because of the CLAUDE.md hard rule that a number may only reach a page through
+the registry, carrying source, as-of date, unit, and accounting concept.
+If a `<Num>` cannot be resolved, it renders a GAP — never a zero, never a
+number carried forward from an earlier period.
+
+Frontmatter above is YAML. If the MDX pipeline has no frontmatter plugin, the
+web agent may parse it separately; do not move these fields into JSX.
+
+--------------------------------------------------------------------------------
+1. <Step id stage>…children…</Step>
+--------------------------------------------------------------------------------
+   One scroll step: a block of prose that, while it is the active step, pins
+   the sticky graphic to one state.
+
+   id     string, required, unique, kebab-case. Becomes the element id and the
+          deep link (`/report/where-the-money-goes#the-gap`). Never renamed
+          once shipped — these are public URLs.
+   stage  string, required. One of the STAGE VOCABULARY below. The state the
+          sticky graphic takes when this step becomes active.
+
+--------------------------------------------------------------------------------
+2. <SankeyStage focus />
+--------------------------------------------------------------------------------
+   Self-closing, appears INSIDE a <Step>, between paragraphs. Advances the
+   sticky graphic from that point in the prose onward, until the next marker or
+   the next step's `stage`. Used only where one step needs two graphic states.
+   Value space is the same STAGE VOCABULARY.
+
+   STAGE VOCABULARY (the complete set; the graphic must handle all eleven):
+
+     whole                    receipts → outlays → deficit, nothing emphasized
+     receipts                 receipt sources emphasized, outlay side dimmed
+     receipts-social-insurance  the social-insurance strand emphasized
+     tga                      cash view: the Treasury General Account as the
+                              node cash actually passes through
+     outlays                  outlay side emphasized, receipt side dimmed
+     outlays-functions        outlay side expanded to labeled budget functions
+     outlays-negative         functions whose net outlay is below zero, drawn
+                              as flows running backwards
+     outlays-net-interest     the net-interest function emphasized, with the
+                              separate gross interest-expense series shown
+                              BESIDE it and visibly not joined to it
+     deficit                  the balancing flow emphasized
+     deficit-vs-debt          the deficit flow beside the debt stock level,
+                              drawn so a flow and a level are not confused
+     calendar                 month-over-month view of the same totals
+
+--------------------------------------------------------------------------------
+3. <Num seriesId period at fiscalYear format of sign />
+--------------------------------------------------------------------------------
+   A live figure. Self-closing.
+
+   seriesId    string, required. A @buck/registry series id (SERIES_IDS).
+               Build must fail if the id is not in the registry.
+   period      required. Maps 1:1 to observation.period_type:
+                 "month" | "fiscal_ytd" | "day" | "year"
+   at          optional, default "latest". Either "latest" (newest
+               observation.period_end for that series and period_type) or an
+               ISO date "YYYY-MM-DD" matching observation.period_end exactly.
+   fiscalYear  optional integer. Pins observation.fiscal_year. Never derive a
+               fiscal year from a date at the query site — the column is
+               stamped by ingest.
+   format      optional, default "auto".
+                 "auto"       scaled words: "$4.49 trillion", "$766 billion".
+                              Scaling happens HERE, at the presentation
+                              boundary, from the series' stored magnitude.
+                 "exact"      full digits with separators, at published
+                              precision.
+                 "index"      index points, as published.
+                 "percent-of" a share; requires `of`.
+   of          optional seriesId, denominator for "percent-of". The two series
+               MUST share accounting_concept, or the build fails. There is no
+               cross-concept ratio in this chapter.
+   sign        optional, default "as-published". "absolute" renders the
+               magnitude without sign — used only where the prose has already
+               said which direction it is.
+
+   Every <Num> must expose, on hover and on click, and to a screen reader:
+   series label, agency, dataset, dataset_url, period_type, period_end,
+   unit, magnitude as published, publication_time, and whether the row shown
+   is a revision of an earlier one.
+
+   Missing value → render the gap treatment plus the reason ("not yet
+   published for this period"). Never 0. Never the prior period's value.
+
+--------------------------------------------------------------------------------
+4. <Term id>…children…</Term>
+--------------------------------------------------------------------------------
+   Marks a term defined at first use. `id` is a key in ./definitions.yaml —
+   either a registry series id or a `concept.*` key. Children are the words as
+   they read in the sentence. The prose already defines the term inline; the
+   marker adds the full definition and its citation one click away.
+
+--------------------------------------------------------------------------------
+5. <Ref id />
+--------------------------------------------------------------------------------
+   Self-closing citation marker. `id` is a reference id in ./SOURCES.md.
+   Renders as a superscript link to the reference list at the foot of the
+   page. Build must fail on an id with no entry in SOURCES.md.
+
+--------------------------------------------------------------------------------
+6. <Aside id title>…children…</Aside>
+--------------------------------------------------------------------------------
+   A set-aside note that is not part of the scroll spine. `id` for deep
+   linking, `title` for the heading. Asides carry the same citation rules as
+   body prose.
+
+--------------------------------------------------------------------------------
+Register (docs/MISSION.md): mechanics are facts with citations; interpretations
+are attributed to whoever holds them. There are no interpretations in this
+chapter. If a later edit adds one, it takes a name and a source or it does not
+ship.
+================================================================================
+*/}
+
+<Step id="open" stage="whole">
+
+## A dollar in, a dollar out
+
+The federal government collects money and it spends money. The Bureau of the
+Fiscal Service, part of the Treasury, counts both and publishes the count once
+a month in the *Monthly Treasury Statement*.<Ref id="mts-report" />
+
+Two words carry most of this chapter. A <Term id="concept.receipt">**receipt**</Term>
+is money the government collects from the public by exercising its power to tax
+or otherwise compel payment: income taxes, payroll taxes, excise taxes, customs
+duties, court fines, and the Federal Reserve's deposits of
+earnings.<Ref id="gao-glossary" /> An <Term id="concept.outlay">**outlay**</Term>
+is money that actually leaves — a check issued, an electronic transfer sent,
+cash paid — to settle something the government already owes.<Ref id="gao-glossary" />
+
+Subtract the second from the first and you get the third word. When outlays
+exceed receipts the difference is the <Term id="concept.deficit">**deficit**</Term>;
+when receipts exceed outlays it is the surplus.<Ref id="gao-glossary" />
+
+So far this fiscal year, receipts are
+<Num seriesId="fiscal.mts.receipts.total" period="fiscal_ytd" />, outlays are
+<Num seriesId="fiscal.mts.outlays.total" period="fiscal_ytd" />, and the gap
+between them is
+<Num seriesId="fiscal.mts.deficit.total" period="fiscal_ytd" />.
+
+</Step>
+
+<Step id="the-fiscal-year" stage="whole">
+
+## The year is not the year
+
+The government's books do not run January to December. The federal
+<Term id="concept.fiscal_year">**fiscal year**</Term> begins on October 1 and
+ends on September 30, and it is named for the calendar year in which it ends —
+fiscal 2026 began on October 1, 2025.<Ref id="gao-glossary" /> Everything on
+this page labeled "fiscal year to date" is counted from October 1 forward.
+
+Most other numbers a reader meets are on calendar years. A fiscal-year total
+and a calendar-year total of the same thing are two different measurements, so
+Buck labels which one it is showing and never adds them together.
+
+</Step>
+
+<Step id="where-it-comes-from" stage="receipts">
+
+## Where it comes from
+
+The Monthly Treasury Statement sorts receipts by source. These are the sources
+it names, with live figures for the fiscal year to date.<Ref id="mts-report" />
+
+- Individual income taxes: <Num seriesId="fiscal.mts.receipts.category.individual_income_tax" period="fiscal_ytd" />
+- Social insurance and retirement receipts: <Num seriesId="fiscal.mts.receipts.category.social_insurance_retirement" period="fiscal_ytd" />
+- Corporation income taxes: <Num seriesId="fiscal.mts.receipts.category.corporation_income_tax" period="fiscal_ytd" />
+- Customs duties: <Num seriesId="fiscal.mts.receipts.category.customs_duties" period="fiscal_ytd" />
+- Excise taxes: <Num seriesId="fiscal.mts.receipts.category.excise_taxes" period="fiscal_ytd" />
+- Estate and gift taxes: <Num seriesId="fiscal.mts.receipts.category.estate_and_gift_taxes" period="fiscal_ytd" />
+- Miscellaneous receipts: <Num seriesId="fiscal.mts.receipts.category.miscellaneous_receipts" period="fiscal_ytd" />
+
+Those are net figures. Treasury deducts refunds from gross
+collections,<Ref id="mts-report" /> which has a consequence you will meet in a
+chart: a source can print below zero for a month in which refunds exceeded what
+was collected. The diagram draws that backwards rather than hiding it.
+
+"Miscellaneous receipts" is a real category, not a rounding bucket. The Federal
+Reserve's deposits of earnings are reported on a line of their own inside
+it.<Ref id="mts-report" />
+
+</Step>
+
+<Step id="the-payroll-taxes" stage="receipts-social-insurance">
+
+## The payroll taxes
+
+Social insurance and retirement receipts are the taxes withheld from wages and
+paid by employers, plus unemployment insurance taxes and federal retirement
+contributions. Treasury reports the three parts separately. They are credited to
+<Term id="concept.trust_fund">**trust fund accounts**</Term> — chiefly Social
+Security's and Medicare's.<Ref id="mts-report" />
+
+A federal trust fund is an account that a law designates as one. The
+Government Accountability Office's budget glossary is explicit about what that
+does and does not mean: except in rare circumstances, "a trust fund account
+imposes no fiduciary responsibility on the federal
+government."<Ref id="gao-glossary" />
+
+Those receipts are counted in the same governmental-receipts total as every
+other tax,<Ref id="mts-report" /> so on the diagram they are a strand of the
+inbound flow, not a separate pot beside it.
+
+</Step>
+
+<Step id="the-account-it-lands-in" stage="tga">
+
+## The account it lands in
+
+Cash moves before the books close. Nearly every federal dollar passes through
+the <Term id="fiscal.tga.closing_balance">**Treasury General Account**</Term>,
+the government's operating account at the Federal Reserve, which acts as the
+Treasury's fiscal agent. When the Treasury pays out of that account, funds move
+to a bank; when a tax payment arrives, funds move the other
+way.<Ref id="frb-liabilities" /> Treasury publishes the balance every business
+day in the *Daily Treasury Statement*.<Ref id="dts-operating-cash" />
+
+The latest published closing balance is
+<Num seriesId="fiscal.tga.closing_balance" period="day" />.
+
+<Aside id="cash-versus-books" title="The cash balance and the budget figures are different measurements">
+
+The Daily Treasury Statement counts cash in and out of an account. The Monthly
+Treasury Statement counts budget receipts and outlays on a modified cash basis:
+receipts on the basis of collections, outlays on the basis of checks issued,
+transfers sent, or cash paid, and interest on the publicly held debt on an
+accrual basis.<Ref id="mts-report" />
+
+The two will not tie to each other, and Buck never nets one against the other.
+They appear side by side, each labeled with what it measures.
+
+</Aside>
+
+</Step>
+
+<Step id="where-it-goes" stage="outlays">
+
+## Where it goes, and three words that are not synonyms
+
+An outlay is money out the door. Two words that sound like it are not it, and
+keeping them apart is the difference between a right answer and a
+plausible-looking wrong one.
+
+<Term id="concept.budget_authority">**Budget authority**</Term> is permission,
+granted by law, to enter into financial obligations that will result in outlays
+now or later.<Ref id="gao-glossary" />
+
+An <Term id="concept.obligation">**obligation**</Term> is a commitment — a
+binding legal liability created when an agency places an order, signs a
+contract, or awards a grant. Payment may follow immediately or years
+later.<Ref id="gao-glossary" />
+
+An outlay is the payment itself. Outlays in one fiscal year may settle
+obligations incurred in earlier ones.<Ref id="gao-glossary" />
+
+This chapter counts outlays, because the Monthly Treasury Statement counts
+outlays. USASpending.gov counts
+obligations.<Ref id="usaspending-glossary" /> The two answer different
+questions, and their totals will not match. Buck stores them as different
+accounting concepts so nothing can quietly add them together.
+
+</Step>
+
+<Step id="sorted-by-purpose" stage="outlays">
+
+## Sorted by what it is for
+
+Outlays can be sorted by which agency spent them or by what they were spent on.
+The Monthly Treasury Statement publishes both. The flow diagram uses the second
+— the <Term id="concept.functional_classification">**functional
+classification**</Term>, which the Government Accountability Office describes as
+grouping budget authority, outlays, receipts, and tax expenditures "according to
+the national needs being addressed."<Ref id="gao-glossary" />
+
+Each budget account sits in the single function that best reflects its major
+purpose, regardless of which agency runs it, so that the functions add up to the
+budget totals.<Ref id="gao-glossary" /> That last clause is why the diagram can
+be drawn at all.
+
+<SankeyStage focus="outlays-functions" />
+
+- National defense: <Num seriesId="fiscal.mts.outlays.category.national_defense" period="fiscal_ytd" />
+- Social Security: <Num seriesId="fiscal.mts.outlays.category.social_security" period="fiscal_ytd" />
+- Medicare: <Num seriesId="fiscal.mts.outlays.category.medicare" period="fiscal_ytd" />
+- Health: <Num seriesId="fiscal.mts.outlays.category.health" period="fiscal_ytd" />
+- Income security: <Num seriesId="fiscal.mts.outlays.category.income_security" period="fiscal_ytd" />
+- Net interest: <Num seriesId="fiscal.mts.outlays.category.net_interest" period="fiscal_ytd" />
+- Veterans benefits and services: <Num seriesId="fiscal.mts.outlays.category.veterans_benefits_and_services" period="fiscal_ytd" />
+
+A function is not an agency, and the boundaries are drawn by rule, not by
+intuition. Medicare is its own function and is excluded from Health; health care
+for military personnel sits in National Defense, and health care for veterans in
+Veterans Benefits and Services.<Ref id="gao-glossary" />
+
+</Step>
+
+<Step id="negative-spending" stage="outlays-functions">
+
+## Some spending runs backwards
+
+Outlays are stated net of offsetting collections and of
+refunds.<Ref id="mts-report" /> A function that collects more of those in a
+period than it spends prints a net outlay below zero.
+
+<SankeyStage focus="outlays-negative" />
+
+One function is normally negative by construction.
+<Term id="fiscal.mts.outlays.category.undistributed_offsetting_receipts">**Undistributed
+offsetting receipts**</Term> holds collections that Treasury deducts from the
+government-wide total rather than from any single agency or function: agencies'
+payments into their employees' retirement funds, interest received by trust
+funds, rents and royalties on the Outer Continental Shelf, and certain other
+interest.<Ref id="mts-report" /> The Government Accountability Office gives the
+reason — deducting them anywhere else would distort the agency and subfunction
+totals.<Ref id="gao-glossary" />
+
+Its current figure is
+<Num seriesId="fiscal.mts.outlays.category.undistributed_offsetting_receipts" period="fiscal_ytd" />.
+
+The diagram draws this as a flow running the other way. Dropping it would be
+tidier and wrong: the remaining categories would stop adding up to the published
+total.
+
+</Step>
+
+<Step id="two-interest-numbers" stage="outlays-net-interest">
+
+## Two different interest numbers
+
+Net interest is budget function 900: transactions that give rise to interest
+payments or income, including interest paid on the public debt, offset by
+interest collections.<Ref id="gao-glossary" /> It is what the budget records as
+an outlay.
+
+Treasury separately publishes
+<Term id="fiscal.debt.interest_expense_total">**interest expense on the public
+debt**</Term> — the cost of borrowing, reported monthly and cumulatively for the
+fiscal year.<Ref id="interest-expense" />
+
+- Net interest, an outlay: <Num seriesId="fiscal.mts.outlays.category.net_interest" period="fiscal_ytd" />
+- Interest expense on the public debt: <Num seriesId="fiscal.debt.interest_expense_total" period="fiscal_ytd" />
+
+They are computed differently and they do not match. Buck holds them as two
+series flagged as not comparable, and the site will not chart them on one axis
+or add them together. The reason is printed wherever both appear.
+
+</Step>
+
+<Step id="the-gap" stage="deficit">
+
+## The gap is not a category
+
+Receipts minus outlays. That is the whole calculation.
+
+The deficit is not something the government buys. It is the arithmetic
+difference between two other flows, which is why the diagram draws it as a
+balancing flow rather than as one more destination for spending. Sorting the
+outlay side does not move it; only the two totals move it.
+
+For the latest month, receipts were
+<Num seriesId="fiscal.mts.receipts.total" period="month" />, outlays were
+<Num seriesId="fiscal.mts.outlays.total" period="month" />, and the difference
+was <Num seriesId="fiscal.mts.deficit.total" period="month" />.
+
+</Step>
+
+<Step id="deficit-is-not-debt" stage="deficit-vs-debt">
+
+## The deficit is a flow; the debt is a level
+
+A deficit is measured over a period — a month, a fiscal year. The
+<Term id="fiscal.debt.total_public_debt_outstanding">**debt**</Term> is a level
+at a moment. Treasury publishes total public debt outstanding every business
+day, in Debt to the Penny; it is the sum of debt held by the public and
+intragovernmental holdings.<Ref id="debt-to-the-penny" />
+
+<Num seriesId="fiscal.debt.total_public_debt_outstanding" period="day" />, as of
+the latest business day.
+
+The two do not move one-for-one. The Government Accountability Office calls the
+ways a deficit gets covered the
+<Term id="concept.means_of_financing">**means of financing**</Term>: Treasury
+borrowing, drawing down Treasury cash balances, the sale of gold, seigniorage,
+cash flows through credit financing accounts, letting certain unpaid liabilities
+rise, and other similar transactions. It is customary, GAO writes, to split the
+total into the change in debt held by the public — the primary means of
+financing — and everything else.<Ref id="gao-glossary" /> The Monthly Treasury
+Statement reports these in a table of its own.<Ref id="mts-report" />
+
+So the change in the debt over a month and the deficit for that month are
+related numbers, not the same number, and Buck will not print one as the other.
+
+</Step>
+
+<Step id="why-a-month-moves" stage="calendar">
+
+## Why a month moves
+
+Some month-to-month movement is the calendar rather than a change in policy.
+
+Benefit payments due on the first of a month are made on the last business day
+before it when the first is not a business day, which shifts outlays out of one
+month and into the one before. Treasury flags these shifts in the statement
+itself: the July 2026 report notes that military active-duty and retirement pay,
+veterans benefits, Supplemental Security Income, and some Medicare payments
+moved into July because August 1 fell on a non-business day.<Ref id="mts-report" />
+
+Receipts move for the mirror-image reason. They cluster around tax due dates,
+and Treasury cites the absence of a major corporate or individual due date when
+it explains a light month.<Ref id="mts-report" />
+
+Comparing a month to the same month a year earlier removes some of this;
+comparing fiscal year to date against the same span of the prior year removes
+more. Neither removes all of it, and Buck says which comparison it is making.
+
+</Step>
+
+<Step id="what-numbers-do-after-publication" stage="whole">
+
+## What the numbers do after they are published
+
+The Monthly Treasury Statement is normally released on the eighth workday of
+the month following the month it reports, at a time printed in each
+issue.<Ref id="mts-report" /> Debt to the Penny is updated at the end of each
+business day with the previous business day's figure.<Ref id="debt-to-the-penny" />
+
+Published values change. Sources revise. Three rules govern how this page
+handles that:
+
+- A revised value is stored as a new row and never overwrites the old one, so
+  the site can always show what was known at a given time.
+- A period with nothing published renders as a gap. It is never a zero and never
+  the previous period's number held over.
+- Every figure carries its source, its dataset, the period it describes, the
+  date it was published, and its unit as published.
+
+</Step>
+
+<Step id="what-this-chapter-does-not-say" stage="whole">
+
+## What this chapter does not tell you
+
+Three things are deliberately absent.
+
+**How the borrowing is done.** The auctions, who buys, and at what yield are
+the machinery behind the "Treasury borrowing" line in the means of
+financing.<Ref id="gao-glossary" /> They are the subject of a later chapter.
+
+**What was promised versus what was paid.** This page counts outlays.
+Obligations — the commitments behind them — are reported on
+USASpending.gov<Ref id="usaspending-glossary" /> and join Buck only behind a
+stated bridge between the two concepts.
+
+**What happens next.** The Congressional Budget Office publishes baseline
+projections of federal spending, revenues, deficits and debt, built on the
+assumption that current law generally stays as it is, in its recurring *Budget
+and Economic Outlook*.<Ref id="cbo-baseline" /> Where those appear on Buck they
+are labeled as CBO's projections, stored under a separate accounting concept,
+and never summed or charted with observed Treasury figures.
+
+This chapter describes mechanics. Whether the resulting path is a problem is a
+question people disagree about in public and at length; that disagreement is
+worth reporting with names attached, and it is not on this page.
+
+</Step>

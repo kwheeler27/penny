@@ -1,0 +1,569 @@
+[
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-01",
+    "fiscalYear": 2026,
+    "value": "39195502287422.08",
+    "publicationTime": "2026-06-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-02",
+    "periodEnd": "2026-06-02",
+    "fiscalYear": 2026,
+    "value": "39221984586285.30",
+    "publicationTime": "2026-06-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-03",
+    "periodEnd": "2026-06-03",
+    "fiscalYear": 2026,
+    "value": "39204974715248.65",
+    "publicationTime": "2026-06-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-04",
+    "periodEnd": "2026-06-04",
+    "fiscalYear": 2026,
+    "value": "39232150577283.87",
+    "publicationTime": "2026-06-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-05",
+    "periodEnd": "2026-06-05",
+    "fiscalYear": 2026,
+    "value": "39219582387346.71",
+    "publicationTime": "2026-06-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-08",
+    "periodEnd": "2026-06-08",
+    "fiscalYear": 2026,
+    "value": "39230385715009.09",
+    "publicationTime": "2026-06-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-09",
+    "periodEnd": "2026-06-09",
+    "fiscalYear": 2026,
+    "value": "39241722848798.66",
+    "publicationTime": "2026-06-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-10",
+    "periodEnd": "2026-06-10",
+    "fiscalYear": 2026,
+    "value": "39213266279741.16",
+    "publicationTime": "2026-06-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-11",
+    "periodEnd": "2026-06-11",
+    "fiscalYear": 2026,
+    "value": "39220785117318.68",
+    "publicationTime": "2026-06-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-12",
+    "periodEnd": "2026-06-12",
+    "fiscalYear": 2026,
+    "value": "39209984063577.76",
+    "publicationTime": "2026-06-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-15",
+    "periodEnd": "2026-06-15",
+    "fiscalYear": 2026,
+    "value": "39293074039354.64",
+    "publicationTime": "2026-06-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-16",
+    "periodEnd": "2026-06-16",
+    "fiscalYear": 2026,
+    "value": "39289865167568.98",
+    "publicationTime": "2026-06-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-17",
+    "periodEnd": "2026-06-17",
+    "fiscalYear": 2026,
+    "value": "39283052266270.91",
+    "publicationTime": "2026-06-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-18",
+    "periodEnd": "2026-06-18",
+    "fiscalYear": 2026,
+    "value": "39305293944733.24",
+    "publicationTime": "2026-06-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-22",
+    "periodEnd": "2026-06-22",
+    "fiscalYear": 2026,
+    "value": "39323731819938.67",
+    "publicationTime": "2026-06-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-23",
+    "periodEnd": "2026-06-23",
+    "fiscalYear": 2026,
+    "value": "39320607875889.32",
+    "publicationTime": "2026-06-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-24",
+    "periodEnd": "2026-06-24",
+    "fiscalYear": 2026,
+    "value": "39320508743100.40",
+    "publicationTime": "2026-06-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-25",
+    "periodEnd": "2026-06-25",
+    "fiscalYear": 2026,
+    "value": "39311022730162.44",
+    "publicationTime": "2026-06-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-26",
+    "periodEnd": "2026-06-26",
+    "fiscalYear": 2026,
+    "value": "39337503706976.53",
+    "publicationTime": "2026-06-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-29",
+    "periodEnd": "2026-06-29",
+    "fiscalYear": 2026,
+    "value": "39345340787969.72",
+    "publicationTime": "2026-06-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-06-30",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "39462398380774.37",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-01",
+    "fiscalYear": 2026,
+    "value": "39389304788902.60",
+    "publicationTime": "2026-07-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-02",
+    "periodEnd": "2026-07-02",
+    "fiscalYear": 2026,
+    "value": "39375254020492.22",
+    "publicationTime": "2026-07-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-03",
+    "periodEnd": "2026-07-03",
+    "fiscalYear": 2026,
+    "value": "39375989952866.26",
+    "publicationTime": "2026-07-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-06",
+    "periodEnd": "2026-07-06",
+    "fiscalYear": 2026,
+    "value": "39387881222485.61",
+    "publicationTime": "2026-07-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-07",
+    "periodEnd": "2026-07-07",
+    "fiscalYear": 2026,
+    "value": "39414977491738.78",
+    "publicationTime": "2026-07-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-08",
+    "periodEnd": "2026-07-08",
+    "fiscalYear": 2026,
+    "value": "39394977645639.05",
+    "publicationTime": "2026-07-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-09",
+    "periodEnd": "2026-07-09",
+    "fiscalYear": 2026,
+    "value": "39414179016130.09",
+    "publicationTime": "2026-07-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-10",
+    "periodEnd": "2026-07-10",
+    "fiscalYear": 2026,
+    "value": "39412981341965.62",
+    "publicationTime": "2026-07-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-13",
+    "periodEnd": "2026-07-13",
+    "fiscalYear": 2026,
+    "value": "39417905469064.21",
+    "publicationTime": "2026-07-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-14",
+    "periodEnd": "2026-07-14",
+    "fiscalYear": 2026,
+    "value": "39470152218599.01",
+    "publicationTime": "2026-07-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-15",
+    "periodEnd": "2026-07-15",
+    "fiscalYear": 2026,
+    "value": "39488616467668.43",
+    "publicationTime": "2026-07-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-16",
+    "periodEnd": "2026-07-16",
+    "fiscalYear": 2026,
+    "value": "39518859758919.12",
+    "publicationTime": "2026-07-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-17",
+    "periodEnd": "2026-07-17",
+    "fiscalYear": 2026,
+    "value": "39581848442144.38",
+    "publicationTime": "2026-07-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-20",
+    "periodEnd": "2026-07-20",
+    "fiscalYear": 2026,
+    "value": "39588242618845.71",
+    "publicationTime": "2026-07-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-21",
+    "periodEnd": "2026-07-21",
+    "fiscalYear": 2026,
+    "value": "39660369665133.47",
+    "publicationTime": "2026-07-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-22",
+    "periodEnd": "2026-07-22",
+    "fiscalYear": 2026,
+    "value": "39635799057233.84",
+    "publicationTime": "2026-07-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-23",
+    "periodEnd": "2026-07-23",
+    "fiscalYear": 2026,
+    "value": "39676938407949.77",
+    "publicationTime": "2026-07-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-24",
+    "periodEnd": "2026-07-24",
+    "fiscalYear": 2026,
+    "value": "39692374867364.99",
+    "publicationTime": "2026-07-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-27",
+    "periodEnd": "2026-07-27",
+    "fiscalYear": 2026,
+    "value": "39713964053447.11",
+    "publicationTime": "2026-07-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-28",
+    "periodEnd": "2026-07-28",
+    "fiscalYear": 2026,
+    "value": "39797152899275.21",
+    "publicationTime": "2026-07-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-29",
+    "periodEnd": "2026-07-29",
+    "fiscalYear": 2026,
+    "value": "39799618642771.12",
+    "publicationTime": "2026-07-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-30",
+    "periodEnd": "2026-07-30",
+    "fiscalYear": 2026,
+    "value": "39841114561022.68",
+    "publicationTime": "2026-07-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-07-31",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "39771617162466.97",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-03",
+    "periodEnd": "2026-08-03",
+    "fiscalYear": 2026,
+    "value": "39739223157130.73",
+    "publicationTime": "2026-08-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-04",
+    "periodEnd": "2026-08-04",
+    "fiscalYear": 2026,
+    "value": "39828435390891.55",
+    "publicationTime": "2026-08-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-05",
+    "periodEnd": "2026-08-05",
+    "fiscalYear": 2026,
+    "value": "39829652708623.61",
+    "publicationTime": "2026-08-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-06",
+    "periodEnd": "2026-08-06",
+    "fiscalYear": 2026,
+    "value": "39890263441627.83",
+    "publicationTime": "2026-08-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-07",
+    "periodEnd": "2026-08-07",
+    "fiscalYear": 2026,
+    "value": "39885247772395.56",
+    "publicationTime": "2026-08-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-10",
+    "periodEnd": "2026-08-10",
+    "fiscalYear": 2026,
+    "value": "39891773994021.93",
+    "publicationTime": "2026-08-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-11",
+    "periodEnd": "2026-08-11",
+    "fiscalYear": 2026,
+    "value": "39941929832070.77",
+    "publicationTime": "2026-08-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-12",
+    "periodEnd": "2026-08-12",
+    "fiscalYear": 2026,
+    "value": "39913529319464.71",
+    "publicationTime": "2026-08-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-13",
+    "periodEnd": "2026-08-13",
+    "fiscalYear": 2026,
+    "value": "39934816207844.37",
+    "publicationTime": "2026-08-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-14",
+    "periodEnd": "2026-08-14",
+    "fiscalYear": 2026,
+    "value": "39933634466112.78",
+    "publicationTime": "2026-08-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-17",
+    "periodEnd": "2026-08-17",
+    "fiscalYear": 2026,
+    "value": "39986657878071.92",
+    "publicationTime": "2026-08-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-18",
+    "periodEnd": "2026-08-18",
+    "fiscalYear": 2026,
+    "value": "40047425768420.22",
+    "publicationTime": "2026-08-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-19",
+    "periodEnd": "2026-08-19",
+    "fiscalYear": 2026,
+    "value": "40012700535679.44",
+    "publicationTime": "2026-08-19T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-20",
+    "periodEnd": "2026-08-20",
+    "fiscalYear": 2026,
+    "value": "40033256786764.37",
+    "publicationTime": "2026-08-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-21",
+    "periodEnd": "2026-08-21",
+    "fiscalYear": 2026,
+    "value": "40032876505819.31",
+    "publicationTime": "2026-08-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-24",
+    "periodEnd": "2026-08-24",
+    "fiscalYear": 2026,
+    "value": "40035385103646.14",
+    "publicationTime": "2026-08-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-25",
+    "periodEnd": "2026-08-25",
+    "fiscalYear": 2026,
+    "value": "40098864155027.57",
+    "publicationTime": "2026-08-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-26",
+    "periodEnd": "2026-08-26",
+    "fiscalYear": 2026,
+    "value": "40069751423220.72",
+    "publicationTime": "2026-08-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.total_public_debt_outstanding",
+    "periodType": "day",
+    "periodStart": "2026-08-27",
+    "periodEnd": "2026-08-27",
+    "fiscalYear": 2026,
+    "value": "40077529831942.94",
+    "publicationTime": "2026-08-27T00:00:00Z"
+  }
+]

@@ -1,0 +1,1352 @@
+[
+  {
+    "periodType": "month",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2024-10-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "326770236058.10"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2024-10-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "584220273025.31"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2024-10-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-257450036967.21"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-08-01",
+    "periodEnd": "2025-08-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "344315322010.32"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-08-01",
+    "periodEnd": "2025-08-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "689107213868.44"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-08-01",
+    "periodEnd": "2025-08-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-344791891858.12"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-09-01",
+    "periodEnd": "2025-09-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "543663073176.70"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-09-01",
+    "periodEnd": "2025-09-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "345725351899.02"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-09-01",
+    "periodEnd": "2025-09-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "197937721277.68"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-05-01",
+    "periodEnd": "2026-05-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "335512183227.42"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-05-01",
+    "periodEnd": "2026-05-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "628160440569.41"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-05-01",
+    "periodEnd": "2026-05-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-292648257341.99"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-01-01",
+    "periodEnd": "2025-01-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "513294342651.93"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-01-01",
+    "periodEnd": "2025-01-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "641934549325.42"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-01-01",
+    "periodEnd": "2025-01-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-128640206673.49"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-11-01",
+    "periodEnd": "2024-11-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "301754299812.79"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-11-01",
+    "periodEnd": "2024-11-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "668517135060.47"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-11-01",
+    "periodEnd": "2024-11-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-366762835247.68"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-12-01",
+    "periodEnd": "2024-12-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "454414708491.47"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-12-01",
+    "periodEnd": "2024-12-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "541146327504.76"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-12-01",
+    "periodEnd": "2024-12-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-86731619013.29"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-02-01",
+    "periodEnd": "2025-02-28",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "296423683822.57"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-02-01",
+    "periodEnd": "2025-02-28",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "603440881114.84"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-02-01",
+    "periodEnd": "2025-02-28",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-307017197292.27"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-03-01",
+    "periodEnd": "2025-03-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "367645430943.32"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-03-01",
+    "periodEnd": "2025-03-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "528173752442.68"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-03-01",
+    "periodEnd": "2025-03-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-160528321499.36"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-04-01",
+    "periodEnd": "2025-04-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "850169317772.81"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-04-01",
+    "periodEnd": "2025-04-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "591769368657.85"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-04-01",
+    "periodEnd": "2025-04-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "258399949114.96"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-05-01",
+    "periodEnd": "2025-05-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "371228857110.76"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-05-01",
+    "periodEnd": "2025-05-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "686880598492.67"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-05-01",
+    "periodEnd": "2025-05-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-315651741381.91"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-06-01",
+    "periodEnd": "2025-06-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "526445351756.97"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-06-01",
+    "periodEnd": "2025-06-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "499435701746.96"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-06-01",
+    "periodEnd": "2025-06-30",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "27009650010.01"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "338491848423.17"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "629634508710.84"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-291142660287.67"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "495761481568.70"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "616066757155.07"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-120305275586.37"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "334009875555.79"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "766317750177.27"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-432307874621.48"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "4485419503881.15"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "6284235715734.18"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-1798816211853.03"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "5234616472030.91"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "7009985661849.26"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-1775369189818.35"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2025-10-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "404371348973.70"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2025-10-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "688704092972.07"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2025-10-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-284332743998.37"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-11-01",
+    "periodEnd": "2025-11-30",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "336001720156.98"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-11-01",
+    "periodEnd": "2025-11-30",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "509278895279.90"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-11-01",
+    "periodEnd": "2025-11-30",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-173277175122.92"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-12-01",
+    "periodEnd": "2025-12-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "484384015539.25"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-12-01",
+    "periodEnd": "2025-12-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "629136126305.68"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2025-12-01",
+    "periodEnd": "2025-12-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-144752110766.43"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-01-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "560051900583.17"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-01-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "654667062952.38"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-01-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-94615162369.21"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "313121685246.84"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "620623118673.01"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-307501433426.17"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-03-01",
+    "periodEnd": "2026-03-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "384862602035.79"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-03-01",
+    "periodEnd": "2026-03-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "548962915853.65"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-03-01",
+    "periodEnd": "2026-03-31",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-164100313817.86"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-04-01",
+    "periodEnd": "2026-04-30",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "837342690993.51"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-04-01",
+    "periodEnd": "2026-04-30",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "622318555795.74"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2026-04-01",
+    "periodEnd": "2026-04-30",
+    "fiscalYear": 2026,
+    "publicationTime": "2026-07-31T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "215024135197.77"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2022-12-01",
+    "periodEnd": "2022-12-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "454942371659.52"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2022-12-01",
+    "periodEnd": "2022-12-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "539943108237.40"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2022-12-01",
+    "periodEnd": "2022-12-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-85000736577.88"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2022-10-01",
+    "periodEnd": "2022-10-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "318500079859.09"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2022-10-01",
+    "periodEnd": "2022-10-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "406374243972.26"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2022-10-01",
+    "periodEnd": "2022-10-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-87874164113.17"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2022-11-01",
+    "periodEnd": "2022-11-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "252110808982.40"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2022-11-01",
+    "periodEnd": "2022-11-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "500645689634.98"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2022-11-01",
+    "periodEnd": "2022-11-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-248534880652.58"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-08-01",
+    "periodEnd": "2023-08-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "283130206157.26"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-08-01",
+    "periodEnd": "2023-08-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "193874633463.53"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-08-01",
+    "periodEnd": "2023-08-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "89255572693.73"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-09-01",
+    "periodEnd": "2023-09-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "467474927288.69"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-09-01",
+    "periodEnd": "2023-09-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "638189864949.25"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-09-01",
+    "periodEnd": "2023-09-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-170714937660.56"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2022-10-01",
+    "periodEnd": "2023-09-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "4439285983839.27"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2022-10-01",
+    "periodEnd": "2023-09-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "6134525719857.94"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2022-10-01",
+    "periodEnd": "2023-09-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-1695239736018.67"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2023-10-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "403433540919.80"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2023-10-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "469997092049.53"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2023-10-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-66563551129.73"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-11-01",
+    "periodEnd": "2023-11-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "274830035781.15"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-11-01",
+    "periodEnd": "2023-11-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "588842038068.24"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-11-01",
+    "periodEnd": "2023-11-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-314012002287.09"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-12-01",
+    "periodEnd": "2023-12-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "429310654566.08"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-12-01",
+    "periodEnd": "2023-12-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "558664769130.32"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-12-01",
+    "periodEnd": "2023-12-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-129354114564.24"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-01-01",
+    "periodEnd": "2024-01-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "477319655457.16"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-01-01",
+    "periodEnd": "2024-01-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "499250008026.88"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-01-01",
+    "periodEnd": "2024-01-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-21930352569.72"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-02-01",
+    "periodEnd": "2024-02-29",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "271126068759.09"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-02-01",
+    "periodEnd": "2024-02-29",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "567400720600.28"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-02-01",
+    "periodEnd": "2024-02-29",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-296274651841.19"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-03-01",
+    "periodEnd": "2024-03-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "332078814395.98"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-03-01",
+    "periodEnd": "2024-03-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "568634767671.20"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-03-01",
+    "periodEnd": "2024-03-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-236555953275.22"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-04-01",
+    "periodEnd": "2024-04-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "776198093176.94"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-04-01",
+    "periodEnd": "2024-04-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "566668786551.61"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-04-01",
+    "periodEnd": "2024-04-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "209529306625.33"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-05-01",
+    "periodEnd": "2024-05-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "323646986978.40"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-05-01",
+    "periodEnd": "2024-05-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "670777880670.05"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-05-01",
+    "periodEnd": "2024-05-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-347130893691.65"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-06-01",
+    "periodEnd": "2024-06-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "466254918407.16"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-06-01",
+    "periodEnd": "2024-06-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "537220210883.50"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-06-01",
+    "periodEnd": "2024-06-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-70965292476.34"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-07-01",
+    "periodEnd": "2024-07-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "330377428300.09"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-07-01",
+    "periodEnd": "2024-07-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "574118515597.52"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-07-01",
+    "periodEnd": "2024-07-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-243741087297.43"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-08-01",
+    "periodEnd": "2024-08-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "306539737019.32"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-08-01",
+    "periodEnd": "2024-08-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "686620142453.82"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-08-01",
+    "periodEnd": "2024-08-31",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-380080405434.50"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "527619710977.08"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "463356702109.34"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "64263008867.74"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "4918735644738.25"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "6751551633812.29"
+  },
+  {
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-1832815989074.04"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-01-01",
+    "periodEnd": "2023-01-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "447288317962.29"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-01-01",
+    "periodEnd": "2023-01-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "486072090101.51"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-01-01",
+    "periodEnd": "2023-01-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-38783772139.22"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-02-01",
+    "periodEnd": "2023-02-28",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "262113909495.88"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-02-01",
+    "periodEnd": "2023-02-28",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "524547752690.11"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-02-01",
+    "periodEnd": "2023-02-28",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-262433843194.23"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-03-01",
+    "periodEnd": "2023-03-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "313240364412.41"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-03-01",
+    "periodEnd": "2023-03-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "691675379586.27"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-03-01",
+    "periodEnd": "2023-03-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-378435015173.86"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-04-01",
+    "periodEnd": "2023-04-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "638520361158.51"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-04-01",
+    "periodEnd": "2023-04-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "462339570809.39"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-04-01",
+    "periodEnd": "2023-04-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "176180790349.12"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-05-01",
+    "periodEnd": "2023-05-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "307486880350.41"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-05-01",
+    "periodEnd": "2023-05-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "547835120008.78"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-05-01",
+    "periodEnd": "2023-05-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-240348239658.37"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-06-01",
+    "periodEnd": "2023-06-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "418316902368.96"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-06-01",
+    "periodEnd": "2023-06-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "646085314907.01"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-06-01",
+    "periodEnd": "2023-06-30",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-227768412538.05"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-07-01",
+    "periodEnd": "2023-07-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.receipts.total",
+    "value": "276160854143.85"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-07-01",
+    "periodEnd": "2023-07-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.outlays.total",
+    "value": "496942951497.45"
+  },
+  {
+    "periodType": "month",
+    "periodStart": "2023-07-01",
+    "periodEnd": "2023-07-31",
+    "fiscalYear": 2023,
+    "publicationTime": "2024-09-30T00:00:00Z",
+    "seriesId": "fiscal.mts.deficit.total",
+    "value": "-220782097353.60"
+  }
+]

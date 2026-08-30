@@ -1,0 +1,1370 @@
+[
+  {
+    "seriesId": "fiscal.mts.outlays.category.undistributed_offsetting_receipts",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "-13784724950.53",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.undistributed_offsetting_receipts",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "-136620830131.93",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_government",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "6713189901.90",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_government",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "20159250588.67",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.net_interest",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "104158824874.17",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.net_interest",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "931356018861.05",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.veterans_benefits_and_services",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "55220772322.49",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.veterans_benefits_and_services",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "360566522750.01",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.administration_of_justice",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "12794558810.58",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.administration_of_justice",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "89985224974.49",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.income_security",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "64059475744.98",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.income_security",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "607747858041.21",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.social_security",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "140676887928.32",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.social_security",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "1384438183069.17",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.energy",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "2557231103.99",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.energy",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "16767148414.61",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.education_training_employment_social_services",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "8986580290.96",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.education_training_employment_social_services",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "82039830967.24",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.health",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "82859571628.86",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.health",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "845183262086.09",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.medicare",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "174250585170.58",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.medicare",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "954524661064.21",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.agriculture",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "1707072387.78",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.agriculture",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "49170444778.90",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.commerce_and_housing_credit",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "2630363887.25",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.commerce_and_housing_credit",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "-9962270710.82",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.transportation",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "12644021581.09",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.transportation",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "112789039955.60",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.community_and_regional_development",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "6475942621.18",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.community_and_regional_development",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "51604816017.13",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.natural_resources_and_environment",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "5446489119.89",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.natural_resources_and_environment",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "49149865399.92",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.international_affairs",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "4725824502.13",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.international_affairs",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "38675234994.78",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_science_space_technology",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "3623674620.23",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_science_space_technology",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "32959857984.81",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.national_defense",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "90571408631.42",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.national_defense",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "803701596629.04",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.medicare",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "103468801709.98",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.medicare",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "780274075893.63",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.income_security",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "44758192389.46",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.income_security",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "543688382296.23",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.social_security",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "146737369071.60",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.social_security",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "1243761295140.85",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.veterans_benefits_and_services",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "34728873816.50",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.veterans_benefits_and_services",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "305345750427.52",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.administration_of_justice",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "8760071148.10",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.administration_of_justice",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "77190666163.91",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_government",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "-1501170352.45",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_government",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "13446062686.77",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.net_interest",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "104490682743.68",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.net_interest",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "827197193986.88",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.undistributed_offsetting_receipts",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "-9199824503.27",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.undistributed_offsetting_receipts",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "-122836105181.40",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.national_defense",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "82229219356.31",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.national_defense",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "713130187997.62",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.education_training_employment_social_services",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "-34006133101.74",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.education_training_employment_social_services",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "73053250676.28",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.health",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "97113581261.41",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.health",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "762323690457.23",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.transportation",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "12919905211.34",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.transportation",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "100145018374.51",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.community_and_regional_development",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "16345811723.66",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.community_and_regional_development",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "45128873395.95",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.natural_resources_and_environment",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "4422388949.15",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.natural_resources_and_environment",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "43703376280.03",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.agriculture",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "2608054849.25",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.agriculture",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "47463372391.12",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.commerce_and_housing_credit",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "-4725090886.39",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.commerce_and_housing_credit",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "-12592634598.07",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.international_affairs",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "635092835.65",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.international_affairs",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "33949408492.65",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_science_space_technology",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "3199425090.97",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_science_space_technology",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "29336183364.58",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.energy",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "3081505841.86",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.energy",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "14209917310.62",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.net_interest",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "92011381125.19",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.net_interest",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "840759988383.46",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.undistributed_offsetting_receipts",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "-9525452723.35",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.undistributed_offsetting_receipts",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "-127898612813.42",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.social_security",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "132746354141.82",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.social_security",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "1313765298087.98",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.veterans_benefits_and_services",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "31733007111.35",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.veterans_benefits_and_services",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "309947626545.54",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.administration_of_justice",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "6396773162.90",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.administration_of_justice",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "68760758501.15",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_government",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "2615352444.76",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_government",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "27432407432.51",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.national_defense",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "75543665445.82",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.national_defense",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "757978234824.44",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.international_affairs",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "6246849835.69",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.international_affairs",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "51467613880.94",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_science_space_technology",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "3409377448.56",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_science_space_technology",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "34218127954.95",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.energy",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "1514620233.48",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.energy",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "17483824876.16",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.natural_resources_and_environment",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "5840526628.76",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.natural_resources_and_environment",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "75609761370.50",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.agriculture",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "3494584549.07",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.agriculture",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "45319382250.77",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.commerce_and_housing_credit",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "-18644018472.48",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.commerce_and_housing_credit",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "-24645776682.99",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.transportation",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "13499544512.70",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.transportation",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "112199482665.24",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.community_and_regional_development",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "5330690166.22",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.community_and_regional_development",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "71845012440.35",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.education_training_employment_social_services",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "33323643805.63",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.education_training_employment_social_services",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "163660191300.20",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.health",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "90000201973.09",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.health",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "805393977863.51",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.medicare",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "100012925316.91",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.medicare",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "823387863322.33",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.income_security",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "54084482004.72",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.income_security",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "608467933878.18",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.net_interest",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "38266500216.88",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.net_interest",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "881650995035.46",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.undistributed_offsetting_receipts",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "-11590456601.56",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.undistributed_offsetting_receipts",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "-146737781974.87",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.social_security",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "124186620303.17",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.social_security",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "1460913705752.69",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.veterans_benefits_and_services",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "15576429690.30",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.veterans_benefits_and_services",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "325362727505.67",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.administration_of_justice",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "9169546109.01",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.administration_of_justice",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "85034018367.20",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_government",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "4257626972.91",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_government",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "29928288919.59",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.national_defense",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "76218867273.01",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.national_defense",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "874040585085.73",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.international_affairs",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "11638669178.54",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.international_affairs",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "71992379484.96",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_science_space_technology",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "3646953095.55",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.general_science_space_technology",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "41562428368.18",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.energy",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "1563195311.06",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.energy",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "13789670148.44",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.natural_resources_and_environment",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "6788649812.82",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.natural_resources_and_environment",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "56891590715.51",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.agriculture",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "-1982273014.83",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.agriculture",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "34746670947.90",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.commerce_and_housing_credit",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "-7823008731.93",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.commerce_and_housing_credit",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "35567576543.40",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.transportation",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "19084655428.90",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.transportation",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "137122245411.69",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.community_and_regional_development",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "4708881642.08",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.community_and_regional_development",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "87766196368.41",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.education_training_employment_social_services",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "20082693732.05",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.education_training_employment_social_services",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "305026199447.41",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.health",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "87436853053.59",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.health",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "911683804349.74",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.medicare",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "24342281090.89",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.medicare",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "874134335792.92",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.income_security",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "37784017546.90",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.outlays.category.income_security",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "671075997542.26",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  }
+]

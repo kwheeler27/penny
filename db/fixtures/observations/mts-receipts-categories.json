@@ -1,0 +1,506 @@
+[
+  {
+    "seriesId": "fiscal.mts.receipts.category.miscellaneous_receipts",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "3174491572.22",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.miscellaneous_receipts",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "27705648168.20",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.estate_and_gift_taxes",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "3851792550.86",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.estate_and_gift_taxes",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "34006937470.93",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.customs_duties",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "-8546441906.97",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.customs_duties",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "154472685103.20",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.social_insurance_retirement",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "139066570913.57",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.social_insurance_retirement",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "1522746139801.68",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.excise_taxes",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "9623758231.84",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.excise_taxes",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "84622049696.74",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.individual_income_tax",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "173271094383.06",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.individual_income_tax",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "2368957104098.08",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.corporation_income_tax",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "13568609811.21",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.corporation_income_tax",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "292908939542.32",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.individual_income_tax",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "283146831936.70",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.individual_income_tax",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "2195686009715.02",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.corporation_income_tax",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "69536652912.03",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.corporation_income_tax",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "279340329731.11",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.social_insurance_retirement",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "155508864667.56",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.social_insurance_retirement",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "1383679568888.11",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.customs_duties",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "-25555668440.83",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.customs_duties",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "163019127010.17",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.miscellaneous_receipts",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "3215365290.77",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.miscellaneous_receipts",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "24531156595.98",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.estate_and_gift_taxes",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "2203882904.32",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.estate_and_gift_taxes",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "30155144920.07",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.excise_taxes",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "7705552298.15",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.excise_taxes",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "74998291464.90",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.customs_duties",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "27670054031.40",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.customs_duties",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "135687843801.04",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.excise_taxes",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "9574298911.41",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.excise_taxes",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "84932758016.77",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.social_insurance_retirement",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "131022270543.86",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.social_insurance_retirement",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "1480317544694.30",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.individual_income_tax",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "145148350551.34",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.individual_income_tax",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "2204487023729.54",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.corporation_income_tax",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "20834781891.63",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.corporation_income_tax",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "387107963590.68",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.estate_and_gift_taxes",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "1751139946.34",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.estate_and_gift_taxes",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "24092505029.49",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.miscellaneous_receipts",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "2490952547.19",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.miscellaneous_receipts",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "30012437982.07",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.social_insurance_retirement",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "142651931280.92",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.social_insurance_retirement",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "1709558485436.40",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.individual_income_tax",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "250057480042.22",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.individual_income_tax",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "2426066988325.89",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.corporation_income_tax",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "108555215801.52",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.corporation_income_tax",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "529866802637.57",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.miscellaneous_receipts",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "4606088775.14",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.miscellaneous_receipts",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "43155255587.28",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.excise_taxes",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "12295634806.79",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.excise_taxes",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "101435326697.24",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.estate_and_gift_taxes",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "2204100802.14",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.estate_and_gift_taxes",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "31615876108.98",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.customs_duties",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "7249259468.35",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.mts.receipts.category.customs_duties",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "77036909944.89",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  }
+]

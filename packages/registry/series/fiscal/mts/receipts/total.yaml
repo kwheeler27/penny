@@ -1,0 +1,32 @@
+id: fiscal.mts.receipts.total
+label: Total receipts
+definition: >
+  All money the federal government collected in a period — individual and
+  corporate income taxes, payroll (social insurance) taxes, excise taxes,
+  and other receipts — before any spending is subtracted. Reported for the
+  month and cumulatively for the fiscal year to date (Oct 1 to date).
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Monthly Treasury Statement, Table 1 — Summary of Receipts and Outlays
+dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/summary-of-receipts-and-outlays-of-the-u-s-government
+unit: usd
+magnitude: ones
+accounting_concept: receipt
+cadence: monthly
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Monthly
+  Treasury Statement, Table 1, "Total Receipts." Accessed {access_date}.
+
+revision_policy:
+  status: provisional
+  note: >
+    Each MTS is a snapshot; Treasury does not revise a published month's MTS
+    figures in place. A later month's report can carry a restated
+    comparable-prior-period figure — ingest that as a new observation row,
+    never as an in-place update of the original.
+
+notes:
+  - >
+    The category series under fiscal.mts.receipts.category.* must sum to
+    this total for the same month, to the dollar — CI-enforced
+    reconciliation (ORCHESTRATION_PROMPT.md Core flow 1).

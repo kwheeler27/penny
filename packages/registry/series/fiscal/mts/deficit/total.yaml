@@ -1,0 +1,41 @@
+id: fiscal.mts.deficit.total
+label: Budget deficit or surplus
+definition: >
+  Total receipts minus total outlays for a period. A negative number is a
+  deficit (spending exceeded collections); a positive number is a surplus.
+  This is a balancing figure, not a spending category — it is what financing
+  (new borrowing) must cover. Reported for the month and cumulatively for
+  the fiscal year to date.
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Monthly Treasury Statement, Table 1 — Summary of Receipts and Outlays
+dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/summary-of-receipts-and-outlays-of-the-u-s-government
+unit: usd
+magnitude: ones
+accounting_concept: deficit
+cadence: monthly
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Monthly
+  Treasury Statement, Table 1, "Budget Deficit/Surplus." Accessed
+  {access_date}.
+
+revision_policy:
+  status: provisional
+
+notes:
+  - >
+    fiscal.mts.deficit.total = fiscal.mts.receipts.total -
+    fiscal.mts.outlays.total for the same period_type and period. Ingest
+    should assert this identity as a reconciliation check, not just take
+    Treasury's published deficit figure on faith (belt and suspenders).
+  - >
+    Never mix with projection.cbo.baseline.deficit (a different accounting
+    concept: observed vs. projected) — see that series' not_comparable_with.
+
+not_comparable_with:
+  - series: projection.cbo.baseline.deficit
+    reason: >
+      One is Treasury's observed, already-happened deficit; the other is
+      CBO's projection of a future deficit under baseline assumptions. Never
+      sum, difference, or plot on the same trace without labeling which is
+      which.

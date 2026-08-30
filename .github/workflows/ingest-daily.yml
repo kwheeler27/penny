@@ -1,0 +1,42 @@
+name: Ingest — daily (Debt to the Penny, TGA)
+
+# Debt to the Penny and the Daily Treasury Statement TGA closing balance
+# both publish once per business day. Runs every day, including weekends —
+# a run that finds nothing new is a no-op (lib/upsert.ts compares against
+# the latest known value per period), which is simpler than trying to
+# encode federal holidays into the schedule.
+
+on:
+  schedule:
+    # 13:00 UTC = 9:00am ET (8:00am during EDT) — safely after both
+    # datasets' typical prior-business-day publication.
+    - cron: "0 13 * * *"
+  workflow_dispatch: {}
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Debt to the Penny
+        working-directory: packages/ingest
+        run: pnpm run ingest:debt
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: TGA closing balance
+        working-directory: packages/ingest
+        run: pnpm run ingest:tga
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}

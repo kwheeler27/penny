@@ -1,0 +1,34 @@
+{
+  "name": "@buck/ingest",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build-fixtures": "tsx src/build-observation-fixtures.ts",
+    "ingest:mts": "tsx src/jobs/mts-monthly.ts",
+    "ingest:debt": "tsx src/jobs/debt-daily.ts",
+    "ingest:tga": "tsx src/jobs/tga-daily.ts",
+    "ingest:interest": "tsx src/jobs/interest-expense-monthly.ts",
+    "ingest:cpi": "tsx src/jobs/cpi-monthly.ts",
+    "ingest:cbo": "tsx src/jobs/cbo-baseline.ts"
+  },
+  "dependencies": {
+    "@buck/db": "workspace:*",
+    "@buck/registry": "workspace:*",
+    "drizzle-orm": "^0.36.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  }
+}

@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        # Version comes from package.json's "packageManager" field.
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Registry codegen (drift check)
+        run: |
+          pnpm gen
+          if ! git diff --quiet --exit-code -- packages/registry/src/generated; then
+            echo "::error::packages/registry/src/generated/series.gen.ts is stale — run 'pnpm gen' and commit the result."
+            git diff -- packages/registry/src/generated
+            exit 1
+          fi
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test

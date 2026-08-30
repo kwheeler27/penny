@@ -61,5 +61,16 @@ the rates people pay. Product context: `IDEA.md` (confirmed pitch);
 
 ## Commands
 
-- None yet — docs-only repo. `PLAN.md` will establish the stack; commands land
-  here with the first code PR.
+pnpm workspace monorepo (PLAN.md §4: `apps/web`, `packages/registry`,
+`packages/db`, `packages/ingest`, `packages/viz`, `db/fixtures`). Requires
+Node 22+; no credentials needed for local dev (PGlite fallback, fixture
+seeds — see README.md § Development).
+
+- `pnpm gen` — registry codegen (`packages/registry/series/**/*.yaml` →
+  generated TS types + citation objects). Run after any registry YAML
+  change; CI fails the build on drift.
+- `pnpm seed` — migrate + load the registry catalog (and any
+  `db/fixtures`) into local PGlite.
+- `pnpm typecheck` — `tsc --noEmit`, recursively.
+- `pnpm test` — `vitest run`, recursively. Single-run only, per the 8GB-RAM
+  rule above — never `vitest --watch`.

@@ -1,0 +1,569 @@
+[
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-01",
+    "fiscalYear": 2026,
+    "value": "856842",
+    "publicationTime": "2026-06-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-02",
+    "periodEnd": "2026-06-02",
+    "fiscalYear": 2026,
+    "value": "866075",
+    "publicationTime": "2026-06-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-03",
+    "periodEnd": "2026-06-03",
+    "fiscalYear": 2026,
+    "value": "845722",
+    "publicationTime": "2026-06-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-04",
+    "periodEnd": "2026-06-04",
+    "fiscalYear": 2026,
+    "value": "844521",
+    "publicationTime": "2026-06-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-05",
+    "periodEnd": "2026-06-05",
+    "fiscalYear": 2026,
+    "value": "825540",
+    "publicationTime": "2026-06-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-08",
+    "periodEnd": "2026-06-08",
+    "fiscalYear": 2026,
+    "value": "844229",
+    "publicationTime": "2026-06-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-09",
+    "periodEnd": "2026-06-09",
+    "fiscalYear": 2026,
+    "value": "830399",
+    "publicationTime": "2026-06-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-10",
+    "periodEnd": "2026-06-10",
+    "fiscalYear": 2026,
+    "value": "801084",
+    "publicationTime": "2026-06-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-11",
+    "periodEnd": "2026-06-11",
+    "fiscalYear": 2026,
+    "value": "799517",
+    "publicationTime": "2026-06-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-12",
+    "periodEnd": "2026-06-12",
+    "fiscalYear": 2026,
+    "value": "816023",
+    "publicationTime": "2026-06-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-15",
+    "periodEnd": "2026-06-15",
+    "fiscalYear": 2026,
+    "value": "979791",
+    "publicationTime": "2026-06-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-16",
+    "periodEnd": "2026-06-16",
+    "fiscalYear": 2026,
+    "value": "981113",
+    "publicationTime": "2026-06-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-17",
+    "periodEnd": "2026-06-17",
+    "fiscalYear": 2026,
+    "value": "956502",
+    "publicationTime": "2026-06-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-18",
+    "periodEnd": "2026-06-18",
+    "fiscalYear": 2026,
+    "value": "915085",
+    "publicationTime": "2026-06-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-22",
+    "periodEnd": "2026-06-22",
+    "fiscalYear": 2026,
+    "value": "942815",
+    "publicationTime": "2026-06-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-23",
+    "periodEnd": "2026-06-23",
+    "fiscalYear": 2026,
+    "value": "925876",
+    "publicationTime": "2026-06-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-24",
+    "periodEnd": "2026-06-24",
+    "fiscalYear": 2026,
+    "value": "901845",
+    "publicationTime": "2026-06-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-25",
+    "periodEnd": "2026-06-25",
+    "fiscalYear": 2026,
+    "value": "871469",
+    "publicationTime": "2026-06-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-26",
+    "periodEnd": "2026-06-26",
+    "fiscalYear": 2026,
+    "value": "895576",
+    "publicationTime": "2026-06-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-29",
+    "periodEnd": "2026-06-29",
+    "fiscalYear": 2026,
+    "value": "876961",
+    "publicationTime": "2026-06-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-06-30",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "919145",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-01",
+    "fiscalYear": 2026,
+    "value": "807359",
+    "publicationTime": "2026-07-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-02",
+    "periodEnd": "2026-07-02",
+    "fiscalYear": 2026,
+    "value": "770587",
+    "publicationTime": "2026-07-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-03",
+    "periodEnd": "2026-07-03",
+    "fiscalYear": 2026,
+    "value": "776843",
+    "publicationTime": "2026-07-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-06",
+    "periodEnd": "2026-07-06",
+    "fiscalYear": 2026,
+    "value": "783107",
+    "publicationTime": "2026-07-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-07",
+    "periodEnd": "2026-07-07",
+    "fiscalYear": 2026,
+    "value": "784964",
+    "publicationTime": "2026-07-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-08",
+    "periodEnd": "2026-07-08",
+    "fiscalYear": 2026,
+    "value": "749244",
+    "publicationTime": "2026-07-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-09",
+    "periodEnd": "2026-07-09",
+    "fiscalYear": 2026,
+    "value": "744637",
+    "publicationTime": "2026-07-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-10",
+    "periodEnd": "2026-07-10",
+    "fiscalYear": 2026,
+    "value": "738273",
+    "publicationTime": "2026-07-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-13",
+    "periodEnd": "2026-07-13",
+    "fiscalYear": 2026,
+    "value": "750282",
+    "publicationTime": "2026-07-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-14",
+    "periodEnd": "2026-07-14",
+    "fiscalYear": 2026,
+    "value": "787814",
+    "publicationTime": "2026-07-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-15",
+    "periodEnd": "2026-07-15",
+    "fiscalYear": 2026,
+    "value": "795976",
+    "publicationTime": "2026-07-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-16",
+    "periodEnd": "2026-07-16",
+    "fiscalYear": 2026,
+    "value": "822510",
+    "publicationTime": "2026-07-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-17",
+    "periodEnd": "2026-07-17",
+    "fiscalYear": 2026,
+    "value": "815418",
+    "publicationTime": "2026-07-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-20",
+    "periodEnd": "2026-07-20",
+    "fiscalYear": 2026,
+    "value": "828197",
+    "publicationTime": "2026-07-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-21",
+    "periodEnd": "2026-07-21",
+    "fiscalYear": 2026,
+    "value": "874980",
+    "publicationTime": "2026-07-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-22",
+    "periodEnd": "2026-07-22",
+    "fiscalYear": 2026,
+    "value": "835417",
+    "publicationTime": "2026-07-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-23",
+    "periodEnd": "2026-07-23",
+    "fiscalYear": 2026,
+    "value": "877201",
+    "publicationTime": "2026-07-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-24",
+    "periodEnd": "2026-07-24",
+    "fiscalYear": 2026,
+    "value": "886300",
+    "publicationTime": "2026-07-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-27",
+    "periodEnd": "2026-07-27",
+    "fiscalYear": 2026,
+    "value": "902751",
+    "publicationTime": "2026-07-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-28",
+    "periodEnd": "2026-07-28",
+    "fiscalYear": 2026,
+    "value": "966136",
+    "publicationTime": "2026-07-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-29",
+    "periodEnd": "2026-07-29",
+    "fiscalYear": 2026,
+    "value": "970442",
+    "publicationTime": "2026-07-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-30",
+    "periodEnd": "2026-07-30",
+    "fiscalYear": 2026,
+    "value": "997946",
+    "publicationTime": "2026-07-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-07-31",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "876566",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-03",
+    "periodEnd": "2026-08-03",
+    "fiscalYear": 2026,
+    "value": "870083",
+    "publicationTime": "2026-08-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-04",
+    "periodEnd": "2026-08-04",
+    "fiscalYear": 2026,
+    "value": "924219",
+    "publicationTime": "2026-08-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-05",
+    "periodEnd": "2026-08-05",
+    "fiscalYear": 2026,
+    "value": "929325",
+    "publicationTime": "2026-08-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-06",
+    "periodEnd": "2026-08-06",
+    "fiscalYear": 2026,
+    "value": "961726",
+    "publicationTime": "2026-08-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-07",
+    "periodEnd": "2026-08-07",
+    "fiscalYear": 2026,
+    "value": "954113",
+    "publicationTime": "2026-08-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-10",
+    "periodEnd": "2026-08-10",
+    "fiscalYear": 2026,
+    "value": "966851",
+    "publicationTime": "2026-08-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-11",
+    "periodEnd": "2026-08-11",
+    "fiscalYear": 2026,
+    "value": "997330",
+    "publicationTime": "2026-08-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-12",
+    "periodEnd": "2026-08-12",
+    "fiscalYear": 2026,
+    "value": "959405",
+    "publicationTime": "2026-08-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-13",
+    "periodEnd": "2026-08-13",
+    "fiscalYear": 2026,
+    "value": "966587",
+    "publicationTime": "2026-08-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-14",
+    "periodEnd": "2026-08-14",
+    "fiscalYear": 2026,
+    "value": "959184",
+    "publicationTime": "2026-08-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-17",
+    "periodEnd": "2026-08-17",
+    "fiscalYear": 2026,
+    "value": "932785",
+    "publicationTime": "2026-08-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-18",
+    "periodEnd": "2026-08-18",
+    "fiscalYear": 2026,
+    "value": "961952",
+    "publicationTime": "2026-08-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-19",
+    "periodEnd": "2026-08-19",
+    "fiscalYear": 2026,
+    "value": "936406",
+    "publicationTime": "2026-08-19T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-20",
+    "periodEnd": "2026-08-20",
+    "fiscalYear": 2026,
+    "value": "935077",
+    "publicationTime": "2026-08-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-21",
+    "periodEnd": "2026-08-21",
+    "fiscalYear": 2026,
+    "value": "933218",
+    "publicationTime": "2026-08-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-24",
+    "periodEnd": "2026-08-24",
+    "fiscalYear": 2026,
+    "value": "966849",
+    "publicationTime": "2026-08-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-25",
+    "periodEnd": "2026-08-25",
+    "fiscalYear": 2026,
+    "value": "994137",
+    "publicationTime": "2026-08-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-26",
+    "periodEnd": "2026-08-26",
+    "fiscalYear": 2026,
+    "value": "959435",
+    "publicationTime": "2026-08-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.tga.closing_balance",
+    "periodType": "day",
+    "periodStart": "2026-08-27",
+    "periodEnd": "2026-08-27",
+    "fiscalYear": 2026,
+    "value": "950804",
+    "publicationTime": "2026-08-27T00:00:00Z"
+  }
+]

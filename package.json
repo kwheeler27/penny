@@ -1,0 +1,16 @@
+{
+  "name": "buck",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.18.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "gen": "pnpm --filter @buck/registry run gen",
+    "typecheck": "pnpm -r --if-present run typecheck",
+    "test": "pnpm -r --if-present run test",
+    "seed": "pnpm --filter @buck/db run seed",
+    "build": "pnpm -r --if-present run build"
+  }
+}

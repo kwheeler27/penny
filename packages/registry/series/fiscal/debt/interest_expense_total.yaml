@@ -1,0 +1,43 @@
+id: fiscal.debt.interest_expense_total
+label: Interest expense on the public debt
+definition: >
+  The federal government's total interest cost on the public debt in a
+  period — what it paid bondholders, not the "net interest" budget function
+  (which nets some interest receipts against interest paid). Reported
+  monthly and cumulatively for the fiscal year to date.
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Interest Expense on the Public Debt Outstanding
+dataset_url: https://fiscaldata.treasury.gov/datasets/interest-expense-debt-outstanding/interest-expense-on-the-public-debt-outstanding
+unit: usd
+magnitude: ones
+accounting_concept: interest
+cadence: monthly
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Interest
+  Expense on the Public Debt Outstanding. Accessed {access_date}.
+
+revision_policy:
+  status: provisional
+
+notes:
+  - >
+    Magnitude confirmed live 2026-08-29 against the FiscalData API: this
+    dataset returns whole dollars and cents (e.g. a monthly figure around
+    $90 billion, not $90 million) — magnitude is `ones`, not `millions`.
+  - >
+    Deliberately a separate series from
+    fiscal.mts.outlays.category.net_interest: gross interest expense (this
+    series) vs. the MTS budget-function outlay for net interest are
+    different accounting concepts computed differently. Never sum or
+    compare them without a declared bridge.
+
+not_comparable_with:
+  - series: fiscal.mts.outlays.category.net_interest
+    reason: >
+      This series is gross interest paid on the debt. The MTS "net
+      interest" budget function nets certain interest receipts against
+      interest paid, and is scoped to the unified budget's outlay
+      accounting, not the debt-servicing accounting this series uses. They
+      will not match and should never be combined or compared as if
+      interchangeable.

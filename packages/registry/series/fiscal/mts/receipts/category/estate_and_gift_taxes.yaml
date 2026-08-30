@@ -1,0 +1,23 @@
+id: fiscal.mts.receipts.category.estate_and_gift_taxes
+label: Estate and gift taxes
+definition: >
+  Taxes on the transfer of property at death (estate tax) or during life above the annual exclusion (gift tax).
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Monthly Treasury Statement, Table 4 — Receipts of the U.S. Government
+dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/receipts-of-the-u-s-government
+unit: usd
+magnitude: ones
+accounting_concept: receipt
+cadence: monthly
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Monthly Treasury Statement, Table 4, "Estate and gift taxes". Accessed {access_date}.
+
+revision_policy:
+  status: provisional
+  note: >
+    Each MTS is a snapshot; a later month's report can carry a restated comparable-prior-period figure — ingest as a new observation row, never an in-place update.
+
+notes:
+  - >
+    This and every other fiscal.mts.receipts.category.* series must sum to fiscal.mts.receipts.total for the same month, to the dollar — CI-enforced reconciliation (ORCHESTRATION_PROMPT.md Core flow 1).

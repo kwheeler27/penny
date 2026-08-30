@@ -12,8 +12,9 @@ Federal Reserve (via FRED), the NY Fed, OFR, BLS, CBO — with every number
 traceable to the agency of record. Mechanics are stated as facts with
 citations; interpretations are attributed, never asserted in Buck's voice.
 
-**Status: planning.** See [`IDEA.md`](IDEA.md) for the confirmed pitch;
-`PLAN.md` (forthcoming) will fix the architecture and roadmap.
+**Status: planning.** See [`IDEA.md`](IDEA.md) for the confirmed pitch,
+[`docs/MISSION.md`](docs/MISSION.md) for the mission, and
+[`PLAN.md`](PLAN.md) for the architecture and roadmap.
 
 A sibling of [Basin](https://github.com/kwheeler27/basin), which does the same
 job for the Colorado River system.

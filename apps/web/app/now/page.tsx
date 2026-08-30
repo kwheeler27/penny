@@ -17,7 +17,12 @@ interface Tile {
 const TILES: readonly Tile[] = [
   { id: "fiscal.debt.total_public_debt_outstanding", periodType: "day", label: "Total public debt outstanding" },
   { id: "fiscal.tga.closing_balance", periodType: "day", label: "Treasury General Account balance" },
-  { id: "fiscal.mts.deficit.total", periodType: "fiscal_ytd", label: "Fiscal-year-to-date deficit" },
+  // Neutral wording, matching the registry's own sign convention (negative =
+  // deficit, positive = surplus — see fiscal.mts.deficit.total's
+  // definition): the tile renders the SIGNED reading, so a label that
+  // asserts a direction ("...deficit") would contradict the number whenever
+  // the period is actually a surplus.
+  { id: "fiscal.mts.deficit.total", periodType: "fiscal_ytd", label: "Fiscal-year-to-date deficit or surplus" },
   { id: "fiscal.debt.interest_expense_total", periodType: "month", label: "Interest expense, latest month" },
 ];
 

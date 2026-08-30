@@ -81,6 +81,13 @@ describe("parseChapter — the real content vocabulary (Num/Ref/Term/Step/Aside/
     ]);
   });
 
+  it("parses a <Num>'s sign attribute (applied downstream by chapter-body.tsx -> RegistryFigure)", () => {
+    const { blocks } = parseChapter('<Num seriesId="fiscal.mts.deficit.total" period="fiscal_ytd" sign="absolute" />');
+    expect(blocks).toEqual([
+      { type: "paragraph", inline: [{ type: "embed", tag: "Num", attrs: { seriesId: "fiscal.mts.deficit.total", period: "fiscal_ytd", sign: "absolute" } }] },
+    ]);
+  });
+
   it("parses an inline <Num> mid-sentence", () => {
     const { blocks } = parseChapter('Receipts were <Num seriesId="fiscal.mts.receipts.total" period="month" /> this month.');
     const block = blocks[0]!;

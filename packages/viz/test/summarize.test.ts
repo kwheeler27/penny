@@ -58,6 +58,17 @@ describe("summarizeFlows (SVG text alternative)", () => {
     expect(text).not.toMatch(/borrowing/i);
   });
 
+  it("states the surplus magnitude WITHOUT a leading minus sign — graph.balancingExact is negative in a surplus, but the sentence must not read '...by -$X, a surplus'", () => {
+    // receipts (180000) > outlays (50000): a surplus, so balancingExact
+    // (outlays - receipts) is negative under the hood.
+    const graph = buildFiscalFlowGraph({ ...input, outlays: [{ seriesId: "fiscal.mts.outlays.category.national_defense" as SeriesId, value: "50000" }] });
+    expect(graph.balancingDirection).toBe("surplus");
+    const text = summarizeFlows(graph, CATALOG);
+    expect(text).toMatch(/exceeded outlays by \$130\.0B, a surplus/);
+    expect(text).not.toMatch(/by -\$/);
+    expect(text).not.toMatch(/by −\$/);
+  });
+
   it("notes omitted categories by count without pretending they are zero", () => {
     const graph = buildFiscalFlowGraph({
       ...input,
@@ -68,5 +79,32 @@ describe("summarizeFlows (SVG text alternative)", () => {
     });
     const text = summarizeFlows(graph, CATALOG);
     expect(text).toMatch(/1 categor(y|ies) had no reading/);
+  });
+
+  it("never describes a genuine explicit-zero reading as 'no reading' — the two are different facts", () => {
+    const graph = buildFiscalFlowGraph({
+      ...input,
+      outlays: [
+        { seriesId: "fiscal.mts.outlays.category.national_defense" as SeriesId, value: "280000" },
+        { seriesId: "fiscal.mts.outlays.category.energy" as SeriesId, value: "0" },
+      ],
+    });
+    const text = summarizeFlows(graph, CATALOG);
+    expect(text).toMatch(/1 categor(y|ies) reported exactly zero/);
+    expect(text).not.toMatch(/had no reading/);
+  });
+
+  it("describes both a missing reading and a genuine zero in the same caption when both are present, without conflating them", () => {
+    const graph = buildFiscalFlowGraph({
+      ...input,
+      outlays: [
+        { seriesId: "fiscal.mts.outlays.category.national_defense" as SeriesId, value: "280000" },
+        { seriesId: "fiscal.mts.outlays.category.energy" as SeriesId, value: "0" },
+        { seriesId: "fiscal.mts.outlays.category.transportation" as SeriesId, value: undefined },
+      ],
+    });
+    const text = summarizeFlows(graph, CATALOG);
+    expect(text).toMatch(/1 categor(y|ies) had no reading/);
+    expect(text).toMatch(/1 categor(y|ies) reported exactly zero/);
   });
 });

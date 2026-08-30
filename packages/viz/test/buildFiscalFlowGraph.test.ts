@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { buildFiscalFlowGraph, nodesForSide, FISCAL_FLOW_HUB_ID, FISCAL_FLOW_BORROWING_ID, FISCAL_FLOW_SURPLUS_ID } from "../src/layout/buildFiscalFlowGraph";
-import { sumDecimal } from "../src/money/decimal";
+import { sumDecimal, addDecimal } from "../src/money/decimal";
 import type { FiscalFlowInput, SeriesId } from "../src/types";
 
 const PERIOD = { periodType: "month" as const, periodEnd: "2026-07-31", fiscalYear: 2026 };
@@ -151,7 +151,7 @@ describe("buildFiscalFlowGraph — exact conservation", () => {
     expect(graph.links.find((l) => l.kind === "balancing")).toBeUndefined();
   });
 
-  it("negative-valued categories (e.g. undistributed offsetting receipts) still sum exactly into the total, even though they are not yet visually distinguishable in the rendered ribbon (see sankeyGeometry known-gap note)", () => {
+  it("negative-valued categories (e.g. undistributed offsetting receipts) still sum exactly into the total", () => {
     const graph = buildFiscalFlowGraph(
       baseInput({
         outlays: [
@@ -161,6 +161,48 @@ describe("buildFiscalFlowGraph — exact conservation", () => {
       }),
     );
     expect(graph.outlaysTotalExact).toBe("55000");
+  });
+
+  it("a negative category's link is REVERSED (not clamped to zero) so the hub's total inflow and outflow still balance exactly — regression for the phantom-outlays bug", () => {
+    const graph = buildFiscalFlowGraph(
+      baseInput({
+        outlays: [
+          { seriesId: "fiscal.mts.outlays.category.national_defense" as SeriesId, value: "80000" },
+          { seriesId: "fiscal.mts.outlays.category.social_security" as SeriesId, value: "130000" },
+          { seriesId: "fiscal.mts.outlays.category.medicare" as SeriesId, value: "95000" },
+          { seriesId: "fiscal.mts.outlays.category.undistributed_offsetting_receipts" as SeriesId, value: "-25000" },
+        ],
+      }),
+    );
+    // net total correctly nets the negative category in
+    expect(graph.outlaysTotalExact).toBe("280000");
+
+    const negNode = graph.nodes.find((n) => n.seriesId === "fiscal.mts.outlays.category.undistributed_offsetting_receipts")!;
+    expect(negNode).toBeDefined();
+    expect(negNode.valueExact).toBe("-25000"); // the node itself keeps its true, honest signed value
+
+    const negLink = graph.links.find((l) => l.sourceId === negNode.id || l.targetId === negNode.id)!;
+    expect(negLink).toBeDefined();
+    expect(negLink.reversed).toBe(true);
+    // direction is reversed from the normal hub->category outlay convention...
+    expect(negLink.sourceId).toBe(negNode.id);
+    expect(negLink.targetId).toBe(FISCAL_FLOW_HUB_ID);
+    // ...and the LINK's own value is a non-negative magnitude (direction carries the sign, not the number)
+    expect(negLink.valueExact).toBe("25000");
+
+    // every other (non-reversed) category link is untouched
+    const defenseLink = graph.links.find((l) => l.sourceId === FISCAL_FLOW_HUB_ID && l.targetId.includes("national_defense"))!;
+    expect(defenseLink.reversed).toBe(false);
+
+    // Conservation: total inflow to the hub (receipts + this reversed link)
+    // equals total outflow from the hub (every normal, forward outlay link) —
+    // exactly, with nothing clamped away. This is the pixel-geometry
+    // invariant sankeyGeometry.ts's custom column alignment depends on.
+    const hubInflow = sumDecimal(graph.links.filter((l) => l.targetId === FISCAL_FLOW_HUB_ID).map((l) => l.valueExact));
+    const hubOutflow = sumDecimal(graph.links.filter((l) => l.sourceId === FISCAL_FLOW_HUB_ID).map((l) => l.valueExact));
+    expect(hubInflow).toBe(hubOutflow);
+    // and that shared total is receipts + the reversed category's magnitude (335000 + 25000)
+    expect(hubInflow).toBe(addDecimal(graph.receiptsTotalExact, "25000"));
   });
 });
 
@@ -191,6 +233,23 @@ describe("buildFiscalFlowGraph — missing/zero category handling", () => {
     expect(graph.nodes.find((n) => n.seriesId === "fiscal.mts.outlays.category.allowances")).toBeUndefined();
     expect(graph.links.some((l) => l.sourceId === "fiscal.mts.outlays.category.allowances" || l.targetId === "fiscal.mts.outlays.category.allowances")).toBe(false);
     expect(graph.omittedCategoryIds).toContain("fiscal.mts.outlays.category.allowances");
+  });
+
+  it("distinguishes a genuine zero reading from a missing one in omittedAsZeroCategoryIds — a real $0 is not the same fact as no reading at all", () => {
+    const graph = buildFiscalFlowGraph(
+      baseInput({
+        outlays: [
+          { seriesId: "fiscal.mts.outlays.category.national_defense" as SeriesId, value: "80000" },
+          { seriesId: "fiscal.mts.outlays.category.allowances" as SeriesId, value: "0" }, // explicit zero
+          { seriesId: "fiscal.mts.outlays.category.energy" as SeriesId, value: undefined }, // no reading
+        ],
+      }),
+    );
+    expect(graph.omittedCategoryIds).toEqual(
+      expect.arrayContaining(["fiscal.mts.outlays.category.allowances", "fiscal.mts.outlays.category.energy"]),
+    );
+    expect(graph.omittedAsZeroCategoryIds).toEqual(["fiscal.mts.outlays.category.allowances"]);
+    expect(graph.omittedAsZeroCategoryIds).not.toContain("fiscal.mts.outlays.category.energy");
   });
 
   it("an entirely empty side (no receipts at all) reconciles to a total of 0, not an error", () => {

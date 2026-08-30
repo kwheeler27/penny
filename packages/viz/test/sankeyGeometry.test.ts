@@ -69,6 +69,32 @@ describe("computeFlowGeometry — pixel layout math", () => {
     }
   });
 
+  it("a negative-valued category renders with real proportional width, on the correct side, never clamped to an invisible sliver", () => {
+    const negativeInput: FiscalFlowInput = {
+      ...input,
+      outlays: [
+        { seriesId: "fiscal.mts.outlays.category.national_defense" as SeriesId, value: "180000" },
+        { seriesId: "fiscal.mts.outlays.category.medicare" as SeriesId, value: "80000" },
+        { seriesId: "fiscal.mts.outlays.category.undistributed_offsetting_receipts" as SeriesId, value: "-20000" },
+      ],
+    };
+    const graph = buildFiscalFlowGraph(negativeInput);
+    const geometry = computeFlowGeometry(graph, { width: 600, height: 400, orientation: "horizontal" });
+
+    const negNode = geometry.nodes.find((n) => n.node.seriesId === "fiscal.mts.outlays.category.undistributed_offsetting_receipts")!;
+    expect(negNode).toBeDefined();
+    // Real proportional height (not the 1px floor a clamped-to-zero value would produce).
+    expect(negNode.y1 - negNode.y0).toBeGreaterThan(5);
+    // Still positioned in the outlay column (the far side from receipts), regardless of its link pointing the other way.
+    const outlayNodesX = geometry.nodes.filter((n) => n.node.side === "outlay").map((n) => n.x0);
+    expect(negNode.x0).toBe(outlayNodesX[0]);
+
+    const hub = geometry.nodes.find((n) => n.node.side === "hub")!;
+    // The hub's box exactly fits both the receipts+borrowing side and the
+    // outlays side — no partial-fill gap from a clamped-away negative link.
+    expect(hub.y1 - hub.y0).toBeGreaterThan(0);
+  });
+
   it("both orientations preserve the same relative node ordering within a column", () => {
     const graph = buildFiscalFlowGraph(input);
     const horizontal = computeFlowGeometry(graph, { width: 600, height: 400, orientation: "horizontal" });

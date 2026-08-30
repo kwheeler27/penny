@@ -68,19 +68,36 @@ describe("ChapterBody (full parse -> render pipeline, real tag vocabulary)", () 
     expect(html).toContain("No report yet");
   });
 
-  it("renders a <Ref> as a citation marker", async () => {
+  it("renders a <Ref> as a real link into a rendered reference list at the foot of the page, resolved against content/SOURCES.md", async () => {
     const { blocks } = parseChapter(SAMPLE);
     const html = renderToStaticMarkup(await ChapterBody({ blocks }));
     expect(html).toContain("[mts-report]");
+    expect(html).toContain('href="#ref-mts-report"');
+    expect(html).toContain('id="ref-mts-report"');
+    // the reference list itself carries the real SOURCES.md title, not a bare id
+    expect(html).toMatch(/Monthly Treasury Statement/);
   });
 
-  it("renders a <Term> with the registry's own definition as its tooltip", async () => {
-    // concept.receipt isn't a registry series id, so it gets the generic
-    // fallback tooltip rather than a registry definition.
+  it("renders a visible error for a <Ref> id with no entry in content/SOURCES.md, rather than accepting a typo silently", async () => {
+    const { blocks } = parseChapter('A claim with a bad citation.<Ref id="not-a-real-source" />');
+    const html = renderToStaticMarkup(await ChapterBody({ blocks }));
+    expect(html).toContain("ref-marker-error");
+    expect(html).toMatch(/not-a-real-source/);
+  });
+
+  it("renders a <Term> with the registry's own definition as its tooltip for a real series id", async () => {
     const { blocks } = parseChapter(SAMPLE);
     const html = renderToStaticMarkup(await ChapterBody({ blocks }));
     expect(html).toContain('class="term"');
     expect(html).toContain("<strong>receipt</strong>");
+  });
+
+  it("resolves a concept.* <Term> against content/definitions.yaml's own authored explanation, not the generic fallback", async () => {
+    const { blocks } = parseChapter(SAMPLE);
+    const html = renderToStaticMarkup(await ChapterBody({ blocks }));
+    // concept.receipt's real definitions.yaml `plain` text (content/definitions.yaml)
+    expect(html).toMatch(/sovereign powers/);
+    expect(html).not.toContain("Defined term — see /data for the full citation");
   });
 
   it("renders an <Aside> nested inside the <Step>, with its title", async () => {

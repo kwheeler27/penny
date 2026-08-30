@@ -54,7 +54,15 @@ const outlayValues: Record<string, string | undefined> = {
 export const fiscalFlowFixture: FiscalFlowInput = {
   period: { periodType: "month", periodEnd: "2026-07-31", fiscalYear: 2026 },
   unit: "usd",
-  magnitude: "millions",
+  // Every fiscal.mts.* series in the real registry is published in magnitude
+  // "ones" (FiscalData returns MTS amounts in whole dollars and cents, not
+  // the printed PDF's "$ millions" framing) — this fixture combines its
+  // illustrative dollar figures with the REAL registry catalog
+  // (fiscalFlowSeriesCatalog above), so declaring anything other than "ones"
+  // here would silently mismatch detail.ts's per-series magnitude lookup
+  // (which always uses the real "ones") against this demo's own graph-level
+  // magnitude — exactly the magnitude-mixing bug CLAUDE.md forbids.
+  magnitude: "ones",
   receiptsTotalSeriesId: "fiscal.mts.receipts.total",
   outlaysTotalSeriesId: "fiscal.mts.outlays.total",
   deficitSeriesId: "fiscal.mts.deficit.total",

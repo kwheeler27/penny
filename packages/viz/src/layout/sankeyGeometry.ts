@@ -5,20 +5,28 @@
  * works in both horizontal (desktop) and vertical/stacked (narrow-viewport)
  * orientation, which d3-sankey does not support natively.
  *
- * Node column order comes entirely from graph topology (receipts/borrowing
- * have no incoming link, outlays/surplus have no outgoing link, so
- * sankeyJustify places them at the far ends and the hub in between) with
- * `nodeSort(null)` so within-column order is exactly buildFiscalFlowGraph's
- * own deterministic order (descending by value, balancing node last) —
- * this package never lets d3-sankey's default crossing-minimization reorder
- * nodes, since the balancing flow's fixed position is part of the contract.
+ * Node column order is driven by each node's own declared `side`
+ * (receipt/hub/outlay) — NOT by d3-sankey's topology-based alignment
+ * (`sankeyJustify` et al). A "reversed" category link (buildFiscalFlowGraph's
+ * treatment of a negative-valued category — see FiscalFlowLink.reversed)
+ * points the opposite way for conservation's sake, which would place its
+ * node in the wrong column under any topology-based aligner; a category
+ * always belongs in its own side's column regardless of which way its one
+ * link happens to point. `nodeSort(null)` keeps within-column order exactly
+ * buildFiscalFlowGraph's own deterministic order (descending by value,
+ * balancing node last) — this package never lets d3-sankey's default
+ * crossing-minimization reorder nodes either.
  *
  * `value` fed into d3-sankey is the cosmetic `valueApprox` float (pixel
  * proportion only) — every exactness claim (the reconciliation identity,
  * displayed totals) is computed upstream in buildFiscalFlowGraph from
- * `valueExact` and never touches this module.
+ * `valueExact` and never touches this module. Every link's `valueApprox` is
+ * already a non-negative magnitude by construction (buildFiscalFlowGraph
+ * encodes a negative category's sign as a reversed source/target, never as a
+ * negative value), so hub inflow and outflow sum to the same total exactly —
+ * no clamped-to-zero sliver, no phantom gap between the two sides.
  */
-import { sankey as d3Sankey, sankeyJustify } from "d3-sankey";
+import { sankey as d3Sankey, type SankeyNode } from "d3-sankey";
 import type { FiscalFlowGraph, FiscalFlowNode, FiscalFlowLink } from "../types";
 import type { FlowOrientation } from "./orientation";
 
@@ -106,14 +114,27 @@ export function computeFlowGeometry(graph: FiscalFlowGraph, opts: GeometryOption
   const sankeyLinks = graph.links.map((l) => ({
     source: l.sourceId,
     target: l.targetId,
+    // Always non-negative by construction (see this file's header comment
+    // and FiscalFlowLink.reversed) — Math.max is a defensive floor against
+    // float noise, never a sign-dropping clamp.
     value: Math.max(l.valueApprox, 0),
   }));
+
+  const sideById = new Map(graph.nodes.map((n) => [n.id, n.side]));
+  function columnForSide(node: SankeyNode<SankeyNodeDatum, {}>): number {
+    const side = sideById.get(node.id);
+    return side === "receipt" ? 0 : side === "hub" ? 1 : 2;
+  }
 
   const generator = d3Sankey<{ nodes: SankeyNodeDatum[]; links: typeof sankeyLinks }, SankeyNodeDatum, {}>()
     .nodeId((d) => d.id)
     .nodeWidth(nodeThickness)
     .nodePadding(nodePadding)
-    .nodeAlign(sankeyJustify)
+    // Column position comes from the node's own declared side, never from
+    // link topology — see this file's header comment on why sankeyJustify
+    // (or any other topology-based aligner) is wrong once a reversed link
+    // exists.
+    .nodeAlign(columnForSide)
     .nodeSort(null)
     .linkSort(null)
     .extent([

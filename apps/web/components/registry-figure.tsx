@@ -15,7 +15,7 @@
  * and *which period* — never a value, never a hardcoded number.
  */
 import { citationFor, getSeries, type SeriesId } from "@buck/registry";
-import { formatIndexPoint, formatSeriesUsd, describePeriod } from "@/lib/format";
+import { formatIndexPoint, formatSeriesUsd, describePeriod, todayIso } from "@/lib/format";
 import { getLatestReading } from "@/lib/series-data";
 import type { PeriodType } from "@/lib/types";
 
@@ -35,7 +35,19 @@ export interface RegistryFigureProps {
   showCaption?: boolean;
   /** Override the label shown in the caption (default: the registry label). */
   label?: string;
+  /** "as-published" (default) renders the value with its true sign (e.g. a
+   * negative deficit.total reading shows as negative). "absolute" strips the
+   * sign — use ONLY where the surrounding copy already names the direction
+   * (chapter-1.mdx's `<Num sign="absolute">`), never next to a label that
+   * itself claims a direction. */
+  sign?: "as-published" | "absolute";
   className?: string;
+}
+
+/** Strips a leading "-" from a plain decimal string, exactly (never via
+ * Number()/Math.abs, which would round-trip through float). */
+function stripSign(value: string): string {
+  return value.startsWith("-") ? value.slice(1) : value;
 }
 
 export default async function RegistryFigure({
@@ -44,6 +56,7 @@ export default async function RegistryFigure({
   precision,
   showCaption = true,
   label,
+  sign = "as-published",
   className,
 }: RegistryFigureProps) {
   const def = getSeries(id);
@@ -73,8 +86,9 @@ export default async function RegistryFigure({
     );
   }
 
+  const displayValue = sign === "absolute" ? stripSign(reading.value) : reading.value;
   const display =
-    def.unit === "usd" ? formatSeriesUsd(reading.value, def.magnitude, precision).display : formatIndexPoint(reading.value, precision);
+    def.unit === "usd" ? formatSeriesUsd(displayValue, def.magnitude, precision).display : formatIndexPoint(displayValue, precision);
 
   return (
     <figure className={classes}>
@@ -89,7 +103,11 @@ export default async function RegistryFigure({
             <summary>What is this?</summary>
             <p>{def.definition}</p>
             <p className="rf-citation">
-              {citationFor(id, reading.periodEnd)}{" "}
+              {/* citationFor's {access_date} slot is "when a reader accessed
+                  this dataset" — always today, never reading.periodEnd (the
+                  date the OBSERVATION describes, already shown above via
+                  describePeriod). Matches sankey-embed.tsx's convention. */}
+              {citationFor(id, todayIso())}{" "}
               <a href={def.datasetUrl} target="_blank" rel="noopener noreferrer">
                 Source ↗
               </a>

@@ -196,7 +196,11 @@ describe("runMtsMonthlyJob — the live job's own reconciliation wiring (not jus
     // is being requested — no network I/O, but the SAME code path
     // (fetchLatestRecordDate -> fetchFiscalDataForDate x3) runMtsMonthlyJob
     // actually runs in production hits here.
-    global.fetch = vi.fn(async (input: RequestInfo | URL) => {
+    // `RequestInfo` (a DOM lib type) isn't declared by @types/node's global
+    // fetch typings (node_modules/@types/node/web-globals/fetch.d.ts) — its
+    // own `fetch` signature spells this union out directly, so this mirrors
+    // that rather than referencing a type name that was never in scope.
+    global.fetch = vi.fn(async (input: string | URL | Request) => {
       const url = String(input);
       if (url.includes("mts_table_1") && url.includes("sort=-record_date")) {
         return fakeFetchResponse({ data: [{ record_date: RECORD_DATE }] });

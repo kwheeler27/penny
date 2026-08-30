@@ -88,8 +88,20 @@ export interface FiscalFlowLink {
   readonly sourceId: string;
   readonly targetId: string;
   readonly kind: FlowNodeKind;
+  /** Always a non-negative magnitude — direction (sourceId/targetId) encodes
+   * the sign, never the value. */
   readonly valueExact: string;
   readonly valueApprox: number;
+  /**
+   * True when this category's published value was negative (e.g. undistributed
+   * offsetting receipts): the link's sourceId/targetId run the OPPOSITE of
+   * that side's normal convention (an outlay category normally runs
+   * hub->category; a reversed one runs category->hub instead, and vice versa
+   * for receipts) so the flow is drawn as what it actually is — money moving
+   * the other way — rather than clamped to an invisible zero-width sliver.
+   * Always false for a hub or balancing link.
+   */
+  readonly reversed: boolean;
 }
 
 export type BalancingDirection = "deficit" | "surplus" | "balanced";
@@ -108,8 +120,10 @@ export interface FiscalFlowGraph {
   readonly receiptsTotalSeriesId: SeriesId;
   readonly outlaysTotalSeriesId: SeriesId;
   readonly deficitSeriesId: SeriesId;
-  /** Categories present in the input whose value was omitted (missing) — surfaced so a caller/test can distinguish "no data yet" from "silently dropped for another reason". */
+  /** Every category present in the input whose value was omitted before layout — either no reading at all, or an explicit zero. Surfaced so a caller/test can distinguish "no data yet" from "silently dropped for another reason". */
   readonly omittedCategoryIds: readonly SeriesId[];
+  /** The subset of `omittedCategoryIds` that WERE reported, as an explicit "0" — a real published reading, not a missing one. Never conflate the two in reader-facing copy (a genuine zero is not "no reading"). */
+  readonly omittedAsZeroCategoryIds: readonly SeriesId[];
 }
 
 export interface FlowDetail {

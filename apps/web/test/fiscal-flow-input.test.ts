@@ -78,4 +78,25 @@ describe("toFiscalFlowInput", () => {
     expect(input?.outlaysTotalSeriesId).toBe("fiscal.mts.outlays.total");
     expect(input?.deficitSeriesId).toBe("fiscal.mts.deficit.total");
   });
+
+  it("throws rather than silently mis-scaling a value when a referenced series' magnitude does not match the flow's shared magnitude", () => {
+    // fiscal.mts.receipts.total is registry magnitude "ones";
+    // projection.cbo.baseline.deficit is registry magnitude "billions". A
+    // real MtsFlow could never actually mix these two under one category
+    // list, but the check must not silently trust the input shape — it
+    // walks every referenced id, so a real future series with a mismatched
+    // magnitude is caught here rather than rendering 10^9 off.
+    const flow: MtsFlow = {
+      periodType: "month",
+      periodEnd: "2026-07-31",
+      fiscalYear: 2026,
+      receipts: {
+        total: reading("fiscal.mts.receipts.total" as SeriesId, "500000"),
+        categories: [{ id: "projection.cbo.baseline.deficit" as SeriesId, label: "CBO baseline deficit", reading: reading("projection.cbo.baseline.deficit" as SeriesId, "1000") }],
+      },
+      outlays: { total: null, categories: [] },
+      deficit: null,
+    };
+    expect(() => toFiscalFlowInput(flow)).toThrow(/magnitude/i);
+  });
 });

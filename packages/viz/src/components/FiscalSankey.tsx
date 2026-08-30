@@ -7,10 +7,10 @@ import { summarizeFlows } from "../layout/summarize";
 import { getNodeDetail, getLinkDetail } from "../layout/detail";
 import { formatSeriesValue } from "../money/format";
 import { useContainerSize } from "../useContainerSize";
-import { FISCAL_SANKEY_CLASS, fiscalSankeyStyleTag, colorForSide, BALANCING_COLOR } from "../tokens";
+import { FISCAL_SANKEY_CLASS, fiscalSankeyStyleTag, colorForSide, BALANCING_COLOR, HATCH_PATTERN_ID } from "../tokens";
 import { VisuallyHidden } from "./VisuallyHidden";
 import { DetailPanel } from "./DetailPanel";
-import type { FiscalFlowInput, SeriesCatalog, FlowDetail } from "../types";
+import type { FiscalFlowInput, SeriesCatalog, FlowDetail, FiscalFlowLink, FiscalFlowGraph } from "../types";
 
 export interface FiscalSankeyProps {
   readonly input: FiscalFlowInput;
@@ -37,9 +37,17 @@ function bandFor(positioned: PositionedNode, orientation: FlowOrientation): Labe
   return { id: positioned.node.id, start, end, text: positioned.node.label };
 }
 
-/** Every category link touches the hub at one end; whichever end that is tells us which side of the diagram it belongs to (a balancing link is colored separately and never calls this). */
-function sideForCategoryLink(targetId: string): "receipt" | "outlay" {
-  return targetId === FISCAL_FLOW_HUB_ID ? "receipt" : "outlay";
+/** Every category link touches the hub at exactly one end; the OTHER end is
+ * always the category node itself, whose own declared `side` tells us which
+ * side of the diagram it belongs to. This deliberately does NOT infer side
+ * from which end is the hub — a reversed (negative-valued) category link
+ * points the opposite way from its side's normal convention, so direction
+ * alone would misclassify it (a balancing link is colored separately and
+ * never calls this). */
+function sideForCategoryLink(link: FiscalFlowLink, graph: FiscalFlowGraph): "receipt" | "outlay" {
+  const categoryId = link.sourceId === FISCAL_FLOW_HUB_ID ? link.targetId : link.sourceId;
+  const categoryNode = graph.nodes.find((n) => n.id === categoryId);
+  return categoryNode?.side === "outlay" ? "outlay" : "receipt";
 }
 
 function labelAnchor(
@@ -172,16 +180,25 @@ export function FiscalSankey({ input, seriesCatalog, accessDate, width, height, 
       >
         <title>{`Federal receipts and outlays, ${input.period.periodEnd} — total receipts ${totalFmt}`}</title>
         <defs>
-          <pattern id="bfs-hatch" width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+          {/* Shared by the balancing flow AND any reversed (negative-valued)
+              category ribbon (tokens.ts). The line's stroke is currentColor
+              deliberately — each caller below sets `color` on the wrapping
+              element so one pattern renders in either the balancing hue or
+              the category's own side color. */}
+          <pattern id={HATCH_PATTERN_ID} width="8" height="8" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
             <rect width="8" height="8" fill="transparent" />
-            <line x1="0" y1="0" x2="0" y2="8" stroke={BALANCING_COLOR} strokeWidth={2} strokeOpacity={0.9} />
+            <line x1="0" y1="0" x2="0" y2="8" stroke="currentColor" strokeWidth={2} strokeOpacity={0.9} />
           </pattern>
         </defs>
 
         {geometry.links.map((l) => {
           const isBalancing = l.link.kind === "balancing";
-          const color = isBalancing ? BALANCING_COLOR : colorForSide(sideForCategoryLink(l.link.targetId));
+          const isReversed = l.link.kind === "category" && l.link.reversed;
+          const color = isBalancing ? BALANCING_COLOR : colorForSide(sideForCategoryLink(l.link, graph));
           const isActive = activeId === l.link.id;
+          const reversedNote = isReversed
+            ? " — flows the other way, back into the federal government, reducing this side's net total"
+            : "";
           return (
             <g key={l.link.id}>
               <path
@@ -191,7 +208,7 @@ export function FiscalSankey({ input, seriesCatalog, accessDate, width, height, 
                 fillOpacity={isActive ? 0.85 : 0.5}
                 tabIndex={0}
                 role="button"
-                aria-label={`Flow ${l.link.id}: ${formatSeriesValue(l.link.valueExact, graph.unit, graph.magnitude)}`}
+                aria-label={`Flow ${l.link.id}: ${formatSeriesValue(l.link.valueExact, graph.unit, graph.magnitude)}${reversedNote}`}
                 onMouseEnter={() => setHoveredId(l.link.id)}
                 onMouseLeave={() => setHoveredId((h) => (h === l.link.id ? null : h))}
                 onFocus={() => setHoveredId(l.link.id)}
@@ -204,18 +221,22 @@ export function FiscalSankey({ input, seriesCatalog, accessDate, width, height, 
                   }
                 }}
               />
-              {isBalancing ? <path d={l.path} fill="url(#bfs-hatch)" style={{ pointerEvents: "none" }} /> : null}
+              {isBalancing || isReversed ? (
+                <path d={l.path} fill={`url(#${HATCH_PATTERN_ID})`} style={{ pointerEvents: "none", color }} />
+              ) : null}
             </g>
           );
         })}
 
         {geometry.nodes.map((p) => {
           const isBalancing = p.node.kind === "balancing";
+          const isReversed = !isBalancing && graph.links.some((l) => l.kind === "category" && l.reversed && (l.sourceId === p.node.id || l.targetId === p.node.id));
           const color = isBalancing ? BALANCING_COLOR : colorForSide(p.node.side === "hub" ? "hub" : p.node.side);
           const isActive = activeId === p.node.id;
           const label = labelsByNodeId.get(p.node.id);
           const anchor = labelAnchor(p, orientation, label?.anchor === "outside" ? OUTSIDE_LABEL_GAP : INLINE_LABEL_GAP);
           const displayLabel = resolveNodeLabel(p.node, seriesCatalog);
+          const reversedNote = isReversed ? " — flows the other way, back into the federal government" : "";
 
           return (
             <g key={p.node.id}>
@@ -227,12 +248,12 @@ export function FiscalSankey({ input, seriesCatalog, accessDate, width, height, 
                 height={Math.max(p.y1 - p.y0, 1)}
                 fill={color}
                 fillOpacity={isActive ? 1 : 0.92}
-                stroke={isBalancing ? color : "none"}
-                strokeDasharray={isBalancing ? "4 3" : undefined}
-                strokeWidth={isBalancing ? 2 : 0}
+                stroke={isBalancing || isReversed ? color : "none"}
+                strokeDasharray={isBalancing || isReversed ? "4 3" : undefined}
+                strokeWidth={isBalancing || isReversed ? 2 : 0}
                 tabIndex={0}
                 role="button"
-                aria-label={`${displayLabel}: ${formatSeriesValue(p.node.valueExact, graph.unit, graph.magnitude)}`}
+                aria-label={`${displayLabel}: ${formatSeriesValue(p.node.valueExact, graph.unit, graph.magnitude)}${reversedNote}`}
                 onMouseEnter={() => setHoveredId(p.node.id)}
                 onMouseLeave={() => setHoveredId((h) => (h === p.node.id ? null : h))}
                 onFocus={() => setHoveredId(p.node.id)}

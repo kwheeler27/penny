@@ -30,6 +30,34 @@ function sharedMagnitude(): Magnitude {
 }
 
 /**
+ * @buck/viz's FiscalFlowInput declares ONE magnitude for the whole diagram
+ * (types.ts: "Receipts and outlays share one magnitude/unit deliberately").
+ * This function is the only place that assembles that input from real
+ * per-series registry data, so it is the only place that can actually check
+ * the assumption holds — every category (and both totals) referenced must
+ * really be published in `expected`'s magnitude, or a future series with a
+ * different magnitude would silently render 10^n off (CLAUDE.md: never
+ * silently mix magnitudes). Throws rather than guessing.
+ */
+function assertSharedMagnitude(flow: MtsFlow, expected: Magnitude): void {
+  const ids: string[] = [
+    RECEIPTS_TOTAL_ID,
+    OUTLAYS_TOTAL_ID,
+    DEFICIT_ID,
+    ...flow.receipts.categories.map((c) => c.id),
+    ...flow.outlays.categories.map((c) => c.id),
+  ];
+  for (const id of ids) {
+    const actual = getSeries(id)?.magnitude;
+    if (actual !== undefined && actual !== expected) {
+      throw new Error(
+        `toFiscalFlowInput: series "${id}" is published in magnitude "${actual}", but this flow's shared magnitude (from ${RECEIPTS_TOTAL_ID}) is "${expected}". @buck/viz's FiscalFlowInput requires every referenced series to share one magnitude — mixing them would silently misscale a value by a power of ten.`,
+      );
+    }
+  }
+}
+
+/**
  * Returns null when there is nothing to show for this period at all — no
  * receipts total, no outlays total, no fiscal year known. Never returns an
  * "empty" FiscalFlowInput; a caller passing all-omitted categories to
@@ -42,6 +70,9 @@ export function toFiscalFlowInput(flow: MtsFlow): FiscalFlowInput | null {
     flow.receipts.categories.some((c) => c.reading) || flow.outlays.categories.some((c) => c.reading);
   if (!hasAnyReading) return null;
 
+  const magnitude = sharedMagnitude();
+  assertSharedMagnitude(flow, magnitude);
+
   return {
     period: {
       periodType: flow.periodType === "fiscal_ytd" ? "fiscal_ytd" : "month",
@@ -49,7 +80,7 @@ export function toFiscalFlowInput(flow: MtsFlow): FiscalFlowInput | null {
       fiscalYear: flow.fiscalYear,
     },
     unit: "usd",
-    magnitude: sharedMagnitude(),
+    magnitude,
     receiptsTotalSeriesId: RECEIPTS_TOTAL_ID,
     outlaysTotalSeriesId: OUTLAYS_TOTAL_ID,
     deficitSeriesId: DEFICIT_ID,

@@ -22,7 +22,7 @@
  * a caller that wants to say "no reading yet" explicitly, distinct from
  * simply not rendering anything.
  */
-import { sumDecimal, subtractDecimal, isZeroDecimal, isNegativeDecimal, negateDecimal, compareDecimal } from "../money/decimal";
+import { sumDecimal, subtractDecimal, isZeroDecimal, isNegativeDecimal, negateDecimal, absDecimal, compareDecimal } from "../money/decimal";
 import type { FiscalFlowInput, FiscalFlowGraph, FiscalFlowNode, FiscalFlowLink, FlowSide, SeriesId, SeriesCatalog } from "../types";
 
 const HUB_ID = "hub:government";
@@ -43,12 +43,23 @@ interface PresentCategory {
 function presentCategories(categories: FiscalFlowInput["receipts"]): {
   present: PresentCategory[];
   omitted: SeriesId[];
+  omittedAsZero: SeriesId[];
 } {
   const present: PresentCategory[] = [];
   const omitted: SeriesId[] = [];
+  const omittedAsZero: SeriesId[] = [];
   for (const c of categories) {
-    if (c.value === undefined || c.value === null || isZeroDecimal(c.value)) {
+    if (c.value === undefined || c.value === null) {
       omitted.push(c.seriesId);
+      continue;
+    }
+    if (isZeroDecimal(c.value)) {
+      // A genuine published "0" is still omitted from the render (never a
+      // zero-height ghost node/link) but it is NOT the same fact as "no
+      // reading" — callers that report why a category is missing (e.g. the
+      // SVG's text alternative) must be able to tell the two apart.
+      omitted.push(c.seriesId);
+      omittedAsZero.push(c.seriesId);
       continue;
     }
     present.push({ seriesId: c.seriesId, valueExact: c.value });
@@ -59,7 +70,7 @@ function presentCategories(categories: FiscalFlowInput["receipts"]): {
     const cmp = compareDecimal(b.valueExact, a.valueExact);
     return cmp !== 0 ? cmp : a.seriesId.localeCompare(b.seriesId);
   });
-  return { present, omitted };
+  return { present, omitted, omittedAsZero };
 }
 
 function categoryNode(side: FlowSide, c: PresentCategory): FiscalFlowNode {
@@ -105,29 +116,45 @@ export function buildFiscalFlowGraph(input: FiscalFlowInput): FiscalFlowGraph {
     valueApprox: toApprox(hubInflowExact),
   });
 
+  // A category's link value fed to the geometry layer must always be a
+  // non-negative magnitude — direction (source/target) carries the sign.
+  // Receipts normally flow category->hub; a NEGATIVE receipt category is
+  // really money leaving through that channel, so its link reverses to
+  // hub->category, at its absolute magnitude. Symmetrically, outlays
+  // normally flow hub->category; a negative one (undistributed offsetting
+  // receipts) is really money flowing back in, so its link reverses to
+  // category->hub. Either way the hub's total inflow still equals its total
+  // outflow exactly (see money/decimal-driven proof in this package's tests)
+  // — never a phantom gap from silently clamping a negative value to zero.
   for (const c of receiptsPresent.present) {
     const node = categoryNode("receipt", c);
     nodes.push(node);
+    const reversed = isNegativeDecimal(c.valueExact);
+    const magnitude = reversed ? absDecimal(c.valueExact) : c.valueExact;
     links.push({
-      id: `${node.id}->${HUB_ID}`,
-      sourceId: node.id,
-      targetId: HUB_ID,
+      id: `${node.id}<->${HUB_ID}`,
+      sourceId: reversed ? HUB_ID : node.id,
+      targetId: reversed ? node.id : HUB_ID,
       kind: "category",
-      valueExact: node.valueExact,
-      valueApprox: node.valueApprox,
+      reversed,
+      valueExact: magnitude,
+      valueApprox: toApprox(magnitude),
     });
   }
 
   for (const c of outlaysPresent.present) {
     const node = categoryNode("outlay", c);
     nodes.push(node);
+    const reversed = isNegativeDecimal(c.valueExact);
+    const magnitude = reversed ? absDecimal(c.valueExact) : c.valueExact;
     links.push({
-      id: `${HUB_ID}->${node.id}`,
-      sourceId: HUB_ID,
-      targetId: node.id,
+      id: `${HUB_ID}<->${node.id}`,
+      sourceId: reversed ? node.id : HUB_ID,
+      targetId: reversed ? HUB_ID : node.id,
       kind: "category",
-      valueExact: node.valueExact,
-      valueApprox: node.valueApprox,
+      reversed,
+      valueExact: magnitude,
+      valueApprox: toApprox(magnitude),
     });
   }
 
@@ -147,6 +174,7 @@ export function buildFiscalFlowGraph(input: FiscalFlowInput): FiscalFlowGraph {
       sourceId: BORROWING_ID,
       targetId: HUB_ID,
       kind: "balancing",
+      reversed: false,
       valueExact: borrowingExact,
       valueApprox: toApprox(borrowingExact),
     });
@@ -166,6 +194,7 @@ export function buildFiscalFlowGraph(input: FiscalFlowInput): FiscalFlowGraph {
       sourceId: HUB_ID,
       targetId: SURPLUS_ID,
       kind: "balancing",
+      reversed: false,
       valueExact: surplusExact,
       valueApprox: toApprox(surplusExact),
     });
@@ -186,6 +215,7 @@ export function buildFiscalFlowGraph(input: FiscalFlowInput): FiscalFlowGraph {
     outlaysTotalSeriesId: input.outlaysTotalSeriesId,
     deficitSeriesId: input.deficitSeriesId,
     omittedCategoryIds: [...receiptsPresent.omitted, ...outlaysPresent.omitted],
+    omittedAsZeroCategoryIds: [...receiptsPresent.omittedAsZero, ...outlaysPresent.omittedAsZero],
   };
 }
 

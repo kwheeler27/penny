@@ -45,6 +45,16 @@ export function magnitudePlaces(magnitude: Magnitude): number {
   return MAGNITUDE_PLACES[magnitude];
 }
 
+/** Today's date (YYYY-MM-DD), for a citation's "Accessed" date — i.e. when a
+ * reader is actually viewing/rendering the page, never the date an
+ * observation's period happens to describe. The one intentional exception
+ * to "never round-trip a date through `Date`": an access-date is genuinely
+ * about wall-clock now, not a stored calendar value, so there is no
+ * period/timezone to shift. */
+export function todayIso(): string {
+  return new Date().toISOString().slice(0, 10);
+}
+
 /**
  * Shift a decimal string's point right by `places` digits — exact string
  * arithmetic, equivalent to multiplying by 10^places without ever coercing

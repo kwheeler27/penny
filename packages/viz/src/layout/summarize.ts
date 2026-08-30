@@ -6,6 +6,7 @@
  * any rendering.
  */
 import { formatSeriesValue } from "../money/format";
+import { absDecimal } from "../money/decimal";
 import { nodesForSide, resolveNodeLabel } from "./buildFiscalFlowGraph";
 import type { FiscalFlowGraph, SeriesCatalog } from "../types";
 
@@ -24,6 +25,30 @@ function topCategoriesPhrase(graph: FiscalFlowGraph, side: "receipt" | "outlay",
     .join(", ");
 }
 
+/**
+ * Describes every omitted category honestly, WITHOUT conflating "no reading
+ * published this period" (a real gap) with "published as an explicit 0"
+ * (a real, reported figure) — buildFiscalFlowGraph puts both in
+ * `omittedCategoryIds` because both are dropped before layout, but a reader
+ * hearing this caption must not be told a genuine zero "had no reading."
+ */
+function omittedPhrase(graph: FiscalFlowGraph): string {
+  const zeroCount = graph.omittedAsZeroCategoryIds.length;
+  const noReadingCount = graph.omittedCategoryIds.length - zeroCount;
+  const parts: string[] = [];
+  if (noReadingCount > 0) {
+    parts.push(
+      `${noReadingCount} categor${noReadingCount === 1 ? "y" : "ies"} had no reading this period and ${noReadingCount === 1 ? "is" : "are"} omitted, not shown as zero`,
+    );
+  }
+  if (zeroCount > 0) {
+    parts.push(
+      `${zeroCount} categor${zeroCount === 1 ? "y" : "ies"} reported exactly zero and ${zeroCount === 1 ? "is" : "are"} omitted rather than drawn as a zero-height flow`,
+    );
+  }
+  return parts.length > 0 ? ` ${parts.join("; ")}.` : "";
+}
+
 /** Builds the full text alternative for the diagram. */
 export function summarizeFlows(graph: FiscalFlowGraph, catalog: SeriesCatalog): string {
   const receiptsFmt = formatSeriesValue(graph.receiptsTotalExact, graph.unit, graph.magnitude);
@@ -34,10 +59,13 @@ export function summarizeFlows(graph: FiscalFlowGraph, catalog: SeriesCatalog): 
     graph.balancingDirection === "deficit"
       ? `Outlays exceeded receipts by ${formatSeriesValue(graph.balancingExact, graph.unit, graph.magnitude)}, a gap covered by borrowing.`
       : graph.balancingDirection === "surplus"
-        ? `Receipts exceeded outlays by ${formatSeriesValue(graph.balancingExact, graph.unit, graph.magnitude, { explicitSign: false })}, a surplus.`
+        ? // graph.balancingExact is outlays - receipts, i.e. NEGATIVE in a
+          // surplus (receipts > outlays) — absDecimal it before formatting so
+          // this sentence states the surplus's magnitude, never "by -$X".
+          `Receipts exceeded outlays by ${formatSeriesValue(absDecimal(graph.balancingExact), graph.unit, graph.magnitude)}, a surplus.`
         : "Receipts and outlays were exactly equal — no borrowing or surplus this period.";
 
-  const omitted = graph.omittedCategoryIds.length > 0 ? ` ${graph.omittedCategoryIds.length} categories had no reading this period and are omitted, not shown as zero.` : "";
+  const omitted = omittedPhrase(graph);
 
   return (
     `Federal receipts and outlays for ${period}. ` +

@@ -1,5 +1,5 @@
 {
-  "name": "@buck/viz",
+  "name": "@penny/viz",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -13,8 +13,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@buck/db": "workspace:*",
-    "@buck/registry": "workspace:*",
+    "@penny/db": "workspace:*",
+    "@penny/registry": "workspace:*",
     "d3-sankey": "^0.12.3"
   },
   "peerDependencies": {

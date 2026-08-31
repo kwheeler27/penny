@@ -1,11 +1,11 @@
-# Buck — reader-facing definitions
+# Penny — reader-facing definitions
 #
 # What this file is
 # -----------------
 # The plain-language text a reader sees when they click a node on the Sankey,
 # a tile on /now, a <Term> in a chapter, or a row on /data. Two maps:
 #
-#   series:   keyed by @buck/registry series id. Covers every Sankey node and
+#   series:   keyed by @penny/registry series id. Covers every Sankey node and
 #             every /now tile.
 #   concepts: keyed by `concept.*`. Accounting ideas that are not series but
 #             that the chapters mark with <Term> — outlay vs. obligation vs.
@@ -556,7 +556,7 @@ series:
       basis.
     watch_for: >
       Not the same number as Treasury's interest expense on the public debt.
-      The two are computed differently, and Buck holds them as separate series
+      The two are computed differently, and Penny holds them as separate series
       flagged as not comparable.
     citation:
       agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
@@ -601,7 +601,7 @@ series:
       specific national need but exist to cover the whole budget.
     watch_for: >
       Because it is a placeholder, it may carry nothing for a given period.
-      Buck still renders an unpublished period as a gap rather than a zero, so
+      Penny still renders an unpublished period as a gap rather than a zero, so
       read the label rather than the shape.
     citation:
       agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
@@ -701,7 +701,7 @@ series:
     plain: >
       The Consumer Price Index for All Urban Consumers, U.S. city average, all
       items, not seasonally adjusted, published monthly by the Bureau of Labor
-      Statistics. Buck holds it so that dollar figures can be compared across
+      Statistics. Penny holds it so that dollar figures can be compared across
       years in constant terms.
     watch_for: >
       An index level, not a dollar amount and not a rate of change. Deflating
@@ -724,7 +724,7 @@ series:
       its recurring Budget and Economic Outlook and the updates to it.
     watch_for: >
       A projection under current law, not a forecast of what will happen, and
-      not an observed figure. It is CBO's, not Buck's. It carries the
+      not an observed figure. It is CBO's, not Penny's. It carries the
       accounting concept "projection" and can never be summed or charted with
       observed Treasury data without an explicit, labeled distinction.
     citation:
@@ -806,7 +806,7 @@ concepts:
       fiscal year forward.
     watch_for: >
       A fiscal-year figure and a calendar-year figure of the same thing are
-      different measurements. Buck stores the fiscal year as an explicit field
+      different measurements. Penny stores the fiscal year as an explicit field
       rather than deriving it from a date, and never adds the two together.
     source_refs: [gao-glossary]
 
@@ -887,13 +887,13 @@ concepts:
   concept.provisional_and_revised:
     term: Provisional and revised values
     plain: >
-      A published figure can change when its source republishes it. Buck
+      A published figure can change when its source republishes it. Penny
       stores a revised value as a new row pointing at the row it replaces, so
       the site can show both the current value and what was known at an
       earlier date. The time a value was published and the period it describes
       are kept as separate fields.
     watch_for: >
-      A number on this site is always "as published on" a date. Two Buck
+      A number on this site is always "as published on" a date. Two Penny
       screenshots taken weeks apart can legitimately differ for the same
       period.
     source_refs: [mts-report]
@@ -901,7 +901,7 @@ concepts:
   concept.gap:
     term: Gap
     plain: >
-      A period for which no value has been published. Buck renders it as a gap
+      A period for which no value has been published. Penny renders it as a gap
       and says why. It is never drawn as a zero and never filled with the
       previous period's value. The daily series are published for business
       days, so weekends and federal holidays are gaps by construction.

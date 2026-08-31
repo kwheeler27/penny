@@ -1,6 +1,6 @@
 /**
  * Regenerates db/fixtures/observations/*.json — the pre-transformed rows
- * `@buck/db`'s `pnpm seed` loads into local PGlite with zero credentials
+ * `@penny/db`'s `pnpm seed` loads into local PGlite with zero credentials
  * and zero live API calls (ORCHESTRATION_PROMPT.md). Run this after
  * changing any parser in src/jobs/* or refreshing db/fixtures/raw/*.
  *
@@ -9,10 +9,10 @@
  * period with no overlapping revision (verified in
  * test/reconciliation.test.ts's idempotency tests, which exercise the
  * revision path against synthetic mutations instead), so a flat
- * deduplicated list is the correct seed content; `@buck/db`'s seed script
+ * deduplicated list is the correct seed content; `@penny/db`'s seed script
  * inserts it with a plain `onConflictDoNothing()`.
  *
- * CLI: `pnpm --filter @buck/ingest run build-fixtures`.
+ * CLI: `pnpm --filter @penny/ingest run build-fixtures`.
  */
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";

@@ -11,7 +11,7 @@ export default function SiteHeader() {
     <header className="site-header">
       <div className="site-header-inner">
         <Link href="/" className="site-wordmark">
-          Buck
+          Penny
         </Link>
         <nav className="site-nav" aria-label="Primary">
           {NAV.map((item) => (

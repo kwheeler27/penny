@@ -21,7 +21,7 @@
  * compare) and only inserts when it actually changed.
  */
 import { and, desc, eq } from "drizzle-orm";
-import { observation, type BuckDb, type Observation } from "@buck/db";
+import { observation, type PennyDb, type Observation } from "@penny/db";
 import { decimalEquals } from "./decimal";
 import type { PeriodType, RawObservation } from "./types";
 
@@ -41,7 +41,7 @@ export interface UpsertResult {
  * been ingested.
  */
 async function latestObservation(
-  db: BuckDb,
+  db: PennyDb,
   seriesId: string,
   periodType: PeriodType,
   periodEnd: string,
@@ -63,7 +63,7 @@ async function latestObservation(
  * call with a later, changed value for the same period (outcome "revised",
  * chained via revisionOf — the earlier row is left exactly as it was).
  */
-export async function upsertObservation(db: BuckDb, raw: RawObservation): Promise<UpsertResult> {
+export async function upsertObservation(db: PennyDb, raw: RawObservation): Promise<UpsertResult> {
   const existing = await latestObservation(db, raw.seriesId, raw.periodType, raw.periodEnd);
 
   if (!existing) {
@@ -112,7 +112,7 @@ export interface UpsertManySummary {
 }
 
 /** Apply a batch of parsed observations sequentially (not Promise.all — keeps writes ordered and easy to reason about for a batch this small; ingest jobs run per-source, not at request volume). */
-export async function upsertObservations(db: BuckDb, raws: readonly RawObservation[]): Promise<UpsertManySummary> {
+export async function upsertObservations(db: PennyDb, raws: readonly RawObservation[]): Promise<UpsertManySummary> {
   const results: UpsertResult[] = [];
   for (const raw of raws) {
     results.push(await upsertObservation(db, raw));

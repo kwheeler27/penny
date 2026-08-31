@@ -11,16 +11,16 @@
  * depth for that path, not the primary enforcement mechanism.
  *
  * It is an async Server Component: it fetches its own reading from
- * @buck/db, so a page (or a chapter block) only has to say *which* series
+ * @penny/db, so a page (or a chapter block) only has to say *which* series
  * and *which period* — never a value, never a hardcoded number.
  */
-import { citationFor, getSeries, type SeriesId } from "@buck/registry";
+import { citationFor, getSeries, type SeriesId } from "@penny/registry";
 import { formatIndexPoint, formatSeriesUsd, describePeriod, todayIso } from "@/lib/format";
 import { getLatestReading } from "@/lib/series-data";
 import type { PeriodType } from "@/lib/types";
 
 export interface RegistryFigureProps {
-  /** A real @buck/registry series id — the only way a number reaches the page. */
+  /** A real @penny/registry series id — the only way a number reaches the page. */
   id: SeriesId;
   /** Which period reading to show. Required for a series that publishes
    * more than one period_type per date (every MTS series publishes both
@@ -29,7 +29,7 @@ export interface RegistryFigureProps {
   periodType?: PeriodType;
   /** Decimal places to display. Defaults per unit+magnitude — see lib/format.ts. */
   precision?: number;
-  /** Visible source/as-of caption below the value. Default true — Buck's
+  /** Visible source/as-of caption below the value. Default true — Penny's
    * trust rule is that sourcing is not something a reader has to go
    * looking for. */
   showCaption?: boolean;

@@ -1,19 +1,19 @@
 /**
  * Pure transform: an MtsFlow (lib/series-data.ts's DB-shaped read) -> the
- * FiscalFlowInput @buck/viz's <FiscalSankey> renders from. Kept separate
+ * FiscalFlowInput @penny/viz's <FiscalSankey> renders from. Kept separate
  * from the DB call so it's unit-testable against a hand-built MtsFlow
  * fixture, no database involved.
  *
- * @buck/viz owns all the arithmetic here — it sums the category values
+ * @penny/viz owns all the arithmetic here — it sums the category values
  * itself (via buildFiscalFlowGraph) rather than trusting the published
  * total, so this function passes exact decimal-string values straight
  * through and does no scaling/rounding of its own. The one judgment call
  * this file makes is deciding when there's nothing to show at all: null
  * means "don't render a Sankey for this period," not "render an empty one."
  */
-import { getSeries, type Magnitude } from "@buck/registry";
+import { getSeries, type Magnitude } from "@penny/registry";
 import type { MtsFlow } from "./series-data";
-import type { FiscalFlowInput } from "@buck/viz";
+import type { FiscalFlowInput } from "@penny/viz";
 
 const RECEIPTS_TOTAL_ID = "fiscal.mts.receipts.total" as const;
 const OUTLAYS_TOTAL_ID = "fiscal.mts.outlays.total" as const;
@@ -30,7 +30,7 @@ function sharedMagnitude(): Magnitude {
 }
 
 /**
- * @buck/viz's FiscalFlowInput declares ONE magnitude for the whole diagram
+ * @penny/viz's FiscalFlowInput declares ONE magnitude for the whole diagram
  * (types.ts: "Receipts and outlays share one magnitude/unit deliberately").
  * This function is the only place that assembles that input from real
  * per-series registry data, so it is the only place that can actually check
@@ -51,7 +51,7 @@ function assertSharedMagnitude(flow: MtsFlow, expected: Magnitude): void {
     const actual = getSeries(id)?.magnitude;
     if (actual !== undefined && actual !== expected) {
       throw new Error(
-        `toFiscalFlowInput: series "${id}" is published in magnitude "${actual}", but this flow's shared magnitude (from ${RECEIPTS_TOTAL_ID}) is "${expected}". @buck/viz's FiscalFlowInput requires every referenced series to share one magnitude — mixing them would silently misscale a value by a power of ten.`,
+        `toFiscalFlowInput: series "${id}" is published in magnitude "${actual}", but this flow's shared magnitude (from ${RECEIPTS_TOTAL_ID}) is "${expected}". @penny/viz's FiscalFlowInput requires every referenced series to share one magnitude — mixing them would silently misscale a value by a power of ten.`,
       );
     }
   }

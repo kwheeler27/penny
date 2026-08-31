@@ -1,6 +1,6 @@
 /**
  * Server-only database bootstrap. Never import this from a Client Component
- * — @buck/db pulls in Node built-ins (node:fs, node:path) and, for the
+ * — @penny/db pulls in Node built-ins (node:fs, node:path) and, for the
  * PGlite branch, a WASM Postgres engine, none of which exist in a browser
  * bundle. Next's own build will fail loudly (not silently) if a 'use
  * client' file ever imports this, which is the enforcement mechanism here —
@@ -14,7 +14,7 @@
  * turns a missing-relation crash into, at worst, a correctly-empty (all-gap)
  * page instead of a 500.
  */
-import { getDb, runMigrations, type BuckDb } from "@buck/db";
+import { getDb, runMigrations, type PennyDb } from "@penny/db";
 
 let migrated: Promise<void> | null = null;
 
@@ -30,7 +30,7 @@ export function ensureMigrated(): Promise<void> {
   return migrated;
 }
 
-export async function db(): Promise<BuckDb> {
+export async function db(): Promise<PennyDb> {
   await ensureMigrated();
   return getDb();
 }
@@ -42,12 +42,12 @@ export async function db(): Promise<BuckDb> {
  * read-only instrument — a reader should see "no report" tiles, not a stack
  * trace, if the database is briefly unavailable.
  */
-export async function safely<T>(fn: (handle: BuckDb) => Promise<T>, fallback: T): Promise<T> {
+export async function safely<T>(fn: (handle: PennyDb) => Promise<T>, fallback: T): Promise<T> {
   try {
     const handle = await db();
     return await fn(handle);
   } catch (err) {
-    console.error("[@buck/web] database query failed, rendering as a gap:", err);
+    console.error("[@penny/web] database query failed, rendering as a gap:", err);
     return fallback;
   }
 }

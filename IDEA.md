@@ -1,4 +1,4 @@
-# Buck — the idea
+# Penny — the idea
 
 **Date:** 2026-08-29
 **Status:** Phase 0 pitch, confirmed by Kevin 2026-08-29. `PLAN.md` follows via PR.
@@ -26,9 +26,11 @@ prices form, who owns it, how it competes with bonds), not a ticker app.
 
 ## Confirmed decisions
 
-- **Name: Buck.** The dollar, colloquially — and "the buck stops here,"
-  Truman's line about federal accountability, doubles as the thesis: follow
-  the buck.
+- **Name: Penny** (renamed from "Buck," Kevin's call 2026-08-30: down-to-earth
+  and approachable, with a double meaning). Everyone's first coin — and
+  "Debt to the Penny" is literally a core Treasury dataset the site ingests,
+  while "to the penny" is the site's own promise: reconciliation that exact,
+  CI-enforced.
 - **Public instrument, public repo from day one.** Apache-2.0. Openness is
   load-bearing for trust: readers should be able to verify us, not believe us.
 - **Build order: fiscal → plumbing → transmission.** Start with the complete
@@ -39,7 +41,7 @@ prices form, who owns it, how it competes with bonds), not a ticker app.
 - **Objectivity is a founding constraint** (Kevin, 2026-08-29): every claim
   and statement properly cited and referenced. Mechanics are facts with
   primary-source citations; interpretations are attributed to named people or
-  schools of thought, never asserted in Buck's voice.
+  schools of thought, never asserted in Penny's voice.
 - **Separate repo from Basin; borrowed doctrine, no shared code.** Same
   mission-document structure, rigor contract (every number carries source /
   as-of date / unit / concept), neutral register, plain language,

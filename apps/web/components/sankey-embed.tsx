@@ -1,8 +1,8 @@
 /**
  * The living Sankey embed (ORCHESTRATION_PROMPT.md core flow 6). Fetches
  * the latest-month and fiscal-year-to-date MTS flow, converts each to
- * @buck/viz's FiscalFlowInput contract (lib/fiscal-flow-input.ts), and
- * renders @buck/viz's real <FiscalSankey> for each — behind the
+ * @penny/viz's FiscalFlowInput contract (lib/fiscal-flow-input.ts), and
+ * renders @penny/viz's real <FiscalSankey> for each — behind the
  * dependency-free PeriodToggle so a reader can switch between "this month"
  * and "fiscal year to date" without JS (see components/period-toggle.tsx).
  *
@@ -11,7 +11,7 @@
  * is a gap, never a zero (and a Sankey with every category omitted would
  * draw as a zero-size hub, which reads as a bug, not honesty).
  */
-import { SERIES } from "@buck/registry";
+import { SERIES } from "@penny/registry";
 import FiscalSankeyClient from "./fiscal-sankey-client";
 import PeriodToggle from "./period-toggle";
 import { toFiscalFlowInput } from "@/lib/fiscal-flow-input";
@@ -31,7 +31,7 @@ function NoReportYet() {
  * match the flow's shared magnitude (a real data-integrity problem — see
  * that function's doc comment) — caught here so one bad series definition
  * renders a loud, visible error for that one diagram instead of a 500 for
- * the whole page, matching @buck/viz's own FiscalSankey error affordance. */
+ * the whole page, matching @penny/viz's own FiscalSankey error affordance. */
 function safeToFiscalFlowInput(flow: Parameters<typeof toFiscalFlowInput>[0]): { input: ReturnType<typeof toFiscalFlowInput>; error: string | null } {
   try {
     return { input: toFiscalFlowInput(flow), error: null };

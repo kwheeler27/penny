@@ -20,10 +20,10 @@ was produced and what it covers.
   method (cbo.gov's own site blocks scripted requests; see that file).
 - `observations/*.json` — pre-transformed rows ready to insert into the
   `observation` table, one JSON array per file, each element shaped like
-  `NewObservation` from `@buck/db` (`seriesId`, `periodType`, `periodStart`,
+  `NewObservation` from `@penny/db` (`seriesId`, `periodType`, `periodStart`,
   `periodEnd`, `fiscalYear`, `value` as a decimal string, `publicationTime`
   as an ISO string). Regenerated from `raw/` by
-  `pnpm --filter @buck/ingest run build-fixtures`
+  `pnpm --filter @penny/ingest run build-fixtures`
   (`packages/ingest/src/build-observation-fixtures.ts`) — re-run that after
   changing any parser in `packages/ingest/src/jobs/*` or refreshing
   `raw/`, never hand-edit these files. `packages/db`'s `pnpm seed` picks up

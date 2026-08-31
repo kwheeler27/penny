@@ -10,13 +10,13 @@ importers:
 
   apps/web:
     dependencies:
-      '@buck/db':
+      '@penny/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@buck/registry':
+      '@penny/registry':
         specifier: workspace:*
         version: link:../../packages/registry
-      '@buck/viz':
+      '@penny/viz':
         specifier: workspace:*
         version: link:../../packages/viz
       drizzle-orm:
@@ -59,15 +59,15 @@ importers:
 
   packages/db:
     dependencies:
-      '@buck/registry':
-        specifier: workspace:*
-        version: link:../registry
       '@electric-sql/pglite':
         specifier: ^0.2.17
         version: 0.2.17
       '@neondatabase/serverless':
         specifier: ^0.10.0
         version: 0.10.4
+      '@penny/registry':
+        specifier: workspace:*
+        version: link:../registry
       drizzle-orm:
         specifier: ^0.36.0
         version: 0.36.4(@electric-sql/pglite@0.2.17)(@neondatabase/serverless@0.10.4)(@types/pg@8.11.6)(@types/react@19.2.18)(react@19.2.8)
@@ -90,10 +90,10 @@ importers:
 
   packages/ingest:
     dependencies:
-      '@buck/db':
+      '@penny/db':
         specifier: workspace:*
         version: link:../db
-      '@buck/registry':
+      '@penny/registry':
         specifier: workspace:*
         version: link:../registry
       drizzle-orm:
@@ -143,10 +143,10 @@ importers:
 
   packages/viz:
     dependencies:
-      '@buck/db':
+      '@penny/db':
         specifier: workspace:*
         version: link:../db
-      '@buck/registry':
+      '@penny/registry':
         specifier: workspace:*
         version: link:../registry
       d3-sankey:

@@ -1,12 +1,12 @@
 /**
- * Public data contracts for @buck/viz. Every type here is either imported
- * directly from the frozen @buck/registry / @buck/db contracts, or a thin
+ * Public data contracts for @penny/viz. Every type here is either imported
+ * directly from the frozen @penny/registry / @penny/db contracts, or a thin
  * shape built only from those — this package never invents its own notion
  * of what a series or an observation is. Components consume this data via
  * props; nothing in this package fetches.
  */
-import type { SeriesDef, SeriesId, Magnitude, Unit } from "@buck/registry";
-import type { Observation } from "@buck/db";
+import type { SeriesDef, SeriesId, Magnitude, Unit } from "@penny/registry";
+import type { Observation } from "@penny/db";
 
 export type { SeriesDef, SeriesId, Magnitude, Unit };
 
@@ -64,7 +64,7 @@ export interface FiscalFlowInput {
   readonly deficitSeriesId: SeriesId;
 }
 
-/** Registry lookup the component renders definitions/citations from — passed by the caller (which already holds @buck/registry's SERIES map), never fetched here. */
+/** Registry lookup the component renders definitions/citations from — passed by the caller (which already holds @penny/registry's SERIES map), never fetched here. */
 export type SeriesCatalog = Readonly<Record<string, SeriesDef>>;
 
 export type FlowSide = "receipt" | "outlay";

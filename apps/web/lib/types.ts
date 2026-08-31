@@ -1,12 +1,12 @@
 /**
  * Shared types for the data-access + rendering layer. These describe what a
- * "reading" of a registry series looks like once pulled out of `@buck/db` —
+ * "reading" of a registry series looks like once pulled out of `@penny/db` —
  * the shape every page and the Number primitive is built against.
  */
-import type { SeriesId } from "@buck/registry";
+import type { SeriesId } from "@penny/registry";
 
 /** Mirrors packages/db's periodTypeEnum. Duplicated as a literal union (not
- * imported from @buck/db's pg-core enum) because the enum's `.enumValues` is
+ * imported from @penny/db's pg-core enum) because the enum's `.enumValues` is
  * a runtime array, not a type-level export — see lib/db.ts for the one place
  * that bridges the two. */
 export type PeriodType = "day" | "month" | "fiscal_ytd" | "year";

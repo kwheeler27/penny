@@ -8,10 +8,10 @@
  * (`value: undefined`) and `allowances` is an explicit zero reading
  * (`value: "0"`) — both must disappear from the render, never show as a
  * zero-height ghost. Series definitions/citations come from the REAL
- * @buck/registry catalog, so the demo's detail panel shows genuine
+ * @penny/registry catalog, so the demo's detail panel shows genuine
  * agency/dataset/citation text even though the dollar figures are made up.
  */
-import { SERIES } from "@buck/registry";
+import { SERIES } from "@penny/registry";
 import type { FiscalFlowInput, SeriesCatalog } from "../types";
 
 export const fiscalFlowSeriesCatalog: SeriesCatalog = SERIES;

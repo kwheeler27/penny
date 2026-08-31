@@ -1,12 +1,12 @@
-# Build Prompt — Buck (Phase 1: "The Fiscal Machine")
+# Build Prompt — Penny (Phase 1: "The Fiscal Machine")
 
 This document is self-contained: agents reading it have no access to the
 planning conversation. Read the reference material before designing anything.
 
 ## Mission
 
-Ship the MVP of **Buck** (`kwheeler27/buck`, public repo at
-`/Users/kevinwheeler/projects/buck`): a public web instrument showing where US
+Ship the MVP of **Penny** (`kwheeler27/penny`, public repo at
+`/Users/kevinwheeler/projects/penny`): a public web instrument showing where US
 federal money comes from and where it goes, on live primary data, with every
 number cited. Usable means: a reader lands on the site, sees the current
 fiscal picture (receipts → outlays → deficit) as a living flow visualization,
@@ -15,19 +15,19 @@ number to the agency of record with an as-of date.
 
 ## Reference material (read before designing)
 
-- `/Users/kevinwheeler/projects/buck/CLAUDE.md` — **hard rules; violations
+- `/Users/kevinwheeler/projects/penny/CLAUDE.md` — **hard rules; violations
   are bugs.** Objectivity/citation rules, unit-magnitude rules, revision
   rules, accounting-concept rules, 8GB-RAM constraints.
-- `/Users/kevinwheeler/projects/buck/PLAN.md` — decisions, phases, schema
+- `/Users/kevinwheeler/projects/penny/PLAN.md` — decisions, phases, schema
   outline. Do not relitigate §1 decisions.
-- `/Users/kevinwheeler/projects/buck/docs/MISSION.md` — register and values
+- `/Users/kevinwheeler/projects/penny/docs/MISSION.md` — register and values
   for all narrative copy.
-- `/Users/kevinwheeler/projects/buck/IDEA.md` — pitch + verified data-source
+- `/Users/kevinwheeler/projects/penny/IDEA.md` — pitch + verified data-source
   table (access modes, gotchas).
 - `/Users/kevinwheeler/projects/basin/docs/DESIGN_PRINCIPLES.md` and
   `/Users/kevinwheeler/projects/basin/packages/registry/` — sibling project's
   doctrine and registry-codegen pattern. Borrow the pattern, not the code;
-  Buck's registry is simpler (no basins, no rulebooks).
+  Penny's registry is simpler (no basins, no rulebooks).
 
 ## Stack (fixed — do not substitute)
 
@@ -101,7 +101,7 @@ anything equity.
 
 ## Deliverables & environment notes
 
-- Repo at `/Users/kevinwheeler/projects/buck`. `.env.example` documents
+- Repo at `/Users/kevinwheeler/projects/penny`. `.env.example` documents
   `DATABASE_URL`, `FRED_API_KEY`, `BLS_API_KEY`. README updated with setup,
   run, test, limitations.
 - `main` is branch-protected: all work on `feat/*` branches → PRs. The

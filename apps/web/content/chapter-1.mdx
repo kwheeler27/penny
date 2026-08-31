@@ -72,7 +72,7 @@ web agent may parse it separately; do not move these fields into JSX.
 --------------------------------------------------------------------------------
    A live figure. Self-closing.
 
-   seriesId    string, required. A @buck/registry series id (SERIES_IDS).
+   seriesId    string, required. A @penny/registry series id (SERIES_IDS).
                Build must fail if the id is not in the registry.
    period      required. Maps 1:1 to observation.period_type:
                  "month" | "fiscal_ytd" | "day" | "year"
@@ -175,7 +175,7 @@ this page labeled "fiscal year to date" is counted from October 1 forward.
 
 Most other numbers a reader meets are on calendar years. A fiscal-year total
 and a calendar-year total of the same thing are two different measurements, so
-Buck labels which one it is showing and never adds them together.
+Penny labels which one it is showing and never adds them together.
 
 </Step>
 
@@ -250,7 +250,7 @@ receipts on the basis of collections, outlays on the basis of checks issued,
 transfers sent, or cash paid, and interest on the publicly held debt on an
 accrual basis.<Ref id="mts-report" />
 
-The two will not tie to each other, and Buck never nets one against the other.
+The two will not tie to each other, and Penny never nets one against the other.
 They appear side by side, each labeled with what it measures.
 
 </Aside>
@@ -280,7 +280,7 @@ obligations incurred in earlier ones.<Ref id="gao-glossary" />
 This chapter counts outlays, because the Monthly Treasury Statement counts
 outlays. USASpending.gov counts
 obligations.<Ref id="usaspending-glossary" /> The two answer different
-questions, and their totals will not match. Buck stores them as different
+questions, and their totals will not match. Penny stores them as different
 accounting concepts so nothing can quietly add them together.
 
 </Step>
@@ -364,7 +364,7 @@ fiscal year.<Ref id="interest-expense" />
 - Net interest, an outlay: <Num seriesId="fiscal.mts.outlays.category.net_interest" period="fiscal_ytd" />
 - Interest expense on the public debt: <Num seriesId="fiscal.debt.interest_expense_total" period="fiscal_ytd" />
 
-They are computed differently and they do not match. Buck holds them as two
+They are computed differently and they do not match. Penny holds them as two
 series flagged as not comparable, and the site will not chart them on one axis
 or add them together. The reason is printed wherever both appear.
 
@@ -412,7 +412,7 @@ financing — and everything else.<Ref id="gao-glossary" /> The Monthly Treasury
 Statement reports these in a table of its own.<Ref id="mts-report" />
 
 So the change in the debt over a month and the deficit for that month are
-related numbers, not the same number, and Buck will not print one as the other.
+related numbers, not the same number, and Penny will not print one as the other.
 
 </Step>
 
@@ -435,7 +435,7 @@ it explains a light month.<Ref id="mts-report" />
 
 Comparing a month to the same month a year earlier removes some of this;
 comparing fiscal year to date against the same span of the prior year removes
-more. Neither removes all of it, and Buck says which comparison it is making.
+more. Neither removes all of it, and Penny says which comparison it is making.
 
 </Step>
 
@@ -472,13 +472,13 @@ financing.<Ref id="gao-glossary" /> They are the subject of a later chapter.
 
 **What was promised versus what was paid.** This page counts outlays.
 Obligations — the commitments behind them — are reported on
-USASpending.gov<Ref id="usaspending-glossary" /> and join Buck only behind a
+USASpending.gov<Ref id="usaspending-glossary" /> and join Penny only behind a
 stated bridge between the two concepts.
 
 **What happens next.** The Congressional Budget Office publishes baseline
 projections of federal spending, revenues, deficits and debt, built on the
 assumption that current law generally stays as it is, in its recurring *Budget
-and Economic Outlook*.<Ref id="cbo-baseline" /> Where those appear on Buck they
+and Economic Outlook*.<Ref id="cbo-baseline" /> Where those appear on Penny they
 are labeled as CBO's projections, stored under a separate accounting concept,
 and never summed or charted with observed Treasury figures.
 

@@ -1,8 +1,8 @@
-// Public surface of @buck/viz. The living Sankey + scrollytelling
+// Public surface of @penny/viz. The living Sankey + scrollytelling
 // primitives (ORCHESTRATION_PROMPT.md Core flow 4) — bespoke D3 + SVG
 // React components, no chart-library dependency. Every number this
-// package renders arrives via props (typed against @buck/registry /
-// @buck/db); nothing here fetches.
+// package renders arrives via props (typed against @penny/registry /
+// @penny/db); nothing here fetches.
 
 // ---- types ----
 export type {

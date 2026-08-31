@@ -2,15 +2,15 @@
  * Integration tests against a real (in-memory PGlite) database — the
  * success path for every query in lib/series-data.ts, plus lib/db.ts's
  * failure path. `getDb()` resolves to a fresh in-memory PGlite under
- * vitest (see @buck/db's client.ts doc comment: `process.env.VITEST` is
+ * vitest (see @penny/db's client.ts doc comment: `process.env.VITEST` is
  * set by the test runner), scoped to this test file's module instance —
  * seeded once in beforeAll and read (never mutated) by every `it()` below.
  */
 import { beforeAll, describe, expect, it } from "vitest";
-import { getDb, observation, seedSeriesCatalog } from "@buck/db";
+import { getDb, observation, seedSeriesCatalog } from "@penny/db";
 import { ensureMigrated, safely } from "../lib/db";
 import { getLatestPeriodEnd, getLatestReading, getMtsFlow, getReadingsAt } from "../lib/series-data";
-import type { SeriesId } from "@buck/registry";
+import type { SeriesId } from "@penny/registry";
 
 const DEBT_ID = "fiscal.debt.total_public_debt_outstanding" as SeriesId;
 const CPI_ID = "price.cpi_u.all_items" as SeriesId;

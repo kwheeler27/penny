@@ -16,8 +16,8 @@ import { fiscalMonthToCalendar, fiscalYearStart, firstDayOfMonth, lastDayOfMonth
 import { decimalEquals, decimalSubtract, decimalSum } from "../lib/decimal";
 import { upsertObservations, type UpsertManySummary } from "../lib/upsert";
 import type { RawObservation } from "../lib/types";
-import type { SeriesId } from "@buck/registry";
-import { getDb, type BuckDb } from "@buck/db";
+import type { SeriesId } from "@penny/registry";
+import { getDb, type PennyDb } from "@penny/db";
 
 // ---------------------------------------------------------------------------
 // Category label maps — exact classification_desc strings verified live
@@ -367,7 +367,7 @@ export interface MtsMonthlyJobResult {
 }
 
 /** Fetch the latest MTS report (Tables 1, 4, 9) and upsert every observation. Requests run sequentially, not in parallel, per the "respect rate limits" rule. Throws if any reconciliation check fails — a component/total mismatch is a data-integrity bug, not a warning. */
-export async function runMtsMonthlyJob(db: BuckDb): Promise<MtsMonthlyJobResult> {
+export async function runMtsMonthlyJob(db: PennyDb): Promise<MtsMonthlyJobResult> {
   const recordDate = await fetchLatestRecordDate(FISCALDATA_PATHS.mtsTable1);
 
   const table1Json = await fetchFiscalDataForDate(FISCALDATA_PATHS.mtsTable1, recordDate);

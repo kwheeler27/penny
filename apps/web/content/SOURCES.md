@@ -183,7 +183,7 @@ Receipts.
 **Caveat.** GAO-05-734SP is dated 2005 and its Appendix IV reproduces the
 functional structure as it stood in the fiscal 2006 budget. GAO notes the
 structure is "relatively stable" but changed from time to time after OMB
-consults the Appropriations and Budget Committees. The function names Buck uses
+consults the Appropriations and Budget Committees. The function names Penny uses
 match the lines Treasury publishes today; the descriptive text should be
 re-checked against a current OMB Circular A-11 or Analytical Perspectives
 before Chapter 1 leaves draft.
@@ -219,7 +219,7 @@ seasonally adjusted. Public API v2:
 <https://api.bls.gov/publicAPI/v2/timeseries/data/>
 
 **Supports.** The identity, cadence and shape of the CPI-U all-items series
-Buck stores.
+Penny stores.
 
 **Caveat.** `bls.gov` blocks automated retrieval (it returns an "Access Denied"
 bot notice to non-browser clients), so the descriptive pages were not fetched

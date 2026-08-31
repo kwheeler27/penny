@@ -14,7 +14,7 @@ import type { FiscalFlowInput, SeriesCatalog, FlowDetail, FiscalFlowLink, Fiscal
 
 export interface FiscalSankeyProps {
   readonly input: FiscalFlowInput;
-  /** The @buck/registry SERIES map (or a subset covering every seriesId referenced by `input`) — the component never fetches or imports the registry's data itself. */
+  /** The @penny/registry SERIES map (or a subset covering every seriesId referenced by `input`) — the component never fetches or imports the registry's data itself. */
   readonly seriesCatalog: SeriesCatalog;
   /** Citation access-date (YYYY-MM-DD). Passed in, never computed with `new Date()` inside the component, so rendering stays deterministic/SSR-safe. */
   readonly accessDate: string;

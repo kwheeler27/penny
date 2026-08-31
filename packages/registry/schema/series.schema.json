@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/kwheeler27/buck/packages/registry/schema/series.schema.json",
-  "title": "Buck series definition",
+  "$id": "https://github.com/kwheeler27/penny/packages/registry/schema/series.schema.json",
+  "title": "Penny series definition",
   "description": "Single source of truth for one data series. Everything downstream — the Postgres `series` table, TS/Zod contracts, citation rendering in apps/web — is generated from files validating against this schema. A number may only reach a page through a series id defined here (CLAUDE.md hard rule: objectivity is load-bearing).",
   "type": "object",
   "additionalProperties": false,

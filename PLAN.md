@@ -1,4 +1,4 @@
-# Buck — Plan
+# Penny — Plan
 
 **Date:** 2026-08-29
 **Goal:** A public, visually rich instrument that makes the US dollar system
@@ -14,7 +14,7 @@ pitch and landscape research in `IDEA.md`; mission in `docs/MISSION.md`.
 |---|---|---|
 | App stack | **Next.js (App Router) + TypeScript on Vercel** | Standing preference; Basin-proven for a public data instrument; ISR fits data that updates daily/monthly, not per-request. |
 | Database | **Neon Postgres + Drizzle ORM** | Standing default backend shape; serverless-friendly; free tier sufficient for series data at this scale. |
-| Ingest | **All-TypeScript jobs on scheduled GitHub Actions → Neon** (Kevin's call, 2026-08-29, over Basin-style Python/Dagster) | Buck's sources are clean JSON REST APIs — no geospatial, no simulation model. One language repo-wide; Zod validates every API boundary. |
+| Ingest | **All-TypeScript jobs on scheduled GitHub Actions → Neon** (Kevin's call, 2026-08-29, over Basin-style Python/Dagster) | Penny's sources are clean JSON REST APIs — no geospatial, no simulation model. One language repo-wide; Zod validates every API boundary. |
 | Series catalog | **Registry pattern borrowed from Basin, simplified**: YAML catalog → generated TS types + citation objects | The objectivity rule is mechanical, not aspirational: a number can only render through the registry, which forces source/as-of/unit/concept onto every displayed figure. |
 | Visualization | **Bespoke D3 + SVG React components** (no heavyweight chart-lib lock-in) | The centerpiece (living Sankey) and instruments are custom forms; D3 gives full control; dataviz discipline applied at build time. |
 | Auth / accounts | **None** | Public read-only instrument. Zero-signup infrastructure; nothing personal stored. |
@@ -22,7 +22,7 @@ pitch and landscape research in `IDEA.md`; mission in `docs/MISSION.md`.
 | Fiscal data spine | **Monthly Treasury Statement (MTS) via FiscalData** as the authoritative receipts/outlays/deficit source; USASpending agency drill-down deferred | MTS is the government's own monthly income statement, revised and audited; USASpending measures obligations (a different accounting concept) and joins later behind a declared bridge. |
 | Fed Board data | **Via FRED series IDs only** | The Board is retiring its legacy Data Download Program (verified 2026-08-29). |
 | Equity data | **Deferred with a gate**: no stocks chapter ships before a documented exception policy for commercially licensed index data | "Primary sources only" has no clean answer for stock prices; Z.1 (ownership) and Shiller's public dataset cover part of it. |
-| Repo | **`kwheeler27/buck`, public, Apache-2.0, `main` protected** | Done 2026-08-29. Openness is load-bearing for a trust-first instrument. |
+| Repo | **`kwheeler27/penny`, public, Apache-2.0, `main` protected** | Done 2026-08-29. Openness is load-bearing for a trust-first instrument. |
 
 ## 2. Feature spec source
 
@@ -136,5 +136,5 @@ db/fixtures        — real API response snapshots used as test fixtures and see
   (twice-yearly baseline updates); treat staleness as a displayed fact.
 - **Common-infra extraction** — Kevin plans a separate effort to pull
   reusable pieces (registry codegen, rigor-contract schema) out of
-  Basin/Buck; Buck borrows doctrine now and refactors onto shared infra
+  Basin/Penny; Penny borrows doctrine now and refactors onto shared infra
   later rather than blocking on it.

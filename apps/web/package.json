@@ -1,5 +1,5 @@
 {
-  "name": "@buck/web",
+  "name": "@penny/web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,9 +11,9 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@buck/db": "workspace:*",
-    "@buck/registry": "workspace:*",
-    "@buck/viz": "workspace:*",
+    "@penny/db": "workspace:*",
+    "@penny/registry": "workspace:*",
+    "@penny/viz": "workspace:*",
     "drizzle-orm": "0.36.4",
     "next": "16.3.3",
     "react": "19.2.8",

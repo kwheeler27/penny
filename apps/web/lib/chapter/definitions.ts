@@ -1,7 +1,7 @@
 /**
  * Loads content/definitions.yaml's `concepts:` map — the reader-facing
  * plain-language explanation for a `<Term id="concept.*">` marker that is
- * NOT a @buck/registry series id. Before this, `concept.*` ids fell through
+ * NOT a @penny/registry series id. Before this, `concept.*` ids fell through
  * to a generic placeholder string; this file makes the actual authored,
  * sourced text (definitions.yaml's `plain`/`watch_for`) reachable.
  *

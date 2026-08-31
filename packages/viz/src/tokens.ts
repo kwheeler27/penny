@@ -1,5 +1,5 @@
 /**
- * Token layer for @buck/viz — one place light/dark values live, consumed
+ * Token layer for @penny/viz — one place light/dark values live, consumed
  * only by role from components (dataviz skill: categorical hues assigned
  * by the job they do, never cycled; validated with
  * scripts/validate_palette.js — blue/orange/aqua as a 3-slot categorical
@@ -12,7 +12,7 @@
  * status/alert color: CLAUDE.md's neutral-register rule forbids editorial
  * color, and "the deficit is red" is exactly that kind of editorializing.
  */
-export const FISCAL_SANKEY_CLASS = "buck-fiscal-sankey";
+export const FISCAL_SANKEY_CLASS = "penny-fiscal-sankey";
 
 export const fiscalSankeyStyleTag = `
 .${FISCAL_SANKEY_CLASS} {

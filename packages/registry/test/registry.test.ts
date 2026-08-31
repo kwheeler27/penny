@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { SERIES, SERIES_IDS, getSeries, citationFor, incomparabilityReason } from "../src/index";
 
-describe("@buck/registry generated catalog", () => {
+describe("@penny/registry generated catalog", () => {
   it("seeds every Phase 1 series family", () => {
     // Not an exhaustive list — a sample from each family, so this test
     // fails loudly if codegen silently drops a whole branch of series/**.

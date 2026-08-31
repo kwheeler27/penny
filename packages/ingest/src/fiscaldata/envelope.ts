@@ -6,7 +6,7 @@
  * directory).
  *
  * FiscalData returns every field as a string, including numeric ones — this
- * is a *feature* for Buck: it means a value never round-trips through a JS
+ * is a *feature* for Penny: it means a value never round-trips through a JS
  * float on the way in. Ingest jobs pass these strings straight through to
  * Postgres `numeric` columns; nothing in this package parses them to
  * `number`.

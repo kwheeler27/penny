@@ -4,7 +4,7 @@
  * FiscalFlowGraph. Split out from the component so it is directly
  * unit-testable without rendering anything.
  *
- * Every category and balancing node cites a real @buck/registry series
+ * Every category and balancing node cites a real @penny/registry series
  * (never invented copy): categories cite themselves; the hub cites the
  * receipts-total series (same MTS Table 1 the outlays total comes from);
  * the balancing node cites fiscal.mts.deficit.total, whose own definition

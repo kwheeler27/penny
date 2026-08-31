@@ -10,11 +10,11 @@
  * magnitude — and that conversion happens here, ONCE, at the presentation
  * boundary, via exact decimal-string arithmetic (shiftDecimalRight,
  * roundDecimalString), never a naive `parseFloat(value) * 1e6`. A stray
- * (@buck/viz's <FiscalSankey> does its own equivalent exact-decimal
+ * (@penny/viz's <FiscalSankey> does its own equivalent exact-decimal
  * arithmetic for the flow diagram — see packages/viz/src/money/decimal.ts —
  * so no float boundary is needed on this side of that integration either.)
  */
-import type { Magnitude } from "@buck/registry";
+import type { Magnitude } from "@penny/registry";
 import type { PeriodType } from "./types";
 
 const MONTH_NAMES = [
@@ -59,7 +59,7 @@ export function todayIso(): string {
  * Shift a decimal string's point right by `places` digits — exact string
  * arithmetic, equivalent to multiplying by 10^places without ever coercing
  * through a JS float. `places` is always >= 0 for this app (every
- * @buck/registry magnitude is >= "ones"), so this never needs to shift left.
+ * @penny/registry magnitude is >= "ones"), so this never needs to shift left.
  */
 export function shiftDecimalRight(value: string, places: number): string {
   const trimmed = value.trim();
@@ -190,7 +190,7 @@ function parseYmd(dateStr: string): { y: string; mo: number; d: number } | null 
 
 /** "2026-08-28" -> "August 28, 2026". Falls back to the raw string for
  * anything that isn't a plain YYYY-MM-DD (defensive; should never happen for
- * a `date`-column value coming out of @buck/db). */
+ * a `date`-column value coming out of @penny/db). */
 export function formatDateHuman(dateStr: string): string {
   const parsed = parseYmd(dateStr);
   if (!parsed) return dateStr;

@@ -27,7 +27,7 @@ const fiscalDataMetaSample = {
   "total-pages": 1,
 };
 
-describe("@buck/ingest Zod schemas (FiscalData)", () => {
+describe("@penny/ingest Zod schemas (FiscalData)", () => {
   it("parses a live MTS Table 4 (receipts) row, net-of-refunds included", () => {
     const sample = {
       data: [
@@ -266,7 +266,7 @@ describe("@buck/ingest Zod schemas (FiscalData)", () => {
   });
 });
 
-describe("@buck/ingest Zod schemas (BLS)", () => {
+describe("@penny/ingest Zod schemas (BLS)", () => {
   it("parses a live BLS v1 CPI-U timeseries response", () => {
     const sample = {
       status: "REQUEST_SUCCEEDED",

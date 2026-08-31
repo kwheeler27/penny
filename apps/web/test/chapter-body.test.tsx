@@ -4,12 +4,12 @@
  * the narrative agent authored chapter-1.mdx in (Num/Ref/Term/Step/Aside/
  * SankeyStage) — see lib/chapter/parse.ts's header comment. No MTS
  * observations are seeded here on purpose: this test exercises the
- * pipeline's wiring and gap-safety, not @buck/viz's own FiscalSankey
+ * pipeline's wiring and gap-safety, not @penny/viz's own FiscalSankey
  * rendering (covered by that package's own test suite).
  */
 import { beforeAll, describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
-import { getDb, seedSeriesCatalog } from "@buck/db";
+import { getDb, seedSeriesCatalog } from "@penny/db";
 import ChapterBody from "../components/chapter-body";
 import { parseChapter } from "../lib/chapter/parse";
 import { ensureMigrated } from "../lib/db";

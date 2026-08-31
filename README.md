@@ -1,8 +1,8 @@
-# Buck
+# Penny
 
-**The buck stops here.**
+**Where every penny goes.**
 
-Buck is a public instrument that makes the US dollar system legible: where
+Penny is a public instrument that makes the US dollar system legible: where
 federal money comes from, where every dollar of spending goes, how the
 Treasury's and the Federal Reserve's plumbing actually works, and how all of
 it transmits to markets — bonds, stocks, and the rates people pay.
@@ -10,7 +10,7 @@ it transmits to markets — bonds, stocks, and the rates people pay.
 Built entirely on primary sources — Treasury FiscalData, TreasuryDirect, the
 Federal Reserve (via FRED), the NY Fed, OFR, BLS, CBO — with every number
 traceable to the agency of record. Mechanics are stated as facts with
-citations; interpretations are attributed, never asserted in Buck's voice.
+citations; interpretations are attributed, never asserted in Penny's voice.
 
 **Status: Phase 1 build in progress.** See [`IDEA.md`](IDEA.md) for the
 confirmed pitch, [`docs/MISSION.md`](docs/MISSION.md) for the mission, and
@@ -41,14 +41,12 @@ PGlite/Neon factory), `packages/ingest` (source API Zod schemas + jobs),
 snapshots used as test fixtures and seed data). See `PLAN.md` §4 for the
 full architecture and the correctness rules the schema encodes.
 
-**Known gaps as of the contracts scaffold:** `packages/ingest` has response
-schemas for MTS receipts/outlays, Debt to the Penny, and the Daily Treasury
-Statement operating cash balance, plus BLS CPI — no jobs yet, and no schema
-yet for interest expense or the CBO baseline CSV. Every series' `magnitude`
-(dollars vs. millions vs. billions, as published) is a best-effort reading
-of documented source conventions and needs verifying against a live API
-sample before any ingest job goes live — see the `notes` field in the
-relevant `packages/registry/series/**/*.yaml` files.
+Ingest jobs are live for all Phase 1 sources (MTS, Debt to the Penny,
+DTS/TGA, interest expense, BLS CPI, CBO baseline), with reconciliation
+tests that fail CI if MTS categories don't sum to the published totals
+exactly. Every series' `magnitude` is verified against live API samples —
+notably, FiscalData's MTS endpoints return whole dollars even where the
+printed statement says "$ millions."
 
 ## License
 

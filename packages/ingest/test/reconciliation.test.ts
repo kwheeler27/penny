@@ -7,7 +7,7 @@
  * files) — nothing is hand-invented.
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { createDb, runMigrations, seedSeriesCatalog } from "@buck/db";
+import { createDb, runMigrations, seedSeriesCatalog } from "@penny/db";
 import {
   mtsSummaryResponseSchema,
   mtsReceiptsResponseSchema,

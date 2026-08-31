@@ -23,7 +23,7 @@ import { blsResponseSchema, CPI_U_ALL_ITEMS_SERIES_ID, type BlsSeriesDataPoint }
 import { firstDayOfMonth, lastDayOfMonth } from "../lib/period";
 import { upsertObservations, type UpsertManySummary } from "../lib/upsert";
 import type { RawObservation } from "../lib/types";
-import { getDb, type BuckDb } from "@buck/db";
+import { getDb, type PennyDb } from "@penny/db";
 
 const MONTH_PERIOD_RE = /^M(0[1-9]|1[0-2])$/;
 
@@ -85,7 +85,7 @@ async function fetchBlsCpi(startYear: string, endYear: string): Promise<unknown>
 }
 
 /** Live job: pulls the last 2 calendar years every run (well past the ~13-month window BLS ever revises), relying on upsertObservation's value-compare to make already-known months a no-op. */
-export async function runCpiMonthlyJob(db: BuckDb): Promise<CpiMonthlyJobResult> {
+export async function runCpiMonthlyJob(db: PennyDb): Promise<CpiMonthlyJobResult> {
   const now = new Date();
   const endYear = String(now.getUTCFullYear());
   const startYear = String(now.getUTCFullYear() - 1);

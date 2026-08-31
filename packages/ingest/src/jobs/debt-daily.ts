@@ -12,7 +12,7 @@ import { debtToPennyResponseSchema, type DebtToPennyRecord } from "../fiscaldata
 import { fetchFiscalDataRange, FISCALDATA_PATHS } from "../lib/fiscaldata-client";
 import { upsertObservations, type UpsertManySummary } from "../lib/upsert";
 import type { RawObservation } from "../lib/types";
-import { getDb, type BuckDb } from "@buck/db";
+import { getDb, type PennyDb } from "@penny/db";
 
 /**
  * publication_time: Debt to the Penny publishes once per business day and
@@ -45,7 +45,7 @@ export interface DebtDailyJobResult {
 }
 
 /** Live job: pulls the last 14 days every run (cheap, and self-healing if a run was ever missed) rather than just "today", then relies on lib/upsert.ts's value-compare idempotency so re-covering already-ingested days is a no-op. */
-export async function runDebtDailyJob(db: BuckDb, lookbackDays = 14): Promise<DebtDailyJobResult> {
+export async function runDebtDailyJob(db: PennyDb, lookbackDays = 14): Promise<DebtDailyJobResult> {
   const toDate = new Date();
   const fromDate = new Date(toDate.getTime() - lookbackDays * 24 * 60 * 60 * 1000);
   const iso = (d: Date) => d.toISOString().slice(0, 10);

@@ -1,19 +1,19 @@
 import { describe, it, expect } from "vitest";
 import { eq } from "drizzle-orm";
-import { createDb, type BuckDb } from "../src/client";
+import { createDb, type PennyDb } from "../src/client";
 import { runMigrations } from "../src/migrate";
 import { seedSeriesCatalog, seedObservationFixtures } from "../src/seed";
 import { series, observation } from "../src/schema";
 
 /** Fresh, isolated, in-memory PGlite instance, migrated and ready. */
-async function freshDb(): Promise<BuckDb> {
+async function freshDb(): Promise<PennyDb> {
   const db = createDb();
   await runMigrations(db);
   return db;
 }
 
-describe("@buck/db schema + migrations (PGlite)", () => {
-  it("migrates cleanly and seeds the full @buck/registry catalog", async () => {
+describe("@penny/db schema + migrations (PGlite)", () => {
+  it("migrates cleanly and seeds the full @penny/registry catalog", async () => {
     const db = await freshDb();
     const count = await seedSeriesCatalog(db);
     expect(count).toBeGreaterThan(30);

@@ -2,7 +2,7 @@ import path from "node:path";
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // @buck/db's PGlite (dev/local) branch loads a WASM Postgres engine via
+  // @penny/db's PGlite (dev/local) branch loads a WASM Postgres engine via
   // import.meta.url-relative asset paths — Turbopack's bundling of that
   // pattern for the Node.js server target produces a path Node's fs APIs
   // reject ("path argument must be of type string... Received an instance

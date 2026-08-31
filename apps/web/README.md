@@ -1,7 +1,7 @@
-# `@buck/web`
+# `@penny/web`
 
-The Buck site: Next.js App Router, server components reading directly from
-`@buck/db` (PGlite locally, Neon via `DATABASE_URL` in prod). See the repo
+The Penny site: Next.js App Router, server components reading directly from
+`@penny/db` (PGlite locally, Neon via `DATABASE_URL` in prod). See the repo
 root `README.md` and `PLAN.md` for the overall architecture; this file is
 about this package specifically.
 
@@ -19,7 +19,7 @@ about this package specifically.
 ## The core primitive: `RegistryFigure`
 
 `components/registry-figure.tsx` is the only way a number reaches a page.
-Its `id` prop is typed as `@buck/registry`'s generated `SeriesId` union, so
+Its `id` prop is typed as `@penny/registry`'s generated `SeriesId` union, so
 passing anything that isn't a real registry series is a TypeScript compile
 error everywhere it's used directly in `.tsx`. It fetches its own reading
 (an async Server Component), formats it per the series' published
@@ -44,7 +44,7 @@ what `content/chapter-1.mdx` actually uses:
 - `<Step id="..." stage="...">…</Step>` — a scroll section (deep-linkable by
   `id`). Can nest an `<Aside id="..." title="...">…</Aside>`.
 - `<Num seriesId="..." period="..." />` — the only way a number reaches the
-  chapter. `seriesId` must be a real `@buck/registry` id or it renders a
+  chapter. `seriesId` must be a real `@penny/registry` id or it renders a
   visible error, never a silent number. `period` maps to `observation.
   period_type`.
 - `<Term id="...">…</Term>` — a defined-term marker; its tooltip is the
@@ -55,7 +55,7 @@ what `content/chapter-1.mdx` actually uses:
 
 **Known, documented gaps** (not silently assumed away):
 - `<SankeyStage>`'s scroll-synced diagram emphasis isn't implemented —
-  `@buck/viz`'s `FiscalSankey` has no per-node focus/emphasis prop yet. The
+  `@penny/viz`'s `FiscalSankey` has no per-node focus/emphasis prop yet. The
   living Sankey renders once, statically, near the top of the chapter page
   instead of a pinned graphic that changes state per step.
 - `<Term>` doesn't yet read `content/definitions.yaml`'s fuller "plain"
@@ -72,7 +72,7 @@ what `content/chapter-1.mdx` actually uses:
 formatting/parsing logic with no DB, plus integration tests against a real
 in-memory PGlite (seeded per test file in `beforeAll` — see `test/series-
 data.test.ts`'s header comment on why state is shared within one file but
-not across files). `@buck/viz`'s own `FiscalSankey` rendering is exercised
+not across files). `@penny/viz`'s own `FiscalSankey` rendering is exercised
 by that package's test suite, not duplicated here — this package's tests
 stop at "does apps/web correctly assemble the props and decide gap-vs-render."
 

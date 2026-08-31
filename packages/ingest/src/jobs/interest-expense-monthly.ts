@@ -16,7 +16,7 @@ import { fetchFiscalDataRange, FISCALDATA_PATHS } from "../lib/fiscaldata-client
 import { decimalSum } from "../lib/decimal";
 import { upsertObservations, type UpsertManySummary } from "../lib/upsert";
 import type { RawObservation } from "../lib/types";
-import { getDb, type BuckDb } from "@buck/db";
+import { getDb, type PennyDb } from "@penny/db";
 
 interface MonthGroup {
   recordDate: string;
@@ -85,7 +85,7 @@ export interface InterestExpenseMonthlyJobResult {
 }
 
 /** Live job: last 400 days is enough to always include at least the most recently published month, with margin for the dataset's own lag. */
-export async function runInterestExpenseMonthlyJob(db: BuckDb, lookbackDays = 400): Promise<InterestExpenseMonthlyJobResult> {
+export async function runInterestExpenseMonthlyJob(db: PennyDb, lookbackDays = 400): Promise<InterestExpenseMonthlyJobResult> {
   const toDate = new Date();
   const fromDate = new Date(toDate.getTime() - lookbackDays * 24 * 60 * 60 * 1000);
   const iso = (d: Date) => d.toISOString().slice(0, 10);

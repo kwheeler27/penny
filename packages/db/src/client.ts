@@ -17,9 +17,9 @@ import * as schema from "./schema";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 // packages/db/src -> repo root is three levels up.
-const DEFAULT_PGLITE_DATA_DIR = join(HERE, "..", "..", "..", ".pglite", "buck");
+const DEFAULT_PGLITE_DATA_DIR = join(HERE, "..", "..", "..", ".pglite", "penny");
 
-export type BuckDb = PgliteDatabase<typeof schema> | NeonHttpDatabase<typeof schema>;
+export type PennyDb = PgliteDatabase<typeof schema> | NeonHttpDatabase<typeof schema>;
 
 export interface CreateDbOptions {
   /** Neon connection string. Defaults to process.env.DATABASE_URL. */
@@ -38,7 +38,7 @@ export interface CreateDbOptions {
  * use this directly only when you need an isolated instance (tests, or a
  * script that must not share the process-wide singleton).
  */
-export function createDb(options: CreateDbOptions = {}): BuckDb {
+export function createDb(options: CreateDbOptions = {}): PennyDb {
   const url = options.databaseUrl ?? process.env.DATABASE_URL;
   if (url) {
     return drizzleNeon(neon(url), { schema });
@@ -51,21 +51,21 @@ export function createDb(options: CreateDbOptions = {}): BuckDb {
   return drizzlePglite(new PGlite(options.pgliteDataDir), { schema });
 }
 
-let cached: BuckDb | undefined;
+let cached: PennyDb | undefined;
 
 /**
  * Process-wide memoized db handle, chosen once by env at first call.
  *
  * Unlike `createDb()` (which defaults to an in-memory, thrown-away PGlite —
  * exactly right for test isolation), `getDb()` defaults an unset
- * `DATABASE_URL` to a file-backed PGlite under `.pglite/buck` at the repo
+ * `DATABASE_URL` to a file-backed PGlite under `.pglite/penny` at the repo
  * root, so `pnpm seed` today and `next dev` tomorrow see the same data
  * instead of each getting a fresh empty database. Vitest sets
  * `process.env.VITEST` in every worker; a test that wants `getDb()`'s
  * singleton behavior specifically (rather than `createDb()` directly) still
  * gets isolated in-memory PGlite, never the shared on-disk one.
  */
-export function getDb(): BuckDb {
+export function getDb(): PennyDb {
   if (!cached) {
     // createDb() checks databaseUrl/DATABASE_URL first and ignores
     // pgliteDataDir entirely when Neon applies, so it's safe to always pass

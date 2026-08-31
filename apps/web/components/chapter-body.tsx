@@ -11,7 +11,7 @@
  * foot of its own output; an id with no SOURCES.md entry is a visible error,
  * never a silently-accepted typo. `<Term id="concept.*">` resolves against
  * content/definitions.yaml's `concepts:` map (lib/chapter/definitions.ts); a
- * real @buck/registry series id keeps using the registry's own definition.
+ * real @penny/registry series id keeps using the registry's own definition.
  *
  * Async because RegistryFigure (behind every `<Num>`) is itself an async
  * Server Component doing its own DB read — every nested async call is
@@ -22,7 +22,7 @@
  * WEB agent handoff report for the concrete failure this avoids.
  */
 import { Fragment, type ReactNode } from "react";
-import { getSeries, type SeriesId } from "@buck/registry";
+import { getSeries, type SeriesId } from "@penny/registry";
 import RegistryFigure from "./registry-figure";
 import SankeyEmbed from "./sankey-embed";
 import { getSourceEntry } from "@/lib/chapter/sources";
@@ -94,7 +94,7 @@ async function renderEmbed(embed: EmbedToken, key: string): Promise<ReactNode> {
 }
 
 /** `<Term id="...">…</Term>` — a defined-term marker. When `id` is itself a
- * @buck/registry series id, its `definition` (already in hand, no extra
+ * @penny/registry series id, its `definition` (already in hand, no extra
  * fetch needed) becomes the hover/title text — the registry stays the
  * single source of truth for series semantics. A `concept.*` id instead
  * resolves against content/definitions.yaml's `concepts:` map, the

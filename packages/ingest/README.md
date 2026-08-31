@@ -1,4 +1,4 @@
-# `@buck/ingest`
+# `@penny/ingest`
 
 TypeScript ingest jobs for every Phase 1 data source (PLAN.md §3), run by
 scheduled GitHub Actions (`.github/workflows/ingest-*.yml`) or by hand via
@@ -36,19 +36,19 @@ the PR description) for a full account of what was found and fixed.
 ## Commands
 
 ```sh
-pnpm --filter @buck/ingest run typecheck
-pnpm --filter @buck/ingest run test              # vitest run — schemas, decimal math, parsers, reconciliation, idempotency
-pnpm --filter @buck/ingest run build-fixtures     # regenerate db/fixtures/observations/*.json
-pnpm --filter @buck/ingest run ingest:mts         # live: MTS receipts/outlays/deficit
-pnpm --filter @buck/ingest run ingest:debt        # live: Debt to the Penny
-pnpm --filter @buck/ingest run ingest:tga         # live: TGA closing balance
-pnpm --filter @buck/ingest run ingest:interest    # live: interest expense
-pnpm --filter @buck/ingest run ingest:cpi         # live: BLS CPI-U
-pnpm --filter @buck/ingest run ingest:cbo         # batch: CBO baseline deficit (from the committed CSV, not live)
+pnpm --filter @penny/ingest run typecheck
+pnpm --filter @penny/ingest run test              # vitest run — schemas, decimal math, parsers, reconciliation, idempotency
+pnpm --filter @penny/ingest run build-fixtures     # regenerate db/fixtures/observations/*.json
+pnpm --filter @penny/ingest run ingest:mts         # live: MTS receipts/outlays/deficit
+pnpm --filter @penny/ingest run ingest:debt        # live: Debt to the Penny
+pnpm --filter @penny/ingest run ingest:tga         # live: TGA closing balance
+pnpm --filter @penny/ingest run ingest:interest    # live: interest expense
+pnpm --filter @penny/ingest run ingest:cpi         # live: BLS CPI-U
+pnpm --filter @penny/ingest run ingest:cbo         # batch: CBO baseline deficit (from the committed CSV, not live)
 ```
 
 Every `ingest:*` live command needs `DATABASE_URL` set (Neon) — with it
-unset they write to the local file-backed PGlite at `.pglite/buck`, same as
+unset they write to the local file-backed PGlite at `.pglite/penny`, same as
 `pnpm seed`.
 
 ## Live-verified corrections vs. the original registry/schema assumptions

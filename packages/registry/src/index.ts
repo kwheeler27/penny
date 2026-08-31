@@ -1,4 +1,4 @@
-// Public surface of @buck/registry. Downstream packages (db seed, ingest,
+// Public surface of @penny/registry. Downstream packages (db seed, ingest,
 // apps/web) import from here — never reach into src/generated directly, so
 // the generated module can be regenerated freely without churning imports.
 export {

@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <div className="page">
       <div className="prose-width">
-        <h1>The buck stops here.</h1>
+        <h1>The penny stops here.</h1>
         <p className="page-lede">
-          Buck makes the US dollar system legible: where federal money comes from, where every dollar of spending
+          Penny makes the US dollar system legible: where federal money comes from, where every dollar of spending
           goes, how the Treasury&apos;s and the Federal Reserve&apos;s plumbing works, and how it transmits to
           markets and the rates people pay. Built entirely on primary sources, with every number traceable to the
           agency of record.
@@ -40,7 +40,7 @@ export default function Home() {
           </Link>
           <Link href="/data" className="tile">
             <span className="tile-label">Data</span>
-            <p>Every series Buck uses: the agency, the dataset, the unit, the definition.</p>
+            <p>Every series Penny uses: the agency, the dataset, the unit, the definition.</p>
           </Link>
         </div>
       </div>

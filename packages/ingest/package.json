@@ -1,5 +1,5 @@
 {
-  "name": "@buck/ingest",
+  "name": "@penny/ingest",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -20,8 +20,8 @@
     "ingest:cbo": "tsx src/jobs/cbo-baseline.ts"
   },
   "dependencies": {
-    "@buck/db": "workspace:*",
-    "@buck/registry": "workspace:*",
+    "@penny/db": "workspace:*",
+    "@penny/registry": "workspace:*",
     "drizzle-orm": "^0.36.0",
     "zod": "^3.23.0"
   },

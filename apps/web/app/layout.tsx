@@ -22,8 +22,8 @@ const sourceSerif = Source_Serif_4({
 
 export const metadata: Metadata = {
   title: {
-    default: "Buck — the US dollar system, made legible",
-    template: "%s · Buck",
+    default: "Penny — the US dollar system, made legible",
+    template: "%s · Penny",
   },
   description:
     "A public instrument that makes the US dollar system legible: where federal money comes from, where it goes, and how it transmits to markets — every number cited to the agency of record.",

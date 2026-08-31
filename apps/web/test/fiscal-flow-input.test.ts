@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { toFiscalFlowInput } from "../lib/fiscal-flow-input";
 import type { MtsFlow } from "../lib/series-data";
-import type { SeriesId } from "@buck/registry";
+import type { SeriesId } from "@penny/registry";
 import type { Reading } from "../lib/types";
 
 function reading(seriesId: SeriesId, value: string): Reading {

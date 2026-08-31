@@ -13,7 +13,7 @@ import {
 import { fetchFiscalDataRange, FISCALDATA_PATHS } from "../lib/fiscaldata-client";
 import { upsertObservations, type UpsertManySummary } from "../lib/upsert";
 import type { RawObservation } from "../lib/types";
-import { getDb, type BuckDb } from "@buck/db";
+import { getDb, type PennyDb } from "@penny/db";
 
 export function parseTgaClosingBalance(response: { data: OperatingCashBalanceRecord[] }): RawObservation[] {
   const out: RawObservation[] = [];
@@ -51,7 +51,7 @@ export interface TgaDailyJobResult {
   summary: UpsertManySummary;
 }
 
-export async function runTgaDailyJob(db: BuckDb, lookbackDays = 14): Promise<TgaDailyJobResult> {
+export async function runTgaDailyJob(db: PennyDb, lookbackDays = 14): Promise<TgaDailyJobResult> {
   const toDate = new Date();
   const fromDate = new Date(toDate.getTime() - lookbackDays * 24 * 60 * 60 * 1000);
   const iso = (d: Date) => d.toISOString().slice(0, 10);

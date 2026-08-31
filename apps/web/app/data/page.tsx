@@ -1,4 +1,4 @@
-import { SERIES, SERIES_IDS } from "@buck/registry";
+import { SERIES, SERIES_IDS } from "@penny/registry";
 import { describePeriod } from "@/lib/format";
 import { getLatestReading } from "@/lib/series-data";
 
@@ -23,7 +23,7 @@ export default async function DataPage() {
       <div className="prose-width">
         <h1>Data &amp; methods</h1>
         <p className="page-lede">
-          Every series Buck can show, exactly as published by the agency of record. This page IS the citation index —
+          Every series Penny can show, exactly as published by the agency of record. This page IS the citation index —
           every number on every other page traces back to one row here.
         </p>
       </div>

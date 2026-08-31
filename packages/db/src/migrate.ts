@@ -3,19 +3,19 @@
  * factory resolves to. Safe to run repeatedly — drizzle's migrator tracks
  * applied migrations in a __drizzle_migrations table.
  *
- * CLI: `tsx src/migrate.ts` (or `pnpm --filter @buck/db run migrate`).
+ * CLI: `tsx src/migrate.ts` (or `pnpm --filter @penny/db run migrate`).
  * Also imported by seed.ts and by tests that need a migrated PGlite handle.
  */
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { migrate as migratePglite } from "drizzle-orm/pglite/migrator";
 import { migrate as migrateNeon } from "drizzle-orm/neon-http/migrator";
-import { type BuckDb, isUsingNeon } from "./client";
+import { type PennyDb, isUsingNeon } from "./client";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const MIGRATIONS_FOLDER = join(HERE, "..", "drizzle");
 
-export async function runMigrations(db: BuckDb, databaseUrl = process.env.DATABASE_URL): Promise<void> {
+export async function runMigrations(db: PennyDb, databaseUrl = process.env.DATABASE_URL): Promise<void> {
   if (isUsingNeon(databaseUrl)) {
     await migrateNeon(db as Parameters<typeof migrateNeon>[0], { migrationsFolder: MIGRATIONS_FOLDER });
   } else {

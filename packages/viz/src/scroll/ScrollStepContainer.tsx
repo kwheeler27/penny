@@ -48,13 +48,13 @@ export function ScrollStepContainer({
   };
 
   return (
-    <div className={className} data-buck-scroll-steps>
+    <div className={className} data-penny-scroll-steps>
       {Array.from({ length: stepCount }, (_, index) => (
         <section
           key={index}
           ref={stepRef(index)}
-          data-buck-scroll-step={index}
-          data-buck-scroll-step-active={activeIndex === index}
+          data-penny-scroll-step={index}
+          data-penny-scroll-step-active={activeIndex === index}
           style={{ minHeight: minStepHeight }}
         >
           {renderStep(index)}

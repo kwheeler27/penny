@@ -11,3 +11,5 @@ dist/
 *.tsbuildinfo
 .pglite/
 coverage/
+.vercel
+.env*

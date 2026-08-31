@@ -5,7 +5,7 @@
  *
  * Correctness rules this schema exists to enforce (CLAUDE.md hard rules):
  *  - A number reaches the app only via `series` (joined through
- *    @buck/registry's generated SERIES map for the rest of its metadata) —
+ *    @penny/registry's generated SERIES map for the rest of its metadata) —
  *    never a bare literal.
  *  - Revisions are new `observation` rows (`revision_of`), never in-place
  *    updates. `publication_time` and `ingested_at` stay distinct from the
@@ -31,9 +31,9 @@ import {
   index,
 } from "drizzle-orm/pg-core";
 
-// ---------- enums (mirror @buck/registry's generated unions) ----------
+// ---------- enums (mirror @penny/registry's generated unions) ----------
 
-/** Unit of a series' value, as published. Kept in sync by hand with @buck/registry's `Unit` type — see test/schema-registry-parity.test.ts. */
+/** Unit of a series' value, as published. Kept in sync by hand with @penny/registry's `Unit` type — see test/schema-registry-parity.test.ts. */
 export const unitEnum = pgEnum("unit", ["usd", "index_point"]);
 
 /** Scale of a series' value, exactly as published. Never converted at ingest. */
@@ -67,7 +67,7 @@ export const ingestOutcomeEnum = pgEnum("ingest_outcome", ["success", "partial",
 // ---------- series ----------
 
 /**
- * Denormalized mirror of @buck/registry's generated SERIES map, upserted by
+ * Denormalized mirror of @penny/registry's generated SERIES map, upserted by
  * `pnpm seed` / the ingest jobs from the YAML-derived source of truth. Kept
  * in the DB (rather than requiring every query site to import the registry
  * package) so `observation.series_id` has real referential integrity and so
@@ -126,7 +126,7 @@ export const observation = pgTable(
      * same period, ingest inserts a NEW row pointing revisionOf at the
      * prior row's id. The prior row is never updated or deleted. Query the
      * latest reading per period via `revisionOf IS NULL` XOR "not referenced
-     * by any other row's revisionOf" — see @buck/db's query helpers once
+     * by any other row's revisionOf" — see @penny/db's query helpers once
      * ingest lands.
      */
     revisionOf: integer("revision_of"),

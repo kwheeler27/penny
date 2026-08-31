@@ -16,7 +16,7 @@ import { parseCboBaselineCsv, type CboBaselineDeficitRow } from "../cbo/baseline
 import { fiscalYearStart, lastDayOfMonth } from "../lib/period";
 import { upsertObservations, type UpsertManySummary } from "../lib/upsert";
 import type { RawObservation } from "../lib/types";
-import { getDb, type BuckDb } from "@buck/db";
+import { getDb, type PennyDb } from "@penny/db";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(HERE, "..", "..", "..", "..");
@@ -44,7 +44,7 @@ export interface CboBaselineJobResult {
   summary: UpsertManySummary;
 }
 
-export async function runCboBaselineJob(db: BuckDb): Promise<CboBaselineJobResult> {
+export async function runCboBaselineJob(db: PennyDb): Promise<CboBaselineJobResult> {
   const csv = readFileSync(CBO_BASELINE_CSV_PATH, "utf8");
   const rows = parseCboBaselineCsv(csv);
   const observations = parseCboBaselineRows(rows, CBO_BASELINE_PUBLICATION_DATE);

@@ -759,7 +759,7 @@ export const SERIES: Record<SeriesId, SeriesDef> = {
     "revisionStatus": "mixed",
     "revisionNote": "CBO has no API; figures come from a batch CSV/Excel baseline refresh roughly twice a year (a new full baseline in winter/spring, an update in late summer). Treat every CBO figure's staleness as a displayed fact (PLAN.md §6) — show the baseline's publication date, not just \"as of today.\"",
     "notes": [
-      "This is CBO's attributed projection, not Buck's own forecast — Buck builds no forecasting model (ORCHESTRATION_PROMPT.md: explicitly not built in any phase without a separate brief). Any chart or sentence using this series must name CBO as the source of the number in the prose itself, not just in a citation footnote.",
+      "This is CBO's attributed projection, not Penny's own forecast — Penny builds no forecasting model (ORCHESTRATION_PROMPT.md: explicitly not built in any phase without a separate brief). Any chart or sentence using this series must name CBO as the source of the number in the prose itself, not just in a citation footnote.",
       "accounting_concept is `projection`, not `deficit`, specifically so nothing downstream can sum or chart this against fiscal.mts.deficit.total without the incomparabilityReason() guard firing."
     ],
     "notComparableWith": [

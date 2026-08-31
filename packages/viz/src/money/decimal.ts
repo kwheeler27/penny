@@ -2,7 +2,7 @@
  * Exact decimal-string arithmetic for money values.
  *
  * CLAUDE.md hard rule: money is never round-tripped through float
- * arithmetic. `@buck/db`'s `observation.value` is Postgres `numeric`,
+ * arithmetic. `@penny/db`'s `observation.value` is Postgres `numeric`,
  * returned by the driver as a decimal STRING (e.g. "36345909729842.9800")
  * specifically so nothing accidentally casts it through a JS `number` and
  * loses precision. Every reconciliation check in this package (category

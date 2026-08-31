@@ -7,8 +7,8 @@
  */
 import { beforeAll, describe, expect, it } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
-import { getDb, observation, seedSeriesCatalog } from "@buck/db";
-import type { SeriesId } from "@buck/registry";
+import { getDb, observation, seedSeriesCatalog } from "@penny/db";
+import type { SeriesId } from "@penny/registry";
 import RegistryFigure from "../components/registry-figure";
 import { ensureMigrated } from "../lib/db";
 import { todayIso } from "../lib/format";

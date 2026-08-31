@@ -6,7 +6,7 @@
  * "changes" (trailing zeros) that must NOT be treated as a real revision.
  */
 import { describe, it, expect } from "vitest";
-import { createDb, runMigrations, seedSeriesCatalog } from "@buck/db";
+import { createDb, runMigrations, seedSeriesCatalog } from "@penny/db";
 import { upsertObservation } from "../src/lib/upsert";
 import type { RawObservation } from "../src/lib/types";
 

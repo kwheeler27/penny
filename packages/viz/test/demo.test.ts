@@ -10,7 +10,7 @@ import { sumDecimal } from "../src/money/decimal";
 // same fixture through the real component when run inside apps/web or a
 // future Storybook/Ladle setup.
 describe("demo fixture (fiscalFlowFixture)", () => {
-  it("every seriesId referenced by the fixture exists in the real @buck/registry catalog it ships with", () => {
+  it("every seriesId referenced by the fixture exists in the real @penny/registry catalog it ships with", () => {
     for (const c of [...fiscalFlowFixture.receipts, ...fiscalFlowFixture.outlays]) {
       expect(fiscalFlowSeriesCatalog[c.seriesId], c.seriesId).toBeDefined();
     }

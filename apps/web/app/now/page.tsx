@@ -1,4 +1,4 @@
-import type { SeriesId } from "@buck/registry";
+import type { SeriesId } from "@penny/registry";
 import RegistryFigure from "@/components/registry-figure";
 import type { PeriodType } from "@/lib/types";
 
@@ -11,7 +11,7 @@ interface Tile {
   label: string;
 }
 
-// Every id here is checked against the real @buck/registry SeriesId union at
+// Every id here is checked against the real @penny/registry SeriesId union at
 // compile time — a typo'd or retired series id is a build failure, not a
 // silently-broken tile.
 const TILES: readonly Tile[] = [

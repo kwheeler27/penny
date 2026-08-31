@@ -4,7 +4,7 @@
  * seeded fixtures, never live APIs").
  *
  * 1. Migrate whichever backend the db factory resolves to.
- * 2. Upsert every @buck/registry series into the `series` table — the
+ * 2. Upsert every @penny/registry series into the `series` table — the
  *    registry YAML is the source of truth; this just mirrors it into SQL.
  * 3. Load observation fixtures, if any exist yet, from
  *    db/fixtures/observations/*.json — a plain JSON array of rows shaped
@@ -13,15 +13,15 @@
  *    empty until the ingest workstream lands real API snapshots; an empty
  *    or missing directory is not an error.
  *
- * CLI: `tsx src/seed.ts` (or `pnpm --filter @buck/db run seed`, or the root
+ * CLI: `tsx src/seed.ts` (or `pnpm --filter @penny/db run seed`, or the root
  * `pnpm seed`).
  */
 import { fileURLToPath } from "node:url";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { sql } from "drizzle-orm";
-import { SERIES, SERIES_IDS } from "@buck/registry";
-import { getDb, type BuckDb } from "./client";
+import { SERIES, SERIES_IDS } from "@penny/registry";
+import { getDb, type PennyDb } from "./client";
 import { runMigrations } from "./migrate";
 import { series, observation, type NewObservation } from "./schema";
 
@@ -30,7 +30,7 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(HERE, "..", "..", "..");
 const FIXTURES_DIR = join(REPO_ROOT, "db", "fixtures", "observations");
 
-export async function seedSeriesCatalog(db: BuckDb): Promise<number> {
+export async function seedSeriesCatalog(db: PennyDb): Promise<number> {
   const rows = SERIES_IDS.map((id) => {
     const s = SERIES[id];
     return {
@@ -70,7 +70,7 @@ export async function seedSeriesCatalog(db: BuckDb): Promise<number> {
   return rows.length;
 }
 
-export async function seedObservationFixtures(db: BuckDb): Promise<number> {
+export async function seedObservationFixtures(db: PennyDb): Promise<number> {
   if (!existsSync(FIXTURES_DIR)) return 0;
   const files = readdirSync(FIXTURES_DIR).filter((f) => f.endsWith(".json"));
   let total = 0;
@@ -96,7 +96,7 @@ async function main() {
   const db = getDb();
   await runMigrations(db);
   const seriesCount = await seedSeriesCatalog(db);
-  console.log(`seeded ${seriesCount} series from @buck/registry`);
+  console.log(`seeded ${seriesCount} series from @penny/registry`);
   const obsCount = await seedObservationFixtures(db);
   if (obsCount > 0) {
     console.log(`seeded ${obsCount} observation(s) from db/fixtures/observations/*.json`);

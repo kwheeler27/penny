@@ -19,7 +19,7 @@ The Fed's releases are written for professionals. Auction results are public
 but their meaning lives in paywalled press. Journalism asserts the chain —
 *deficits → yields → your mortgage* — without ever showing the machine.
 
-Buck is the public's instrument for understanding that machine. One
+Penny is the public's instrument for understanding that machine. One
 trustworthy place where a reader can:
 
 - **check the system's state in a minute** — the debt, the government's cash
@@ -36,7 +36,7 @@ trustworthy place where a reader can:
 1. **Trust is the product.** A reader who catches us once being
    wrong-and-silent loses the site forever.
 2. **Objectivity is load-bearing.** Mechanics are facts with citations;
-   interpretations are attributed, never asserted in Buck's voice. No
+   interpretations are attributed, never asserted in Penny's voice. No
    villains, no imputed motives. Every sentence should survive being read
    aloud by any party it describes.
 3. **Honesty about what we don't know.** Missing data is a gap, never a zero.
@@ -47,7 +47,7 @@ trustworthy place where a reader can:
 5. **The reader's independence.** The goal is not that readers believe us —
    it's that they can verify us. Sources, methods, and code are open.
 
-## What Buck is not
+## What Penny is not
 
 Not an advocacy site — we don't score fiscal policy, we explain its
 mechanics. Not a news site — we cover the record, not the discourse. Not

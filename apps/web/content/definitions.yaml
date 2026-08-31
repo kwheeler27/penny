@@ -1,0 +1,908 @@
+# Penny — reader-facing definitions
+#
+# What this file is
+# -----------------
+# The plain-language text a reader sees when they click a node on the Sankey,
+# a tile on /now, a <Term> in a chapter, or a row on /data. Two maps:
+#
+#   series:   keyed by @penny/registry series id. Covers every Sankey node and
+#             every /now tile.
+#   concepts: keyed by `concept.*`. Accounting ideas that are not series but
+#             that the chapters mark with <Term> — outlay vs. obligation vs.
+#             budget authority, fiscal year, means of financing, and so on.
+#
+# Relationship to the registry (IMPORTANT — do not create a second source of
+# truth). packages/registry/series/**/*.yaml stays authoritative for a series'
+# semantics: its `label`, one-line `definition`, `unit`, `magnitude`,
+# `accounting_concept`, `dataset_url`, `citation`, `notes` and
+# `not_comparable_with`. This file adds only reader-facing material on top:
+#   plain        the expanded explanation. Must never contradict the registry
+#                `definition`; if it would, the registry is wrong and gets
+#                fixed there first.
+#   sankey_role  where the node sits in the flow diagram.
+#   now_tile     which /now tile this series backs, if any.
+#   watch_for    the misreading this node invites, stated plainly.
+#   source_refs  reference ids in ./SOURCES.md backing the text above.
+# `citation` here is a convenience mirror for rendering. A build check should
+# assert that agency and dataset_url match the registry entry exactly, and
+# should fail on a `series:` key that is not in SERIES_IDS.
+#
+# Rules this file was written under (CLAUDE.md):
+#   - No current statistics. Nothing here says how large anything is, or which
+#     category is largest — those orderings change and this file does not get
+#     re-verified when they do. Sizes come from <Num>, live, from the database.
+#   - Every factual sentence traces to a primary source listed in SOURCES.md.
+#   - Budget-function text follows GAO-05-734SP Appendix IV, the functional
+#     classification structure, in plain language.
+#
+# Register: docs/MISSION.md. Facts with citations, no interpretation, no
+# editorial color. Every sentence should survive being read aloud by any party
+# it describes.
+
+version: 1
+last_reviewed: 2026-08-29
+authoritative_source: packages/registry/series/**/*.yaml
+references: ./SOURCES.md
+
+series:
+  # ---------------------------------------------------------------- receipts
+  fiscal.mts.receipts.total:
+    term: Total receipts
+    sankey_role: receipts_total
+    plain: >
+      Everything the federal government collected from the public in the
+      period by exercising its power to tax or otherwise compel payment.
+      Treasury reports it net of refunds, so a heavy refund month shows lower
+      receipts even when gross collections were unchanged. This is the number
+      total outlays are compared against to get the surplus or deficit.
+    watch_for: >
+      Not the same as cash arriving in the Treasury's account on a given day.
+      Receipts are a budget measure on a modified cash basis; the daily cash
+      balance is a different measurement.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 1 — Summary of Receipts, Outlays,
+        and the Deficit/Surplus of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/summary-of-receipts-and-outlays-of-the-u-s-government
+    source_refs: [mts-report, mts-dataset, gao-glossary]
+
+  fiscal.mts.receipts.category.individual_income_tax:
+    term: Individual income taxes
+    sankey_role: receipts_source
+    plain: >
+      Income tax paid by individuals: the amounts withheld from paychecks
+      through the year, plus payments made directly, less refunds. Treasury
+      reports the withheld and other components separately in Table 4.
+    watch_for: >
+      Withholding and refunds land in different months, so this line moves
+      with the tax calendar as well as with income.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: Monthly Treasury Statement, Table 4 — Receipts of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/receipts-of-the-u-s-government
+    source_refs: [mts-report]
+
+  fiscal.mts.receipts.category.social_insurance_retirement:
+    term: Social insurance and retirement receipts
+    sankey_role: receipts_source
+    plain: >
+      The payroll taxes and related contributions. Treasury reports them in
+      three parts — employment and general retirement, unemployment
+      insurance, and other retirement. They are credited to trust fund
+      accounts, chiefly Social Security's and Medicare's, and they are counted
+      in the same governmental-receipts total as every other tax.
+    watch_for: >
+      Crediting a receipt to a trust fund does not set it aside outside the
+      budget. GAO states that, except in rare circumstances, a trust fund
+      account imposes no fiduciary responsibility on the federal government.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: Monthly Treasury Statement, Table 4 — Receipts of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/receipts-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.receipts.category.corporation_income_tax:
+    term: Corporation income taxes
+    sankey_role: receipts_source
+    plain: >
+      Income tax paid by corporations, net of refunds. Collections cluster
+      around corporate tax due dates, which fall in some months and not
+      others; Treasury notes the absence of a major due date when it explains
+      a month's result.
+    watch_for: >
+      Refunds are deducted from gross collections, so this line can print
+      below zero in a month where refunds exceeded what was collected.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: Monthly Treasury Statement, Table 4 — Receipts of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/receipts-of-the-u-s-government
+    source_refs: [mts-report]
+
+  fiscal.mts.receipts.category.excise_taxes:
+    term: Excise taxes
+    sankey_role: receipts_source
+    plain: >
+      Taxes on particular goods, services and activities rather than on
+      income. Several are collected for named trust funds: Treasury reports
+      the Highway Trust Fund, the Airport and Airway Trust Fund and the Black
+      Lung Disability Trust Fund on their own lines, alongside miscellaneous
+      excise taxes.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: Monthly Treasury Statement, Table 4 — Receipts of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/receipts-of-the-u-s-government
+    source_refs: [mts-report]
+
+  fiscal.mts.receipts.category.customs_duties:
+    term: Customs duties
+    sankey_role: receipts_source
+    plain: >
+      Duties collected on goods imported into the United States, reported net
+      of refunds.
+    watch_for: >
+      Because refunds are deducted from gross collections, this line can print
+      below zero for a month in which refunds exceeded collections. That is
+      the netting rule at work, not an error in the data.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: Monthly Treasury Statement, Table 4 — Receipts of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/receipts-of-the-u-s-government
+    source_refs: [mts-report]
+
+  fiscal.mts.receipts.category.estate_and_gift_taxes:
+    term: Estate and gift taxes
+    sankey_role: receipts_source
+    plain: >
+      Tax on transfers of wealth at death and on large gifts made during life.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: Monthly Treasury Statement, Table 4 — Receipts of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/receipts-of-the-u-s-government
+    source_refs: [mts-report]
+
+  fiscal.mts.receipts.category.miscellaneous_receipts:
+    term: Miscellaneous receipts
+    sankey_role: receipts_source
+    plain: >
+      Collections that are governmental in nature but do not fit the named tax
+      lines. GAO's definition of governmental receipts includes deposits of
+      earnings by the Federal Reserve System, and Treasury reports that line
+      inside this category, alongside the Universal Service Fund and an "all
+      other" line.
+    watch_for: >
+      Not a rounding bucket. It carries named lines of its own, and the
+      Federal Reserve line is one of them.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: Monthly Treasury Statement, Table 4 — Receipts of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/receipts-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  # ----------------------------------------------------------------- outlays
+  #
+  # OPEN ITEM for the registry/ingest owners — flagged, not silently worked
+  # around. The registry currently labels the outlay-category series
+  # "Monthly Treasury Statement, Table 5 — Outlays of the U.S. Government by
+  # Function". Verified against the published statement on 2026-08-29:
+  #   Table 5 is "Outlays of the U.S. Government" — by agency and bureau.
+  #   Table 9 is "Summary of Receipts by Source, and Outlays by Function of
+  #   the U.S. Government" — the OMB budget functions these 20 series use.
+  # The `dataset` strings below therefore name Table 9, while `dataset_url`
+  # still mirrors the registry's value so the parity check does not fail on a
+  # discrepancy this file cannot fix. When the registry entries are corrected,
+  # re-run that check.
+  fiscal.mts.outlays.total:
+    term: Total outlays
+    sankey_role: outlays_total
+    plain: >
+      Everything that actually left: checks issued, electronic transfers sent
+      and cash paid, to settle obligations the government had already
+      incurred. Stated net of offsetting collections and of refunds. Interest
+      on the publicly held debt is recognized on an accrual basis; the rest is
+      modified cash.
+    watch_for: >
+      An outlay in one fiscal year may settle an obligation incurred in an
+      earlier one. Outlays are not a measure of what was promised this year.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 1 — Summary of Receipts, Outlays,
+        and the Deficit/Surplus of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/summary-of-receipts-and-outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.national_defense:
+    term: National defense
+    sankey_role: outlays_function
+    plain: >
+      Budget function 050 — the common defense and security of the United
+      States. It covers raising, equipping and maintaining the armed forces,
+      including civilian support activities; the development and use of
+      weapons systems and related programs; and the direct compensation and
+      benefits paid to active military and civilian personnel.
+    watch_for: >
+      Health care for military personnel is inside this function. Health care
+      for veterans is not — that is Veterans benefits and services.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.international_affairs:
+    term: International affairs
+    sankey_role: outlays_function
+    plain: >
+      Budget function 150 — maintaining peaceful relations, commerce and
+      travel between the United States and the rest of the world, and
+      promoting international security and economic development abroad.
+    watch_for: >
+      Excludes domestic programs that only tangentially affect foreign
+      relations or the citizens of other countries.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.general_science_space_technology:
+    term: General science, space, and technology
+    sankey_role: outlays_function
+    plain: >
+      Budget function 250 — science and research activities that are not an
+      integral part of the programs run under another function. It includes
+      research conducted by the National Science Foundation, all NASA space
+      programs, and general science research supported by the Department of
+      Energy.
+    watch_for: >
+      Research that belongs to another function is reported there. A function
+      is assigned by an account's main purpose, not by the kind of work.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.energy:
+    term: Energy
+    sankey_role: outlays_function
+    plain: >
+      Budget function 270 — promoting an adequate supply and appropriate use
+      of energy to serve the needs of the economy, including the energy
+      programs of the Department of Energy and its predecessor agencies.
+    watch_for: >
+      Excludes atomic energy defense activities, which sit in National
+      defense, and general science research not closely related to energy.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.natural_resources_and_environment:
+    term: Natural resources and environment
+    sankey_role: outlays_function
+    plain: >
+      Budget function 300 — developing, managing and maintaining the nation's
+      natural resources and environment, including water resources,
+      conservation and land management, recreational resources, and pollution
+      control and abatement.
+    watch_for: >
+      Community water supply, basic sewer systems and waste treatment plants
+      are excluded; they belong to community or regional development, or to
+      the cost of running a federal facility.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.agriculture:
+    term: Agriculture
+    sankey_role: outlays_function
+    plain: >
+      Budget function 350 — promoting the economic stability of agriculture
+      and the nation's capability to maintain and increase agricultural
+      production. Its two parts are farm income stabilization and agricultural
+      research and services.
+    watch_for: >
+      Food assistance is not here. Nutrition and food service programs funded
+      separately are classified as income security, and food donations and
+      concessionary food export sales are excluded from this function.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.commerce_and_housing_credit:
+    term: Commerce and housing credit
+    sankey_role: outlays_function
+    plain: >
+      Budget function 370 — promotion and regulation of commerce and of the
+      housing credit and deposit insurance industries. It covers the
+      collection and dissemination of social and economic data and general
+      purpose subsidies to businesses, including credit subsidies to the
+      housing industry.
+    watch_for: >
+      This function can print below zero. It carries deposit insurance and
+      credit activity whose collections can exceed its payments in a period,
+      and outlays are stated net of those collections.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.transportation:
+    term: Transportation
+    sankey_role: outlays_function
+    plain: >
+      Budget function 400 — providing for the transportation of the general
+      public, its property, or both, whatever the mode and whether local or
+      national. It includes construction of facilities, purchase of equipment,
+      and research, testing and evaluation.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.community_and_regional_development:
+    term: Community and regional development
+    sankey_role: outlays_function
+    plain: >
+      Budget function 450 — development of physical facilities or financial
+      infrastructure designed to promote viable community economies. Its three
+      parts are community development, area and regional development, and
+      disaster relief and insurance.
+    watch_for: >
+      Because disaster relief runs through this function, it moves with events
+      rather than on a steady schedule.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.education_training_employment_social_services:
+    term: Education, training, employment, and social services
+    sankey_role: outlays_function
+    plain: >
+      Budget function 500 — extending knowledge and skills, improving
+      employment and employment opportunities, protecting workplace standards,
+      and providing services to the needy.
+    watch_for: >
+      Education or training that is an integral part of another function is
+      reported there instead: training military personnel, veterans education
+      and training, and training health workers inside a health program are
+      all excluded.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.health:
+    term: Health
+    sankey_role: outlays_function
+    plain: >
+      Budget function 550 — programs other than Medicare whose basic purpose
+      is to promote physical and mental health, including the prevention of
+      illness and accidents.
+    watch_for: >
+      Medicare is excluded by law and reported as its own function. Health
+      care for military personnel and for veterans is excluded too. "Health"
+      is therefore not federal health spending in total.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.medicare:
+    term: Medicare
+    sankey_role: outlays_function
+    plain: >
+      Budget function 570 — federal hospital insurance and federal
+      supplementary medical insurance, the general fund subsidies of those
+      funds, and the offsetting receipts associated with them.
+    watch_for: >
+      Reported net of the offsetting receipts associated with the program, so
+      it is not the program's gross cost.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.income_security:
+    term: Income security
+    sankey_role: outlays_function
+    plain: >
+      Budget function 600 — support payments to people for whom no current
+      service is rendered: retirement, disability, unemployment, welfare and
+      similar programs. It includes food and nutrition programs, federal and
+      trust fund unemployment compensation, workers' compensation, public
+      assistance cash payments, benefits to the elderly and to coal miners,
+      and low- and moderate-income housing benefits.
+    watch_for: >
+      Social Security and income security for veterans are excluded; each has
+      its own function. Financial assistance for education and medical care
+      are excluded even where they end up as income to a person.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.social_security:
+    term: Social Security
+    sankey_role: outlays_function
+    plain: >
+      Budget function 650 — the federal Old-Age and Survivors Insurance and
+      Disability Insurance trust funds, the general fund subsidies of those
+      funds, and the offsetting collections associated with them.
+    watch_for: >
+      The two Social Security trust funds are designated off-budget by law.
+      Their amounts are reported separately and then added into the
+      consolidated government totals, which is the total this diagram uses.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.veterans_benefits_and_services:
+    term: Veterans benefits and services
+    sankey_role: outlays_function
+    plain: >
+      Budget function 700 — benefits and services whose eligibility depends on
+      prior military service but whose financing is not an integral part of
+      the cost of national defense. Its contents look like those of the
+      broader functions — income security, health, education — but restricted
+      to veterans, their dependents and their survivors.
+    watch_for: >
+      Earned rights of career military personnel that are a cost of the
+      defense budget, such as military retired pay and their medical care, are
+      excluded and sit in National defense.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.administration_of_justice:
+    term: Administration of justice
+    sankey_role: outlays_function
+    plain: >
+      Budget function 750 — judicial services, police protection, law
+      enforcement including civil rights, rehabilitation and incarceration of
+      criminals, and the general maintenance of domestic order, including
+      court-appointed counsel and other legal services for individuals.
+    watch_for: >
+      Excludes the cost of the legislative branch, guard activities protecting
+      federal property, and enforcement work that belongs to a broader
+      function, such as postal inspectors, tax collection agents and Park
+      Service rangers. Military police are in National defense.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.general_government:
+    term: General government
+    sankey_role: outlays_function
+    plain: >
+      Budget function 800 — the general overhead cost of the federal
+      government: legislative and executive activities, central fiscal,
+      personnel and property activities, and services that cannot reasonably
+      be classified in any other function. It also includes shared revenues
+      and other general purpose fiscal assistance.
+    watch_for: >
+      As a rule, activities closely associated with another function are
+      reported in that function, not here.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.net_interest:
+    term: Net interest
+    sankey_role: outlays_function
+    plain: >
+      Budget function 900 — transactions that directly give rise to interest
+      payments or income, including interest paid on the public debt, on
+      uninvested funds and on tax refunds, offset by interest collected.
+      Interest paid to the public on Treasury debt securities is recorded on
+      an accrual basis; the budget's other interest outlays are on a cash
+      basis.
+    watch_for: >
+      Not the same number as Treasury's interest expense on the public debt.
+      The two are computed differently, and Penny holds them as separate series
+      flagged as not comparable.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary, interest-expense]
+
+  fiscal.mts.outlays.category.undistributed_offsetting_receipts:
+    term: Undistributed offsetting receipts
+    sankey_role: outlays_function_negative
+    plain: >
+      Budget function 950 — collections that Treasury deducts from the
+      government-wide total rather than from any single agency or function.
+      Treasury names four: agencies' payments as employers into their
+      employees' retirement funds, interest received by trust funds, rents and
+      royalties on Outer Continental Shelf lands, and certain other interest.
+    watch_for: >
+      A deduction shown as a function, not a program that spends money, so it
+      normally prints below zero. GAO's stated reason for keeping these
+      undistributed is to avoid distorting agency and subfunction totals.
+      Dropping this node from a chart would break the sum to the published
+      total.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  fiscal.mts.outlays.category.allowances:
+    term: Allowances
+    sankey_role: outlays_function
+    plain: >
+      Budget function 920. An allowance is an amount included in a budget
+      request or projection to cover possible additional proposals or
+      contingencies. It stays undistributed until the contingency it is based
+      on occurs, at which point it is distributed to the appropriate function.
+      GAO lists Allowances as one of three categories that do not address a
+      specific national need but exist to cover the whole budget.
+    watch_for: >
+      Because it is a placeholder, it may carry nothing for a given period.
+      Penny still renders an unpublished period as a gap rather than a zero, so
+      read the label rather than the shape.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 9 — Summary of Receipts by Source,
+        and Outlays by Function of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  # ----------------------------------------------------- the balancing flow
+  fiscal.mts.deficit.total:
+    term: Budget deficit or surplus
+    sankey_role: balancing_flow
+    now_tile: deficit_fytd
+    plain: >
+      Total receipts minus total outlays for the period. Outlays above
+      receipts give a deficit; receipts above outlays give a surplus. It is an
+      arithmetic difference between two flows, not a category of spending,
+      which is why the diagram draws it as a balancing flow.
+    watch_for: >
+      A deficit is a flow measured over a period. The debt is a level at a
+      point in time. They are related but do not move one-for-one — see means
+      of financing.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: >-
+        Monthly Treasury Statement, Table 1 — Summary of Receipts, Outlays,
+        and the Deficit/Surplus of the U.S. Government
+      dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/summary-of-receipts-and-outlays-of-the-u-s-government
+    source_refs: [mts-report, gao-glossary]
+
+  # -------------------------------------------------------------- /now tiles
+  fiscal.debt.total_public_debt_outstanding:
+    term: Total public debt outstanding
+    now_tile: debt
+    sankey_role: stock_reference
+    plain: >
+      The total outstanding public debt at the close of a business day — the
+      sum of debt held by the public and intragovernmental holdings. Treasury
+      publishes it to the penny at the end of each business day, carrying the
+      previous business day's figure.
+    watch_for: >
+      A level, not a flow, and not the deficit. Debt held by the public is
+      what is held outside the federal government, including by the Federal
+      Reserve System; intragovernmental holdings are what one part of the
+      government owes another. Adding this to a deficit figure is an
+      accounting-concept error.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: Debt to the Penny
+      dataset_url: https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny
+    source_refs: [debt-to-the-penny, gao-glossary]
+
+  fiscal.tga.closing_balance:
+    term: Treasury General Account closing balance
+    now_tile: tga
+    sankey_role: cash_node
+    plain: >
+      The cash the federal government held in its operating account at the
+      Federal Reserve at the close of business. The Federal Reserve is the
+      Treasury's fiscal agent. Tax collections and the cash proceeds of debt
+      issues are deposited into the account, and payments to the public and
+      debt redemptions are withdrawn from it.
+    watch_for: >
+      A cash balance, not a budget measure. It moves with the timing of tax
+      dates, benefit payment dates and debt settlement, and it is not receipts
+      minus outlays for the day. Published for business days only, so
+      weekends and federal holidays are gaps.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: Daily Treasury Statement, Table I — Operating Cash Balance
+      dataset_url: https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/operating-cash-balance
+    source_refs: [dts-operating-cash, frb-liabilities]
+
+  fiscal.debt.interest_expense_total:
+    term: Interest expense on the public debt
+    now_tile: interest_expense
+    plain: >
+      What it cost to service the federal debt in the period, reported monthly
+      and cumulatively for the fiscal year to date. Treasury describes it as
+      the cost to the United States of borrowing money, calculated at a
+      specified rate over a period, and notes that it depends on both the size
+      of the debt and the rates investors charged when the money was borrowed.
+    watch_for: >
+      Not the same as the Net interest budget function, which nets interest
+      collections against interest paid and is scoped to unified-budget outlay
+      accounting. The two never appear in one sum or on one axis.
+    citation:
+      agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+      dataset: Interest Expense on the Public Debt Outstanding
+      dataset_url: https://fiscaldata.treasury.gov/datasets/interest-expense-debt-outstanding/interest-expense-on-the-public-debt-outstanding
+    source_refs: [interest-expense]
+
+  # --------------------------------------------------- context and projection
+  price.cpi_u.all_items:
+    term: CPI-U, all items
+    plain: >
+      The Consumer Price Index for All Urban Consumers, U.S. city average, all
+      items, not seasonally adjusted, published monthly by the Bureau of Labor
+      Statistics. Penny holds it so that dollar figures can be compared across
+      years in constant terms.
+    watch_for: >
+      An index level, not a dollar amount and not a rate of change. Deflating
+      a fiscal-year figure with a calendar-year index is a comparison that has
+      to be stated rather than assumed.
+    citation:
+      agency: U.S. Bureau of Labor Statistics
+      dataset: >-
+        Consumer Price Index for All Urban Consumers (CPI-U), U.S. city
+        average, all items, not seasonally adjusted (series CUUR0000SA0)
+      dataset_url: https://www.bls.gov/cpi/data.htm
+    source_refs: [bls-cpi]
+
+  projection.cbo.baseline.deficit:
+    term: CBO baseline deficit projection
+    plain: >
+      The Congressional Budget Office's projection of the federal deficit for
+      future years, built on the assumption that current laws governing
+      revenues and spending generally stay as they are. CBO publishes it in
+      its recurring Budget and Economic Outlook and the updates to it.
+    watch_for: >
+      A projection under current law, not a forecast of what will happen, and
+      not an observed figure. It is CBO's, not Penny's. It carries the
+      accounting concept "projection" and can never be summed or charted with
+      observed Treasury data without an explicit, labeled distinction.
+    citation:
+      agency: Congressional Budget Office
+      dataset: The Budget and Economic Outlook — baseline budget projections
+      dataset_url: https://www.cbo.gov/about/products/budget-economic-data#4
+    source_refs: [cbo-baseline, cbo-how-baseline]
+
+concepts:
+  concept.receipt:
+    term: Receipt
+    plain: >
+      Money the government collects from the public through the exercise of
+      its sovereign powers: individual and corporate income taxes, social
+      insurance taxes, excise taxes, duties, court fines, compulsory licenses,
+      and deposits of earnings by the Federal Reserve System. Gifts and
+      contributions to the government count too. Refunds are deducted from
+      gross receipts. Total receipts are what total outlays are compared
+      against to calculate the surplus or deficit.
+    source_refs: [gao-glossary, mts-report]
+
+  concept.outlay:
+    term: Outlay
+    plain: >
+      A payment that liquidates a federal obligation: a check issued, cash
+      disbursed, or funds transferred electronically. Outlays in one fiscal
+      year may pay for obligations incurred in earlier years. They are stated
+      both gross and net of offsetting collections; the budget totals are net.
+    watch_for: >
+      Not the same as an obligation and not the same as budget authority. The
+      Monthly Treasury Statement counts outlays; USASpending.gov counts
+      obligations.
+    source_refs: [gao-glossary, usaspending-glossary]
+
+  concept.obligation:
+    term: Obligation
+    plain: >
+      A definite commitment that creates a legal liability of the government
+      to pay for goods or services ordered or received. An agency incurs one
+      when it places an order, signs a contract, awards a grant, or takes
+      another action that requires a payment. Payment may follow immediately
+      or years later.
+    watch_for: >
+      An obligation is a commitment; an outlay is the payment. Totals of the
+      two for the same period will not match, and neither one is wrong.
+    source_refs: [gao-glossary, usaspending-glossary]
+
+  concept.budget_authority:
+    term: Budget authority
+    plain: >
+      Authority provided by federal law to enter into financial obligations
+      that will result in immediate or future outlays. Its basic forms are
+      appropriations, borrowing authority, contract authority, and authority
+      to obligate and spend offsetting receipts and collections.
+    watch_for: >
+      Permission to spend, not spending. Budget authority granted in one year
+      can be obligated and paid out over several.
+    source_refs: [gao-glossary]
+
+  concept.deficit:
+    term: Deficit
+    plain: >
+      The amount by which the government's outlays exceed its receipts for a
+      period, usually a fiscal year. The opposite is a surplus. The
+      most-quoted version is the unified total, which sums the on-budget and
+      off-budget results.
+    watch_for: >
+      A flow over a period. Not the debt, which is a level at a moment in
+      time.
+    source_refs: [gao-glossary]
+
+  concept.fiscal_year:
+    term: Fiscal year
+    plain: >
+      The federal government's accounting year. It begins on October 1 and
+      ends on September 30, and it is named for the calendar year in which it
+      ends: fiscal 2026 ran from October 1, 2025 to September 30, 2026.
+      "Fiscal year to date" on this site means from October 1 of the current
+      fiscal year forward.
+    watch_for: >
+      A fiscal-year figure and a calendar-year figure of the same thing are
+      different measurements. Penny stores the fiscal year as an explicit field
+      rather than deriving it from a date, and never adds the two together.
+    source_refs: [gao-glossary]
+
+  concept.functional_classification:
+    term: Functional classification
+    plain: >
+      The system for grouping budget authority, outlays, receipts and tax
+      expenditures according to the national needs being addressed. Each
+      budget account is placed in the single function that best reflects its
+      major purpose, as far as possible without regard to which agency runs
+      it, so that the functions sum to the budget totals. National needs are
+      grouped in seventeen broad areas; Net Interest, Allowances and
+      Undistributed Offsetting Receipts are three further categories that do
+      not address a specific national need but exist to cover the whole
+      budget.
+    watch_for: >
+      A function is not an agency. One agency's spending can appear in several
+      functions, and one function can contain several agencies.
+    source_refs: [gao-glossary]
+
+  concept.offsetting_collections:
+    term: Offsetting collections and offsetting receipts
+    plain: >
+      Collections of a business-type or market-oriented nature, from the
+      public or from other government accounts. They are netted against
+      spending rather than counted as receipts, which is why budget outlays
+      are reported net. Most are deducted within the function, subfunction or
+      agency they relate to; four categories are deducted from the
+      government-wide total instead, as undistributed offsetting receipts.
+    watch_for: >
+      This is why a spending function can print a negative number.
+    source_refs: [gao-glossary, mts-report]
+
+  concept.trust_fund:
+    term: Trust fund account
+    plain: >
+      An account designated as a trust fund by law, regardless of any other
+      meaning of the term. A trust fund receipt account is credited with
+      collections classified as trust fund collections, recorded as either
+      governmental receipts or offsetting receipts; a trust fund expenditure
+      account records appropriated amounts used for the fund's purposes.
+    watch_for: >
+      GAO states that, except in rare circumstances, a trust fund account
+      imposes no fiduciary responsibility on the federal government. The
+      designation is a statutory bookkeeping category.
+    source_refs: [gao-glossary]
+
+  concept.means_of_financing:
+    term: Means of financing
+    plain: >
+      The ways a budget deficit is financed, or a surplus used. GAO lists
+      Treasury or agency borrowing, reducing Treasury cash balances, the sale
+      of gold, seigniorage, net cash flows from transactions in credit
+      financing accounts, allowing certain unpaid liabilities to increase, and
+      other similar transactions. It is customary to separate the total into
+      the change in debt held by the public — the primary means of financing —
+      and other means of financing.
+    watch_for: >
+      This is why the change in the debt over a period is not equal to the
+      deficit for that period.
+    source_refs: [gao-glossary, mts-report]
+
+  concept.modified_cash_basis:
+    term: Modified cash basis
+    plain: >
+      The basis on which the Monthly Treasury Statement is presented. Receipts
+      are accounted for on the basis of collections; refunds of receipts are
+      deducted from gross receipts; reimbursements and refunds of money
+      previously spent are deducted from gross outlays; and interest on the
+      public debt held by the public is recognized on an accrual basis rather
+      than when it is paid.
+    watch_for: >
+      Because of the interest treatment and the netting rules, the monthly
+      budget figures will not tie to the day's cash movements in the
+      Treasury's account.
+    source_refs: [mts-report]
+
+  concept.provisional_and_revised:
+    term: Provisional and revised values
+    plain: >
+      A published figure can change when its source republishes it. Penny
+      stores a revised value as a new row pointing at the row it replaces, so
+      the site can show both the current value and what was known at an
+      earlier date. The time a value was published and the period it describes
+      are kept as separate fields.
+    watch_for: >
+      A number on this site is always "as published on" a date. Two Penny
+      screenshots taken weeks apart can legitimately differ for the same
+      period.
+    source_refs: [mts-report]
+
+  concept.gap:
+    term: Gap
+    plain: >
+      A period for which no value has been published. Penny renders it as a gap
+      and says why. It is never drawn as a zero and never filled with the
+      previous period's value. The daily series are published for business
+      days, so weekends and federal holidays are gaps by construction.
+    source_refs: [debt-to-the-penny, dts-operating-cash]

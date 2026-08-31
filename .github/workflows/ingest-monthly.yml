@@ -1,0 +1,52 @@
+name: Ingest — monthly (MTS, CPI-U, interest expense)
+
+# The Monthly Treasury Statement, CPI-U, and interest-expense datasets each
+# publish once per month, but on a FLOATING release day (MTS: "around the
+# 8th business day of the following month," per PLAN.md §6; BLS's CPI
+# release date also moves month to month) — there is no single fixed day
+# that's always correct. Rather than guess or maintain a lookup table, this
+# runs daily for the first two weeks of the month; every job fetches
+# whatever the source's LATEST report currently is and relies on
+# lib/upsert.ts's value-compare idempotency, so a day with nothing new is a
+# free no-op. Kept deliberately simple per ORCHESTRATION_PROMPT.md Core
+# flow 4.
+
+on:
+  schedule:
+    - cron: "0 14 1-14 * *"
+  workflow_dispatch: {}
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Monthly Treasury Statement (receipts, outlays, deficit)
+        working-directory: packages/ingest
+        run: pnpm run ingest:mts
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: Interest expense on the public debt
+        working-directory: packages/ingest
+        run: pnpm run ingest:interest
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: CPI-U, all items (BLS)
+        working-directory: packages/ingest
+        run: pnpm run ingest:cpi
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          BLS_API_KEY: ${{ secrets.BLS_API_KEY }}

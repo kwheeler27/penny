@@ -1,0 +1,42 @@
+id: fiscal.tga.closing_balance
+label: Treasury General Account closing balance
+definition: >
+  The federal government's checking account balance at the Federal Reserve
+  at the close of a given business day — cash on hand to pay the
+  government's bills. Falls as spending exceeds inflows, replenished by tax
+  receipts and new borrowing.
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Daily Treasury Statement, Table I — Operating Cash Balance (Treasury General Account)
+dataset_url: https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/operating-cash-balance
+unit: usd
+magnitude: millions
+accounting_concept: balance
+cadence: daily
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Daily
+  Treasury Statement, Table I, "Treasury General Account (TGA) Closing
+  Balance." Accessed {access_date}.
+
+revision_policy:
+  status: final
+  note: Published once per business day; not subsequently revised.
+
+notes:
+  - >
+    No value publishes on weekends and federal holidays — render those days
+    as a gap, never a zero or a carried-forward prior value.
+  - >
+    The Daily Treasury Statement's "Operating Cash Balance" table reports
+    several rows per day (TGA Opening Balance, deposits, withdrawals, TGA
+    Closing Balance); this series is the row with
+    account_type = "Treasury General Account (TGA) Closing Balance"
+    (verified live 2026-08-29 — see packages/ingest's
+    fiscaldata/operating-cash-balance.ts). That table's own
+    `close_today_bal` field is a null sentinel on every row of this
+    dataset; the real value is carried in `open_today_bal` — a source
+    quirk, asserted and documented at the point ingest reads it.
+  - >
+    Balance (a stock, like debt) is a different accounting concept from
+    deficit or outlay (flows) — never summed or compared without a declared
+    bridge.

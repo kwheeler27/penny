@@ -6,3 +6,10 @@ node_modules/
 dist/
 .vercel/
 *.log
+.next/
+.turbo/
+*.tsbuildinfo
+.pglite/
+coverage/
+.vercel
+.env*

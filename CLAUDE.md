@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-**Buck** — a public instrument that makes the US dollar system legible: where
+**Penny** — a public instrument that makes the US dollar system legible: where
 federal money comes from, where every dollar of spending goes, how the
 Treasury's and the Fed's plumbing works, and how it transmits to markets and
 the rates people pay. Product context: `IDEA.md` (confirmed pitch);
@@ -9,7 +9,7 @@ the rates people pay. Product context: `IDEA.md` (confirmed pitch);
 
 ## Source of truth & change flow
 
-- **GitHub (`kwheeler27/buck`, PUBLIC) is the source of truth.** The repo is
+- **GitHub (`kwheeler27/penny`, PUBLIC) is the source of truth.** The repo is
   public and Apache-2.0 licensed: never commit secrets, credentials, or
   tokens — not in code, fixtures, snapshots, or history. `.env` is gitignored;
   `.env.example` documents required vars.
@@ -28,7 +28,7 @@ the rates people pay. Product context: `IDEA.md` (confirmed pitch);
   primary source (the agency of record). Every displayed number carries
   source, as-of date, and unit. Interpretations — "unsustainable," "crowding
   out," what a market move "means" — are attributed to named people or schools
-  of thought, never asserted in Buck's voice. Test: every sentence survives
+  of thought, never asserted in Penny's voice. Test: every sentence survives
   being read aloud by any party it describes.
 - **Neutral register in all narrative copy.** No editorial color, no imputed
   motives, no villains. Mechanics are facts; opinions are attributions.
@@ -61,5 +61,16 @@ the rates people pay. Product context: `IDEA.md` (confirmed pitch);
 
 ## Commands
 
-- None yet — docs-only repo. `PLAN.md` will establish the stack; commands land
-  here with the first code PR.
+pnpm workspace monorepo (PLAN.md §4: `apps/web`, `packages/registry`,
+`packages/db`, `packages/ingest`, `packages/viz`, `db/fixtures`). Requires
+Node 22+; no credentials needed for local dev (PGlite fallback, fixture
+seeds — see README.md § Development).
+
+- `pnpm gen` — registry codegen (`packages/registry/series/**/*.yaml` →
+  generated TS types + citation objects). Run after any registry YAML
+  change; CI fails the build on drift.
+- `pnpm seed` — migrate + load the registry catalog (and any
+  `db/fixtures`) into local PGlite.
+- `pnpm typecheck` — `tsc --noEmit`, recursively.
+- `pnpm test` — `vitest run`, recursively. Single-run only, per the 8GB-RAM
+  rule above — never `vitest --watch`.

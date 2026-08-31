@@ -1,0 +1,35 @@
+id: fiscal.mts.outlays.total
+label: Total outlays
+definition: >
+  All money the federal government actually paid out in a period — every
+  budget function combined: defense, Social Security, Medicare, interest on
+  the debt, and everything else. Reported for the month and cumulatively for
+  the fiscal year to date (Oct 1 to date).
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Monthly Treasury Statement, Table 1 — Summary of Receipts and Outlays
+dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/summary-of-receipts-and-outlays-of-the-u-s-government
+unit: usd
+magnitude: ones
+accounting_concept: outlay
+cadence: monthly
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Monthly
+  Treasury Statement, Table 1, "Total Outlays." Accessed {access_date}.
+
+revision_policy:
+  status: provisional
+  note: >
+    Each MTS is a snapshot; a later month's report can carry a restated
+    comparable-prior-period figure — ingest as a new observation row, never
+    an in-place update.
+
+notes:
+  - >
+    The category series under fiscal.mts.outlays.category.* (by budget
+    function) must sum to this total for the same month, to the dollar —
+    CI-enforced reconciliation (ORCHESTRATION_PROMPT.md Core flow 1).
+  - >
+    Outlays are a different accounting concept than obligations
+    (USASpending's unit) or budget authority — never mixed without a
+    declared bridge.

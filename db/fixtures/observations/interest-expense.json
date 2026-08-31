@@ -1,0 +1,434 @@
+[
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2024-08-01",
+    "periodEnd": "2024-08-31",
+    "fiscalYear": 2024,
+    "value": "92293475443.58",
+    "publicationTime": "2024-08-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-08-31",
+    "fiscalYear": 2024,
+    "value": "1048588588317.36",
+    "publicationTime": "2024-08-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "84448301831.80",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": 2024,
+    "value": "1133036890149.16",
+    "publicationTime": "2024-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2024-10-31",
+    "fiscalYear": 2025,
+    "value": "81998049980.73",
+    "publicationTime": "2024-10-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2024-10-31",
+    "fiscalYear": 2025,
+    "value": "81998049980.73",
+    "publicationTime": "2024-10-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2024-11-01",
+    "periodEnd": "2024-11-30",
+    "fiscalYear": 2025,
+    "value": "86592751811.83",
+    "publicationTime": "2024-11-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2024-11-30",
+    "fiscalYear": 2025,
+    "value": "168590801792.56",
+    "publicationTime": "2024-11-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2024-12-01",
+    "periodEnd": "2024-12-31",
+    "fiscalYear": 2025,
+    "value": "139762147207.35",
+    "publicationTime": "2024-12-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2024-12-31",
+    "fiscalYear": 2025,
+    "value": "308352948999.91",
+    "publicationTime": "2024-12-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-01-01",
+    "periodEnd": "2025-01-31",
+    "fiscalYear": 2025,
+    "value": "83820977500.98",
+    "publicationTime": "2025-01-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-01-31",
+    "fiscalYear": 2025,
+    "value": "392173926500.89",
+    "publicationTime": "2025-01-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-02-01",
+    "periodEnd": "2025-02-28",
+    "fiscalYear": 2025,
+    "value": "85872233209.64",
+    "publicationTime": "2025-02-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-02-28",
+    "fiscalYear": 2025,
+    "value": "478046159710.53",
+    "publicationTime": "2025-02-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-03-01",
+    "periodEnd": "2025-03-31",
+    "fiscalYear": 2025,
+    "value": "104413430717.98",
+    "publicationTime": "2025-03-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-03-31",
+    "fiscalYear": 2025,
+    "value": "582459590428.51",
+    "publicationTime": "2025-03-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-04-01",
+    "periodEnd": "2025-04-30",
+    "fiscalYear": 2025,
+    "value": "101650357567.69",
+    "publicationTime": "2025-04-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-04-30",
+    "fiscalYear": 2025,
+    "value": "684109947996.20",
+    "publicationTime": "2025-04-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-05-01",
+    "periodEnd": "2025-05-31",
+    "fiscalYear": 2025,
+    "value": "92230405249.51",
+    "publicationTime": "2025-05-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-05-31",
+    "fiscalYear": 2025,
+    "value": "776340353245.71",
+    "publicationTime": "2025-05-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-06-01",
+    "periodEnd": "2025-06-30",
+    "fiscalYear": 2025,
+    "value": "144624683640.20",
+    "publicationTime": "2025-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-06-30",
+    "fiscalYear": 2025,
+    "value": "920965036885.91",
+    "publicationTime": "2025-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "96324370525.97",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": 2025,
+    "value": "1017289407411.88",
+    "publicationTime": "2025-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-08-01",
+    "periodEnd": "2025-08-31",
+    "fiscalYear": 2025,
+    "value": "111466218972.52",
+    "publicationTime": "2025-08-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-08-31",
+    "fiscalYear": 2025,
+    "value": "1128755626384.40",
+    "publicationTime": "2025-08-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-09-01",
+    "periodEnd": "2025-09-30",
+    "fiscalYear": 2025,
+    "value": "91269656245.91",
+    "publicationTime": "2025-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2025-09-30",
+    "fiscalYear": 2025,
+    "value": "1220025282630.31",
+    "publicationTime": "2025-09-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2025-10-31",
+    "fiscalYear": 2026,
+    "value": "104403610089.63",
+    "publicationTime": "2025-10-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2025-10-31",
+    "fiscalYear": 2026,
+    "value": "104403610089.63",
+    "publicationTime": "2025-10-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-11-01",
+    "periodEnd": "2025-11-30",
+    "fiscalYear": 2026,
+    "value": "96254652133.43",
+    "publicationTime": "2025-11-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2025-11-30",
+    "fiscalYear": 2026,
+    "value": "200658262223.06",
+    "publicationTime": "2025-11-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2025-12-01",
+    "periodEnd": "2025-12-31",
+    "fiscalYear": 2026,
+    "value": "154365883740.84",
+    "publicationTime": "2025-12-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2025-12-31",
+    "fiscalYear": 2026,
+    "value": "355024145963.90",
+    "publicationTime": "2025-12-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-01-31",
+    "fiscalYear": 2026,
+    "value": "71888162603.19",
+    "publicationTime": "2026-01-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-01-31",
+    "fiscalYear": 2026,
+    "value": "426912308567.09",
+    "publicationTime": "2026-01-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "fiscalYear": 2026,
+    "value": "93483359631.20",
+    "publicationTime": "2026-02-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-02-28",
+    "fiscalYear": 2026,
+    "value": "520395668198.29",
+    "publicationTime": "2026-02-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2026-03-01",
+    "periodEnd": "2026-03-31",
+    "fiscalYear": 2026,
+    "value": "102644421072.91",
+    "publicationTime": "2026-03-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-03-31",
+    "fiscalYear": 2026,
+    "value": "623040089271.20",
+    "publicationTime": "2026-03-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2026-04-01",
+    "periodEnd": "2026-04-30",
+    "fiscalYear": 2026,
+    "value": "111600572508.53",
+    "publicationTime": "2026-04-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-04-30",
+    "fiscalYear": 2026,
+    "value": "734640661779.73",
+    "publicationTime": "2026-04-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2026-05-01",
+    "periodEnd": "2026-05-31",
+    "fiscalYear": 2026,
+    "value": "132622551433.83",
+    "publicationTime": "2026-05-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-05-31",
+    "fiscalYear": 2026,
+    "value": "867263213213.56",
+    "publicationTime": "2026-05-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "185199785714.46",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "1052462998928.02",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "117573576107.24",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.debt.interest_expense_total",
+    "periodType": "fiscal_ytd",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "1170036575035.26",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  }
+]

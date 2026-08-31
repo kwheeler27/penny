@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kwheeler27/penny/packages/registry/schema/series.schema.json",
+  "title": "Penny series definition",
+  "description": "Single source of truth for one data series. Everything downstream — the Postgres `series` table, TS/Zod contracts, citation rendering in apps/web — is generated from files validating against this schema. A number may only reach a page through a series id defined here (CLAUDE.md hard rule: objectivity is load-bearing).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "label", "definition", "agency", "dataset", "dataset_url", "unit",
+    "magnitude", "accounting_concept", "cadence", "citation"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*){2,6}$",
+      "description": "Stable dot-namespaced id, e.g. fiscal.mts.outlays.total. Never reused; renames require an alias."
+    },
+    "label": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80,
+      "description": "Short plain-language name shown in the UI, e.g. \"Individual income taxes\"."
+    },
+    "definition": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Plain-language definition of what this series measures, in Money Stuff register. This is the text a reader sees when they click a number to find out what it is."
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Former ids that resolve to this series."
+    },
+    "agency": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Source agency of record, e.g. \"U.S. Department of the Treasury, Bureau of the Fiscal Service\"."
+    },
+    "dataset": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Dataset name as published by the agency, e.g. \"Monthly Treasury Statement\"."
+    },
+    "dataset_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical URL for the dataset (the citation link)."
+    },
+    "unit": {
+      "enum": ["usd", "index_point"],
+      "description": "Unit of value_amount, as published. Conversion happens only at the presentation boundary, never in storage."
+    },
+    "magnitude": {
+      "enum": ["ones", "thousands", "millions", "billions"],
+      "description": "Scale of value_amount EXACTLY as published by the source (e.g. MTS tables report dollars in millions; Debt to the Penny reports whole dollars/cents = ones). Never converted at ingest. Mixing series of different magnitudes in a sum or chart without converting at render time is a hard-rule violation — verify this field against a live API sample before wiring ingest for a series that uses it."
+    },
+    "accounting_concept": {
+      "enum": ["receipt", "outlay", "deficit", "debt", "balance", "interest", "price_index", "projection"],
+      "description": "Accounting semantics. Series differing here are never summed or charted together without a declared bridge (CLAUDE.md hard rule). `projection` is a distinct concept from `deficit`/`outlay`/etc: CBO's projected figures can never be silently combined with MTS observed figures."
+    },
+    "cadence": {
+      "enum": ["daily", "monthly", "annual"],
+      "description": "Native publication cadence of one reading. Does not by itself distinguish a monthly reading from a fiscal-year-to-date reading of the same series — that is the observation's `period_type`, not a series-level property."
+    },
+    "citation": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Full citation string, in the form a reader could paste into a bibliography. May contain the token {access_date}, substituted at render time."
+    },
+    "revision_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": { "enum": ["provisional", "final", "mixed"] },
+        "note": { "type": "string" }
+      },
+      "description": "How this source revises published values. Absent means unknown/undocumented — treat as provisional."
+    },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Caveats a reader or an engineer needs: known category-mapping ambiguity, a magnitude that needs verifying, why this series is NOT the same concept as a similarly-named one."
+    },
+    "not_comparable_with": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["series", "reason"],
+        "properties": {
+          "series": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      },
+      "description": "Anti-join edges with human-readable reasons, for pairs that would otherwise look comparable (e.g. same accounting_concept) but are not. Enforced by generated incomparabilityReason() and surfaced verbatim in the UI."
+    }
+  }
+}

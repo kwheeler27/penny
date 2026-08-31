@@ -1,0 +1,25 @@
+id: fiscal.mts.outlays.category.medicare
+label: Medicare
+definition: >
+  Federal health insurance for people 65 and older and some younger people with disabilities.
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Monthly Treasury Statement, Table 9 — Summary of Receipts by Source, and Outlays by Function of the U.S. Government
+dataset_url: https://fiscaldata.treasury.gov/datasets/monthly-treasury-statement/outlays-of-the-u-s-government
+unit: usd
+magnitude: ones
+accounting_concept: outlay
+cadence: monthly
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Monthly Treasury Statement, Table 9, budget function 570 "Medicare". Accessed {access_date}.
+
+revision_policy:
+  status: provisional
+  note: >
+    Each MTS is a snapshot; a later month's report can carry a restated comparable-prior-period figure — ingest as a new observation row, never an in-place update.
+
+notes:
+  - >
+    This and every other fiscal.mts.outlays.category.* series must sum to fiscal.mts.outlays.total for the same month, to the dollar — CI-enforced reconciliation (ORCHESTRATION_PROMPT.md Core flow 1).
+  - >
+    OMB budget function 570.

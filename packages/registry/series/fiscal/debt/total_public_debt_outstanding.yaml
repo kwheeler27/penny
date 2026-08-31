@@ -1,0 +1,35 @@
+id: fiscal.debt.total_public_debt_outstanding
+label: Total public debt outstanding
+definition: >
+  The total amount the federal government owes, to the penny, as of the
+  close of a given business day — debt held by the public (bonds, bills,
+  and notes held by investors, the Fed, foreign governments, etc.) plus
+  intragovernmental holdings (debt one part of the government owes another,
+  e.g. the Social Security trust fund).
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Debt to the Penny
+dataset_url: https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny
+unit: usd
+magnitude: ones
+accounting_concept: debt
+cadence: daily
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Debt to the
+  Penny. Accessed {access_date}.
+
+revision_policy:
+  status: final
+  note: Published once per business day; not subsequently revised.
+
+notes:
+  - >
+    No value publishes on weekends and federal holidays — render those days
+    as a gap, never a zero or a carried-forward prior value.
+  - >
+    Debt (a stock, measured at a point in time) is a different accounting
+    concept from deficit (a flow, accumulated over a period) — the deficit
+    is the main driver of the change in debt held by the public between two
+    dates, but the two are never summed or directly compared without a
+    declared bridge (intragovernmental transactions, valuation, etc. break a
+    naive difference-of-debt = deficit identity).

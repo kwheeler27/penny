@@ -1,0 +1,596 @@
+[
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": null,
+    "value": "333.918",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": null,
+    "value": "333.952",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2026-05-01",
+    "periodEnd": "2026-05-31",
+    "fiscalYear": null,
+    "value": "335.123",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2026-04-01",
+    "periodEnd": "2026-04-30",
+    "fiscalYear": null,
+    "value": "333.020",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2026-03-01",
+    "periodEnd": "2026-03-31",
+    "fiscalYear": null,
+    "value": "330.213",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2026-02-01",
+    "periodEnd": "2026-02-28",
+    "fiscalYear": null,
+    "value": "326.785",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2026-01-01",
+    "periodEnd": "2026-01-31",
+    "fiscalYear": null,
+    "value": "325.252",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2025-12-01",
+    "periodEnd": "2025-12-31",
+    "fiscalYear": null,
+    "value": "324.054",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2025-11-01",
+    "periodEnd": "2025-11-30",
+    "fiscalYear": null,
+    "value": "324.122",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2025-09-01",
+    "periodEnd": "2025-09-30",
+    "fiscalYear": null,
+    "value": "324.800",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2025-08-01",
+    "periodEnd": "2025-08-31",
+    "fiscalYear": null,
+    "value": "323.976",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-31",
+    "fiscalYear": null,
+    "value": "323.048",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2025-06-01",
+    "periodEnd": "2025-06-30",
+    "fiscalYear": null,
+    "value": "322.561",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2025-05-01",
+    "periodEnd": "2025-05-31",
+    "fiscalYear": null,
+    "value": "321.465",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2025-04-01",
+    "periodEnd": "2025-04-30",
+    "fiscalYear": null,
+    "value": "320.795",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2025-03-01",
+    "periodEnd": "2025-03-31",
+    "fiscalYear": null,
+    "value": "319.799",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2025-02-01",
+    "periodEnd": "2025-02-28",
+    "fiscalYear": null,
+    "value": "319.082",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2025-01-01",
+    "periodEnd": "2025-01-31",
+    "fiscalYear": null,
+    "value": "317.671",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-12-01",
+    "periodEnd": "2024-12-31",
+    "fiscalYear": null,
+    "value": "315.605",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-11-01",
+    "periodEnd": "2024-11-30",
+    "fiscalYear": null,
+    "value": "315.493",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-10-01",
+    "periodEnd": "2024-10-31",
+    "fiscalYear": null,
+    "value": "315.664",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-09-01",
+    "periodEnd": "2024-09-30",
+    "fiscalYear": null,
+    "value": "315.301",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-08-01",
+    "periodEnd": "2024-08-31",
+    "fiscalYear": null,
+    "value": "314.796",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-07-01",
+    "periodEnd": "2024-07-31",
+    "fiscalYear": null,
+    "value": "314.540",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-06-01",
+    "periodEnd": "2024-06-30",
+    "fiscalYear": null,
+    "value": "314.175",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-05-01",
+    "periodEnd": "2024-05-31",
+    "fiscalYear": null,
+    "value": "314.069",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-04-01",
+    "periodEnd": "2024-04-30",
+    "fiscalYear": null,
+    "value": "313.548",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-03-01",
+    "periodEnd": "2024-03-31",
+    "fiscalYear": null,
+    "value": "312.332",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-02-01",
+    "periodEnd": "2024-02-29",
+    "fiscalYear": null,
+    "value": "310.326",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2024-01-01",
+    "periodEnd": "2024-01-31",
+    "fiscalYear": null,
+    "value": "308.417",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-12-01",
+    "periodEnd": "2023-12-31",
+    "fiscalYear": null,
+    "value": "306.746",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-11-01",
+    "periodEnd": "2023-11-30",
+    "fiscalYear": null,
+    "value": "307.051",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-10-01",
+    "periodEnd": "2023-10-31",
+    "fiscalYear": null,
+    "value": "307.671",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-09-01",
+    "periodEnd": "2023-09-30",
+    "fiscalYear": null,
+    "value": "307.789",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-08-01",
+    "periodEnd": "2023-08-31",
+    "fiscalYear": null,
+    "value": "307.026",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-07-01",
+    "periodEnd": "2023-07-31",
+    "fiscalYear": null,
+    "value": "305.691",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-06-01",
+    "periodEnd": "2023-06-30",
+    "fiscalYear": null,
+    "value": "305.109",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-05-01",
+    "periodEnd": "2023-05-31",
+    "fiscalYear": null,
+    "value": "304.127",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-04-01",
+    "periodEnd": "2023-04-30",
+    "fiscalYear": null,
+    "value": "303.363",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-03-01",
+    "periodEnd": "2023-03-31",
+    "fiscalYear": null,
+    "value": "301.836",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-02-01",
+    "periodEnd": "2023-02-28",
+    "fiscalYear": null,
+    "value": "300.840",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2023-01-01",
+    "periodEnd": "2023-01-31",
+    "fiscalYear": null,
+    "value": "299.170",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-12-01",
+    "periodEnd": "2022-12-31",
+    "fiscalYear": null,
+    "value": "296.797",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-11-01",
+    "periodEnd": "2022-11-30",
+    "fiscalYear": null,
+    "value": "297.711",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-10-01",
+    "periodEnd": "2022-10-31",
+    "fiscalYear": null,
+    "value": "298.012",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-09-01",
+    "periodEnd": "2022-09-30",
+    "fiscalYear": null,
+    "value": "296.808",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-08-01",
+    "periodEnd": "2022-08-31",
+    "fiscalYear": null,
+    "value": "296.171",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-07-01",
+    "periodEnd": "2022-07-31",
+    "fiscalYear": null,
+    "value": "296.276",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-06-01",
+    "periodEnd": "2022-06-30",
+    "fiscalYear": null,
+    "value": "296.311",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-05-01",
+    "periodEnd": "2022-05-31",
+    "fiscalYear": null,
+    "value": "292.296",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-04-01",
+    "periodEnd": "2022-04-30",
+    "fiscalYear": null,
+    "value": "289.109",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-03-01",
+    "periodEnd": "2022-03-31",
+    "fiscalYear": null,
+    "value": "287.504",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-02-01",
+    "periodEnd": "2022-02-28",
+    "fiscalYear": null,
+    "value": "283.716",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2022-01-01",
+    "periodEnd": "2022-01-31",
+    "fiscalYear": null,
+    "value": "281.148",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-12-01",
+    "periodEnd": "2021-12-31",
+    "fiscalYear": null,
+    "value": "278.802",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-11-01",
+    "periodEnd": "2021-11-30",
+    "fiscalYear": null,
+    "value": "277.948",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-10-01",
+    "periodEnd": "2021-10-31",
+    "fiscalYear": null,
+    "value": "276.589",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-09-01",
+    "periodEnd": "2021-09-30",
+    "fiscalYear": null,
+    "value": "274.310",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-08-01",
+    "periodEnd": "2021-08-31",
+    "fiscalYear": null,
+    "value": "273.567",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-07-01",
+    "periodEnd": "2021-07-31",
+    "fiscalYear": null,
+    "value": "273.003",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-06-01",
+    "periodEnd": "2021-06-30",
+    "fiscalYear": null,
+    "value": "271.696",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-05-01",
+    "periodEnd": "2021-05-31",
+    "fiscalYear": null,
+    "value": "269.195",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-04-01",
+    "periodEnd": "2021-04-30",
+    "fiscalYear": null,
+    "value": "267.054",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-03-01",
+    "periodEnd": "2021-03-31",
+    "fiscalYear": null,
+    "value": "264.877",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-02-01",
+    "periodEnd": "2021-02-28",
+    "fiscalYear": null,
+    "value": "263.014",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  },
+  {
+    "seriesId": "price.cpi_u.all_items",
+    "periodType": "month",
+    "periodStart": "2021-01-01",
+    "periodEnd": "2021-01-31",
+    "fiscalYear": null,
+    "value": "261.582",
+    "publicationTime": "2026-08-29T00:00:00Z"
+  }
+]

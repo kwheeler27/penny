@@ -14,11 +14,18 @@
  * turns a missing-relation crash into, at worst, a correctly-empty (all-gap)
  * page instead of a 500.
  */
-import { getDb, runMigrations, type PennyDb } from "@penny/db";
+import { getDb, isUsingNeon, runMigrations, type PennyDb } from "@penny/db";
 
 let migrated: Promise<void> | null = null;
 
 export function ensureMigrated(): Promise<void> {
+  // Auto-migrate is a PGlite-only convenience (a fresh local database has no
+  // schema until something creates it). On Neon it must never run from the
+  // app: migrations are an operational step from a checkout
+  // (`pnpm --filter @penny/db run migrate`), and the deployed serverless
+  // bundle doesn't contain the migrations folder — attempting it at runtime
+  // failed every production query (2026-08-31).
+  if (isUsingNeon()) return Promise.resolve();
   if (!migrated) {
     migrated = runMigrations(getDb()).catch((err) => {
       // Reset so a transient failure (e.g. a cold Neon connection) can be

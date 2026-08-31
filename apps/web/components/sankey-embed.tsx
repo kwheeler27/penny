@@ -21,8 +21,7 @@ import { todayIso } from "@/lib/format";
 function NoReportYet() {
   return (
     <div className="flow-empty">
-      No Monthly Treasury Statement data has been ingested yet for this view. Run <code>pnpm seed</code> once the
-      ingest workstream lands fixtures.
+      No Monthly Treasury Statement data is available for this view yet.
     </div>
   );
 }

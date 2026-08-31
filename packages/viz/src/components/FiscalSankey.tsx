@@ -2,6 +2,7 @@ import { useEffect, useId, useMemo, useState, type CSSProperties } from "react";
 import { buildFiscalFlowGraph, resolveNodeLabel, FISCAL_FLOW_HUB_ID } from "../layout/buildFiscalFlowGraph";
 import { computeFlowGeometry, type PositionedNode } from "../layout/sankeyGeometry";
 import { chooseOrientation, type FlowOrientation } from "../layout/orientation";
+import { resolveCanvasHeight } from "../layout/canvasHeight";
 import { placeLabels, type LabelBand } from "../layout/labelPlacement";
 import { summarizeFlows } from "../layout/summarize";
 import { getNodeDetail, getLinkDetail } from "../layout/detail";
@@ -104,7 +105,10 @@ export function FiscalSankey({ input, seriesCatalog, accessDate, width, height, 
 
   const effectiveWidth = width ?? measured.width ?? DEFAULT_WIDTH;
   const orientation = chooseOrientation(effectiveWidth);
-  const effectiveHeight = height ?? (orientation === "vertical" ? Math.max(measured.height, 720) : Math.max(measured.height, 420));
+  // Height comes from content + orientation only — measured.height must
+  // never feed the viewBox (the container wraps this SVG; see
+  // layout/canvasHeight.ts for the ratchet-loop constraint).
+  const effectiveHeight = height ?? resolveCanvasHeight(graph, orientation, NODE_THICKNESS, NODE_PADDING);
 
   const geometry = useMemo(
     () => computeFlowGeometry(graph, { width: effectiveWidth, height: effectiveHeight, orientation, nodeThickness: NODE_THICKNESS, nodePadding: NODE_PADDING }),

@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="page">
       <div className="prose-width">
-        <h1>The penny stops here.</h1>
+        <h1>Where every penny goes.</h1>
         <p className="page-lede">
           Penny makes the US dollar system legible: where federal money comes from, where every dollar of spending
           goes, how the Treasury&apos;s and the Federal Reserve&apos;s plumbing works, and how it transmits to

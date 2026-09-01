@@ -12,6 +12,17 @@ const MAGNITUDE_LABEL: Record<string, string> = {
   billions: "billions",
 };
 
+// Every unit the registry can declare (packages/db's unitEnum) — a headcount
+// (persons/households) is a real, distinct accounting concept from a dollar
+// figure or a BLS index point, and this table's whole job is to make that
+// concept visible, never to collapse it into a binary "USD or not" choice.
+const UNIT_LABEL: Record<string, string> = {
+  usd: "USD",
+  index_point: "Index point",
+  persons: "Persons",
+  households: "Households",
+};
+
 export default async function DataPage() {
   const latest = await Promise.all(
     SERIES_IDS.map(async (id) => ({ id, reading: await getLatestReading(id) })),
@@ -60,8 +71,8 @@ export default async function DataPage() {
                     </div>
                   </td>
                   <td>
-                    {def.unit === "usd" ? "USD" : "Index point"}
-                    {def.unit === "usd" && <div className="tag">{MAGNITUDE_LABEL[def.magnitude]}</div>}
+                    {UNIT_LABEL[def.unit] ?? def.unit}
+                    {def.magnitude !== "ones" && <div className="tag">{MAGNITUDE_LABEL[def.magnitude]}</div>}
                   </td>
                   <td>{def.cadence}</td>
                   <td>

@@ -21,10 +21,24 @@
   --border: rgba(11, 11, 11, 0.1);
   --link: #184f95;
 
-  /* Two-series categorical slots (dataviz skill palette, slots 1 & 2):
-     outlays = blue, receipts = orange. Fixed assignment, never cycled. */
-  --series-outlays: #2a78d6;
-  --series-receipts: #eb6834;
+  /* Three-series categorical slots — outlays / receipts / the balancing
+     "borrowing" flow. Fixed assignment, never cycled. Front-door-specific
+     values (penny-front-door.html, the approved mockup): validated for CVD
+     separation in both light and dark, superseding the earlier placeholder
+     hues below (never used anywhere until this front-door build — the
+     living Sankey (@penny/viz) owns its own separate, self-contained
+     palette in packages/viz/src/tokens.ts and is unaffected by these). */
+  --series-outlays: #d4653e;
+  --series-receipts: #3d6fb4;
+  --series-borrowing: #0d8f6b;
+  /* Diagonal-hatch tint for a negative bar segment (Act I/II rows) — the
+     ink color at low opacity, never a status/alert color (CLAUDE.md:
+     "the deficit is red" is exactly the editorializing the neutral-register
+     rule forbids; hatch is a pattern cue, not a color cue). */
+  --negative-hatch: rgba(11, 11, 11, 0.06);
+  /* A background one step below --surface — hover/expanded chart-row state
+     and the click-to-expand history panel's own background. */
+  --panel: #f1f0ea;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -51,8 +65,11 @@
     --baseline: #383835;
     --border: rgba(255, 255, 255, 0.1);
     --link: #86b6ef;
-    --series-outlays: #3987e5;
-    --series-receipts: #d95926;
+    --series-outlays: #d17a52;
+    --series-receipts: #5b8cc9;
+    --series-borrowing: #2aa18a;
+    --negative-hatch: rgba(235, 232, 223, 0.07);
+    --panel: #221f1c;
   }
 }
 
@@ -66,8 +83,11 @@
   --baseline: #383835;
   --border: rgba(255, 255, 255, 0.1);
   --link: #86b6ef;
-  --series-outlays: #3987e5;
-  --series-receipts: #d95926;
+  --series-outlays: #d17a52;
+  --series-receipts: #5b8cc9;
+  --series-borrowing: #2aa18a;
+  --negative-hatch: rgba(235, 232, 223, 0.07);
+  --panel: #221f1c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -129,7 +149,14 @@ a {
   text-underline-offset: 2px;
 }
 
-a:not(.site-wordmark):not(.skip-link) {
+/* Inline text links get an underline (color alone isn't a sufficient
+   affordance). Card-style links — the hero-strip cells, the bottom
+   read/verify tiles, the "for scale" fact cards — carry their own
+   hover/border affordance instead, so they're excluded here rather than
+   fighting this rule's specificity locally (a bare
+   `.hero-strip-cell { text-decoration: none }` loses to this selector's
+   higher specificity otherwise). */
+a:not(.site-wordmark):not(.skip-link):not(.hero-strip-cell):not(.tile):not(.for-scale-fact) {
   text-decoration: underline;
 }
 
@@ -179,6 +206,11 @@ ol {
   font-weight: 700;
   font-size: 1.35rem;
   color: var(--text-primary);
+  /* Excluded from the global underline-every-link rule above, but that
+     exclusion only stops the EXTRA underline it adds — the browser's own
+     default `a { text-decoration: underline }` still applies unless
+     overridden here (matches the approved mockup's .wordmark rule). */
+  text-decoration: none;
 }
 
 .site-nav {
@@ -563,4 +595,592 @@ table.citation-table {
 
 .ref-marker-error {
   color: #d03b3b;
+}
+
+/* ---------- front door (/) — hero ---------- */
+
+.hero-lede h1 {
+  font-weight: 700;
+  font-size: clamp(2.125rem, 6vw, 3.375rem);
+  text-wrap: balance;
+}
+.hero-lede .page-lede {
+  max-width: 62ch;
+}
+
+/* ---------- front door (/) — hero strip ---------- */
+
+.hero-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: var(--space-8) 0 0;
+  padding: 0;
+  list-style: none;
+  max-width: var(--wide-width);
+}
+
+.hero-strip li {
+  min-width: 0;
+}
+
+.hero-strip-cell {
+  background: var(--surface);
+  padding: var(--space-3) var(--space-4);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.15s ease;
+}
+.hero-strip-cell:hover {
+  background: var(--panel);
+}
+
+.hero-strip-k {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.hero-strip-v {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.hero-strip-v--gap {
+  color: var(--text-muted);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.hero-strip-s {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .hero-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- front door — acts (spending / revenue / the gap) ---------- */
+
+section.act {
+  padding: var(--space-16) 0 0;
+}
+
+.act-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.act-kicker--spend {
+  color: var(--series-outlays);
+}
+.act-kicker--rev {
+  color: var(--series-receipts);
+}
+.act-kicker--gap {
+  color: var(--series-borrowing);
+}
+
+section.act h2 {
+  margin: var(--space-2) 0 var(--space-3);
+}
+
+.act-lede {
+  color: var(--text-secondary);
+  max-width: 42rem;
+  margin: 0 0 var(--space-6);
+}
+
+.act-wide {
+  margin-top: var(--space-2);
+}
+
+/* ---------- front door — ranked bar chart (Act I / Act II) ---------- */
+
+.rank-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: var(--space-4);
+}
+.rank-toggle button {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 7px 14px;
+  border: 0;
+  background: var(--surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+.rank-toggle button[aria-pressed="true"] {
+  background: var(--text-primary);
+  color: var(--bg);
+  font-weight: 600;
+}
+.rank-toggle button:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: -2px;
+}
+
+.rank-chart,
+.rank-chart-empty {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 12px;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+}
+.rank-chart-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: var(--space-12);
+}
+
+.rank-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+button.rank-row {
+  display: grid;
+  grid-template-columns: 13.5rem 1fr 9.5rem;
+  gap: 10px;
+  align-items: center;
+  min-height: 24px;
+  background: none;
+  border: 0;
+  padding: 2px 4px;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+}
+button.rank-row:hover {
+  background: var(--panel);
+}
+button.rank-row[aria-expanded="true"] {
+  background: var(--panel);
+}
+button.rank-row:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: -2px;
+}
+
+.rank-row-lab {
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  text-align: right;
+  line-height: 1.2;
+}
+
+.rank-row-val {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.rank-row-pct {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.rank-row-track {
+  position: relative;
+  height: 16px;
+  display: block;
+}
+.rank-row-zero {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 1px;
+  background: var(--gridline);
+}
+.rank-row-bar {
+  position: absolute;
+  top: 0;
+  height: 16px;
+  border-radius: 0 4px 4px 0;
+}
+.rank-row-bar--neg {
+  border-radius: 4px 0 0 4px;
+  background-image: repeating-linear-gradient(45deg, transparent 0 3px, var(--negative-hatch) 3px 6px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .rank-row-bar {
+    transition: width 0.35s ease, left 0.35s ease;
+  }
+}
+
+.rank-total {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  margin-top: var(--space-4);
+  font-variant-numeric: tabular-nums;
+}
+.rank-foot {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: var(--space-3);
+  border-top: 1px solid var(--gridline);
+  padding-top: var(--space-2);
+}
+.rank-foot--note {
+  border-top: none;
+  padding-top: 0;
+}
+
+@media (max-width: 640px) {
+  button.rank-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    min-height: 0;
+    margin-bottom: var(--space-2);
+  }
+  .rank-row-lab,
+  .rank-row-val {
+    text-align: left;
+  }
+}
+
+/* ---------- front door — click-to-expand category history panel ---------- */
+
+.rank-hist,
+.rank-hist--empty {
+  background: var(--panel);
+  border-radius: var(--radius);
+  margin: 2px 4px var(--space-2);
+  padding: var(--space-3) var(--space-4);
+}
+.rank-hist--empty {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+.rank-hist-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.rank-hist-line {
+  stroke: var(--text-muted);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 4;
+}
+.rank-hist-zeroline {
+  stroke: var(--gridline);
+  stroke-width: 1;
+}
+.rank-hist-dot {
+  fill: var(--text-primary);
+}
+.rank-hist-dot-label {
+  font-size: 11px;
+  fill: var(--text-secondary);
+}
+.rank-hist-month-label {
+  font-size: 10.5px;
+  fill: var(--text-muted);
+}
+
+.rank-hist-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-2) 0 4px;
+}
+.rank-hist-chip {
+  font-size: 0.78rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 3px 10px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+.rank-hist-chip b {
+  color: var(--text-primary);
+}
+
+.rank-hist-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: var(--space-2);
+  max-width: 44rem;
+}
+
+/* ---------- front door — "for scale" facts ---------- */
+
+.for-scale-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+.for-scale-fact {
+  display: block;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 12px;
+  padding: var(--space-3) var(--space-4);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease;
+}
+a.for-scale-fact:hover,
+a.for-scale-fact:focus-visible {
+  border-color: var(--text-muted);
+}
+.for-scale-fact-value {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+.for-scale-fact--gap .for-scale-fact-value {
+  color: var(--text-muted);
+  font-style: italic;
+}
+.for-scale-fact-label {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+.for-scale-fact-source {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: var(--space-2);
+}
+@media (max-width: 640px) {
+  .for-scale-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- front door — Act III bridge ---------- */
+
+.bridge,
+.bridge-empty {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 12px;
+  padding: var(--space-6) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.bridge-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+}
+.bridge-row {
+  display: grid;
+  grid-template-columns: 8.5rem 1fr;
+  gap: var(--space-3);
+  align-items: center;
+}
+.bridge-lab {
+  font-size: 0.85rem;
+  text-align: right;
+  color: var(--text-primary);
+}
+.bridge-track {
+  position: relative;
+  height: 26px;
+}
+.bridge-bar {
+  position: absolute;
+  top: 0;
+  height: 26px;
+  border-radius: 0 5px 5px 0;
+}
+.bridge-bar .bridge-inlab {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.bridge-bar--hatch {
+  background-image: repeating-linear-gradient(45deg, transparent 0 4px, rgba(255, 255, 255, 0.28) 4px 8px);
+}
+.bridge-note {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.bridge-gap-brace {
+  position: absolute;
+  top: -7px;
+  bottom: -7px;
+  border-left: 2px dashed var(--series-borrowing);
+}
+@media (max-width: 640px) {
+  .bridge-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .bridge-lab {
+    text-align: left;
+  }
+}
+
+/* ---------- front door — "how borrowing works" ---------- */
+
+.how {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 12px;
+  padding: var(--space-6) var(--space-6);
+  margin-top: var(--space-4);
+}
+.how-title {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: var(--space-3);
+}
+ol.how-steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+ol.how-steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 40px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  max-width: 44rem;
+}
+ol.how-steps li b {
+  color: var(--text-primary);
+}
+ol.how-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--series-borrowing);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.how-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: var(--space-3);
+}
+.how-segue {
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  margin-top: var(--space-3);
+  border-top: 1px solid var(--gridline);
+  padding-top: var(--space-3);
+  max-width: 44rem;
+}
+
+/* ---------- front door — deficit history chart ---------- */
+
+.defchart,
+.defchart-empty {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 12px;
+  padding: var(--space-4);
+  margin-top: var(--space-4);
+}
+.defchart-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+}
+.defchart-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+.defchart-cols {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 150px;
+  position: relative;
+}
+.defchart-colwrap {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  min-width: 0;
+}
+.defchart-col {
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-radius: 2px;
+}
+.defchart-colwrap:hover .defchart-col {
+  filter: brightness(1.12);
+}
+.defchart-axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: var(--space-2);
+}
+.defchart-cap {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: var(--space-3);
+  border-top: 1px solid var(--gridline);
+  padding-top: var(--space-2);
+}
+
+.src {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: var(--space-3) 2px 0;
 }

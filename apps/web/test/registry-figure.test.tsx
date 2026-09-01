@@ -83,4 +83,23 @@ describe("RegistryFigure", () => {
     expect(absolute).not.toContain("−$1,798,816,211,853.03");
     expect(absolute).not.toContain("-$1,798,816,211,853.03");
   });
+
+  it("renders a persons/households series as a plain grouped headcount — never a currency figure, and never falls through to formatIndexPoint's decimal-tail convention", async () => {
+    await getDb()
+      .insert(observation)
+      .values({
+        seriesId: "census.population.resident_total" as SeriesId,
+        periodType: "day",
+        periodStart: "2025-07-01",
+        periodEnd: "2025-07-01",
+        fiscalYear: null,
+        value: "341784857", // magnitude "ones" — already a whole headcount
+        publicationTime: new Date("2026-01-27T00:00:00Z"),
+      });
+    const html = renderToStaticMarkup(await RegistryFigure({ id: "census.population.resident_total" as SeriesId, periodType: "day" }));
+    expect(html).toContain("341,784,857");
+    // formatIndexPoint's would-be fallback renders 3 decimals unconditionally.
+    expect(html).not.toContain("341,784,857.000");
+    expect(html).not.toContain("$341,784,857");
+  });
 });

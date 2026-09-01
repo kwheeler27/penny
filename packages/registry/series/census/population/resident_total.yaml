@@ -1,0 +1,59 @@
+id: census.population.resident_total
+label: U.S. resident population
+definition: >
+  The Census Bureau's estimate of the total resident population of the
+  United States as of July 1 of a given year — everyone usually living in
+  the 50 states and the District of Columbia (armed forces stationed
+  overseas and residents of Puerto Rico or other territories are counted
+  separately, not included here). This is an ESTIMATE from the Population
+  Estimates Program, not a census headcount: it starts from the most
+  recent decennial census (April 1, 2020) and rolls it forward each year
+  using recorded births, deaths, and net migration. Used on Penny to put
+  dollar figures "for scale," e.g. federal debt or spending per resident —
+  that division happens only where displayed, never in storage.
+
+agency: U.S. Census Bureau
+dataset: >
+  Population and Housing Unit Estimates, National Population Totals and
+  Components of Change (Vintage 2025)
+dataset_url: https://www.census.gov/data/tables/time-series/demo/popest/2020s-national-total.html
+unit: persons
+magnitude: ones
+accounting_concept: population
+cadence: annual
+citation: >
+  U.S. Census Bureau, Population and Housing Unit Estimates, National
+  Population Totals and Components of Change (Vintage 2025). Accessed
+  {access_date}.
+
+revision_policy:
+  status: mixed
+  note: >
+    The Population Estimates Program issues a new "vintage" roughly once a
+    year, and each vintage recomputes the estimate for every year back to
+    the last decennial census (2020) using updated methodology and inputs
+    — a later vintage's July 1, 20XX figure can differ from an earlier
+    vintage's figure for the same date. Ingest treats a changed value for
+    an already-known year as a new observation row (revisionOf), never an
+    in-place update, same as every other series in this registry.
+
+notes:
+  - >
+    This is an ESTIMATE, not a census count. Every reader-facing use of
+    this series (a "for scale" fact, a per-capita calculation) must say
+    "estimated" and name the vintage — never present it as an exact
+    enumeration.
+  - >
+    Verified against the Census Bureau's own published national dataset
+    file (NST-EST2025-ALLDATA.csv, downloaded 2026-08-31): the United
+    States row (SUMLEV 010, STATE 00), column POPESTIMATE2025 =
+    341,784,857 for July 1, 2025 — matching the Vintage 2025 national
+    estimate the Bureau announced in press release CB26-20 (January 27,
+    2026, "U.S. Population Growth Slows Due to Historic Decline in Net
+    International Migration": "341.8 million" as of July 1, 2025). See
+    db/fixtures/raw/census/population/SOURCE.md for the full extraction
+    record.
+  - >
+    Different accounting concept from census.households.total (persons
+    vs. occupied housing units) — see that series' not_comparable_with
+    for why the two are never summed or divided into each other.

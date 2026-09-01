@@ -34,7 +34,7 @@ import {
 // ---------- enums (mirror @penny/registry's generated unions) ----------
 
 /** Unit of a series' value, as published. Kept in sync by hand with @penny/registry's `Unit` type — see test/schema-registry-parity.test.ts. */
-export const unitEnum = pgEnum("unit", ["usd", "index_point"]);
+export const unitEnum = pgEnum("unit", ["usd", "index_point", "persons", "households"]);
 
 /** Scale of a series' value, exactly as published. Never converted at ingest. */
 export const magnitudeEnum = pgEnum("magnitude", ["ones", "thousands", "millions", "billions"]);
@@ -49,6 +49,8 @@ export const accountingConceptEnum = pgEnum("accounting_concept", [
   "interest",
   "price_index",
   "projection",
+  "population",
+  "households",
 ]);
 
 export const cadenceEnum = pgEnum("cadence", ["daily", "monthly", "annual"]);

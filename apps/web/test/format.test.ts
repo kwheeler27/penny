@@ -2,14 +2,22 @@ import { describe, expect, it } from "vitest";
 import {
   defaultUsdDecimals,
   describePeriod,
+  divideDecimalStrings,
+  formatCountScale,
   formatDateHuman,
   formatDateShort,
   formatExactUsd,
   formatIndexPoint,
+  formatMonthName,
   formatMonthYear,
+  formatMonthYearShort,
+  formatSeriesCount,
   formatSeriesUsd,
+  formatSharePercent,
+  formatUsdScale,
   magnitudePlaces,
   roundDecimalString,
+  roundToSignificantFigures,
   shiftDecimalRight,
 } from "../lib/format";
 
@@ -96,6 +104,23 @@ describe("formatSeriesUsd (registry value -> display, per published magnitude)",
   });
 });
 
+describe("formatSeriesCount (registry value -> a headcount display, never currency)", () => {
+  it("scales a 'thousands' households series up to a whole headcount with 0 default decimals and no dollar sign", () => {
+    const { display, exact, decimals } = formatSeriesCount("134790", "thousands");
+    expect(exact).toBe("134790000");
+    expect(decimals).toBe(0);
+    expect(display).toBe("134,790,000");
+  });
+
+  it("keeps an 'ones' population series as a plain whole number, no magnitude scaling", () => {
+    expect(formatSeriesCount("341784857", "ones").display).toBe("341,784,857");
+  });
+
+  it("never adds a currency sign, unlike formatSeriesUsd on the same input", () => {
+    expect(formatSeriesCount("134790", "thousands").display).not.toContain("$");
+  });
+});
+
 describe("magnitudePlaces / defaultUsdDecimals", () => {
   it("maps every magnitude to its power-of-ten shift", () => {
     expect(magnitudePlaces("ones")).toBe(0);
@@ -122,6 +147,65 @@ describe("formatIndexPoint", () => {
   });
 });
 
+describe("formatUsdScale (fixed-scale abbreviation, never Intl's auto-picked compact notation)", () => {
+  it("formats a trillion-scale whole-dollar value at a FIXED billions scale, not auto-picked trillions", () => {
+    expect(formatUsdScale("1384438183069.17", "B", 1)).toBe("$1,384.4B");
+  });
+
+  it("renders a negative value with the sign before the currency symbol", () => {
+    expect(formatUsdScale("-136620830131.93", "B", 1)).toBe("−$136.6B");
+  });
+
+  it("formats at a trillions scale with 2 decimals", () => {
+    expect(formatUsdScale("40077529831942.94", "T", 2)).toBe("$40.08T");
+  });
+
+  it("never renders a sign for an exact-zero result", () => {
+    expect(formatUsdScale("0", "B", 1)).toBe("$0.0B");
+  });
+});
+
+describe("formatCountScale (a plain scaled count, no currency sign)", () => {
+  it("formats a whole headcount at a millions scale", () => {
+    expect(formatCountScale("132200000", "M", 1)).toBe("132.2M");
+  });
+});
+
+describe("formatSharePercent (signed share of a total, exact BigInt division)", () => {
+  it("computes a positive share to 1 decimal, no leading sign", () => {
+    expect(formatSharePercent("1384438183069.17", "6284235715734.18", 1)).toBe("22.0%");
+  });
+
+  it("computes a negative share with a true minus sign", () => {
+    expect(formatSharePercent("-136620830131.93", "6284235715734.18", 1)).toBe("−2.2%");
+  });
+});
+
+describe("divideDecimalStrings (exact a/b, plain signed decimal string)", () => {
+  it("divides two whole-dollar strings to a rounded whole number", () => {
+    expect(divideDecimalStrings("6284235715734.18", "132200000", 0)).toBe("47536"); // 47535.82... rounds half-up
+  });
+
+  it("rounds half-up", () => {
+    expect(divideDecimalStrings("5", "2", 1)).toBe("2.5");
+  });
+});
+
+describe("roundToSignificantFigures (illustrative 'for scale' rounding only)", () => {
+  it("rounds to 3 significant figures", () => {
+    expect(roundToSignificantFigures("47535", 3)).toBe("47500");
+    expect(roundToSignificantFigures("303131", 3)).toBe("303000");
+  });
+
+  it("is a no-op when the value already has fewer digits than sigFigs", () => {
+    expect(roundToSignificantFigures("42", 3)).toBe("42");
+  });
+
+  it("handles a carry that adds a digit (999500 at 3 sig figs)", () => {
+    expect(roundToSignificantFigures("999500", 3)).toBe("1000000");
+  });
+});
+
 describe("calendar-date formatting (string-parsed, never via `new Date()`)", () => {
   it("formats a plain YYYY-MM-DD into a human date", () => {
     expect(formatDateHuman("2026-08-28")).toBe("August 28, 2026");
@@ -131,6 +215,11 @@ describe("calendar-date formatting (string-parsed, never via `new Date()`)", () 
 
   it("falls back to the raw string for anything that isn't YYYY-MM-DD", () => {
     expect(formatDateHuman("not-a-date")).toBe("not-a-date");
+  });
+
+  it("formats the bare month name and the short month+year (front-door period toggle / deficit-chart axis)", () => {
+    expect(formatMonthName("2026-07-31")).toBe("July");
+    expect(formatMonthYearShort("2022-10-31")).toBe("Oct 2022");
   });
 });
 

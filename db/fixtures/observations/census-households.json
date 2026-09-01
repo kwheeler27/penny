@@ -1,0 +1,56 @@
+[
+  {
+    "seriesId": "census.households.total",
+    "periodType": "year",
+    "periodStart": "2020-01-01",
+    "periodEnd": "2020-12-31",
+    "fiscalYear": null,
+    "value": "128451",
+    "publicationTime": "2025-12-02T00:00:00Z"
+  },
+  {
+    "seriesId": "census.households.total",
+    "periodType": "year",
+    "periodStart": "2021-01-01",
+    "periodEnd": "2021-12-31",
+    "fiscalYear": null,
+    "value": "129224",
+    "publicationTime": "2025-12-02T00:00:00Z"
+  },
+  {
+    "seriesId": "census.households.total",
+    "periodType": "year",
+    "periodStart": "2022-01-01",
+    "periodEnd": "2022-12-31",
+    "fiscalYear": null,
+    "value": "131202",
+    "publicationTime": "2025-12-02T00:00:00Z"
+  },
+  {
+    "seriesId": "census.households.total",
+    "periodType": "year",
+    "periodStart": "2023-01-01",
+    "periodEnd": "2023-12-31",
+    "fiscalYear": null,
+    "value": "131434",
+    "publicationTime": "2025-12-02T00:00:00Z"
+  },
+  {
+    "seriesId": "census.households.total",
+    "periodType": "year",
+    "periodStart": "2024-01-01",
+    "periodEnd": "2024-12-31",
+    "fiscalYear": null,
+    "value": "132216",
+    "publicationTime": "2025-12-02T00:00:00Z"
+  },
+  {
+    "seriesId": "census.households.total",
+    "periodType": "year",
+    "periodStart": "2025-01-01",
+    "periodEnd": "2025-12-31",
+    "fiscalYear": null,
+    "value": "134790",
+    "publicationTime": "2025-12-02T00:00:00Z"
+  }
+]

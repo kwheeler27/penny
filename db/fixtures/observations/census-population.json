@@ -1,0 +1,56 @@
+[
+  {
+    "seriesId": "census.population.resident_total",
+    "periodType": "day",
+    "periodStart": "2020-07-01",
+    "periodEnd": "2020-07-01",
+    "fiscalYear": null,
+    "value": "331578104",
+    "publicationTime": "2026-01-27T00:00:00Z"
+  },
+  {
+    "seriesId": "census.population.resident_total",
+    "periodType": "day",
+    "periodStart": "2021-07-01",
+    "periodEnd": "2021-07-01",
+    "fiscalYear": null,
+    "value": "332100166",
+    "publicationTime": "2026-01-27T00:00:00Z"
+  },
+  {
+    "seriesId": "census.population.resident_total",
+    "periodType": "day",
+    "periodStart": "2022-07-01",
+    "periodEnd": "2022-07-01",
+    "fiscalYear": null,
+    "value": "333996304",
+    "publicationTime": "2026-01-27T00:00:00Z"
+  },
+  {
+    "seriesId": "census.population.resident_total",
+    "periodType": "day",
+    "periodStart": "2023-07-01",
+    "periodEnd": "2023-07-01",
+    "fiscalYear": null,
+    "value": "336755052",
+    "publicationTime": "2026-01-27T00:00:00Z"
+  },
+  {
+    "seriesId": "census.population.resident_total",
+    "periodType": "day",
+    "periodStart": "2024-07-01",
+    "periodEnd": "2024-07-01",
+    "fiscalYear": null,
+    "value": "340003797",
+    "publicationTime": "2026-01-27T00:00:00Z"
+  },
+  {
+    "seriesId": "census.population.resident_total",
+    "periodType": "day",
+    "periodStart": "2025-07-01",
+    "periodEnd": "2025-07-01",
+    "fiscalYear": null,
+    "value": "341784857",
+    "publicationTime": "2026-01-27T00:00:00Z"
+  }
+]

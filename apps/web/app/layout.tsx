@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Source_Serif_4 } from "next/font/google";
+import { Geist_Mono, Public_Sans, Source_Serif_4 } from "next/font/google";
 import SiteHeader from "@/components/site-header";
 import SiteFooter from "@/components/site-footer";
 import "./globals.css";
 
-const geistSans = Geist({
+// Public Sans + Source Serif 4 is the approved front-door design's type
+// pairing (penny-front-door.html mockup) — adopted sitewide via the same
+// next/font/google pipeline every other typeface here already uses, rather
+// than a one-off loaded just for "/".
+const publicSans = Public_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -31,7 +36,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${sourceSerif.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${publicSans.variable} ${geistMono.variable} ${sourceSerif.variable}`} suppressHydrationWarning>
       <body>
         <a className="skip-link" href="#main">
           Skip to content

@@ -17,6 +17,8 @@ describe("@penny/registry generated catalog", () => {
       "fiscal.tga.closing_balance",
       "price.cpi_u.all_items",
       "projection.cbo.baseline.deficit",
+      "census.population.resident_total",
+      "census.households.total",
     ];
     for (const id of expectedSample) {
       expect(SERIES_IDS).toContain(id);
@@ -38,7 +40,7 @@ describe("@penny/registry generated catalog", () => {
       expect(def.datasetUrl, id).toMatch(/^https:\/\//);
       expect(def.citation, id).toBeTruthy();
       expect(def.definition.length, id).toBeGreaterThan(10);
-      expect(["usd", "index_point"], id).toContain(def.unit);
+      expect(["usd", "index_point", "persons", "households"], id).toContain(def.unit);
       expect(["ones", "thousands", "millions", "billions"], id).toContain(def.magnitude);
     }
   });
@@ -84,5 +86,28 @@ describe("@penny/registry generated catalog", () => {
 
   it("returns null comparing a series with itself", () => {
     expect(incomparabilityReason("fiscal.mts.receipts.total", "fiscal.mts.receipts.total")).toBeNull();
+  });
+
+  it("Census population/households series carry the persons/households unit and accounting_concept", () => {
+    const pop = SERIES["census.population.resident_total"];
+    const hh = SERIES["census.households.total"];
+    expect(pop.unit).toBe("persons");
+    expect(pop.accountingConcept).toBe("population");
+    expect(hh.unit).toBe("households");
+    expect(hh.accountingConcept).toBe("households");
+    // Both are Census estimates, not dollar figures — measurement honesty.
+    expect(pop.definition.toLowerCase()).toContain("estimate");
+    expect(hh.definition.toLowerCase()).toContain("estimate");
+  });
+
+  it("flags Census population and households as incomparable with each other (declared edge)", () => {
+    const reason = incomparabilityReason("census.population.resident_total", "census.households.total");
+    expect(reason).toBeTruthy();
+    expect(reason).toMatch(/household|person/i);
+  });
+
+  it("flags a Census demographic series as incomparable with a fiscal usd series (generic concept-mismatch guard)", () => {
+    const reason = incomparabilityReason("census.population.resident_total", "fiscal.debt.total_public_debt_outstanding");
+    expect(reason).toMatch(/accounting concept/i);
   });
 });

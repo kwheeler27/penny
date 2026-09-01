@@ -17,7 +17,8 @@
     "ingest:tga": "tsx src/jobs/tga-daily.ts",
     "ingest:interest": "tsx src/jobs/interest-expense-monthly.ts",
     "ingest:cpi": "tsx src/jobs/cpi-monthly.ts",
-    "ingest:cbo": "tsx src/jobs/cbo-baseline.ts"
+    "ingest:cbo": "tsx src/jobs/cbo-baseline.ts",
+    "ingest:census": "tsx src/jobs/census-batch.ts"
   },
   "dependencies": {
     "@penny/db": "workspace:*",

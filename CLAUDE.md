@@ -56,6 +56,12 @@ the rates people pay. Product context: `IDEA.md` (confirmed pitch);
   budget authority; deficit vs. debt; par vs. market value; fiscal year vs.
   calendar year). Side-by-side display or a declared bridge, never a silent
   sum or comparison.
+- **Curl is not verification for anything visual.** Any PR touching
+  `apps/web` or `packages/viz` requires real-browser screenshots at 1440px
+  and 375px (`pnpm qa:screens`) against seeded data, eyeballed before merge —
+  and production gets re-checked after the first ISR revalidation window
+  (~15 min) following deploy: build-time success does not prove the runtime
+  path (learned 2026-08-31, both ways).
 - The dev machine has **8GB RAM**: no simulators, no watch-mode runners, no
   long-lived dev servers unless asked; tests run single-run.
 

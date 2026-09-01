@@ -1,0 +1,82 @@
+id: census.households.total
+label: Total U.S. households
+definition: >
+  The Census Bureau's estimate of the total number of households in the
+  United States — one household per occupied housing unit, whether it
+  holds a family or a group of unrelated people sharing a home; a person
+  living alone counts as a household of one. From the Current Population
+  Survey Annual Social and Economic Supplement (CPS ASEC), a survey
+  fielded primarily in March of the labeled year — a survey ESTIMATE, not
+  a census count and not a full-year average. Used on Penny to put dollar
+  figures "for scale," e.g. federal debt or spending per household — that
+  division happens only where displayed, never in storage.
+
+agency: U.S. Census Bureau
+dataset: >
+  Historical Households Tables, Table HH-1 — Households by Type: 1940 to
+  Present (Current Population Survey Annual Social and Economic
+  Supplement)
+dataset_url: https://www.census.gov/data/tables/time-series/demo/families/households.html
+unit: households
+magnitude: thousands
+accounting_concept: households
+cadence: annual
+citation: >
+  U.S. Census Bureau, Historical Households Tables, Table HH-1,
+  "Households by Type: 1940 to Present," Current Population Survey Annual
+  Social and Economic Supplement (CPS ASEC). Accessed {access_date}.
+
+revision_policy:
+  status: mixed
+  note: >
+    Table HH-1 occasionally restates a past year's figure when the
+    population controls behind it change (e.g. after a new decennial
+    census) — the table's own footnote "r" marks a row as revised on
+    exactly this basis, and a footnote "t" marks 2025 as reflecting the
+    Vintage 2025 population-estimate methodology change. Ingest treats a
+    changed value for an already-known year as a new observation row
+    (revisionOf), never an in-place update, same as every other series in
+    this registry.
+
+notes:
+  - >
+    This is a SURVEY ESTIMATE, not a census count. "Household" is a
+    Census Bureau term of art meaning every occupied housing unit,
+    including one person living alone — it is a different, larger count
+    than "families" (Table HH-1's own "Family households" column is a
+    subset of this total, excluding people living alone or with
+    unrelated roommates).
+  - >
+    The Census Bureau publishes more than one official household count.
+    This series is the CPS ASEC's annual count (Table HH-1, used here for
+    its genuinely annual cadence); a separate product, the Current
+    Population Survey/Housing Vacancy Survey (Table 3, "occupied housing
+    units"), publishes its own quarterly household count from a
+    different sample, a different reference period, and — as of 2026 —
+    different housing-unit population controls. The two will not exactly
+    match (e.g. HVS's second-quarter-2026 figure is 133,811 thousand
+    against this series' 134,790 thousand for 2025). Do not treat them as
+    interchangeable, and never sum or difference across the two.
+  - >
+    Verified against the Census Bureau's own published table file
+    (hh1.xls, "Internet Release Date: December 2025", downloaded
+    2026-08-31): the current row, labeled "2025t", reports Total
+    households = 134,790 (thousands). See
+    db/fixtures/raw/census/households/SOURCE.md for the full extraction
+    record, the exact footnote text, and the release-date reasoning
+    (the source page states only "December 2025"; the day is inferred
+    from the concurrent CB25-197 "America's Families and Living
+    Arrangements: 2025" press release, dated December 2, 2025 — flagged
+    explicitly rather than presented as a Bureau-confirmed exact date).
+  - >
+    Different accounting concept from census.population.resident_total
+    (occupied housing units vs. persons) — see that series and this
+    series' not_comparable_with.
+
+not_comparable_with:
+  - series: census.population.resident_total
+    reason: >
+      One counts occupied housing units, the other counts people
+      (households average a little over 2.5 people each) — never sum,
+      divide, or directly compare the two without an explicit "average
+      household size" framing, attributed as such.

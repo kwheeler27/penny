@@ -15,7 +15,7 @@
  * and *which period* — never a value, never a hardcoded number.
  */
 import { citationFor, getSeries, type SeriesId } from "@penny/registry";
-import { formatIndexPoint, formatSeriesUsd, describePeriod, todayIso } from "@/lib/format";
+import { formatIndexPoint, formatSeriesCount, formatSeriesUsd, describePeriod, todayIso } from "@/lib/format";
 import { getLatestReading } from "@/lib/series-data";
 import type { PeriodType } from "@/lib/types";
 
@@ -87,8 +87,17 @@ export default async function RegistryFigure({
   }
 
   const displayValue = sign === "absolute" ? stripSign(reading.value) : reading.value;
+  // Three accounting concepts, three formatters — never fall through a
+  // persons/households headcount into formatIndexPoint's BLS-index
+  // convention (3 decimals, no magnitude scaling), which would render a
+  // whole-number population as a nonsensical decimal (CLAUDE.md: accounting
+  // concepts never mix silently).
   const display =
-    def.unit === "usd" ? formatSeriesUsd(displayValue, def.magnitude, precision).display : formatIndexPoint(displayValue, precision);
+    def.unit === "usd"
+      ? formatSeriesUsd(displayValue, def.magnitude, precision).display
+      : def.unit === "persons" || def.unit === "households"
+        ? formatSeriesCount(displayValue, def.magnitude, precision).display
+        : formatIndexPoint(displayValue, precision);
 
   return (
     <figure className={classes}>

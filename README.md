@@ -1,6 +1,6 @@
 # Penny
 
-**Where every penny goes.**
+**Every last penny.**
 
 Penny is a public instrument that makes the US dollar system legible: where
 federal money comes from, where every dollar of spending goes, how the

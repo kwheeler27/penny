@@ -7,7 +7,7 @@
  */
 import { type MagnitudeName, scaleByMagnitude, toWholeDollarsBigInt, isNegativeDecimal } from "./decimal";
 
-export type FormatUnit = "usd" | "index_point";
+export type FormatUnit = "usd" | "index_point" | "persons" | "households";
 
 export interface FormatValueOptions {
   /** "$6.1T" style. Default true — the space this library renders numbers in (tiles, node labels) is small. */
@@ -29,6 +29,10 @@ export function formatSeriesValue(
   opts: FormatValueOptions = {},
 ): string {
   if (unit === "index_point") return formatIndexPoint(value, opts);
+  if (unit === "persons" || unit === "households") {
+    const wholeCount = scaleByMagnitude(value, magnitude);
+    return formatCount(wholeCount, opts);
+  }
   const wholeDollarValue = scaleByMagnitude(value, magnitude);
   return formatUsd(wholeDollarValue, opts);
 }
@@ -40,6 +44,23 @@ export function formatUsd(dollarsExact: string, opts: FormatValueOptions = {}): 
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
+    notation: compact ? "compact" : "standard",
+    maximumFractionDigits: compact ? 1 : 0,
+    signDisplay: explicitSign ? "exceptZero" : "auto",
+  });
+  return formatter.format(amount);
+}
+
+/** Formats an already-whole-magnitude (i.e. actual persons/households) decimal
+ * string as a plain grouped count — never a currency symbol, since a
+ * headcount is not money (CLAUDE.md: accounting concepts never mix
+ * silently). Reuses the same compact/sign behavior as formatUsd so a
+ * Sankey node showing a population/household series reads consistently
+ * with a dollar node, minus the "$". */
+function formatCount(wholeValue: string, opts: FormatValueOptions): string {
+  const { compact = true, explicitSign = false } = opts;
+  const amount = toWholeDollarsBigInt(wholeValue);
+  const formatter = new Intl.NumberFormat("en-US", {
     notation: compact ? "compact" : "standard",
     maximumFractionDigits: compact ? 1 : 0,
     signDisplay: explicitSign ? "exceptZero" : "auto",

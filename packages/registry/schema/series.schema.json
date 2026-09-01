@@ -47,16 +47,16 @@
       "description": "Canonical URL for the dataset (the citation link)."
     },
     "unit": {
-      "enum": ["usd", "index_point"],
-      "description": "Unit of value_amount, as published. Conversion happens only at the presentation boundary, never in storage."
+      "enum": ["usd", "index_point", "persons", "households"],
+      "description": "Unit of value_amount, as published. Conversion happens only at the presentation boundary, never in storage. `persons`/`households` are Census Bureau demographic counts (e.g. for per-capita/per-household 'for scale' figures) — never a dollar amount, and never silently divided into a usd series without the division happening at the presentation boundary, attributed as a derived per-capita/per-household figure."
     },
     "magnitude": {
       "enum": ["ones", "thousands", "millions", "billions"],
       "description": "Scale of value_amount EXACTLY as published by the source (e.g. MTS tables report dollars in millions; Debt to the Penny reports whole dollars/cents = ones). Never converted at ingest. Mixing series of different magnitudes in a sum or chart without converting at render time is a hard-rule violation — verify this field against a live API sample before wiring ingest for a series that uses it."
     },
     "accounting_concept": {
-      "enum": ["receipt", "outlay", "deficit", "debt", "balance", "interest", "price_index", "projection"],
-      "description": "Accounting semantics. Series differing here are never summed or charted together without a declared bridge (CLAUDE.md hard rule). `projection` is a distinct concept from `deficit`/`outlay`/etc: CBO's projected figures can never be silently combined with MTS observed figures."
+      "enum": ["receipt", "outlay", "deficit", "debt", "balance", "interest", "price_index", "projection", "population", "households"],
+      "description": "Accounting semantics. Series differing here are never summed or charted together without a declared bridge (CLAUDE.md hard rule). `projection` is a distinct concept from `deficit`/`outlay`/etc: CBO's projected figures can never be silently combined with MTS observed figures. `population` and `households` are Census Bureau demographic-count concepts, deliberately distinct from each other and from every fiscal.*/price.* concept: a person-count and a household-count are never summed together, and neither is ever summed with a dollar figure — they exist to be divided into a usd series at the presentation boundary (a per-capita or per-household figure), never combined in storage."
     },
     "cadence": {
       "enum": ["daily", "monthly", "annual"],

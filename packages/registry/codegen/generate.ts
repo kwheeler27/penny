@@ -47,7 +47,7 @@ interface Series {
   agency: string;
   dataset: string;
   dataset_url: string;
-  unit: "usd" | "index_point";
+  unit: "usd" | "index_point" | "persons" | "households";
   magnitude: "ones" | "thousands" | "millions" | "billions";
   accounting_concept:
     | "receipt"
@@ -57,7 +57,9 @@ interface Series {
     | "balance"
     | "interest"
     | "price_index"
-    | "projection";
+    | "projection"
+    | "population"
+    | "households";
   cadence: "daily" | "monthly" | "annual";
   citation: string;
   revision_policy?: RevisionPolicy;

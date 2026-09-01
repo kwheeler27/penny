@@ -29,21 +29,41 @@ was produced and what it covers.
   `raw/`, never hand-edit these files. `packages/db`'s `pnpm seed` picks up
   every file here automatically via `seedObservationFixtures()`.
 
-  **Known bug blocking `pnpm seed` with this data, flagged for whoever owns
-  `packages/db` (out of this package's ownership, so not fixed here):**
-  `packages/db/src/seed.ts`'s `seedObservationFixtures()` passes each row's
-  `publicationTime` straight through as the JSON string this directory
-  documents, but Drizzle's `timestamp` column mapper calls
-  `.toISOString()` on the value at insert time — which a plain string
-  doesn't have — so `pnpm seed` throws
-  `TypeError: value.toISOString is not a function` the moment an
-  `observations/*.json` file is non-empty (its own test suite only ever
-  exercised the empty-directory case, so this never surfaced before real
-  data existed here). One-line fix: map
-  `publicationTime: new Date(row.publicationTime)` for each row before
-  `.values(rows)` in `seedObservationFixtures()`. This package's own
-  `runMigrations`/`upsertObservation` path is unaffected — the bug is
-  specific to `seed.ts`'s generic JSON loader.
+  `mts-totals.json` / `mts-receipts-categories.json` /
+  `mts-outlays-categories.json` now carry the FULL MTS history (2026-09-01
+  backfill): every month from 2015-03 through the latest published report,
+  both `month` and `fiscal_ytd` readings — sourced from the full-range raw
+  captures below, not the small per-month snapshots. January and February
+  2015 are absent everywhere in these three files, deliberately: FiscalData
+  has no MTS report at all for those two record_dates (its earliest report
+  for any of the three tables is 2015-03-31), so there is no category
+  breakdown to reconcile against a total for those months — excluded rather
+  than shipped as a total with nothing to check it against. See
+  `packages/ingest/src/jobs/mts-backfill.ts`'s module doc comment and
+  `packages/ingest/test/reconciliation.test.ts`'s "full-history backfill"
+  describe blocks for the full reconciliation story, including the one
+  genuine tolerance (not exact-equality) check: FYTD readings vs. the sum of
+  that fiscal year's own-report months, which differs by small,
+  real Treasury between-report revisions (worst observed: ~$5.09B against a
+  ~$1.83T FY2024 deficit reading) — documented and bounded by an explicit
+  tolerance there, per CLAUDE.md's reconciliation-report rule, rather than
+  asserted as an exact identity it isn't.
+
+  **Previously-documented `pnpm seed` bug (now fixed, this note corrected
+  2026-09-01):** this README used to describe a `TypeError:
+  value.toISOString is not a function` crash in `seedObservationFixtures()`.
+  That fix (`publicationTime: new Date(row.publicationTime)`) is already
+  live in `packages/db/src/seed.ts`. A DIFFERENT crash surfaced once the MTS
+  backfill above produced `mts-outlays-categories.json`'s 5,206 rows: PGlite's
+  wire-protocol layer throws a raw `RangeError: Invalid array length` once a
+  single `INSERT`'s bound-parameter count crosses roughly 32,767 (reproduced
+  live: a 7-column, 5,206-row insert — 36,442 params — fails; the same shape
+  at 4,000 rows/28,000 params succeeds). Also fixed in `seed.ts`:
+  `seedObservationFixtures()` now inserts each file in batches of 1,000 rows
+  rather than one `INSERT` per file. Both fixes are in `packages/db`, outside
+  the ingest backfill's own ownership, but made directly because they
+  blocked `pnpm seed` from loading this directory's data — flagged here for
+  whoever owns `packages/db` to review.
 
 ## Rules
 

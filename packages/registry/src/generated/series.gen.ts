@@ -3,7 +3,7 @@
 
 export type Unit = "usd" | "index_point" | "persons" | "households";
 export type Magnitude = "ones" | "thousands" | "millions" | "billions";
-export type AccountingConcept = "receipt" | "outlay" | "deficit" | "debt" | "balance" | "interest" | "price_index" | "projection" | "population" | "households";
+export type AccountingConcept = "receipt" | "outlay" | "deficit" | "debt" | "balance" | "interest" | "price_index" | "projection" | "population" | "households" | "cash_deposit" | "cash_withdrawal";
 export type Cadence = "daily" | "monthly" | "annual";
 export type RevisionStatus = "provisional" | "final" | "mixed";
 
@@ -26,7 +26,7 @@ export interface SeriesDef {
   readonly notComparableWith: readonly { readonly series: string; readonly reason: string }[];
 }
 
-export type SeriesId = "census.households.total" | "census.population.resident_total" | "fiscal.debt.interest_expense_total" | "fiscal.debt.total_public_debt_outstanding" | "fiscal.mts.deficit.total" | "fiscal.mts.outlays.category.administration_of_justice" | "fiscal.mts.outlays.category.agriculture" | "fiscal.mts.outlays.category.allowances" | "fiscal.mts.outlays.category.commerce_and_housing_credit" | "fiscal.mts.outlays.category.community_and_regional_development" | "fiscal.mts.outlays.category.education_training_employment_social_services" | "fiscal.mts.outlays.category.energy" | "fiscal.mts.outlays.category.general_government" | "fiscal.mts.outlays.category.general_science_space_technology" | "fiscal.mts.outlays.category.health" | "fiscal.mts.outlays.category.income_security" | "fiscal.mts.outlays.category.international_affairs" | "fiscal.mts.outlays.category.medicare" | "fiscal.mts.outlays.category.national_defense" | "fiscal.mts.outlays.category.natural_resources_and_environment" | "fiscal.mts.outlays.category.net_interest" | "fiscal.mts.outlays.category.social_security" | "fiscal.mts.outlays.category.transportation" | "fiscal.mts.outlays.category.undistributed_offsetting_receipts" | "fiscal.mts.outlays.category.veterans_benefits_and_services" | "fiscal.mts.outlays.total" | "fiscal.mts.receipts.category.corporation_income_tax" | "fiscal.mts.receipts.category.customs_duties" | "fiscal.mts.receipts.category.estate_and_gift_taxes" | "fiscal.mts.receipts.category.excise_taxes" | "fiscal.mts.receipts.category.individual_income_tax" | "fiscal.mts.receipts.category.miscellaneous_receipts" | "fiscal.mts.receipts.category.social_insurance_retirement" | "fiscal.mts.receipts.total" | "fiscal.tga.closing_balance" | "price.cpi_u.all_items" | "projection.cbo.baseline.deficit";
+export type SeriesId = "census.households.total" | "census.population.resident_total" | "fiscal.debt.interest_expense_total" | "fiscal.debt.total_public_debt_outstanding" | "fiscal.dts.deposits_operating_excl_debt" | "fiscal.dts.public_debt_cash_issues" | "fiscal.dts.public_debt_cash_redemptions" | "fiscal.dts.withdrawals_operating_excl_debt" | "fiscal.mts.deficit.total" | "fiscal.mts.outlays.category.administration_of_justice" | "fiscal.mts.outlays.category.agriculture" | "fiscal.mts.outlays.category.allowances" | "fiscal.mts.outlays.category.commerce_and_housing_credit" | "fiscal.mts.outlays.category.community_and_regional_development" | "fiscal.mts.outlays.category.education_training_employment_social_services" | "fiscal.mts.outlays.category.energy" | "fiscal.mts.outlays.category.general_government" | "fiscal.mts.outlays.category.general_science_space_technology" | "fiscal.mts.outlays.category.health" | "fiscal.mts.outlays.category.income_security" | "fiscal.mts.outlays.category.international_affairs" | "fiscal.mts.outlays.category.medicare" | "fiscal.mts.outlays.category.national_defense" | "fiscal.mts.outlays.category.natural_resources_and_environment" | "fiscal.mts.outlays.category.net_interest" | "fiscal.mts.outlays.category.social_security" | "fiscal.mts.outlays.category.transportation" | "fiscal.mts.outlays.category.undistributed_offsetting_receipts" | "fiscal.mts.outlays.category.veterans_benefits_and_services" | "fiscal.mts.outlays.total" | "fiscal.mts.receipts.category.corporation_income_tax" | "fiscal.mts.receipts.category.customs_duties" | "fiscal.mts.receipts.category.estate_and_gift_taxes" | "fiscal.mts.receipts.category.excise_taxes" | "fiscal.mts.receipts.category.individual_income_tax" | "fiscal.mts.receipts.category.miscellaneous_receipts" | "fiscal.mts.receipts.category.social_insurance_retirement" | "fiscal.mts.receipts.total" | "fiscal.tga.closing_balance" | "price.cpi_u.all_items" | "projection.cbo.baseline.deficit";
 
 export const SERIES: Record<SeriesId, SeriesDef> = {
   "census.households.total": {
@@ -124,6 +124,134 @@ export const SERIES: Record<SeriesId, SeriesDef> = {
       "Debt (a stock, measured at a point in time) is a different accounting concept from deficit (a flow, accumulated over a period) — the deficit is the main driver of the change in debt held by the public between two dates, but the two are never summed or directly compared without a declared bridge (intragovernmental transactions, valuation, etc. break a naive difference-of-debt = deficit identity)."
     ],
     "notComparableWith": []
+  },
+  "fiscal.dts.deposits_operating_excl_debt": {
+    "id": "fiscal.dts.deposits_operating_excl_debt",
+    "label": "Daily operating cash deposits (excl. debt issuance)",
+    "definition": "The cash the Treasury deposited into its checking account at the Federal Reserve on a single business day — tax deposits, agency fee and program collections, and other operating inflows — with that day's public debt cash issues (newly issued Treasury securities settling that day) excluded. Reported daily, from the Daily Treasury Statement's cash ledger — a different accounting basis from the Monthly Treasury Statement's monthly receipts figure (see notes).",
+    "aliases": [],
+    "agency": "U.S. Department of the Treasury, Bureau of the Fiscal Service",
+    "dataset": "Daily Treasury Statement, Table II — Deposits and Withdrawals of Operating Cash",
+    "datasetUrl": "https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/deposits-and-withdrawals-of-operating-cash",
+    "unit": "usd",
+    "magnitude": "millions",
+    "accountingConcept": "cash_deposit",
+    "cadence": "daily",
+    "citation": "U.S. Department of the Treasury, Bureau of the Fiscal Service, Daily Treasury Statement, Table II, \"Deposits and Withdrawals of Operating Cash\" — Treasury General Account Total Deposits minus Public Debt Cash Issues (Table IIIB). Accessed {access_date}.",
+    "revisionStatus": "final",
+    "revisionNote": "Published once per business day; not subsequently revised.",
+    "notes": [
+      "Derivation, exact and declared: this series equals the day's published \"Treasury General Account Total Deposits\" row minus that same day's \"Public Debt Cash Issues (Table IIIB)\" row — both read directly from Table II (account_type = \"Treasury General Account Total Deposits\", and account_type = \"Treasury General Account (TGA)\" with transaction_catg = \"Public Debt Cash Issues (Table IIIB)\", respectively; verified live 2026-08-29 — see packages/ingest's fiscaldata/deposits-withdrawals.ts). Never re-summed from Table II's ~80 individual deposit-category rows instead: those round independently to the nearest published million and can differ from the published total row by a few million dollars on a given day (a Treasury rounding artifact, confirmed in the committed raw fixtures) — subtracting the two published aggregate rows avoids compounding that.",
+      "The exclusion is deliberate and load-bearing, not incidental: on settlement days for large bill auctions, Public Debt Cash Issues can be many times the size of every operational deposit combined (see fiscal.dts.public_debt_cash_issues — $278.8B of debt issuance against $9.8B of every other deposit combined on 2026-08-27, a verified live example). Borrowing proceeds are not a receipt; folding them in would make \"how much operating cash came in today\" unreadable.",
+      "A different accounting basis from fiscal.mts.receipts.total, not the same figure at daily granularity: this is a cash-basis DAILY Treasury General Account deposit figure from the DTS; MTS receipts is a budget-basis MONTHLY figure with its own timing and classification rules (and includes some netting/reclassification the DTS deposit ledger does not). The two do not reconcile to the dollar even summed over a full month — never compared or summed without accounting for the basis difference (see not_comparable_with).",
+      "No value publishes on weekends and federal holidays — render those days as a gap, never a zero or a carried-forward prior value.",
+      "Treasury reports this table's dollar amounts as whole millions (verified live: dataFormats \"$1,000,000\", no decimal places) — do not expect sub-million precision."
+    ],
+    "notComparableWith": [
+      {
+        "series": "fiscal.mts.receipts.total",
+        "reason": "Cash-basis daily Treasury General Account deposits (DTS) vs. budget-basis monthly receipts (MTS) — different accounting bases and publication cadences; the two will not reconcile to the dollar even summed over a full month."
+      },
+      {
+        "series": "fiscal.tga.closing_balance",
+        "reason": "A daily cash-basis FLOW (this series) vs. the TGA's outstanding BALANCE at a point in time — stock and flow, never combined without a declared bridge. The TGA closing balance moves with Treasury's TOTAL daily deposits, including the debt issuance this series deliberately excludes, so the two do not move together day for day."
+      }
+    ]
+  },
+  "fiscal.dts.public_debt_cash_issues": {
+    "id": "fiscal.dts.public_debt_cash_issues",
+    "label": "Public debt cash issues (daily)",
+    "definition": "Cash the Treasury received on a single business day from settling newly issued Treasury securities — bills, notes, bonds, and other public debt instruments — read directly from the Daily Treasury Statement. A financing cash flow, not a budget receipt: this is the government borrowing money, not earning or collecting it. Excluded from fiscal.dts.deposits_operating_excl_debt precisely because it is this, not an operating inflow.",
+    "aliases": [],
+    "agency": "U.S. Department of the Treasury, Bureau of the Fiscal Service",
+    "dataset": "Daily Treasury Statement, Table II — Deposits and Withdrawals of Operating Cash (Table IIIB detail)",
+    "datasetUrl": "https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/deposits-and-withdrawals-of-operating-cash",
+    "unit": "usd",
+    "magnitude": "millions",
+    "accountingConcept": "cash_deposit",
+    "cadence": "daily",
+    "citation": "U.S. Department of the Treasury, Bureau of the Fiscal Service, Daily Treasury Statement, Table II, \"Deposits and Withdrawals of Operating Cash,\" row \"Public Debt Cash Issues (Table IIIB).\" Accessed {access_date}.",
+    "revisionStatus": "final",
+    "revisionNote": "Published once per business day; not subsequently revised.",
+    "notes": [
+      "Read directly from Table II's account_type = \"Treasury General Account (TGA)\" rows, transaction_type = \"Deposits\", transaction_catg = \"Public Debt Cash Issues (Table IIIB)\" (verified live 2026-08-29 — see packages/ingest's fiscaldata/deposits-withdrawals.ts) — the settlement-day cash proceeds of that day's Treasury security issuance (a security can be auctioned on one day and settle, i.e. show up here, on a later day; this series is settlement cash, not auction announcements or awarded amounts).",
+      "Dwarfs fiscal.dts.deposits_operating_excl_debt on settlement days — verified live 2026-08-27: $278.8B of debt issuance against $9.8B of every other operating deposit combined that day. This is the concrete evidence for why the exclusion in fiscal.dts.deposits_operating_excl_debt is load-bearing, not incidental.",
+      "A cash FLOW (today's settlement proceeds), not a stock — a different accounting concept from fiscal.debt.total_public_debt_outstanding (the outstanding par-value balance at a point in time, updated daily but describing a level, not a day's movement). Never summed or compared without a declared bridge; see not_comparable_with.",
+      "Shares its accounting_concept (cash_deposit) with fiscal.dts.deposits_operating_excl_debt by design: the two are complementary parts of the same published \"Treasury General Account Total Deposits\" figure, and summing them reconstructs it exactly — the same pattern as MTS category series summing to an MTS total.",
+      "No value publishes on weekends and federal holidays — a gap, never a zero.",
+      "Treasury reports this table's dollar amounts as whole millions (verified live: dataFormats \"$1,000,000\", no decimal places) — do not expect sub-million precision."
+    ],
+    "notComparableWith": [
+      {
+        "series": "fiscal.debt.total_public_debt_outstanding",
+        "reason": "A daily cash-settlement FLOW vs. the outstanding par-value debt BALANCE at a point in time — stock and flow, never combined without a declared bridge."
+      }
+    ]
+  },
+  "fiscal.dts.public_debt_cash_redemptions": {
+    "id": "fiscal.dts.public_debt_cash_redemptions",
+    "label": "Public debt cash redemptions (daily)",
+    "definition": "Cash the Treasury paid out on a single business day to redeem maturing Treasury securities — bills, notes, bonds, and other public debt instruments coming due — read directly from the Daily Treasury Statement. A financing cash flow, not a budget outlay: this is the government repaying money it borrowed, not spending on a program. Excluded from fiscal.dts.withdrawals_operating_excl_debt precisely because it is this, not an operating outflow.",
+    "aliases": [],
+    "agency": "U.S. Department of the Treasury, Bureau of the Fiscal Service",
+    "dataset": "Daily Treasury Statement, Table II — Deposits and Withdrawals of Operating Cash (Table IIIB detail)",
+    "datasetUrl": "https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/deposits-and-withdrawals-of-operating-cash",
+    "unit": "usd",
+    "magnitude": "millions",
+    "accountingConcept": "cash_withdrawal",
+    "cadence": "daily",
+    "citation": "U.S. Department of the Treasury, Bureau of the Fiscal Service, Daily Treasury Statement, Table II, \"Deposits and Withdrawals of Operating Cash,\" row \"Public Debt Cash Redemp. (Table IIIB).\" Accessed {access_date}.",
+    "revisionStatus": "final",
+    "revisionNote": "Published once per business day; not subsequently revised.",
+    "notes": [
+      "Read directly from Table II's account_type = \"Treasury General Account (TGA)\" rows, transaction_type = \"Withdrawals\", transaction_catg = \"Public Debt Cash Redemp. (Table IIIB)\" (verified live 2026-08-29 — see packages/ingest's fiscaldata/deposits-withdrawals.ts) — the cash Treasury paid out that day to redeem securities reaching maturity (mostly short-dated bills, which mature every week; this series is redemption cash, not new issuance — see fiscal.dts.public_debt_cash_issues for that side).",
+      "Dwarfs fiscal.dts.withdrawals_operating_excl_debt on heavy-maturity days — verified live 2026-08-27: $274.2B of debt redemption against $23.0B of every other operating withdrawal combined that day. This is the concrete evidence for why the exclusion in fiscal.dts.withdrawals_operating_excl_debt is load-bearing, not incidental. Because bills are typically rolled over (redeemed and reissued in the same window), this series and fiscal.dts.public_debt_cash_issues move together and are usually close in size on any given week — the government borrows every week largely just to repay what came due that week, not only to cover the year's deficit.",
+      "A cash FLOW (today's redemption payments), not a stock — a different accounting concept from fiscal.debt.total_public_debt_outstanding (the outstanding par-value balance at a point in time). Never summed or compared without a declared bridge; see not_comparable_with.",
+      "Shares its accounting_concept (cash_withdrawal) with fiscal.dts.withdrawals_operating_excl_debt by design: the two are complementary parts of the same published \"Treasury General Account Total Withdrawals\" figure, and summing them reconstructs it exactly — the same pattern as MTS category series summing to an MTS total.",
+      "Values are reported as positive magnitudes (a gross outflow), exactly as Treasury publishes them — never stored as a negative number here.",
+      "No value publishes on weekends and federal holidays — a gap, never a zero.",
+      "Treasury reports this table's dollar amounts as whole millions (verified live: dataFormats \"$1,000,000\", no decimal places) — do not expect sub-million precision."
+    ],
+    "notComparableWith": [
+      {
+        "series": "fiscal.debt.total_public_debt_outstanding",
+        "reason": "A daily cash-settlement FLOW vs. the outstanding par-value debt BALANCE at a point in time — stock and flow, never combined without a declared bridge."
+      }
+    ]
+  },
+  "fiscal.dts.withdrawals_operating_excl_debt": {
+    "id": "fiscal.dts.withdrawals_operating_excl_debt",
+    "label": "Daily operating cash withdrawals (excl. debt redemptions)",
+    "definition": "The cash the Treasury paid out of its checking account at the Federal Reserve on a single business day — benefit checks, payroll, interest on the debt, agency program payments, and other operating outflows — with that day's public debt cash redemptions (maturing Treasury securities paid off that day) excluded. Reported daily, from the Daily Treasury Statement's cash ledger — a different accounting basis from the Monthly Treasury Statement's monthly outlays figure (see notes).",
+    "aliases": [],
+    "agency": "U.S. Department of the Treasury, Bureau of the Fiscal Service",
+    "dataset": "Daily Treasury Statement, Table II — Deposits and Withdrawals of Operating Cash",
+    "datasetUrl": "https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/deposits-and-withdrawals-of-operating-cash",
+    "unit": "usd",
+    "magnitude": "millions",
+    "accountingConcept": "cash_withdrawal",
+    "cadence": "daily",
+    "citation": "U.S. Department of the Treasury, Bureau of the Fiscal Service, Daily Treasury Statement, Table II, \"Deposits and Withdrawals of Operating Cash\" — Treasury General Account Total Withdrawals minus Public Debt Cash Redemptions (Table IIIB). Accessed {access_date}.",
+    "revisionStatus": "final",
+    "revisionNote": "Published once per business day; not subsequently revised.",
+    "notes": [
+      "Derivation, exact and declared: this series equals the day's published \"Treasury General Account Total Withdrawals\" row minus that same day's \"Public Debt Cash Redemp. (Table IIIB)\" row — both read directly from Table II (account_type = \"Treasury General Account Total Withdrawals\", and account_type = \"Treasury General Account (TGA)\" with transaction_catg = \"Public Debt Cash Redemp. (Table IIIB)\", respectively; verified live 2026-08-29 — see packages/ingest's fiscaldata/deposits-withdrawals.ts). Never re-summed from Table II's ~100 individual withdrawal-category rows instead: those round independently to the nearest published million and can differ from the published total row by a few million dollars on a given day (a Treasury rounding artifact, confirmed in the committed raw fixtures) — subtracting the two published aggregate rows avoids compounding that.",
+      "The exclusion is deliberate and load-bearing, not incidental: on days when a large volume of bills matures, Public Debt Cash Redemptions can be many times the size of every operational withdrawal combined (see fiscal.dts.public_debt_cash_redemptions — $274.2B of debt redemption against $23.0B of every other withdrawal combined on 2026-08-27, a verified live example). Repaying maturing debt is not a budget outlay; folding it in would make \"how much operating cash went out today\" unreadable.",
+      "A different accounting basis from fiscal.mts.outlays.total, not the same figure at daily granularity: this is a cash-basis DAILY Treasury General Account withdrawal figure from the DTS; MTS outlays is a budget-basis MONTHLY figure with its own timing and classification rules (and includes some netting/reclassification the DTS withdrawal ledger does not). The two do not reconcile to the dollar even summed over a full month — never compared or summed without accounting for the basis difference (see not_comparable_with).",
+      "Values are reported as positive magnitudes (a gross outflow), exactly as Treasury publishes them — never stored as a negative number here. Any \"money out\" sign convention is applied only at the presentation boundary.",
+      "No value publishes on weekends and federal holidays — render those days as a gap, never a zero or a carried-forward prior value.",
+      "Treasury reports this table's dollar amounts as whole millions (verified live: dataFormats \"$1,000,000\", no decimal places) — do not expect sub-million precision."
+    ],
+    "notComparableWith": [
+      {
+        "series": "fiscal.mts.outlays.total",
+        "reason": "Cash-basis daily Treasury General Account withdrawals (DTS) vs. budget-basis monthly outlays (MTS) — different accounting bases and publication cadences; the two will not reconcile to the dollar even summed over a full month."
+      },
+      {
+        "series": "fiscal.tga.closing_balance",
+        "reason": "A daily cash-basis FLOW (this series) vs. the TGA's outstanding BALANCE at a point in time — stock and flow, never combined without a declared bridge. The TGA closing balance moves with Treasury's TOTAL daily withdrawals, including the debt redemptions this series deliberately excludes, so the two do not move together day for day."
+      }
+    ]
   },
   "fiscal.mts.deficit.total": {
     "id": "fiscal.mts.deficit.total",

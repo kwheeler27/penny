@@ -51,6 +51,8 @@ export const accountingConceptEnum = pgEnum("accounting_concept", [
   "projection",
   "population",
   "households",
+  "cash_deposit",
+  "cash_withdrawal",
 ]);
 
 export const cadenceEnum = pgEnum("cadence", ["daily", "monthly", "annual"]);

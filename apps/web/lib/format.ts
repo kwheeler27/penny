@@ -304,6 +304,24 @@ export function compareDecimalStrings(a: string, b: string): -1 | 0 | 1 {
   return av < bv ? -1 : av > bv ? 1 : 0;
 }
 
+/** Exact a + b, as a decimal string. */
+export function addDecimalStrings(a: string, b: string): string {
+  const pa = parseDecimal(a);
+  const pb = parseDecimal(b);
+  const scale = Math.max(pa.scale, pb.scale);
+  const av = (pa.sign < 0 ? -1n : 1n) * pa.digits * 10n ** BigInt(scale - pa.scale);
+  const bv = (pb.sign < 0 ? -1n : 1n) * pb.digits * 10n ** BigInt(scale - pb.scale);
+  return formatParsedDecimal(av + bv, scale);
+}
+
+/** Exact sum of a list of decimal strings. Empty list sums to "0". Used only
+ * for a cosmetic/derived total (e.g. a 12-month rolling total, a month's
+ * total deposits) built from figures that already went through
+ * formatSeriesUsd — never a substitute for a source's own published total. */
+export function sumDecimalStrings(values: string[]): string {
+  return values.reduce((acc, v) => addDecimalStrings(acc, v), "0");
+}
+
 /** Exact a - b, as a decimal string. */
 export function subtractDecimalStrings(a: string, b: string): string {
   const pa = parseDecimal(a);

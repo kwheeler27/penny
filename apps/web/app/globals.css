@@ -697,6 +697,13 @@ section.act {
 .act-kicker--gap {
   color: var(--series-borrowing);
 }
+/* Deliberately NOT a series color (unlike spend/rev/gap above) — this act
+   spans both deposits and withdrawals, not one side of the ledger, and a
+   third distinct hue immediately above the gap kicker's teal would read as
+   two different things sharing one color. */
+.act-kicker--cadence {
+  color: var(--text-secondary);
+}
 
 section.act h2 {
   margin: var(--space-2) 0 var(--space-3);
@@ -866,6 +873,79 @@ button.rank-row:focus-visible {
   }
 }
 
+/* ---------- front door — Act I month stepper (beat 1) ---------- */
+
+.month-stepper-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.month-stepper-total {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.month-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px 4px;
+  background: var(--surface);
+}
+
+.month-stepper-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  border: 0;
+  background: none;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+}
+a.month-stepper-btn:hover {
+  background: var(--panel);
+}
+.month-stepper-btn:disabled {
+  color: var(--text-muted);
+  cursor: default;
+  opacity: 0.4;
+}
+.month-stepper-btn:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 1px;
+}
+
+.month-stepper-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  padding: 0 var(--space-1);
+  white-space: nowrap;
+}
+
+.rank-chart-nocat {
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.85rem;
+  padding: var(--space-4) 0;
+}
+
 /* ---------- front door — click-to-expand category history panel ---------- */
 
 .rank-hist,
@@ -886,6 +966,14 @@ button.rank-row:focus-visible {
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--space-2);
+}
+
+/* @penny/viz's CategoryHistoryChart draws its zero-line and year ticks with
+   `currentColor` (a "dumb," host-styled component per its own doc comment) —
+   this sets the color they inherit, distinct from the deposit/withdrawal
+   colors below, which are explicit `fill`/`stroke` props, not currentColor. */
+.rank-hist svg {
+  color: var(--text-muted);
 }
 
 .rank-hist-line {
@@ -1183,4 +1271,53 @@ ol.how-steps li::before {
   font-size: 0.78rem;
   color: var(--text-muted);
   margin: var(--space-3) 2px 0;
+}
+
+/* ---------- front door — "When does the money move?" cadence section (beat 3) ---------- */
+
+.cadence-empty {
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-12);
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.cadence-chart {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 12px;
+  padding: var(--space-4);
+}
+.cadence-chart + .cadence-chart {
+  margin-top: var(--space-4);
+}
+
+.cadence-chart svg {
+  color: var(--text-muted);
+}
+
+.cadence-chart-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-3);
+}
+
+.cadence-axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-top: var(--space-1);
+}
+
+.cadence-cap {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: var(--space-3);
+  border-top: 1px solid var(--gridline);
+  padding-top: var(--space-2);
+  max-width: 54rem;
 }

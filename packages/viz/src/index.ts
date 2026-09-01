@@ -56,6 +56,28 @@ export { computeFlowGeometry, type GeometryOptions, type PositionedNode, type Po
 export { placeLabels, type LabelBand, type LabelPlacement, type LabelAnchor, type LabelPlacementOptions } from "./layout/labelPlacement";
 export { summarizeFlows } from "./layout/summarize";
 export { chooseOrientation, VERTICAL_BREAKPOINT_PX, type FlowOrientation } from "./layout/orientation";
+export {
+  computeCategoryHistoryGeometry,
+  type HistoryLayoutPoint,
+  type PositionedHistoryPoint,
+  type YearTick,
+  type CategoryHistoryGeometry,
+  type CategoryHistoryLayoutOptions,
+} from "./layout/categoryHistoryLayout";
+export {
+  computeDailyCadenceGeometry,
+  type CadenceLayoutDay,
+  type CadenceBarLayout,
+  type DailyCadenceGeometry,
+  type DailyCadenceLayoutOptions,
+} from "./layout/dailyCadenceLayout";
+export {
+  computeTgaMonthGeometry,
+  type TgaLayoutDay,
+  type PositionedTgaPoint,
+  type TgaMonthGeometry,
+  type TgaMonthLayoutOptions,
+} from "./layout/tgaMonthLayout";
 
 // ---- scrollytelling primitives ----
 export { pickActiveStep, type StepIntersection } from "./scroll/pickActiveStep";
@@ -67,6 +89,9 @@ export { ScrollStepContainer, type ScrollStepContainerProps, type ScrollStepRend
 export { FiscalSankey, type FiscalSankeyProps } from "./components/FiscalSankey";
 export { DetailPanel, type DetailPanelProps } from "./components/DetailPanel";
 export { VisuallyHidden } from "./components/VisuallyHidden";
+export { CategoryHistoryChart, type CategoryHistoryChartPoint, type CategoryHistoryChartProps } from "./components/CategoryHistoryChart";
+export { DailyCadenceChart, type DailyCadenceChartDay, type DailyCadenceChartProps } from "./components/DailyCadenceChart";
+export { TgaMonthChart, type TgaMonthChartDay, type TgaMonthChartProps } from "./components/TgaMonthChart";
 
 // ---- demo / fixture harness (exercise the component without apps/web) ----
 export { fiscalFlowFixture, fiscalFlowSeriesCatalog } from "./demo/fixtures";

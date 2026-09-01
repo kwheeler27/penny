@@ -7,7 +7,15 @@
  * ever receives a bare number that didn't come through this path.
  */
 import { getSeries, type SeriesId } from "@penny/registry";
-import { getCategoryMonthlyHistory, getFullMonthlyHistory, getLatestReading, getMtsFlow, getReadingsAt, type MtsFlow } from "./series-data";
+import {
+  getCategoryMonthlyHistory,
+  getFullMonthlyHistory,
+  getLatestReading,
+  getMtsFlow,
+  getMtsFlowAt,
+  getReadingsAt,
+  type MtsFlow,
+} from "./series-data";
 import {
   buildBridge,
   buildCategoryHistoryPanel,
@@ -15,6 +23,7 @@ import {
   buildDebtPerHouseholdFact,
   buildDebtPerResidentFact,
   buildInterestPerTaxDollarFact,
+  buildMonthStepper,
   buildPerHouseholdSpendFact,
   buildRankedPeriod,
   isFiscalYearEndMonth,
@@ -22,6 +31,7 @@ import {
   type CategoryHistoryPanel,
   type DeficitChart,
   type ForScaleFact,
+  type MonthStepperData,
   type RankedPeriod,
   type RankedRow,
 } from "./front-door-transform";
@@ -182,6 +192,8 @@ export interface FrontDoorData {
     toggleLabels: { fytd: string; month: string };
     periods: { fytd: RankedPeriod | null; month: RankedPeriod | null };
     histories: Record<string, CategoryHistoryPanel | null>;
+    /** The Act I month stepper (beat 1) — null only when outlays.total has no monthly data ingested at all. */
+    stepper: MonthStepperData | null;
   };
   receipts: {
     toggleLabels: { fytd: string; month: string };
@@ -199,8 +211,13 @@ export interface FrontDoorData {
   };
 }
 
-export async function getFrontDoorData(): Promise<FrontDoorData> {
-  const [fytdFlow, monthFlow, debt, tga, deficitFytd, deficitMonthlyHistory, population, households] = await Promise.all([
+export interface FrontDoorDataOptions {
+  /** The Act I month stepper's requested period_end (from the `?spendMonth=` search param) — an invalid or missing value falls back to the latest available month; see buildMonthStepper. */
+  spendMonth?: string | null;
+}
+
+export async function getFrontDoorData(options: FrontDoorDataOptions = {}): Promise<FrontDoorData> {
+  const [fytdFlow, monthFlow, debt, tga, deficitFytd, deficitMonthlyHistory, population, households, outlaysTotalHistory] = await Promise.all([
     getMtsFlow("fiscal_ytd"),
     getMtsFlow("month"),
     getLatestReading(DEBT_ID, "day"),
@@ -209,16 +226,37 @@ export async function getFrontDoorData(): Promise<FrontDoorData> {
     getFullMonthlyHistory(DEFICIT_ID),
     getLatestReading(CENSUS_POPULATION_ID),
     getLatestReading(CENSUS_HOUSEHOLDS_ID),
+    getFullMonthlyHistory(OUTLAYS_TOTAL_ID),
   ]);
 
   const heroCells = await buildHeroCells(debt, tga, deficitFytd);
   const toggle = { outlays: buildToggleLabels(fytdFlow, monthFlow), receipts: buildToggleLabels(fytdFlow, monthFlow) };
+  // Act I's month tab is now a browsable stepper, not just "the latest
+  // month" — its tab label stays generic (the stepper pill itself shows
+  // which month is current) rather than the dynamic "{month} only" text
+  // Act II's unchanged toggle still uses.
+  const outlaysToggleLabels = { fytd: toggle.outlays.fytd, month: "By month" };
+
+  // Every month that has an outlays.total reading — the full range the Act
+  // I stepper can browse. Today (before the MTS backfill) this is already
+  // 46 months (the totals series was backfilled first); per-category
+  // breakdowns below still only cover whichever months the category-level
+  // backfill has reached, which is why a stepped-to month with no category
+  // data renders an empty-but-honest ranked list (see buildRankedPeriod:
+  // a category with no reading is dropped, never a zero bar) rather than
+  // an error.
+  const availableOutlaysMonths = outlaysTotalHistory.map((r) => r.periodEnd);
+  const stepper = buildMonthStepper(availableOutlaysMonths, options.spendMonth ?? null);
+  // Reuse the already-fetched `monthFlow` when the stepper lands on the
+  // same (latest) month it always defaults to — the common case, and the
+  // only one that doesn't need a second query.
+  const outlaysStepFlow = stepper && stepper.currentPeriodEnd !== monthFlow.periodEnd ? await getMtsFlowAt("month", stepper.currentPeriodEnd) : monthFlow;
 
   const outlaysFytdPeriod = buildRankedPeriod(fytdFlow.outlays.categories, fytdFlow.outlays.total, toggle.outlays.fytd, "Total outlays");
   const outlaysMonthPeriod = buildRankedPeriod(
-    monthFlow.outlays.categories,
-    monthFlow.outlays.total,
-    monthFlow.periodEnd ? formatMonthYear(monthFlow.periodEnd) : "the latest month",
+    outlaysStepFlow.outlays.categories,
+    outlaysStepFlow.outlays.total,
+    stepper?.currentLabel ?? (monthFlow.periodEnd ? formatMonthYear(monthFlow.periodEnd) : "the latest month"),
     "Total outlays",
   );
   const receiptsFytdPeriod = buildRankedPeriod(fytdFlow.receipts.categories, fytdFlow.receipts.total, toggle.receipts.fytd, "Total receipts");
@@ -269,6 +307,15 @@ export async function getFrontDoorData(): Promise<FrontDoorData> {
     else receiptsHistories[id] = panel;
   }
 
+  // The v2 line-chart form (beat 1, "HISTORY PANELS v2") is fetched
+  // per-category, on demand, by GET /api/category-history when a reader
+  // actually clicks a row open (components/ranked-bar-chart.tsx) — never
+  // inlined here for all ~27 categories on every page load regardless of
+  // which one (if any) a visitor expands. That used to be a SEPARATE,
+  // unbounded getFullCategoryMonthlyHistory(allCategoryIds) fetch right
+  // here, inflating every "/" response by roughly a megabyte of RSC
+  // payload; see the API route's own doc comment.
+
   const monthOnlyNote = receiptsMonthPeriod
     ? buildNegativeMonthNote(receiptsMonthPeriod.rows, receiptsFytdPeriod?.rows ?? [], monthFlow.periodEnd ? formatMonthName(monthFlow.periodEnd) : "the latest month")
     : null;
@@ -288,9 +335,10 @@ export async function getFrontDoorData(): Promise<FrontDoorData> {
     sources: buildSourceLines(),
     heroCells,
     outlays: {
-      toggleLabels: toggle.outlays,
+      toggleLabels: outlaysToggleLabels,
       periods: { fytd: outlaysFytdPeriod, month: outlaysMonthPeriod },
       histories: outlaysHistories,
+      stepper,
     },
     receipts: {
       toggleLabels: toggle.receipts,

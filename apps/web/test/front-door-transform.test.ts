@@ -9,11 +9,13 @@ import type { CategoryFlow, CategoryHistoryPoint } from "../lib/series-data";
 import type { Reading } from "../lib/types";
 import {
   buildBridge,
+  buildCategoryHistoryLineSeries,
   buildCategoryHistoryPanel,
   buildDebtPerHouseholdFact,
   buildDebtPerResidentFact,
   buildDeficitChart,
   buildInterestPerTaxDollarFact,
+  buildMonthStepper,
   buildPerHouseholdSpendFact,
   buildRankedPeriod,
 } from "../lib/front-door-transform";
@@ -143,6 +145,122 @@ describe("buildCategoryHistoryPanel", () => {
 
   it("returns null for an empty history", () => {
     expect(buildCategoryHistoryPanel(NATIONAL_DEFENSE, [])).toBeNull();
+  });
+});
+
+describe("buildCategoryHistoryLineSeries", () => {
+  /** 46 consecutive months, Oct 2022 through Jul 2026 — the same span the real outlays.total/deficit.total series already carry. */
+  function fullHistory(): CategoryHistoryPoint[] {
+    const points: CategoryHistoryPoint[] = [];
+    let y = 2022;
+    let m = 10;
+    for (let i = 0; i < 46; i++) {
+      const lastDay = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m - 1]!;
+      points.push({ periodEnd: `${y}-${String(m).padStart(2, "0")}-${String(lastDay).padStart(2, "0")}`, value: String(1_000_000_000 + i * 1_000_000), fiscalYear: y });
+      m += 1;
+      if (m > 12) {
+        m = 1;
+        y += 1;
+      }
+    }
+    return points;
+  }
+
+  it("returns null for the today's-seed shape — 4 or fewer points — so the caller falls back to the dot plot", () => {
+    expect(buildCategoryHistoryLineSeries(NATIONAL_DEFENSE, [])).toBeNull();
+    expect(buildCategoryHistoryLineSeries(NATIONAL_DEFENSE, fullHistory().slice(0, 4))).toBeNull();
+  });
+
+  it("returns a monthly series for every ingested point once the backfill exceeds 4 periods", () => {
+    const series = buildCategoryHistoryLineSeries(NATIONAL_DEFENSE, fullHistory())!;
+    expect(series).not.toBeNull();
+    expect(series.monthly).toHaveLength(46);
+    expect(series.monthly[0]!.periodEnd).toBe("2022-10-31");
+    expect(series.monthly[45]!.periodEnd).toBe("2026-07-31");
+  });
+
+  it("each monthly point's exactDisplay is the full-precision figure, distinct from scaledDisplay's fixed-billions rounding — the hover title's 'exact figure' claim depends on this", () => {
+    const points = fullHistory();
+    points[0] = { ...points[0]!, value: "1234567890.42" }; // not a round billion
+    const series = buildCategoryHistoryLineSeries(NATIONAL_DEFENSE, points)!;
+    // national_defense is magnitude "ones" -> 2 decimal places, to the cent.
+    expect(series.monthly[0]!.exactDisplay).toBe("$1,234,567,890.42");
+    expect(series.monthly[0]!.scaledDisplay).toBe("$1.2B");
+    expect(series.monthly[0]!.exactDisplay).not.toBe(series.monthly[0]!.scaledDisplay);
+  });
+
+  it("the 12-month rolling total also carries an exact (never fixed-billions-rounded) exactDisplay", () => {
+    const series = buildCategoryHistoryLineSeries(NATIONAL_DEFENSE, fullHistory())!;
+    const firstTotal = series.twelveMonthTotal[0]!;
+    expect(firstTotal.exactDisplay.startsWith("$")).toBe(true);
+    expect(firstTotal.exactDisplay).not.toContain("B"); // no scale suffix — a full dollar figure, unlike scaledDisplay.
+  });
+
+  it("the 12-month rolling total only starts once 12 consecutive months exist — 46 months in, 35 rolling totals out", () => {
+    const series = buildCategoryHistoryLineSeries(NATIONAL_DEFENSE, fullHistory())!;
+    expect(series.twelveMonthTotal).toHaveLength(35); // 46 - 12 + 1
+    expect(series.twelveMonthTotal[0]!.periodEnd).toBe("2023-09-30"); // the 12th month
+  });
+
+  it("never fabricates a 12-month total across a gap in the backfill", () => {
+    const points = fullHistory();
+    // Remove one month in the middle (simulating a category the backfill hasn't fully reached).
+    const withGap = [...points.slice(0, 20), ...points.slice(21)]; // 45 points, a real gap at index 20
+    const series = buildCategoryHistoryLineSeries(NATIONAL_DEFENSE, withGap)!;
+    // No 12-month window may span the removed month — every emitted total's
+    // window must be exactly 12 consecutive calendar months.
+    for (const total of series.twelveMonthTotal) {
+      const idx = withGap.findIndex((p) => p.periodEnd === total.periodEnd);
+      const windowStart = withGap[idx - 11];
+      expect(windowStart).toBeDefined();
+      const startIdx = Number(windowStart!.periodEnd.slice(0, 4)) * 12 + Number(windowStart!.periodEnd.slice(5, 7));
+      const endIdx = Number(total.periodEnd.slice(0, 4)) * 12 + Number(total.periodEnd.slice(5, 7));
+      expect(endIdx - startIdx).toBe(11);
+    }
+    // Strictly fewer valid windows than the no-gap case (some windows near the gap are skipped).
+    expect(series.twelveMonthTotal.length).toBeLessThan(35);
+  });
+
+  it("the 12-month total is an exact sum, never a float approximation", () => {
+    const points = fullHistory().map((p, i) => ({ ...p, value: i < 12 ? "0.01" : p.value })); // 12 months of exactly one cent each
+    const series = buildCategoryHistoryLineSeries(NATIONAL_DEFENSE, points)!;
+    // $0.01 * 12 = $0.12, scaled to whole dollars/rounded for display -> $0.0B (well under a billion), but the point is the underlying sum must be exact.
+    expect(series.twelveMonthTotal[0]!.valueWhole).toBe("0.12");
+  });
+});
+
+describe("buildMonthStepper", () => {
+  const MONTHS = ["2022-10-31", "2022-11-30", "2022-12-31", "2023-01-31"];
+
+  it("returns null when no month has any data at all", () => {
+    expect(buildMonthStepper([], null)).toBeNull();
+  });
+
+  it("defaults to the latest available month when no month is requested", () => {
+    const stepper = buildMonthStepper(MONTHS, null)!;
+    expect(stepper.currentPeriodEnd).toBe("2023-01-31");
+    expect(stepper.nextPeriodEnd).toBeNull(); // at the newest edge
+    expect(stepper.prevPeriodEnd).toBe("2022-12-31");
+    expect(stepper.monthCount).toBe(4);
+  });
+
+  it("falls back to the latest month for an invalid/unknown request, never an error", () => {
+    const stepper = buildMonthStepper(MONTHS, "1999-01-31")!;
+    expect(stepper.currentPeriodEnd).toBe("2023-01-31");
+  });
+
+  it("steps to a valid requested month and computes both neighbors", () => {
+    const stepper = buildMonthStepper(MONTHS, "2022-11-30")!;
+    expect(stepper.currentPeriodEnd).toBe("2022-11-30");
+    expect(stepper.prevPeriodEnd).toBe("2022-10-31");
+    expect(stepper.nextPeriodEnd).toBe("2022-12-31");
+    expect(stepper.currentLabel).toBe("November 2022");
+  });
+
+  it("disables the previous step at the oldest available month", () => {
+    const stepper = buildMonthStepper(MONTHS, "2022-10-31")!;
+    expect(stepper.prevPeriodEnd).toBeNull();
+    expect(stepper.nextPeriodEnd).toBe("2022-11-30");
   });
 });
 

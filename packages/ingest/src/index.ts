@@ -7,6 +7,7 @@ export * from "./fiscaldata/mts-outlays";
 export * from "./fiscaldata/mts-summary";
 export * from "./fiscaldata/debt-to-penny";
 export * from "./fiscaldata/operating-cash-balance";
+export * from "./fiscaldata/deposits-withdrawals";
 export * from "./fiscaldata/interest-expense";
 export * from "./bls/cpi";
 export * from "./cbo/baseline-deficit";
@@ -18,8 +19,10 @@ export * from "./lib/upsert";
 export * from "./lib/fiscaldata-client";
 
 export * from "./jobs/mts-monthly";
+export * from "./jobs/mts-backfill";
 export * from "./jobs/debt-daily";
 export * from "./jobs/tga-daily";
+export * from "./jobs/dts-cadence-daily";
 export * from "./jobs/interest-expense-monthly";
 export * from "./jobs/cpi-monthly";
 export * from "./jobs/cbo-baseline";

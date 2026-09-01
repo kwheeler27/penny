@@ -18,6 +18,7 @@ import type { Reading } from "./types";
 import {
   absDecimalString as absDecimal,
   compareDecimalStrings as compareDecimal,
+  defaultUsdDecimals,
   divideDecimalStrings,
   formatCountScale,
   formatDateShort,
@@ -32,6 +33,7 @@ import {
   roundToSignificantFigures,
   shiftDecimalRight,
   subtractDecimalStrings as subtractDecimal,
+  sumDecimalStrings,
 } from "./format";
 
 // ---------- ranked bar rows (Act I / Act II) ----------
@@ -92,6 +94,41 @@ export function buildRankedPeriod(categories: CategoryFlow[], total: Reading | n
     rows,
     totalWhole,
     totalDisplay: `${totalLabel}, ${periodLabel}: ${formatUsdScale(totalWhole, "B", 1)}`,
+  };
+}
+
+// ---------- Act I month stepper (beat 1) ----------
+
+export interface MonthStepperData {
+  /** The month actually being shown — either the requested one (if valid) or the latest available. */
+  currentPeriodEnd: string;
+  currentLabel: string;
+  /** The period_end to step back to, or null when already at the oldest available month (‹ disabled). */
+  prevPeriodEnd: string | null;
+  /** The period_end to step forward to, or null when already at the latest available month (› disabled). */
+  nextPeriodEnd: string | null;
+  /** How many months are steppable today — 46 on this branch's seed, growing toward the full 2015+ backfill with no code change. */
+  monthCount: number;
+}
+
+/**
+ * Picks the stepper's current position from the full list of months that
+ * have an outlays.total reading (ascending) and whatever `?spendMonth=`
+ * the URL requested. An invalid or missing request (no param, a typo'd
+ * date, a month outside the ingested range) falls back to the latest
+ * available month — never an error page. Returns null only when the
+ * series has no monthly data ingested at all (the whole stepper is a gap).
+ */
+export function buildMonthStepper(availableMonthsAscending: string[], requestedPeriodEnd: string | null): MonthStepperData | null {
+  if (availableMonthsAscending.length === 0) return null;
+  const current = requestedPeriodEnd && availableMonthsAscending.includes(requestedPeriodEnd) ? requestedPeriodEnd : availableMonthsAscending[availableMonthsAscending.length - 1]!;
+  const index = availableMonthsAscending.indexOf(current);
+  return {
+    currentPeriodEnd: current,
+    currentLabel: formatMonthYear(current),
+    prevPeriodEnd: index > 0 ? availableMonthsAscending[index - 1]! : null,
+    nextPeriodEnd: index < availableMonthsAscending.length - 1 ? availableMonthsAscending[index + 1]! : null,
+    monthCount: availableMonthsAscending.length,
   };
 }
 
@@ -205,6 +242,89 @@ export function buildCategoryHistoryPanel(
   }
 
   return { points, chips };
+}
+
+// ---------- category history line chart (beat 1, "HISTORY PANELS v2") ----------
+
+export interface HistoryLinePoint {
+  periodEnd: string;
+  monthLabel: string;
+  valueWhole: string;
+  scaledDisplay: string;
+  /** Full-precision, as-published — a hover/tooltip's "exact figure" text.
+   * Mirrors RankedRow.exactDisplay (ranked-bar-chart.tsx's own "(exact, as
+   * published)" hover) exactly: never the fixed-billions `scaledDisplay`,
+   * which a caption promising "the exact figure" would otherwise
+   * misrepresent (CLAUDE.md: never make a number wrong to make it
+   * friendly). */
+  exactDisplay: string;
+}
+
+export interface CategoryHistoryLineSeries {
+  /** Every ingested month, ascending. */
+  monthly: HistoryLinePoint[];
+  /** Rolling 12-month total, ascending — only entries where 12 CONSECUTIVE
+   * calendar months actually exist land here; a gap in the backfill skips
+   * every window that would span it (never fabricated). Can be empty when
+   * fewer than 12 months exist yet at all. */
+  twelveMonthTotal: HistoryLinePoint[];
+}
+
+/** `YYYY-MM-DD` -> `year*12 + month`, a whole-calendar-month index. Reused
+ * (not imported) from the same shape components/ranked-bar-chart.tsx's own
+ * monthIndex already uses — this file stays dependency-free of any
+ * component, per its own module doc. */
+function monthIndexOf(periodEnd: string): number {
+  return Number(periodEnd.slice(0, 4)) * 12 + Number(periodEnd.slice(5, 7));
+}
+
+/**
+ * The full-history line-chart form of a category's monthly figures (beat 1,
+ * "HISTORY PANELS v2"): every ingested month, plus a 12-month rolling total
+ * that only starts once 12 consecutive calendar months actually exist.
+ * Returns null when there are 4 or fewer points — the existing four-period
+ * dot plot (components/ranked-bar-chart.tsx's HistoryPanel) handles that
+ * case instead, and the caller (lib/front-door-data.ts) decides which form
+ * to render from this null-ness, never both. This is exactly what makes the
+ * page render correctly on today's 4-period-per-category seed AND on the
+ * full MTS backfill without any code change: the moment a category's
+ * ingested history grows past 4 months, this function stops returning null.
+ */
+export function buildCategoryHistoryLineSeries(id: SeriesId, rawPoints: CategoryHistoryPoint[]): CategoryHistoryLineSeries | null {
+  if (rawPoints.length <= 4) return null;
+  const def = getSeries(id);
+  const magnitude = def?.magnitude ?? "ones";
+
+  const decimals = defaultUsdDecimals(magnitude);
+  const monthly: HistoryLinePoint[] = rawPoints.map((p) => {
+    const { exact, display } = formatSeriesUsd(p.value, magnitude);
+    return {
+      periodEnd: p.periodEnd,
+      monthLabel: formatMonthYearShort(p.periodEnd),
+      valueWhole: exact,
+      scaledDisplay: formatUsdScale(exact, "B", 1),
+      exactDisplay: display,
+    };
+  });
+
+  const twelveMonthTotal: HistoryLinePoint[] = [];
+  for (let i = 11; i < monthly.length; i++) {
+    const windowStart = monthly[i - 11]!;
+    const windowEnd = monthly[i]!;
+    // A gap in the backfill spans this window — skip it rather than summing
+    // across months that don't actually exist (CLAUDE.md: never fabricate).
+    if (monthIndexOf(windowEnd.periodEnd) - monthIndexOf(windowStart.periodEnd) !== 11) continue;
+    const totalWhole = sumDecimalStrings(monthly.slice(i - 11, i + 1).map((m) => m.valueWhole));
+    twelveMonthTotal.push({
+      periodEnd: windowEnd.periodEnd,
+      monthLabel: windowEnd.monthLabel,
+      valueWhole: totalWhole,
+      scaledDisplay: formatUsdScale(totalWhole, "B", 1),
+      exactDisplay: formatExactUsd(totalWhole, decimals),
+    });
+  }
+
+  return { monthly, twelveMonthTotal };
 }
 
 // ---------- deficit history chart (Act III, 46 months) ----------

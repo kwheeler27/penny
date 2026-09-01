@@ -19,14 +19,19 @@
  *    auction size); the Fed buys *additional* Treasuries, beyond a rollover,
  *    in the secondary market.
  */
+import Link from "next/link";
+
 export default function HowBorrowingWorks() {
   return (
     <div className="how">
       <div className="how-title">How the borrowing actually happens</div>
       <ol className="how-steps">
         <li>
-          <b>The Treasury schedules an auction.</b> It sells bills (four weeks to 52 weeks), notes (2, 3, 5, 7, or 10
-          years), and bonds (20 or 30 years) on a published calendar — week in, week out.
+          <b>
+            The Treasury <Link href="/auctions">schedules an auction</Link>.
+          </b>{" "}
+          It sells bills (four weeks to 52 weeks), notes (2, 3, 5, 7, or 10 years), and bonds (20 or 30 years) on a
+          published calendar — week in, week out.
         </li>
         <li>
           <b>Investors bid.</b> Primary dealers — broker-dealers the New York Fed expects to bid in every auction —

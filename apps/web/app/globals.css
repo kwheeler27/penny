@@ -612,7 +612,7 @@ table.citation-table {
 
 .hero-strip {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
@@ -670,7 +670,14 @@ table.citation-table {
   color: var(--text-muted);
 }
 
-@media (max-width: 640px) {
+/* Four cells: 2x2 at mid widths (beat 4 added a fourth "Latest auction"
+   cell) before collapsing to a single column on narrow phones. */
+@media (max-width: 900px) {
+  .hero-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
   .hero-strip {
     grid-template-columns: 1fr;
   }
@@ -1320,4 +1327,321 @@ ol.how-steps li::before {
   border-top: 1px solid var(--gridline);
   padding-top: var(--space-2);
   max-width: 54rem;
+}
+
+/* ---------- /auctions — the latest coupon auction card (beat 4) ---------- */
+
+.auc-card,
+.auc-card-empty {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+  padding: var(--space-6);
+}
+.auc-card-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: var(--space-12);
+}
+
+.auc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+.auc-title {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+}
+.auc-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.auc-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+.auc-tile {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--bg);
+}
+.auc-tile-k {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.auc-tile-v {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+  color: var(--text-primary);
+}
+.auc-tile-v--gap {
+  color: var(--text-muted);
+  font-style: italic;
+  font-weight: 400;
+}
+.auc-tile-s {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+@media (max-width: 640px) {
+  .auc-tiles {
+    grid-template-columns: 1fr;
+  }
+}
+
+.auc-mix {
+  margin-top: var(--space-4);
+}
+.auc-mix-k {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+.auc-mixbar {
+  display: flex;
+  height: 26px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.auc-mixbar-seg {
+  position: relative;
+}
+.auc-mixbar-lab {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.auc-mixbar-divider {
+  width: 3px;
+  background: var(--surface);
+}
+.auc-mixbar-hatch {
+  background-image: repeating-linear-gradient(45deg, currentColor 0 4px, transparent 4px 8px);
+  color: var(--text-muted);
+}
+.auc-mix-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+.auc-mix-legend .sw {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  margin-right: 5px;
+  vertical-align: -1px;
+}
+.auc-mix-legend .sw--hatch {
+  background-image: repeating-linear-gradient(45deg, var(--text-muted) 0 2px, transparent 2px 4px);
+}
+
+.auc-takeaway {
+  margin-top: var(--space-4);
+  border-left: 3px solid var(--series-borrowing);
+  padding: 2px 0 2px var(--space-3);
+  font-size: 1rem;
+  max-width: 74ch;
+  color: var(--text-primary);
+}
+.auc-takeaway b {
+  font-variant-numeric: tabular-nums;
+}
+.auc-takeaway--empty {
+  color: var(--text-muted);
+  font-style: italic;
+  border-left-color: var(--border);
+}
+
+.auc-defs {
+  margin-top: var(--space-4);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+.auc-defs summary {
+  cursor: pointer;
+  color: var(--link);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+.auc-defs summary:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+.auc-defs dl {
+  margin: var(--space-2) 0 0;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px var(--space-3);
+}
+.auc-defs dt {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.auc-defs dd {
+  margin: 0;
+}
+@media (max-width: 640px) {
+  .auc-defs dl {
+    grid-template-columns: 1fr;
+    gap: 2px 0;
+  }
+  .auc-defs dd {
+    margin-bottom: var(--space-2);
+  }
+}
+
+/* ---------- /auctions — this security's own history charts ---------- */
+
+/* Flexbox, not grid: a CSS Grid row's auto-sizing pass measured each card's
+   height inconsistently with its actual wrapped-caption content once the
+   two cards' captions wrapped to different line counts (found via a real
+   screenshot — the left card's 3-line caption rendered ~80px past its own
+   card's bottom edge, overlapping the section below). Flexbox's `flex: 1`
+   items size to their own content height reliably in this exact "two
+   side-by-side cards, independent variable-height text" shape. */
+.auc-charts2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+.auc-chart,
+.auc-chart-empty {
+  flex: 1 1 20rem;
+  min-width: 0;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 12px;
+  padding: var(--space-4);
+}
+.auc-chart-empty {
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+  padding: var(--space-12);
+}
+.auc-chart-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-2);
+}
+.auc-chart svg {
+  color: var(--text-muted);
+}
+.auc-chart-cap {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: var(--space-2);
+}
+@media (max-width: 700px) {
+  .auc-charts2 {
+    flex-direction: column;
+  }
+}
+
+/* ---------- /auctions — recent / upcoming tables ---------- */
+
+.auc-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+table.auc-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85rem;
+  background: var(--surface);
+}
+.auc-table th,
+.auc-table td {
+  text-align: left;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--gridline);
+  vertical-align: middle;
+}
+.auc-table th {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.auc-table td.num,
+.auc-table th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.auc-table tr:last-child td {
+  border-bottom: 0;
+}
+.auc-indbar {
+  display: inline-block;
+  height: 8px;
+  background: var(--series-receipts);
+  border-radius: 2px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.auc-bills-note {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: var(--space-3) var(--space-4);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: var(--space-4);
+}
+
+.auc-empty {
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-12);
+  text-align: center;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ---------- /auctions — hero (matches .hero-lede's front-door pattern) ---------- */
+
+.auc-hero .page-lede {
+  max-width: 66ch;
+}
+.auc-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--series-borrowing);
+  margin-bottom: var(--space-2);
 }

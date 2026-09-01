@@ -1,13 +1,14 @@
 import Link from "next/link";
 
-// Simplified sitewide nav per the approved front-door design: the story
-// (this page), the citation index, and the source repo. /now still exists
-// and is reachable (linked from the front door's status strip) — it's just
-// no longer a top-level nav item.
+// Sitewide nav per the approved auction-page mockup: the story, the running
+// auction record, and the citation index. GitHub moved out of the nav and
+// lives only in the footer now, matching that mockup (it never listed
+// GitHub in its header). /now still exists and is reachable (linked from
+// the front door's status strip) — it's just not a top-level nav item.
 const NAV: readonly { href: string; label: string; external?: true }[] = [
   { href: "/", label: "The story" },
+  { href: "/auctions", label: "Auctions" },
   { href: "/data", label: "Data & sources" },
-  { href: "https://github.com/kwheeler27/penny", label: "GitHub", external: true },
 ];
 
 export default function SiteHeader() {

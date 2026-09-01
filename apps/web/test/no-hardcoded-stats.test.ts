@@ -59,3 +59,43 @@ describe("no hardcoded statistics on the front door", () => {
     }
   });
 });
+
+// Beat 4 (the auction page) sweep — a second, separately-scoped list per
+// this test file's own convention: lib/auction-transform.ts and
+// lib/calendar.ts are deliberately EXCLUDED for the same reason
+// lib/format.ts and lib/front-door-transform.ts are above — they're the
+// generic math/formatting/date layer, expected to contain small structural
+// constants but never a literal statistic.
+const AUCTION_PAGE_FILES = [
+  "app/auctions/page.tsx",
+  "lib/auctions-data.ts",
+  "components/latest-auction-card.tsx",
+  "components/auction-history-charts.tsx",
+  "components/auction-charts-client.tsx",
+  "components/auction-recent-table.tsx",
+  "components/auction-upcoming-table.tsx",
+];
+
+describe("no hardcoded statistics on the auction page (beat 4)", () => {
+  for (const relPath of AUCTION_PAGE_FILES) {
+    it(`${relPath} contains no long hardcoded numeric literal`, () => {
+      const source = readFileSync(join(ROOT, relPath), "utf8");
+      const match = source.match(LONG_DIGIT_RUN);
+      expect(match, match ? `found "${match[0]}" in ${relPath} — every figure must come from lib/auctions-data.ts, never a literal` : undefined).toBeNull();
+    });
+  }
+
+  it("does not contain any of the approved auction mockup's own example figures verbatim", () => {
+    const files = [...AUCTION_PAGE_FILES, "components/hero-strip.tsx"];
+    // Spot-checked literals from penny-auction-page.html's real Sep 1, 2026
+    // 7-year-note figures — none belong in the real page's source, only in
+    // its rendered (database-sourced) output.
+    const literals = ["44.0", "4.512", "2.50", "5.7", "49.7", "53.7", "10.8", "23.8", "44,000,000,000", "5,700,000,000"];
+    for (const relPath of files) {
+      const source = readFileSync(join(ROOT, relPath), "utf8");
+      for (const literal of literals) {
+        expect(source, `found mockup literal "${literal}" in ${relPath}`).not.toContain(literal);
+      }
+    }
+  });
+});

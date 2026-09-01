@@ -17,3 +17,10 @@ export type {
   Cadence,
   RevisionStatus,
 } from "./generated/series.gen";
+export {
+  DATASETS,
+  DATASET_IDS,
+  getDataset,
+  datasetCitationFor,
+} from "./generated/datasets.gen";
+export type { DatasetDef, DatasetId } from "./generated/datasets.gen";

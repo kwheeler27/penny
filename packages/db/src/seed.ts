@@ -23,12 +23,13 @@ import { sql } from "drizzle-orm";
 import { SERIES, SERIES_IDS } from "@penny/registry";
 import { getDb, type PennyDb } from "./client";
 import { runMigrations } from "./migrate";
-import { series, observation, type NewObservation } from "./schema";
+import { series, observation, auction, type NewObservation, type NewAuction } from "./schema";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 // packages/db/src -> repo root is three levels up.
 const REPO_ROOT = join(HERE, "..", "..", "..");
 const FIXTURES_DIR = join(REPO_ROOT, "db", "fixtures", "observations");
+const AUCTION_FIXTURES_DIR = join(REPO_ROOT, "db", "fixtures", "auctions");
 
 export async function seedSeriesCatalog(db: PennyDb): Promise<number> {
   const rows = SERIES_IDS.map((id) => {
@@ -112,6 +113,35 @@ export async function seedObservationFixtures(db: PennyDb): Promise<number> {
   return total;
 }
 
+/**
+ * Loads db/fixtures/auctions/*.json (built by
+ * `pnpm --filter @penny/ingest run build-auction-fixtures` from real
+ * TreasuryDirect snapshots — see that script's doc comment) into the
+ * `auction` table. A plain `onConflictDoNothing()` on the (cusip,
+ * auction_date) identity, same as seedObservationFixtures above — fine
+ * here because a fixture file is a flat, already-deduplicated snapshot
+ * with no announced->resulted transition to apply (that upsert logic
+ * lives in @penny/ingest's lib/upsert-auctions.ts, which this package
+ * must not depend on). An empty or missing directory is not an error.
+ */
+export async function seedAuctionFixtures(db: PennyDb): Promise<number> {
+  if (!existsSync(AUCTION_FIXTURES_DIR)) return 0;
+  const files = readdirSync(AUCTION_FIXTURES_DIR).filter((f) => f.endsWith(".json"));
+  let total = 0;
+  for (const file of files) {
+    const raw = JSON.parse(readFileSync(join(AUCTION_FIXTURES_DIR, file), "utf8"));
+    const rawRows = (Array.isArray(raw) ? raw : [raw]) as Array<Omit<NewAuction, "publicationTime"> & { publicationTime: string }>;
+    if (rawRows.length === 0) continue;
+    // Same publicationTime string->Date conversion as seedObservationFixtures above, and for the same reason.
+    const rows: NewAuction[] = rawRows.map((row) => ({ ...row, publicationTime: new Date(row.publicationTime) }));
+    for (let i = 0; i < rows.length; i += SEED_BATCH_SIZE) {
+      await db.insert(auction).values(rows.slice(i, i + SEED_BATCH_SIZE)).onConflictDoNothing();
+    }
+    total += rows.length;
+  }
+  return total;
+}
+
 async function main() {
   const db = getDb();
   await runMigrations(db);
@@ -124,6 +154,12 @@ async function main() {
     console.log(
       "no observation fixtures found at db/fixtures/observations/*.json (expected until the ingest workstream lands real API snapshots)",
     );
+  }
+  const auctionCount = await seedAuctionFixtures(db);
+  if (auctionCount > 0) {
+    console.log(`seeded ${auctionCount} auction(s) from db/fixtures/auctions/*.json`);
+  } else {
+    console.log("no auction fixtures found at db/fixtures/auctions/*.json");
   }
 }
 

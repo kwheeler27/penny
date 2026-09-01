@@ -203,7 +203,7 @@ export function parseMtsReceipts(response: { data: MtsReceiptsRecord[] }): RawOb
   const out: RawObservation[] = [];
   for (const r of response.data) {
     const rule = RECEIPTS_CATEGORY_RULES.find((c) => c.label === r.classification_desc && c.dataTypeCd === r.data_type_cd);
-    if (!rule) continue;
+    if (!rule) continue; // Table 4 carries many intermediate subtotal rows (e.g. "Total -- Unemployment Insurance") that legitimately aren't one of the 7 top-level categories — skipping them here is correct, NOT the silent-drop this file's label maps otherwise guard against. assertReceiptsCategoriesPresent below is the loud check that the 7 rules we DO want are actually there for every report.
 
     const fiscalYear = Number(r.record_fiscal_year);
     const calYear = Number(r.record_calendar_year);
@@ -248,7 +248,22 @@ export function parseMtsOutlaysByFunction(response: { data: MtsOutlaysByFunction
   for (const r of response.data) {
     if (r.record_type_cd !== "F" || r.data_type_cd !== "D") continue;
     const seriesId = OUTLAYS_BY_FUNCTION_LABELS[r.classification_desc];
-    if (!seriesId) continue;
+    // Unlike Table 4's receipts side (an open hierarchy with legitimate
+    // non-target subtotal rows), Table 9's "F"/"D" rows ARE the complete,
+    // closed set of ~20 OMB budget functions — every one of them is
+    // supposed to map. Verified against the FULL live 2015-03..2026-07
+    // history (2603 F/D rows, 2026-09-01): exactly the 19 labels already in
+    // OUTLAYS_BY_FUNCTION_LABELS ever appear (Allowances never once, in 11+
+    // years — consistent with its own "doesn't appear when zero" note). A
+    // label showing up here that ISN'T in the map is exactly the "MTS
+    // relabels a category" trap CLAUDE.md warns about — silently dropping
+    // it would understate outlays with no visible error, so this throws
+    // instead of `continue`-ing past it.
+    if (!seriesId) {
+      throw new Error(
+        `MTS Table 9 outlays-by-function row has an unmapped classification_desc ${JSON.stringify(r.classification_desc)} (record_date=${r.record_date}) — add it to OUTLAYS_BY_FUNCTION_LABELS (after confirming what it maps to) rather than letting it silently drop out of the outlays total`,
+      );
+    }
 
     const fiscalYear = Number(r.record_fiscal_year);
     const calYear = Number(r.record_calendar_year);
@@ -282,6 +297,81 @@ export function parseMtsOutlaysByFunction(response: { data: MtsOutlaysByFunction
     }
   }
   return out;
+}
+
+// ---------------------------------------------------------------------------
+// Own-period extraction — the backfill's Table 1 building block.
+//
+// A single MTS Table 1 response describes TWO fiscal years' worth of month
+// rows (the current FY through its own as-of month, plus the full prior FY),
+// and the SAME calendar month is re-stated, verbatim or REVISED, across
+// roughly two years of subsequent reports (verified live 2026-09-01 against
+// the full 2015-03..2026-07 history: 99 of 154 distinct month periods carry
+// at least one genuine value change across their restatements — small
+// outlay/deficit corrections, not float noise). Table 4/9's category
+// breakdown, by contrast, is NEVER restated — each report only ever
+// publishes its own current month's categories, once. So the only Table 1
+// reading that is guaranteed to sum exactly against a given month's
+// category rows is that SAME report's own current-month (and own FYTD)
+// total — exactly what runMtsMonthlyJob's `thisMonthTotals` already scopes
+// to for the live per-report job. This function is that same restriction,
+// factored out so the backfill can apply it once per historical report
+// without re-deriving the logic.
+// ---------------------------------------------------------------------------
+
+/**
+ * From a (possibly multi-report) Table 1 response, extract ONLY the rows
+ * that are `recordDate`'s own report's own current-month and current-FYTD
+ * totals (receipts/outlays/deficit) — never a historical restatement of an
+ * older month embedded in that same report, and never another report's
+ * data. Safe to call with `response.data` containing many reports at once
+ * (as the backfill's bulk range fetch does): `parseMtsSummary` builds its
+ * fiscal-year header map from `classification_id`/`parent_id`, which are
+ * globally unique across reports (verified live), so pre-scoping to rows
+ * that mention `recordDate` before parsing is unnecessary for correctness
+ * but done anyway for clarity and smaller intermediate arrays.
+ */
+export function extractOwnPeriodMtsTotals(records: readonly MtsSummaryRecord[], recordDate: string): RawObservation[] {
+  const relevant = records.filter((r) => r.record_date === recordDate);
+  if (relevant.length === 0) {
+    throw new Error(`extractOwnPeriodMtsTotals: no Table 1 rows found for record_date=${recordDate}`);
+  }
+  return parseMtsSummary({ data: relevant as MtsSummaryRecord[] }).filter((t) => t.periodEnd === recordDate);
+}
+
+// ---------------------------------------------------------------------------
+// Receipts completeness — the loud-failure half of the "labels change
+// across years" guard for Table 4 (see parseMtsOutlaysByFunction's doc
+// comment for Table 9's version of this same guard, enforced inline there
+// instead since that table's F/D set is closed).
+// ---------------------------------------------------------------------------
+
+/**
+ * Assert that every one of the 7 `RECEIPTS_CATEGORY_RULES` matches EXACTLY
+ * one row for `recordDate`'s own report. `parseMtsReceipts` intentionally
+ * skips any Table 4 row that doesn't match a rule (most of Table 4's rows
+ * are intermediate subtotals that legitimately aren't one of the 7
+ * top-level categories) — that leniency is correct for rows we don't want,
+ * but silent for rows we DO want that go missing (e.g. a relabeled
+ * "Total -- Excise Taxes"). This is the explicit, loud check for the
+ * latter: verified to hold for every one of the 137 real reports from
+ * 2015-03 through 2026-07 (2026-09-01) — a genuinely unmapped/renamed label
+ * in a NEW report is exactly what this is meant to catch before it can
+ * silently understate a category (which downstream `reconcileCategoriesToTotal`
+ * would eventually flag as a nonzero dollar difference, but only after the
+ * fact — this throws immediately, at the source, naming the report and the
+ * missing label).
+ */
+export function assertReceiptsCategoriesPresent(records: readonly MtsReceiptsRecord[], recordDate: string): void {
+  const rows = records.filter((r) => r.record_date === recordDate);
+  for (const rule of RECEIPTS_CATEGORY_RULES) {
+    const matches = rows.filter((r) => r.classification_desc === rule.label && r.data_type_cd === rule.dataTypeCd);
+    if (matches.length !== 1) {
+      throw new Error(
+        `MTS Table 4 report record_date=${recordDate} has ${matches.length} row(s) matching required receipts category ${JSON.stringify(rule.label)} (data_type_cd=${rule.dataTypeCd}), expected exactly 1 — label may have changed; map it explicitly rather than letting ${rule.seriesId} silently lose a month`,
+      );
+    }
+  }
 }
 
 // ---------------------------------------------------------------------------

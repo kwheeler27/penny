@@ -15,6 +15,13 @@
       "when": 1788236040284,
       "tag": "0001_mean_harpoon",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1788277809819,
+      "tag": "0002_violet_archangel",
+      "breakpoints": true
     }
   ]
 }

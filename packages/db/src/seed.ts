@@ -70,6 +70,21 @@ export async function seedSeriesCatalog(db: PennyDb): Promise<number> {
   return rows.length;
 }
 
+/**
+ * Rows per `INSERT`. PGlite's wire-protocol layer breaks with a raw
+ * `RangeError: Invalid array length` once a single query's bound-parameter
+ * count crosses roughly 32,767 (reproduced live 2026-09-01: a 7-column,
+ * 5,206-row insert — 36,442 params — fails; the same shape at 4,000 rows/
+ * 28,000 params succeeds) — an Int16-sized field somewhere in its protocol
+ * implementation, not a Postgres/Neon limit. This surfaced for the first
+ * time once the MTS backfill produced a single fixture file
+ * (`mts-outlays-categories.json`) north of 5,000 rows; every fixture before
+ * that backfill was small enough to never hit it. 1,000 rows/batch (7,000
+ * params at today's 7-column `observation` shape) keeps a wide, durable
+ * margin for both today's files and future growth, on both PGlite and Neon.
+ */
+const SEED_BATCH_SIZE = 1000;
+
 export async function seedObservationFixtures(db: PennyDb): Promise<number> {
   if (!existsSync(FIXTURES_DIR)) return 0;
   const files = readdirSync(FIXTURES_DIR).filter((f) => f.endsWith(".json"));
@@ -86,7 +101,12 @@ export async function seedObservationFixtures(db: PennyDb): Promise<number> {
       ...row,
       publicationTime: new Date(row.publicationTime),
     }));
-    await db.insert(observation).values(rows).onConflictDoNothing();
+    for (let i = 0; i < rows.length; i += SEED_BATCH_SIZE) {
+      await db
+        .insert(observation)
+        .values(rows.slice(i, i + SEED_BATCH_SIZE))
+        .onConflictDoNothing();
+    }
     total += rows.length;
   }
   return total;

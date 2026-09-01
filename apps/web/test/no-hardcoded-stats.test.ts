@@ -24,8 +24,11 @@ const ROOT = join(__dirname, "..");
 const FRONT_DOOR_FILES = [
   "app/page.tsx",
   "lib/front-door-data.ts",
+  "lib/cadence-data.ts",
   "components/hero-strip.tsx",
   "components/ranked-bar-chart.tsx",
+  "components/month-stepper.tsx",
+  "components/cadence-section.tsx",
   "components/for-scale-fact.tsx",
   "components/deficit-history-chart.tsx",
   "components/fiscal-bridge.tsx",

@@ -1,0 +1,78 @@
+id: fiscal.dts.public_debt_cash_redemptions
+label: Public debt cash redemptions (daily)
+definition: >
+  Cash the Treasury paid out on a single business day to redeem maturing
+  Treasury securities — bills, notes, bonds, and other public debt
+  instruments coming due — read directly from the Daily Treasury
+  Statement. A financing cash flow, not a budget outlay: this is the
+  government repaying money it borrowed, not spending on a program.
+  Excluded from fiscal.dts.withdrawals_operating_excl_debt precisely
+  because it is this, not an operating outflow.
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Daily Treasury Statement, Table II — Deposits and Withdrawals of Operating Cash (Table IIIB detail)
+dataset_url: https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/deposits-and-withdrawals-of-operating-cash
+unit: usd
+magnitude: millions
+accounting_concept: cash_withdrawal
+cadence: daily
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Daily
+  Treasury Statement, Table II, "Deposits and Withdrawals of Operating
+  Cash," row "Public Debt Cash Redemp. (Table IIIB)." Accessed
+  {access_date}.
+
+revision_policy:
+  status: final
+  note: Published once per business day; not subsequently revised.
+
+notes:
+  - >
+    Read directly from Table II's account_type = "Treasury General Account
+    (TGA)" rows, transaction_type = "Withdrawals",
+    transaction_catg = "Public Debt Cash Redemp. (Table IIIB)" (verified
+    live 2026-08-29 — see packages/ingest's
+    fiscaldata/deposits-withdrawals.ts) — the cash Treasury paid out that
+    day to redeem securities reaching maturity (mostly short-dated bills,
+    which mature every week; this series is redemption cash, not new
+    issuance — see fiscal.dts.public_debt_cash_issues for that side).
+  - >
+    Dwarfs fiscal.dts.withdrawals_operating_excl_debt on heavy-maturity
+    days — verified live 2026-08-27: $274.2B of debt redemption against
+    $23.0B of every other operating withdrawal combined that day. This is
+    the concrete evidence for why the exclusion in
+    fiscal.dts.withdrawals_operating_excl_debt is load-bearing, not
+    incidental. Because bills are typically rolled over (redeemed and
+    reissued in the same window), this series and
+    fiscal.dts.public_debt_cash_issues move together and are usually
+    close in size on any given week — the government borrows every week
+    largely just to repay what came due that week, not only to cover the
+    year's deficit.
+  - >
+    A cash FLOW (today's redemption payments), not a stock — a different
+    accounting concept from fiscal.debt.total_public_debt_outstanding
+    (the outstanding par-value balance at a point in time). Never summed
+    or compared without a declared bridge; see not_comparable_with.
+  - >
+    Shares its accounting_concept (cash_withdrawal) with
+    fiscal.dts.withdrawals_operating_excl_debt by design: the two are
+    complementary parts of the same published "Treasury General Account
+    Total Withdrawals" figure, and summing them reconstructs it exactly —
+    the same pattern as MTS category series summing to an MTS total.
+  - >
+    Values are reported as positive magnitudes (a gross outflow), exactly
+    as Treasury publishes them — never stored as a negative number here.
+  - >
+    No value publishes on weekends and federal holidays — a gap, never a
+    zero.
+  - >
+    Treasury reports this table's dollar amounts as whole millions
+    (verified live: dataFormats "$1,000,000", no decimal places) — do not
+    expect sub-million precision.
+
+not_comparable_with:
+  - series: fiscal.debt.total_public_debt_outstanding
+    reason: >
+      A daily cash-settlement FLOW vs. the outstanding par-value debt
+      BALANCE at a point in time — stock and flow, never combined without
+      a declared bridge.

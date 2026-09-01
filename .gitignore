@@ -10,6 +10,7 @@ dist/
 .turbo/
 *.tsbuildinfo
 .pglite/
+.backfill-state/
 coverage/
 .vercel
 .env*

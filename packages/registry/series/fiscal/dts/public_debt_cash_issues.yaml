@@ -1,0 +1,71 @@
+id: fiscal.dts.public_debt_cash_issues
+label: Public debt cash issues (daily)
+definition: >
+  Cash the Treasury received on a single business day from settling newly
+  issued Treasury securities — bills, notes, bonds, and other public debt
+  instruments — read directly from the Daily Treasury Statement. A
+  financing cash flow, not a budget receipt: this is the government
+  borrowing money, not earning or collecting it. Excluded from
+  fiscal.dts.deposits_operating_excl_debt precisely because it is this,
+  not an operating inflow.
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Daily Treasury Statement, Table II — Deposits and Withdrawals of Operating Cash (Table IIIB detail)
+dataset_url: https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/deposits-and-withdrawals-of-operating-cash
+unit: usd
+magnitude: millions
+accounting_concept: cash_deposit
+cadence: daily
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Daily
+  Treasury Statement, Table II, "Deposits and Withdrawals of Operating
+  Cash," row "Public Debt Cash Issues (Table IIIB)." Accessed
+  {access_date}.
+
+revision_policy:
+  status: final
+  note: Published once per business day; not subsequently revised.
+
+notes:
+  - >
+    Read directly from Table II's account_type = "Treasury General Account
+    (TGA)" rows, transaction_type = "Deposits",
+    transaction_catg = "Public Debt Cash Issues (Table IIIB)" (verified
+    live 2026-08-29 — see packages/ingest's
+    fiscaldata/deposits-withdrawals.ts) — the settlement-day cash proceeds
+    of that day's Treasury security issuance (a security can be auctioned
+    on one day and settle, i.e. show up here, on a later day; this series
+    is settlement cash, not auction announcements or awarded amounts).
+  - >
+    Dwarfs fiscal.dts.deposits_operating_excl_debt on settlement days —
+    verified live 2026-08-27: $278.8B of debt issuance against $9.8B of
+    every other operating deposit combined that day. This is the concrete
+    evidence for why the exclusion in
+    fiscal.dts.deposits_operating_excl_debt is load-bearing, not
+    incidental.
+  - >
+    A cash FLOW (today's settlement proceeds), not a stock — a different
+    accounting concept from fiscal.debt.total_public_debt_outstanding
+    (the outstanding par-value balance at a point in time, updated daily
+    but describing a level, not a day's movement). Never summed or
+    compared without a declared bridge; see not_comparable_with.
+  - >
+    Shares its accounting_concept (cash_deposit) with
+    fiscal.dts.deposits_operating_excl_debt by design: the two are
+    complementary parts of the same published "Treasury General Account
+    Total Deposits" figure, and summing them reconstructs it exactly —
+    the same pattern as MTS category series summing to an MTS total.
+  - >
+    No value publishes on weekends and federal holidays — a gap, never a
+    zero.
+  - >
+    Treasury reports this table's dollar amounts as whole millions
+    (verified live: dataFormats "$1,000,000", no decimal places) — do not
+    expect sub-million precision.
+
+not_comparable_with:
+  - series: fiscal.debt.total_public_debt_outstanding
+    reason: >
+      A daily cash-settlement FLOW vs. the outstanding par-value debt
+      BALANCE at a point in time — stock and flow, never combined without
+      a declared bridge.

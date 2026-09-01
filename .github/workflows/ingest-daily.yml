@@ -1,8 +1,10 @@
-name: Ingest — daily (Debt to the Penny, TGA)
+name: Ingest — daily (Debt to the Penny, TGA, DTS cadence)
 
-# Debt to the Penny and the Daily Treasury Statement TGA closing balance
-# both publish once per business day. Runs every day, including weekends —
-# a run that finds nothing new is a no-op (lib/upsert.ts compares against
+# Debt to the Penny, the Daily Treasury Statement TGA closing balance, and
+# the Daily Treasury Statement's Deposits & Withdrawals of Operating Cash
+# (atlas beat 3's cadence chart + public-debt cash issues/redemptions) all
+# publish once per business day. Runs every day, including weekends — a
+# run that finds nothing new is a no-op (lib/upsert.ts compares against
 # the latest known value per period), which is simpler than trying to
 # encode federal holidays into the schedule.
 
@@ -38,5 +40,11 @@ jobs:
       - name: TGA closing balance
         working-directory: packages/ingest
         run: pnpm run ingest:tga
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: DTS deposits & withdrawals of operating cash (cadence + public debt cash flows)
+        working-directory: packages/ingest
+        run: pnpm run ingest:dts
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}

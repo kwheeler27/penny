@@ -3,19 +3,36 @@
 /**
  * Act I / Act II shared chart: a period toggle (fiscal-year-to-date / latest
  * month), ranked bars with an exact-value tooltip and a share-of-total
- * label, and a click-to-expand history panel per category. All the data
+ * label, and a click-to-expand history panel per category. Most of the data
  * this component renders was already computed server-side, from the
- * database, by lib/front-door-data.ts — this file only assembles markup and
- * owns two pieces of purely-interactive UI state (which period is showing,
- * which row is expanded). Bar/dot pixel geometry below uses Number() on an
- * already-exact whole-dollar string, which is fine for a COSMETIC
- * proportion (never for a displayed figure) — see
- * packages/viz/src/money/decimal.ts's documented convention, which this
- * component follows.
+ * database, by lib/front-door-data.ts — the one exception is a category's
+ * FULL monthly history (the v2 line chart, HistoryPanelV2 below), which this
+ * component fetches itself, lazily, from GET /api/category-history only for
+ * the one row a reader actually expands — never inlined for all ~27
+ * categories on every page load (that was ~1MB of unconditional RSC payload
+ * on every visit; see the API route's own doc comment). This file otherwise
+ * only assembles markup and owns its interactive UI state (which period is
+ * showing, which row is expanded, and the small per-category fetch cache
+ * below). Bar/dot pixel geometry below uses Number() on an already-exact
+ * whole-dollar string, which is fine for a COSMETIC proportion (never for a
+ * displayed figure) — see packages/viz/src/money/decimal.ts's documented
+ * convention, which this component follows.
  */
 import type { CSSProperties } from "react";
-import { useState } from "react";
-import type { CategoryHistoryPanel, HistoryPoint, RankedPeriod } from "@/lib/front-door-transform";
+import { useEffect, useRef, useState } from "react";
+import { CategoryHistoryChart } from "@penny/viz";
+import type { CategoryHistoryLineSeries, CategoryHistoryPanel, HistoryPoint, RankedPeriod } from "@/lib/front-door-transform";
+import { formatUsdScale } from "@/lib/format";
+import MonthStepper from "./month-stepper";
+
+/** Act I's server-driven month stepper (beat 1) — omitted entirely by Act
+ * II's usage of this same chart, which keeps its plain fytd/latest-month
+ * toggle unchanged. */
+export interface RankedBarChartStepper {
+  currentPeriodEnd: string;
+  prevHref: string | null;
+  nextHref: string | null;
+}
 
 export interface RankedBarChartProps {
   idPrefix: string;
@@ -29,6 +46,18 @@ export interface RankedBarChartProps {
    * approved mockup, which gives Act II's chart no standing footer at all. */
   footNote?: string;
   monthOnlyNote?: string | null;
+  /** Which tab is active on first render. Act II keeps the original "fytd"
+   * default; Act I defaults to "month" — the atlas's rev 4/6 "month-first
+   * opening" note: the story opens at the government's actual pace, one
+   * month at a time. */
+  defaultPeriod?: PeriodKey;
+  /** The month stepper (beat 1) — present only for Act I. When given, the
+   * month tab shows the ‹ Month YYYY › pill plus a "$X spent/collected"
+   * stage-setter line instead of just the ranked bars. */
+  stepper?: RankedBarChartStepper | null;
+  /** The verb for the stage-setter line ("spent", "collected") — only used
+   * alongside `stepper`. */
+  stageVerb?: string;
 }
 
 type PeriodKey = "fytd" | "month";
@@ -97,10 +126,79 @@ function HistoryPanel({ label, panel }: { label: string; panel: CategoryHistoryP
   );
 }
 
-export default function RankedBarChart({ idPrefix, colorVar, toggleLabels, periods, histories, footNote, monthOnlyNote }: RankedBarChartProps) {
-  const [period, setPeriod] = useState<PeriodKey>("fytd");
+/**
+ * The v2 line-chart form of a category's history (beat 1, "HISTORY PANELS
+ * v2"): the real @penny/viz CategoryHistoryChart, shown instead of the
+ * four-period dot plot above once a category's ingested history exceeds
+ * four months (see lib/front-door-transform.ts's buildCategoryHistoryLineSeries,
+ * which returns null — never rendering this — until then).
+ */
+function HistoryPanelV2({ label, series, colorVar }: { label: string; series: CategoryHistoryLineSeries; colorVar: RankedBarChartProps["colorVar"] }) {
+  // `display` here becomes the chart's native SVG hover title — it must be
+  // the full-precision exactDisplay (matching row.exactDisplay's own "exact,
+  // as published" hover a screen over), never the fixed-billions
+  // scaledDisplay, which the caption below promises is NOT what's shown.
+  const monthly = series.monthly.map((p) => ({ periodEnd: p.periodEnd, valueWhole: p.valueWhole, display: p.exactDisplay, label: p.monthLabel }));
+  const total = series.twelveMonthTotal.map((p) => ({ periodEnd: p.periodEnd, valueWhole: p.valueWhole, display: p.exactDisplay, label: p.monthLabel }));
+  const first = series.monthly[0]!;
+  const last = series.monthly[series.monthly.length - 1]!;
+
+  return (
+    <div className="rank-hist">
+      <div className="rank-hist-title">
+        {label} — {series.monthly.length} months, {first.monthLabel} through {last.monthLabel}
+      </div>
+      <CategoryHistoryChart monthly={monthly} total={total} color={`var(${colorVar})`} />
+      <div className="rank-hist-note">
+        {series.twelveMonthTotal.length > 0
+          ? "Thin line: each month, as published (lumpy — payment dates shift across month boundaries). Bold line: the trailing 12-month total, which smooths that out. Hover either line for the exact figure."
+          : "Thin line: each month, as published (lumpy — payment dates shift across month boundaries). A 12-month rolling total appears once 12 consecutive months are ingested. Hover the line for the exact figure."}
+      </div>
+    </div>
+  );
+}
+
+export default function RankedBarChart({
+  idPrefix,
+  colorVar,
+  toggleLabels,
+  periods,
+  histories,
+  footNote,
+  monthOnlyNote,
+  defaultPeriod = "fytd",
+  stepper,
+  stageVerb = "spent",
+}: RankedBarChartProps) {
+  const [period, setPeriod] = useState<PeriodKey>(defaultPeriod);
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  // The v2 full-history line chart, fetched lazily per category (never all
+  // ~27 up front — see this file's module doc and GET /api/category-history).
+  // `undefined` = not yet requested; `null` = fetched, and either the
+  // category has 4-or-fewer months (fall back to the dot plot) or the
+  // request failed (same honest fallback, never a fabricated chart).
+  const [fetchedFull, setFetchedFull] = useState<Record<string, CategoryHistoryLineSeries | null>>({});
+  const requestedIds = useRef<Set<string>>(new Set());
+
+  useEffect(() => {
+    if (!expandedId || requestedIds.current.has(expandedId)) return;
+    requestedIds.current.add(expandedId);
+    let cancelled = false;
+    fetch(`/api/category-history?id=${encodeURIComponent(expandedId)}`)
+      .then((res) => (res.ok ? (res.json() as Promise<{ series: CategoryHistoryLineSeries | null }>) : { series: null }))
+      .then(({ series }) => {
+        if (!cancelled) setFetchedFull((prev) => ({ ...prev, [expandedId]: series }));
+      })
+      .catch(() => {
+        if (!cancelled) setFetchedFull((prev) => ({ ...prev, [expandedId]: null }));
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [expandedId]);
+
   const current = periods[period];
+  const inStepperMode = period === "month" && Boolean(stepper);
 
   if (!current) {
     return <div className="rank-chart-empty">No report has been ingested yet for this view.</div>;
@@ -123,7 +221,18 @@ export default function RankedBarChart({ idPrefix, colorVar, toggleLabels, perio
           {toggleLabels.month}
         </button>
       </div>
+      {inStepperMode && stepper && (
+        <div className="month-stepper-row">
+          <div className="month-stepper-total">
+            {formatUsdScale(current.totalWhole, "B", 1)} {stageVerb}
+          </div>
+          <MonthStepper currentLabel={current.periodLabel} prevHref={stepper.prevHref} nextHref={stepper.nextHref} />
+        </div>
+      )}
       <div className="rank-chart">
+        {current.rows.length === 0 && period === "month" && (
+          <div className="rank-chart-nocat">No category breakdown has been ingested for this month yet — only the published total, above.</div>
+        )}
         <div className="rank-rows">
           {current.rows.map((row) => {
             const w = Math.max(Math.abs(Number(row.valueWhole)) * scale, 0.35);
@@ -138,6 +247,7 @@ export default function RankedBarChart({ idPrefix, colorVar, toggleLabels, perio
               : { left: `${zero}%`, width: `${w}%`, backgroundColor: `var(${colorVar})` };
             const expanded = expandedId === row.id;
             const panel = histories[row.id];
+            const lineSeries = fetchedFull[row.id];
             return (
               <div key={row.id}>
                 <button type="button" className="rank-row" aria-expanded={expanded} onClick={() => setExpandedId(expanded ? null : row.id)}>
@@ -154,12 +264,19 @@ export default function RankedBarChart({ idPrefix, colorVar, toggleLabels, perio
                     {row.scaledDisplay} <span className="rank-row-pct">· {row.shareDisplay}</span>
                   </span>
                 </button>
-                {expanded && (panel ? <HistoryPanel label={row.label} panel={panel} /> : <div className="rank-hist rank-hist--empty">No history ingested yet for this category.</div>)}
+                {expanded &&
+                  (lineSeries ? (
+                    <HistoryPanelV2 label={row.label} series={lineSeries} colorVar={colorVar} />
+                  ) : panel ? (
+                    <HistoryPanel label={row.label} panel={panel} />
+                  ) : (
+                    <div className="rank-hist rank-hist--empty">No history ingested yet for this category.</div>
+                  ))}
               </div>
             );
           })}
         </div>
-        <div className="rank-total">{current.totalDisplay}</div>
+        {!inStepperMode && <div className="rank-total">{current.totalDisplay}</div>}
         {footNote && <div className="rank-foot">{footNote}</div>}
         {period === "month" && monthOnlyNote && <div className={footNote ? "rank-foot rank-foot--note" : "rank-foot"}>{monthOnlyNote}</div>}
       </div>

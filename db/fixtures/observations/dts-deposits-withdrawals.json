@@ -1,0 +1,3026 @@
+[
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-01",
+    "periodEnd": "2026-05-01",
+    "fiscalYear": 2026,
+    "value": "41185",
+    "publicationTime": "2026-05-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-01",
+    "periodEnd": "2026-05-01",
+    "fiscalYear": 2026,
+    "value": "1865",
+    "publicationTime": "2026-05-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-01",
+    "periodEnd": "2026-05-01",
+    "fiscalYear": 2026,
+    "value": "3746",
+    "publicationTime": "2026-05-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-01",
+    "periodEnd": "2026-05-01",
+    "fiscalYear": 2026,
+    "value": "151376",
+    "publicationTime": "2026-05-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-04",
+    "periodEnd": "2026-05-04",
+    "fiscalYear": 2026,
+    "value": "37678",
+    "publicationTime": "2026-05-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-04",
+    "periodEnd": "2026-05-04",
+    "fiscalYear": 2026,
+    "value": "1771",
+    "publicationTime": "2026-05-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-04",
+    "periodEnd": "2026-05-04",
+    "fiscalYear": 2026,
+    "value": "1891",
+    "publicationTime": "2026-05-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-04",
+    "periodEnd": "2026-05-04",
+    "fiscalYear": 2026,
+    "value": "14901",
+    "publicationTime": "2026-05-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-05",
+    "periodEnd": "2026-05-05",
+    "fiscalYear": 2026,
+    "value": "11636",
+    "publicationTime": "2026-05-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-05",
+    "periodEnd": "2026-05-05",
+    "fiscalYear": 2026,
+    "value": "236162",
+    "publicationTime": "2026-05-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-05",
+    "periodEnd": "2026-05-05",
+    "fiscalYear": 2026,
+    "value": "251171",
+    "publicationTime": "2026-05-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-05",
+    "periodEnd": "2026-05-05",
+    "fiscalYear": 2026,
+    "value": "16308",
+    "publicationTime": "2026-05-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-06",
+    "periodEnd": "2026-05-06",
+    "fiscalYear": 2026,
+    "value": "19810",
+    "publicationTime": "2026-05-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-06",
+    "periodEnd": "2026-05-06",
+    "fiscalYear": 2026,
+    "value": "2887",
+    "publicationTime": "2026-05-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-06",
+    "periodEnd": "2026-05-06",
+    "fiscalYear": 2026,
+    "value": "1758",
+    "publicationTime": "2026-05-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-06",
+    "periodEnd": "2026-05-06",
+    "fiscalYear": 2026,
+    "value": "18469",
+    "publicationTime": "2026-05-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-07",
+    "periodEnd": "2026-05-07",
+    "fiscalYear": 2026,
+    "value": "6976",
+    "publicationTime": "2026-05-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-07",
+    "periodEnd": "2026-05-07",
+    "fiscalYear": 2026,
+    "value": "258390",
+    "publicationTime": "2026-05-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-07",
+    "periodEnd": "2026-05-07",
+    "fiscalYear": 2026,
+    "value": "262926",
+    "publicationTime": "2026-05-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-07",
+    "periodEnd": "2026-05-07",
+    "fiscalYear": 2026,
+    "value": "18635",
+    "publicationTime": "2026-05-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-08",
+    "periodEnd": "2026-05-08",
+    "fiscalYear": 2026,
+    "value": "15941",
+    "publicationTime": "2026-05-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-08",
+    "periodEnd": "2026-05-08",
+    "fiscalYear": 2026,
+    "value": "2451",
+    "publicationTime": "2026-05-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-08",
+    "periodEnd": "2026-05-08",
+    "fiscalYear": 2026,
+    "value": "5787",
+    "publicationTime": "2026-05-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-08",
+    "periodEnd": "2026-05-08",
+    "fiscalYear": 2026,
+    "value": "20006",
+    "publicationTime": "2026-05-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-11",
+    "periodEnd": "2026-05-11",
+    "fiscalYear": 2026,
+    "value": "33779",
+    "publicationTime": "2026-05-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-11",
+    "periodEnd": "2026-05-11",
+    "fiscalYear": 2026,
+    "value": "1704",
+    "publicationTime": "2026-05-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-11",
+    "periodEnd": "2026-05-11",
+    "fiscalYear": 2026,
+    "value": "2876",
+    "publicationTime": "2026-05-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-11",
+    "periodEnd": "2026-05-11",
+    "fiscalYear": 2026,
+    "value": "17178",
+    "publicationTime": "2026-05-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-12",
+    "periodEnd": "2026-05-12",
+    "fiscalYear": 2026,
+    "value": "8900",
+    "publicationTime": "2026-05-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-12",
+    "periodEnd": "2026-05-12",
+    "fiscalYear": 2026,
+    "value": "251564",
+    "publicationTime": "2026-05-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-12",
+    "periodEnd": "2026-05-12",
+    "fiscalYear": 2026,
+    "value": "247576",
+    "publicationTime": "2026-05-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-12",
+    "periodEnd": "2026-05-12",
+    "fiscalYear": 2026,
+    "value": "23441",
+    "publicationTime": "2026-05-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-13",
+    "periodEnd": "2026-05-13",
+    "fiscalYear": 2026,
+    "value": "14622",
+    "publicationTime": "2026-05-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-13",
+    "periodEnd": "2026-05-13",
+    "fiscalYear": 2026,
+    "value": "2122",
+    "publicationTime": "2026-05-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-13",
+    "periodEnd": "2026-05-13",
+    "fiscalYear": 2026,
+    "value": "1755",
+    "publicationTime": "2026-05-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-13",
+    "periodEnd": "2026-05-13",
+    "fiscalYear": 2026,
+    "value": "51605",
+    "publicationTime": "2026-05-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-14",
+    "periodEnd": "2026-05-14",
+    "fiscalYear": 2026,
+    "value": "9293",
+    "publicationTime": "2026-05-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-14",
+    "periodEnd": "2026-05-14",
+    "fiscalYear": 2026,
+    "value": "315616",
+    "publicationTime": "2026-05-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-14",
+    "periodEnd": "2026-05-14",
+    "fiscalYear": 2026,
+    "value": "311838",
+    "publicationTime": "2026-05-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-14",
+    "periodEnd": "2026-05-14",
+    "fiscalYear": 2026,
+    "value": "18079",
+    "publicationTime": "2026-05-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-15",
+    "periodEnd": "2026-05-15",
+    "fiscalYear": 2026,
+    "value": "26846",
+    "publicationTime": "2026-05-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-15",
+    "periodEnd": "2026-05-15",
+    "fiscalYear": 2026,
+    "value": "155733",
+    "publicationTime": "2026-05-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-15",
+    "periodEnd": "2026-05-15",
+    "fiscalYear": 2026,
+    "value": "119296",
+    "publicationTime": "2026-05-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-15",
+    "periodEnd": "2026-05-15",
+    "fiscalYear": 2026,
+    "value": "106876",
+    "publicationTime": "2026-05-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-18",
+    "periodEnd": "2026-05-18",
+    "fiscalYear": 2026,
+    "value": "43183",
+    "publicationTime": "2026-05-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-18",
+    "periodEnd": "2026-05-18",
+    "fiscalYear": 2026,
+    "value": "1682",
+    "publicationTime": "2026-05-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-18",
+    "periodEnd": "2026-05-18",
+    "fiscalYear": 2026,
+    "value": "2329",
+    "publicationTime": "2026-05-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-18",
+    "periodEnd": "2026-05-18",
+    "fiscalYear": 2026,
+    "value": "15430",
+    "publicationTime": "2026-05-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-19",
+    "periodEnd": "2026-05-19",
+    "fiscalYear": 2026,
+    "value": "13348",
+    "publicationTime": "2026-05-19T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-19",
+    "periodEnd": "2026-05-19",
+    "fiscalYear": 2026,
+    "value": "280466",
+    "publicationTime": "2026-05-19T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-19",
+    "periodEnd": "2026-05-19",
+    "fiscalYear": 2026,
+    "value": "241470",
+    "publicationTime": "2026-05-19T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-19",
+    "periodEnd": "2026-05-19",
+    "fiscalYear": 2026,
+    "value": "15994",
+    "publicationTime": "2026-05-19T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-20",
+    "periodEnd": "2026-05-20",
+    "fiscalYear": 2026,
+    "value": "18683",
+    "publicationTime": "2026-05-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-20",
+    "periodEnd": "2026-05-20",
+    "fiscalYear": 2026,
+    "value": "2521",
+    "publicationTime": "2026-05-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-20",
+    "periodEnd": "2026-05-20",
+    "fiscalYear": 2026,
+    "value": "3496",
+    "publicationTime": "2026-05-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-20",
+    "periodEnd": "2026-05-20",
+    "fiscalYear": 2026,
+    "value": "58003",
+    "publicationTime": "2026-05-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-21",
+    "periodEnd": "2026-05-21",
+    "fiscalYear": 2026,
+    "value": "8612",
+    "publicationTime": "2026-05-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-21",
+    "periodEnd": "2026-05-21",
+    "fiscalYear": 2026,
+    "value": "266990",
+    "publicationTime": "2026-05-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-21",
+    "periodEnd": "2026-05-21",
+    "fiscalYear": 2026,
+    "value": "252449",
+    "publicationTime": "2026-05-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-21",
+    "periodEnd": "2026-05-21",
+    "fiscalYear": 2026,
+    "value": "19250",
+    "publicationTime": "2026-05-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-22",
+    "periodEnd": "2026-05-22",
+    "fiscalYear": 2026,
+    "value": "31021",
+    "publicationTime": "2026-05-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-22",
+    "periodEnd": "2026-05-22",
+    "fiscalYear": 2026,
+    "value": "26765",
+    "publicationTime": "2026-05-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-22",
+    "periodEnd": "2026-05-22",
+    "fiscalYear": 2026,
+    "value": "2164",
+    "publicationTime": "2026-05-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-22",
+    "periodEnd": "2026-05-22",
+    "fiscalYear": 2026,
+    "value": "15954",
+    "publicationTime": "2026-05-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-26",
+    "periodEnd": "2026-05-26",
+    "fiscalYear": 2026,
+    "value": "34313",
+    "publicationTime": "2026-05-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-26",
+    "periodEnd": "2026-05-26",
+    "fiscalYear": 2026,
+    "value": "280378",
+    "publicationTime": "2026-05-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-26",
+    "periodEnd": "2026-05-26",
+    "fiscalYear": 2026,
+    "value": "238777",
+    "publicationTime": "2026-05-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-26",
+    "periodEnd": "2026-05-26",
+    "fiscalYear": 2026,
+    "value": "20135",
+    "publicationTime": "2026-05-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-27",
+    "periodEnd": "2026-05-27",
+    "fiscalYear": 2026,
+    "value": "10783",
+    "publicationTime": "2026-05-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-27",
+    "periodEnd": "2026-05-27",
+    "fiscalYear": 2026,
+    "value": "2545",
+    "publicationTime": "2026-05-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-27",
+    "periodEnd": "2026-05-27",
+    "fiscalYear": 2026,
+    "value": "1681",
+    "publicationTime": "2026-05-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-27",
+    "periodEnd": "2026-05-27",
+    "fiscalYear": 2026,
+    "value": "50316",
+    "publicationTime": "2026-05-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-28",
+    "periodEnd": "2026-05-28",
+    "fiscalYear": 2026,
+    "value": "17574",
+    "publicationTime": "2026-05-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-28",
+    "periodEnd": "2026-05-28",
+    "fiscalYear": 2026,
+    "value": "262048",
+    "publicationTime": "2026-05-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-28",
+    "periodEnd": "2026-05-28",
+    "fiscalYear": 2026,
+    "value": "249222",
+    "publicationTime": "2026-05-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-28",
+    "periodEnd": "2026-05-28",
+    "fiscalYear": 2026,
+    "value": "23350",
+    "publicationTime": "2026-05-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-29",
+    "periodEnd": "2026-05-29",
+    "fiscalYear": 2026,
+    "value": "19278",
+    "publicationTime": "2026-05-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-05-29",
+    "periodEnd": "2026-05-29",
+    "fiscalYear": 2026,
+    "value": "49010",
+    "publicationTime": "2026-05-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-05-29",
+    "periodEnd": "2026-05-29",
+    "fiscalYear": 2026,
+    "value": "2204",
+    "publicationTime": "2026-05-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-05-29",
+    "periodEnd": "2026-05-29",
+    "fiscalYear": 2026,
+    "value": "11913",
+    "publicationTime": "2026-05-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-01",
+    "fiscalYear": 2026,
+    "value": "49839",
+    "publicationTime": "2026-06-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-01",
+    "fiscalYear": 2026,
+    "value": "230428",
+    "publicationTime": "2026-06-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-01",
+    "fiscalYear": 2026,
+    "value": "167836",
+    "publicationTime": "2026-06-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-01",
+    "periodEnd": "2026-06-01",
+    "fiscalYear": 2026,
+    "value": "159471",
+    "publicationTime": "2026-06-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-02",
+    "periodEnd": "2026-06-02",
+    "fiscalYear": 2026,
+    "value": "15304",
+    "publicationTime": "2026-06-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-02",
+    "periodEnd": "2026-06-02",
+    "fiscalYear": 2026,
+    "value": "247976",
+    "publicationTime": "2026-06-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-02",
+    "periodEnd": "2026-06-02",
+    "fiscalYear": 2026,
+    "value": "233210",
+    "publicationTime": "2026-06-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-02",
+    "periodEnd": "2026-06-02",
+    "fiscalYear": 2026,
+    "value": "20837",
+    "publicationTime": "2026-06-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-03",
+    "periodEnd": "2026-06-03",
+    "fiscalYear": 2026,
+    "value": "22259",
+    "publicationTime": "2026-06-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-03",
+    "periodEnd": "2026-06-03",
+    "fiscalYear": 2026,
+    "value": "2448",
+    "publicationTime": "2026-06-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-03",
+    "periodEnd": "2026-06-03",
+    "fiscalYear": 2026,
+    "value": "1921",
+    "publicationTime": "2026-06-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-03",
+    "periodEnd": "2026-06-03",
+    "fiscalYear": 2026,
+    "value": "43140",
+    "publicationTime": "2026-06-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-04",
+    "periodEnd": "2026-06-04",
+    "fiscalYear": 2026,
+    "value": "7390",
+    "publicationTime": "2026-06-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-04",
+    "periodEnd": "2026-06-04",
+    "fiscalYear": 2026,
+    "value": "258744",
+    "publicationTime": "2026-06-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-04",
+    "periodEnd": "2026-06-04",
+    "fiscalYear": 2026,
+    "value": "251010",
+    "publicationTime": "2026-06-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-04",
+    "periodEnd": "2026-06-04",
+    "fiscalYear": 2026,
+    "value": "16324",
+    "publicationTime": "2026-06-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-05",
+    "periodEnd": "2026-06-05",
+    "fiscalYear": 2026,
+    "value": "13955",
+    "publicationTime": "2026-06-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-05",
+    "periodEnd": "2026-06-05",
+    "fiscalYear": 2026,
+    "value": "1625",
+    "publicationTime": "2026-06-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-05",
+    "periodEnd": "2026-06-05",
+    "fiscalYear": 2026,
+    "value": "14345",
+    "publicationTime": "2026-06-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-05",
+    "periodEnd": "2026-06-05",
+    "fiscalYear": 2026,
+    "value": "20216",
+    "publicationTime": "2026-06-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-08",
+    "periodEnd": "2026-06-08",
+    "fiscalYear": 2026,
+    "value": "36119",
+    "publicationTime": "2026-06-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-08",
+    "periodEnd": "2026-06-08",
+    "fiscalYear": 2026,
+    "value": "2194",
+    "publicationTime": "2026-06-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-08",
+    "periodEnd": "2026-06-08",
+    "fiscalYear": 2026,
+    "value": "1750",
+    "publicationTime": "2026-06-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-08",
+    "periodEnd": "2026-06-08",
+    "fiscalYear": 2026,
+    "value": "17873",
+    "publicationTime": "2026-06-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-09",
+    "periodEnd": "2026-06-09",
+    "fiscalYear": 2026,
+    "value": "11295",
+    "publicationTime": "2026-06-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-09",
+    "periodEnd": "2026-06-09",
+    "fiscalYear": 2026,
+    "value": "236223",
+    "publicationTime": "2026-06-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-09",
+    "periodEnd": "2026-06-09",
+    "fiscalYear": 2026,
+    "value": "242064",
+    "publicationTime": "2026-06-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-09",
+    "periodEnd": "2026-06-09",
+    "fiscalYear": 2026,
+    "value": "19285",
+    "publicationTime": "2026-06-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-10",
+    "periodEnd": "2026-06-10",
+    "fiscalYear": 2026,
+    "value": "25452",
+    "publicationTime": "2026-06-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-10",
+    "periodEnd": "2026-06-10",
+    "fiscalYear": 2026,
+    "value": "1759",
+    "publicationTime": "2026-06-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-10",
+    "periodEnd": "2026-06-10",
+    "fiscalYear": 2026,
+    "value": "3372",
+    "publicationTime": "2026-06-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-10",
+    "periodEnd": "2026-06-10",
+    "fiscalYear": 2026,
+    "value": "53153",
+    "publicationTime": "2026-06-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-11",
+    "periodEnd": "2026-06-11",
+    "fiscalYear": 2026,
+    "value": "22070",
+    "publicationTime": "2026-06-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-11",
+    "periodEnd": "2026-06-11",
+    "fiscalYear": 2026,
+    "value": "299442",
+    "publicationTime": "2026-06-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-11",
+    "periodEnd": "2026-06-11",
+    "fiscalYear": 2026,
+    "value": "302653",
+    "publicationTime": "2026-06-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-11",
+    "periodEnd": "2026-06-11",
+    "fiscalYear": 2026,
+    "value": "20427",
+    "publicationTime": "2026-06-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-12",
+    "periodEnd": "2026-06-12",
+    "fiscalYear": 2026,
+    "value": "45037",
+    "publicationTime": "2026-06-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-12",
+    "periodEnd": "2026-06-12",
+    "fiscalYear": 2026,
+    "value": "1658",
+    "publicationTime": "2026-06-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-12",
+    "periodEnd": "2026-06-12",
+    "fiscalYear": 2026,
+    "value": "13862",
+    "publicationTime": "2026-06-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-12",
+    "periodEnd": "2026-06-12",
+    "fiscalYear": 2026,
+    "value": "16326",
+    "publicationTime": "2026-06-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-15",
+    "periodEnd": "2026-06-15",
+    "fiscalYear": 2026,
+    "value": "114519",
+    "publicationTime": "2026-06-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-15",
+    "periodEnd": "2026-06-15",
+    "fiscalYear": 2026,
+    "value": "120019",
+    "publicationTime": "2026-06-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-15",
+    "periodEnd": "2026-06-15",
+    "fiscalYear": 2026,
+    "value": "43726",
+    "publicationTime": "2026-06-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-15",
+    "periodEnd": "2026-06-15",
+    "fiscalYear": 2026,
+    "value": "27044",
+    "publicationTime": "2026-06-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-16",
+    "periodEnd": "2026-06-16",
+    "fiscalYear": 2026,
+    "value": "38269",
+    "publicationTime": "2026-06-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-16",
+    "periodEnd": "2026-06-16",
+    "fiscalYear": 2026,
+    "value": "233158",
+    "publicationTime": "2026-06-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-16",
+    "periodEnd": "2026-06-16",
+    "fiscalYear": 2026,
+    "value": "255220",
+    "publicationTime": "2026-06-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-16",
+    "periodEnd": "2026-06-16",
+    "fiscalYear": 2026,
+    "value": "14885",
+    "publicationTime": "2026-06-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-17",
+    "periodEnd": "2026-06-17",
+    "fiscalYear": 2026,
+    "value": "24055",
+    "publicationTime": "2026-06-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-17",
+    "periodEnd": "2026-06-17",
+    "fiscalYear": 2026,
+    "value": "2071",
+    "publicationTime": "2026-06-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-17",
+    "periodEnd": "2026-06-17",
+    "fiscalYear": 2026,
+    "value": "2332",
+    "publicationTime": "2026-06-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-17",
+    "periodEnd": "2026-06-17",
+    "fiscalYear": 2026,
+    "value": "48406",
+    "publicationTime": "2026-06-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-18",
+    "periodEnd": "2026-06-18",
+    "fiscalYear": 2026,
+    "value": "15661",
+    "publicationTime": "2026-06-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-18",
+    "periodEnd": "2026-06-18",
+    "fiscalYear": 2026,
+    "value": "251444",
+    "publicationTime": "2026-06-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-18",
+    "periodEnd": "2026-06-18",
+    "fiscalYear": 2026,
+    "value": "283847",
+    "publicationTime": "2026-06-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-18",
+    "periodEnd": "2026-06-18",
+    "fiscalYear": 2026,
+    "value": "24676",
+    "publicationTime": "2026-06-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-22",
+    "periodEnd": "2026-06-22",
+    "fiscalYear": 2026,
+    "value": "46025",
+    "publicationTime": "2026-06-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-22",
+    "periodEnd": "2026-06-22",
+    "fiscalYear": 2026,
+    "value": "14830",
+    "publicationTime": "2026-06-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-22",
+    "periodEnd": "2026-06-22",
+    "fiscalYear": 2026,
+    "value": "2113",
+    "publicationTime": "2026-06-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-22",
+    "periodEnd": "2026-06-22",
+    "fiscalYear": 2026,
+    "value": "31012",
+    "publicationTime": "2026-06-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-23",
+    "periodEnd": "2026-06-23",
+    "fiscalYear": 2026,
+    "value": "29927",
+    "publicationTime": "2026-06-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-23",
+    "periodEnd": "2026-06-23",
+    "fiscalYear": 2026,
+    "value": "232595",
+    "publicationTime": "2026-06-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-23",
+    "periodEnd": "2026-06-23",
+    "fiscalYear": 2026,
+    "value": "255220",
+    "publicationTime": "2026-06-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-23",
+    "periodEnd": "2026-06-23",
+    "fiscalYear": 2026,
+    "value": "24241",
+    "publicationTime": "2026-06-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-24",
+    "periodEnd": "2026-06-24",
+    "fiscalYear": 2026,
+    "value": "24875",
+    "publicationTime": "2026-06-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-24",
+    "periodEnd": "2026-06-24",
+    "fiscalYear": 2026,
+    "value": "2139",
+    "publicationTime": "2026-06-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-24",
+    "periodEnd": "2026-06-24",
+    "fiscalYear": 2026,
+    "value": "1702",
+    "publicationTime": "2026-06-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-24",
+    "periodEnd": "2026-06-24",
+    "fiscalYear": 2026,
+    "value": "49344",
+    "publicationTime": "2026-06-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-25",
+    "periodEnd": "2026-06-25",
+    "fiscalYear": 2026,
+    "value": "10295",
+    "publicationTime": "2026-06-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-25",
+    "periodEnd": "2026-06-25",
+    "fiscalYear": 2026,
+    "value": "248152",
+    "publicationTime": "2026-06-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-25",
+    "periodEnd": "2026-06-25",
+    "fiscalYear": 2026,
+    "value": "263058",
+    "publicationTime": "2026-06-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-25",
+    "periodEnd": "2026-06-25",
+    "fiscalYear": 2026,
+    "value": "25765",
+    "publicationTime": "2026-06-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-26",
+    "periodEnd": "2026-06-26",
+    "fiscalYear": 2026,
+    "value": "15697",
+    "publicationTime": "2026-06-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-26",
+    "periodEnd": "2026-06-26",
+    "fiscalYear": 2026,
+    "value": "29621",
+    "publicationTime": "2026-06-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-26",
+    "periodEnd": "2026-06-26",
+    "fiscalYear": 2026,
+    "value": "3183",
+    "publicationTime": "2026-06-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-26",
+    "periodEnd": "2026-06-26",
+    "fiscalYear": 2026,
+    "value": "18027",
+    "publicationTime": "2026-06-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-29",
+    "periodEnd": "2026-06-29",
+    "fiscalYear": 2026,
+    "value": "32217",
+    "publicationTime": "2026-06-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-29",
+    "periodEnd": "2026-06-29",
+    "fiscalYear": 2026,
+    "value": "1659",
+    "publicationTime": "2026-06-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-29",
+    "periodEnd": "2026-06-29",
+    "fiscalYear": 2026,
+    "value": "2410",
+    "publicationTime": "2026-06-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-29",
+    "periodEnd": "2026-06-29",
+    "fiscalYear": 2026,
+    "value": "50081",
+    "publicationTime": "2026-06-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-30",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "20004",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-06-30",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "474837",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-06-30",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "417773",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-06-30",
+    "periodEnd": "2026-06-30",
+    "fiscalYear": 2026,
+    "value": "34884",
+    "publicationTime": "2026-06-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-01",
+    "fiscalYear": 2026,
+    "value": "40401",
+    "publicationTime": "2026-07-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-01",
+    "fiscalYear": 2026,
+    "value": "2663",
+    "publicationTime": "2026-07-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-01",
+    "fiscalYear": 2026,
+    "value": "10240",
+    "publicationTime": "2026-07-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-01",
+    "fiscalYear": 2026,
+    "value": "144610",
+    "publicationTime": "2026-07-01T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-02",
+    "periodEnd": "2026-07-02",
+    "fiscalYear": 2026,
+    "value": "15807",
+    "publicationTime": "2026-07-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-02",
+    "periodEnd": "2026-07-02",
+    "fiscalYear": 2026,
+    "value": "267673",
+    "publicationTime": "2026-07-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-02",
+    "periodEnd": "2026-07-02",
+    "fiscalYear": 2026,
+    "value": "270272",
+    "publicationTime": "2026-07-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-02",
+    "periodEnd": "2026-07-02",
+    "fiscalYear": 2026,
+    "value": "49981",
+    "publicationTime": "2026-07-02T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-03",
+    "periodEnd": "2026-07-03",
+    "fiscalYear": 2026,
+    "value": "12996",
+    "publicationTime": "2026-07-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-03",
+    "periodEnd": "2026-07-03",
+    "fiscalYear": 2026,
+    "value": "1576",
+    "publicationTime": "2026-07-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-03",
+    "periodEnd": "2026-07-03",
+    "fiscalYear": 2026,
+    "value": "1690",
+    "publicationTime": "2026-07-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-03",
+    "periodEnd": "2026-07-03",
+    "fiscalYear": 2026,
+    "value": "6625",
+    "publicationTime": "2026-07-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-06",
+    "periodEnd": "2026-07-06",
+    "fiscalYear": 2026,
+    "value": "26984",
+    "publicationTime": "2026-07-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-06",
+    "periodEnd": "2026-07-06",
+    "fiscalYear": 2026,
+    "value": "1590",
+    "publicationTime": "2026-07-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-06",
+    "periodEnd": "2026-07-06",
+    "fiscalYear": 2026,
+    "value": "1724",
+    "publicationTime": "2026-07-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-06",
+    "periodEnd": "2026-07-06",
+    "fiscalYear": 2026,
+    "value": "20587",
+    "publicationTime": "2026-07-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-07",
+    "periodEnd": "2026-07-07",
+    "fiscalYear": 2026,
+    "value": "6573",
+    "publicationTime": "2026-07-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-07",
+    "periodEnd": "2026-07-07",
+    "fiscalYear": 2026,
+    "value": "255725",
+    "publicationTime": "2026-07-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-07",
+    "periodEnd": "2026-07-07",
+    "fiscalYear": 2026,
+    "value": "240553",
+    "publicationTime": "2026-07-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-07",
+    "periodEnd": "2026-07-07",
+    "fiscalYear": 2026,
+    "value": "19888",
+    "publicationTime": "2026-07-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-08",
+    "periodEnd": "2026-07-08",
+    "fiscalYear": 2026,
+    "value": "16054",
+    "publicationTime": "2026-07-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-08",
+    "periodEnd": "2026-07-08",
+    "fiscalYear": 2026,
+    "value": "2244",
+    "publicationTime": "2026-07-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-08",
+    "periodEnd": "2026-07-08",
+    "fiscalYear": 2026,
+    "value": "1850",
+    "publicationTime": "2026-07-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-08",
+    "periodEnd": "2026-07-08",
+    "fiscalYear": 2026,
+    "value": "52169",
+    "publicationTime": "2026-07-08T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-09",
+    "periodEnd": "2026-07-09",
+    "fiscalYear": 2026,
+    "value": "6618",
+    "publicationTime": "2026-07-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-09",
+    "periodEnd": "2026-07-09",
+    "fiscalYear": 2026,
+    "value": "329341",
+    "publicationTime": "2026-07-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-09",
+    "periodEnd": "2026-07-09",
+    "fiscalYear": 2026,
+    "value": "320935",
+    "publicationTime": "2026-07-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-09",
+    "periodEnd": "2026-07-09",
+    "fiscalYear": 2026,
+    "value": "19631",
+    "publicationTime": "2026-07-09T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-10",
+    "periodEnd": "2026-07-10",
+    "fiscalYear": 2026,
+    "value": "13194",
+    "publicationTime": "2026-07-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-10",
+    "periodEnd": "2026-07-10",
+    "fiscalYear": 2026,
+    "value": "1561",
+    "publicationTime": "2026-07-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-10",
+    "periodEnd": "2026-07-10",
+    "fiscalYear": 2026,
+    "value": "3992",
+    "publicationTime": "2026-07-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-10",
+    "periodEnd": "2026-07-10",
+    "fiscalYear": 2026,
+    "value": "17128",
+    "publicationTime": "2026-07-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-13",
+    "periodEnd": "2026-07-13",
+    "fiscalYear": 2026,
+    "value": "29596",
+    "publicationTime": "2026-07-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-13",
+    "periodEnd": "2026-07-13",
+    "fiscalYear": 2026,
+    "value": "1547",
+    "publicationTime": "2026-07-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-13",
+    "periodEnd": "2026-07-13",
+    "fiscalYear": 2026,
+    "value": "2803",
+    "publicationTime": "2026-07-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-13",
+    "periodEnd": "2026-07-13",
+    "fiscalYear": 2026,
+    "value": "16331",
+    "publicationTime": "2026-07-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-14",
+    "periodEnd": "2026-07-14",
+    "fiscalYear": 2026,
+    "value": "11287",
+    "publicationTime": "2026-07-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-14",
+    "periodEnd": "2026-07-14",
+    "fiscalYear": 2026,
+    "value": "289703",
+    "publicationTime": "2026-07-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-14",
+    "periodEnd": "2026-07-14",
+    "fiscalYear": 2026,
+    "value": "249187",
+    "publicationTime": "2026-07-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-14",
+    "periodEnd": "2026-07-14",
+    "fiscalYear": 2026,
+    "value": "14271",
+    "publicationTime": "2026-07-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-15",
+    "periodEnd": "2026-07-15",
+    "fiscalYear": 2026,
+    "value": "31680",
+    "publicationTime": "2026-07-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-15",
+    "periodEnd": "2026-07-15",
+    "fiscalYear": 2026,
+    "value": "132617",
+    "publicationTime": "2026-07-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-15",
+    "periodEnd": "2026-07-15",
+    "fiscalYear": 2026,
+    "value": "90561",
+    "publicationTime": "2026-07-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-15",
+    "periodEnd": "2026-07-15",
+    "fiscalYear": 2026,
+    "value": "65574",
+    "publicationTime": "2026-07-15T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-16",
+    "periodEnd": "2026-07-16",
+    "fiscalYear": 2026,
+    "value": "21302",
+    "publicationTime": "2026-07-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-16",
+    "periodEnd": "2026-07-16",
+    "fiscalYear": 2026,
+    "value": "277218",
+    "publicationTime": "2026-07-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-16",
+    "periodEnd": "2026-07-16",
+    "fiscalYear": 2026,
+    "value": "255273",
+    "publicationTime": "2026-07-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-16",
+    "periodEnd": "2026-07-16",
+    "fiscalYear": 2026,
+    "value": "16713",
+    "publicationTime": "2026-07-16T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-17",
+    "periodEnd": "2026-07-17",
+    "fiscalYear": 2026,
+    "value": "12844",
+    "publicationTime": "2026-07-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-17",
+    "periodEnd": "2026-07-17",
+    "fiscalYear": 2026,
+    "value": "1549",
+    "publicationTime": "2026-07-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-17",
+    "periodEnd": "2026-07-17",
+    "fiscalYear": 2026,
+    "value": "2977",
+    "publicationTime": "2026-07-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-17",
+    "periodEnd": "2026-07-17",
+    "fiscalYear": 2026,
+    "value": "18507",
+    "publicationTime": "2026-07-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-20",
+    "periodEnd": "2026-07-20",
+    "fiscalYear": 2026,
+    "value": "31292",
+    "publicationTime": "2026-07-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-20",
+    "periodEnd": "2026-07-20",
+    "fiscalYear": 2026,
+    "value": "1589",
+    "publicationTime": "2026-07-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-20",
+    "periodEnd": "2026-07-20",
+    "fiscalYear": 2026,
+    "value": "1678",
+    "publicationTime": "2026-07-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-20",
+    "periodEnd": "2026-07-20",
+    "fiscalYear": 2026,
+    "value": "18425",
+    "publicationTime": "2026-07-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-21",
+    "periodEnd": "2026-07-21",
+    "fiscalYear": 2026,
+    "value": "7367",
+    "publicationTime": "2026-07-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-21",
+    "periodEnd": "2026-07-21",
+    "fiscalYear": 2026,
+    "value": "303148",
+    "publicationTime": "2026-07-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-21",
+    "periodEnd": "2026-07-21",
+    "fiscalYear": 2026,
+    "value": "248107",
+    "publicationTime": "2026-07-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-21",
+    "periodEnd": "2026-07-21",
+    "fiscalYear": 2026,
+    "value": "15625",
+    "publicationTime": "2026-07-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-22",
+    "periodEnd": "2026-07-22",
+    "fiscalYear": 2026,
+    "value": "17131",
+    "publicationTime": "2026-07-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-22",
+    "periodEnd": "2026-07-22",
+    "fiscalYear": 2026,
+    "value": "1667",
+    "publicationTime": "2026-07-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-22",
+    "periodEnd": "2026-07-22",
+    "fiscalYear": 2026,
+    "value": "1600",
+    "publicationTime": "2026-07-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-22",
+    "periodEnd": "2026-07-22",
+    "fiscalYear": 2026,
+    "value": "56760",
+    "publicationTime": "2026-07-22T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-23",
+    "periodEnd": "2026-07-23",
+    "fiscalYear": 2026,
+    "value": "25934",
+    "publicationTime": "2026-07-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-23",
+    "periodEnd": "2026-07-23",
+    "fiscalYear": 2026,
+    "value": "282534",
+    "publicationTime": "2026-07-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-23",
+    "periodEnd": "2026-07-23",
+    "fiscalYear": 2026,
+    "value": "248784",
+    "publicationTime": "2026-07-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-23",
+    "periodEnd": "2026-07-23",
+    "fiscalYear": 2026,
+    "value": "17900",
+    "publicationTime": "2026-07-23T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-24",
+    "periodEnd": "2026-07-24",
+    "fiscalYear": 2026,
+    "value": "12775",
+    "publicationTime": "2026-07-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-24",
+    "periodEnd": "2026-07-24",
+    "fiscalYear": 2026,
+    "value": "14267",
+    "publicationTime": "2026-07-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-24",
+    "periodEnd": "2026-07-24",
+    "fiscalYear": 2026,
+    "value": "3434",
+    "publicationTime": "2026-07-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-24",
+    "periodEnd": "2026-07-24",
+    "fiscalYear": 2026,
+    "value": "14510",
+    "publicationTime": "2026-07-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-27",
+    "periodEnd": "2026-07-27",
+    "fiscalYear": 2026,
+    "value": "32172",
+    "publicationTime": "2026-07-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-27",
+    "periodEnd": "2026-07-27",
+    "fiscalYear": 2026,
+    "value": "1604",
+    "publicationTime": "2026-07-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-27",
+    "periodEnd": "2026-07-27",
+    "fiscalYear": 2026,
+    "value": "1912",
+    "publicationTime": "2026-07-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-27",
+    "periodEnd": "2026-07-27",
+    "fiscalYear": 2026,
+    "value": "15413",
+    "publicationTime": "2026-07-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-28",
+    "periodEnd": "2026-07-28",
+    "fiscalYear": 2026,
+    "value": "6461",
+    "publicationTime": "2026-07-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-28",
+    "periodEnd": "2026-07-28",
+    "fiscalYear": 2026,
+    "value": "302986",
+    "publicationTime": "2026-07-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-28",
+    "periodEnd": "2026-07-28",
+    "fiscalYear": 2026,
+    "value": "234339",
+    "publicationTime": "2026-07-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-28",
+    "periodEnd": "2026-07-28",
+    "fiscalYear": 2026,
+    "value": "11723",
+    "publicationTime": "2026-07-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-29",
+    "periodEnd": "2026-07-29",
+    "fiscalYear": 2026,
+    "value": "19758",
+    "publicationTime": "2026-07-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-29",
+    "periodEnd": "2026-07-29",
+    "fiscalYear": 2026,
+    "value": "2756",
+    "publicationTime": "2026-07-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-29",
+    "periodEnd": "2026-07-29",
+    "fiscalYear": 2026,
+    "value": "2979",
+    "publicationTime": "2026-07-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-29",
+    "periodEnd": "2026-07-29",
+    "fiscalYear": 2026,
+    "value": "15229",
+    "publicationTime": "2026-07-29T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-30",
+    "periodEnd": "2026-07-30",
+    "fiscalYear": 2026,
+    "value": "7800",
+    "publicationTime": "2026-07-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-30",
+    "periodEnd": "2026-07-30",
+    "fiscalYear": 2026,
+    "value": "285929",
+    "publicationTime": "2026-07-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-30",
+    "periodEnd": "2026-07-30",
+    "fiscalYear": 2026,
+    "value": "249406",
+    "publicationTime": "2026-07-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-30",
+    "periodEnd": "2026-07-30",
+    "fiscalYear": 2026,
+    "value": "16819",
+    "publicationTime": "2026-07-30T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-31",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "20838",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-07-31",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "261016",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-07-31",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "250423",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-07-31",
+    "periodEnd": "2026-07-31",
+    "fiscalYear": 2026,
+    "value": "152812",
+    "publicationTime": "2026-07-31T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-03",
+    "periodEnd": "2026-08-03",
+    "fiscalYear": 2026,
+    "value": "57591",
+    "publicationTime": "2026-08-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-03",
+    "periodEnd": "2026-08-03",
+    "fiscalYear": 2026,
+    "value": "1612",
+    "publicationTime": "2026-08-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-03",
+    "periodEnd": "2026-08-03",
+    "fiscalYear": 2026,
+    "value": "10805",
+    "publicationTime": "2026-08-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-03",
+    "periodEnd": "2026-08-03",
+    "fiscalYear": 2026,
+    "value": "54881",
+    "publicationTime": "2026-08-03T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-04",
+    "periodEnd": "2026-08-04",
+    "fiscalYear": 2026,
+    "value": "9791",
+    "publicationTime": "2026-08-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-04",
+    "periodEnd": "2026-08-04",
+    "fiscalYear": 2026,
+    "value": "302469",
+    "publicationTime": "2026-08-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-04",
+    "periodEnd": "2026-08-04",
+    "fiscalYear": 2026,
+    "value": "242790",
+    "publicationTime": "2026-08-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-04",
+    "periodEnd": "2026-08-04",
+    "fiscalYear": 2026,
+    "value": "15333",
+    "publicationTime": "2026-08-04T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-05",
+    "periodEnd": "2026-08-05",
+    "fiscalYear": 2026,
+    "value": "19494",
+    "publicationTime": "2026-08-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-05",
+    "periodEnd": "2026-08-05",
+    "fiscalYear": 2026,
+    "value": "1871",
+    "publicationTime": "2026-08-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-05",
+    "periodEnd": "2026-08-05",
+    "fiscalYear": 2026,
+    "value": "1643",
+    "publicationTime": "2026-08-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-05",
+    "periodEnd": "2026-08-05",
+    "fiscalYear": 2026,
+    "value": "14616",
+    "publicationTime": "2026-08-05T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-06",
+    "periodEnd": "2026-08-06",
+    "fiscalYear": 2026,
+    "value": "8338",
+    "publicationTime": "2026-08-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-06",
+    "periodEnd": "2026-08-06",
+    "fiscalYear": 2026,
+    "value": "342078",
+    "publicationTime": "2026-08-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-06",
+    "periodEnd": "2026-08-06",
+    "fiscalYear": 2026,
+    "value": "300802",
+    "publicationTime": "2026-08-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-06",
+    "periodEnd": "2026-08-06",
+    "fiscalYear": 2026,
+    "value": "17213",
+    "publicationTime": "2026-08-06T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-07",
+    "periodEnd": "2026-08-07",
+    "fiscalYear": 2026,
+    "value": "13033",
+    "publicationTime": "2026-08-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-07",
+    "periodEnd": "2026-08-07",
+    "fiscalYear": 2026,
+    "value": "1509",
+    "publicationTime": "2026-08-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-07",
+    "periodEnd": "2026-08-07",
+    "fiscalYear": 2026,
+    "value": "5539",
+    "publicationTime": "2026-08-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-07",
+    "periodEnd": "2026-08-07",
+    "fiscalYear": 2026,
+    "value": "16616",
+    "publicationTime": "2026-08-07T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-10",
+    "periodEnd": "2026-08-10",
+    "fiscalYear": 2026,
+    "value": "28511",
+    "publicationTime": "2026-08-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-10",
+    "periodEnd": "2026-08-10",
+    "fiscalYear": 2026,
+    "value": "1575",
+    "publicationTime": "2026-08-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-10",
+    "periodEnd": "2026-08-10",
+    "fiscalYear": 2026,
+    "value": "2481",
+    "publicationTime": "2026-08-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-10",
+    "periodEnd": "2026-08-10",
+    "fiscalYear": 2026,
+    "value": "14867",
+    "publicationTime": "2026-08-10T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-11",
+    "periodEnd": "2026-08-11",
+    "fiscalYear": 2026,
+    "value": "8156",
+    "publicationTime": "2026-08-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-11",
+    "periodEnd": "2026-08-11",
+    "fiscalYear": 2026,
+    "value": "299375",
+    "publicationTime": "2026-08-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-11",
+    "periodEnd": "2026-08-11",
+    "fiscalYear": 2026,
+    "value": "261907",
+    "publicationTime": "2026-08-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-11",
+    "periodEnd": "2026-08-11",
+    "fiscalYear": 2026,
+    "value": "15145",
+    "publicationTime": "2026-08-11T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-12",
+    "periodEnd": "2026-08-12",
+    "fiscalYear": 2026,
+    "value": "15471",
+    "publicationTime": "2026-08-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-12",
+    "periodEnd": "2026-08-12",
+    "fiscalYear": 2026,
+    "value": "1808",
+    "publicationTime": "2026-08-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-12",
+    "periodEnd": "2026-08-12",
+    "fiscalYear": 2026,
+    "value": "3319",
+    "publicationTime": "2026-08-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-12",
+    "periodEnd": "2026-08-12",
+    "fiscalYear": 2026,
+    "value": "51885",
+    "publicationTime": "2026-08-12T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-13",
+    "periodEnd": "2026-08-13",
+    "fiscalYear": 2026,
+    "value": "6698",
+    "publicationTime": "2026-08-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-13",
+    "periodEnd": "2026-08-13",
+    "fiscalYear": 2026,
+    "value": "282412",
+    "publicationTime": "2026-08-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-13",
+    "periodEnd": "2026-08-13",
+    "fiscalYear": 2026,
+    "value": "264535",
+    "publicationTime": "2026-08-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-13",
+    "periodEnd": "2026-08-13",
+    "fiscalYear": 2026,
+    "value": "17393",
+    "publicationTime": "2026-08-13T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-14",
+    "periodEnd": "2026-08-14",
+    "fiscalYear": 2026,
+    "value": "17101",
+    "publicationTime": "2026-08-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-14",
+    "periodEnd": "2026-08-14",
+    "fiscalYear": 2026,
+    "value": "1991",
+    "publicationTime": "2026-08-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-14",
+    "periodEnd": "2026-08-14",
+    "fiscalYear": 2026,
+    "value": "1837",
+    "publicationTime": "2026-08-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-14",
+    "periodEnd": "2026-08-14",
+    "fiscalYear": 2026,
+    "value": "24658",
+    "publicationTime": "2026-08-14T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-17",
+    "periodEnd": "2026-08-17",
+    "fiscalYear": 2026,
+    "value": "47829",
+    "publicationTime": "2026-08-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-17",
+    "periodEnd": "2026-08-17",
+    "fiscalYear": 2026,
+    "value": "157411",
+    "publicationTime": "2026-08-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-17",
+    "periodEnd": "2026-08-17",
+    "fiscalYear": 2026,
+    "value": "131214",
+    "publicationTime": "2026-08-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-17",
+    "periodEnd": "2026-08-17",
+    "fiscalYear": 2026,
+    "value": "100425",
+    "publicationTime": "2026-08-17T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-18",
+    "periodEnd": "2026-08-18",
+    "fiscalYear": 2026,
+    "value": "8438",
+    "publicationTime": "2026-08-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-18",
+    "periodEnd": "2026-08-18",
+    "fiscalYear": 2026,
+    "value": "307011",
+    "publicationTime": "2026-08-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-18",
+    "periodEnd": "2026-08-18",
+    "fiscalYear": 2026,
+    "value": "271523",
+    "publicationTime": "2026-08-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-18",
+    "periodEnd": "2026-08-18",
+    "fiscalYear": 2026,
+    "value": "14759",
+    "publicationTime": "2026-08-18T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-19",
+    "periodEnd": "2026-08-19",
+    "fiscalYear": 2026,
+    "value": "20939",
+    "publicationTime": "2026-08-19T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-19",
+    "periodEnd": "2026-08-19",
+    "fiscalYear": 2026,
+    "value": "2457",
+    "publicationTime": "2026-08-19T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-19",
+    "periodEnd": "2026-08-19",
+    "fiscalYear": 2026,
+    "value": "2941",
+    "publicationTime": "2026-08-19T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-19",
+    "periodEnd": "2026-08-19",
+    "fiscalYear": 2026,
+    "value": "46001",
+    "publicationTime": "2026-08-19T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-20",
+    "periodEnd": "2026-08-20",
+    "fiscalYear": 2026,
+    "value": "9174",
+    "publicationTime": "2026-08-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-20",
+    "periodEnd": "2026-08-20",
+    "fiscalYear": 2026,
+    "value": "286327",
+    "publicationTime": "2026-08-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-20",
+    "periodEnd": "2026-08-20",
+    "fiscalYear": 2026,
+    "value": "273041",
+    "publicationTime": "2026-08-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-20",
+    "periodEnd": "2026-08-20",
+    "fiscalYear": 2026,
+    "value": "23789",
+    "publicationTime": "2026-08-20T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-21",
+    "periodEnd": "2026-08-21",
+    "fiscalYear": 2026,
+    "value": "14283",
+    "publicationTime": "2026-08-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-21",
+    "periodEnd": "2026-08-21",
+    "fiscalYear": 2026,
+    "value": "1481",
+    "publicationTime": "2026-08-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-21",
+    "periodEnd": "2026-08-21",
+    "fiscalYear": 2026,
+    "value": "3423",
+    "publicationTime": "2026-08-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-21",
+    "periodEnd": "2026-08-21",
+    "fiscalYear": 2026,
+    "value": "14200",
+    "publicationTime": "2026-08-21T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-24",
+    "periodEnd": "2026-08-24",
+    "fiscalYear": 2026,
+    "value": "48891",
+    "publicationTime": "2026-08-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-24",
+    "periodEnd": "2026-08-24",
+    "fiscalYear": 2026,
+    "value": "1506",
+    "publicationTime": "2026-08-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-24",
+    "periodEnd": "2026-08-24",
+    "fiscalYear": 2026,
+    "value": "1634",
+    "publicationTime": "2026-08-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-24",
+    "periodEnd": "2026-08-24",
+    "fiscalYear": 2026,
+    "value": "15131",
+    "publicationTime": "2026-08-24T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-25",
+    "periodEnd": "2026-08-25",
+    "fiscalYear": 2026,
+    "value": "9384",
+    "publicationTime": "2026-08-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-25",
+    "periodEnd": "2026-08-25",
+    "fiscalYear": 2026,
+    "value": "304542",
+    "publicationTime": "2026-08-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-25",
+    "periodEnd": "2026-08-25",
+    "fiscalYear": 2026,
+    "value": "273410",
+    "publicationTime": "2026-08-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-25",
+    "periodEnd": "2026-08-25",
+    "fiscalYear": 2026,
+    "value": "13228",
+    "publicationTime": "2026-08-25T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-26",
+    "periodEnd": "2026-08-26",
+    "fiscalYear": 2026,
+    "value": "16806",
+    "publicationTime": "2026-08-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-26",
+    "periodEnd": "2026-08-26",
+    "fiscalYear": 2026,
+    "value": "1535",
+    "publicationTime": "2026-08-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-26",
+    "periodEnd": "2026-08-26",
+    "fiscalYear": 2026,
+    "value": "2734",
+    "publicationTime": "2026-08-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-26",
+    "periodEnd": "2026-08-26",
+    "fiscalYear": 2026,
+    "value": "50309",
+    "publicationTime": "2026-08-26T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-27",
+    "periodEnd": "2026-08-27",
+    "fiscalYear": 2026,
+    "value": "9784",
+    "publicationTime": "2026-08-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-27",
+    "periodEnd": "2026-08-27",
+    "fiscalYear": 2026,
+    "value": "278792",
+    "publicationTime": "2026-08-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-27",
+    "periodEnd": "2026-08-27",
+    "fiscalYear": 2026,
+    "value": "274205",
+    "publicationTime": "2026-08-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-27",
+    "periodEnd": "2026-08-27",
+    "fiscalYear": 2026,
+    "value": "23002",
+    "publicationTime": "2026-08-27T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.deposits_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-28",
+    "periodEnd": "2026-08-28",
+    "fiscalYear": 2026,
+    "value": "14625",
+    "publicationTime": "2026-08-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_issues",
+    "periodType": "day",
+    "periodStart": "2026-08-28",
+    "periodEnd": "2026-08-28",
+    "fiscalYear": 2026,
+    "value": "29903",
+    "publicationTime": "2026-08-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.public_debt_cash_redemptions",
+    "periodType": "day",
+    "periodStart": "2026-08-28",
+    "periodEnd": "2026-08-28",
+    "fiscalYear": 2026,
+    "value": "1791",
+    "publicationTime": "2026-08-28T00:00:00Z"
+  },
+  {
+    "seriesId": "fiscal.dts.withdrawals_operating_excl_debt",
+    "periodType": "day",
+    "periodStart": "2026-08-28",
+    "periodEnd": "2026-08-28",
+    "fiscalYear": 2026,
+    "value": "22198",
+    "publicationTime": "2026-08-28T00:00:00Z"
+  }
+]

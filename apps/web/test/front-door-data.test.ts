@@ -138,6 +138,22 @@ beforeAll(async () => {
     { seriesId: DEFICIT_TOTAL, periodType: "month", periodStart: "2026-05-01", periodEnd: "2026-05-31", fiscalYear: 2026, value: "-292648000000", publicationTime },
     { seriesId: DEFICIT_TOTAL, periodType: "month", periodStart: "2026-06-01", periodEnd: "2026-06-30", fiscalYear: 2026, value: "-120305000000", publicationTime },
     // 2026-07-31 already inserted above as the 3rd month.
+
+    // The Act I month stepper (beat 1): outlays.total gets TWO extra monthly
+    // readings older than the one already seeded above — a realistic slice
+    // of "totals are backfilled further than categories," exactly the
+    // today's-seed shape the stepper must handle gracefully. 2026-05-31
+    // deliberately has NO category-level reading at all (neither outlay nor
+    // receipt category below has an entry at that date) — the empty-ranked-
+    // list gap case.
+    { seriesId: OUTLAYS_TOTAL, periodType: "month", periodStart: "2026-05-01", periodEnd: "2026-05-31", fiscalYear: 2026, value: "700000000000", publicationTime },
+    { seriesId: OUTLAYS_TOTAL, periodType: "month", periodStart: "2026-06-01", periodEnd: "2026-06-30", fiscalYear: 2026, value: "710000000000", publicationTime },
+
+    // National defense's 5th monthly point — pushes it past the 4-period
+    // dot-plot threshold so buildCategoryHistoryLineSeries stops returning
+    // null, exercising the "full backfill" path on the SAME fixture that
+    // exercises the today's-4-period dot-plot path for every other category.
+    { seriesId: NATIONAL_DEFENSE, periodType: "month", periodStart: "2023-09-01", periodEnd: "2023-09-30", fiscalYear: 2023, value: "70000000000", publicationTime },
   ]);
 });
 
@@ -212,3 +228,51 @@ describe("getFrontDoorData", () => {
     expect(tgaCell.valueDisplay).toBe("$950.8B");
   });
 });
+
+describe("getFrontDoorData — Act I month stepper (beat 1)", () => {
+  it("defaults to the latest month (July 2026) when no month is requested, with 3 months to step across", async () => {
+    const data = await getFrontDoorData();
+    expect(data.outlays.stepper).not.toBeNull();
+    expect(data.outlays.stepper!.currentPeriodEnd).toBe("2026-07-31");
+    expect(data.outlays.stepper!.monthCount).toBe(3); // 2026-05-31, 2026-06-30, 2026-07-31
+    expect(data.outlays.stepper!.nextPeriodEnd).toBeNull(); // at the newest edge
+    // Only SOCIAL_SECURITY and NATIONAL_DEFENSE have a `month`-period reading
+    // seeded at all (NET_INTEREST/UNDISTRIBUTED are FYTD-only in this
+    // fixture) — never a zero row standing in for the other two.
+    expect(data.outlays.periods.month!.rows.map((r) => r.id).sort()).toEqual([NATIONAL_DEFENSE, SOCIAL_SECURITY].sort());
+  });
+
+  it("steps to a requested month and recomputes the ranked rows/shares for THAT month, not the latest", async () => {
+    const data = await getFrontDoorData({ spendMonth: "2026-06-30" });
+    expect(data.outlays.stepper!.currentPeriodEnd).toBe("2026-06-30");
+    expect(data.outlays.periods.month!.totalWhole).toBe("710000000000.0000"); // numeric(20,4) round-trips with its full stored scale
+    // Only the categories actually seeded at 2026-06-30 appear — never a zero row for one that isn't.
+    expect(data.outlays.periods.month!.rows.map((r) => r.id).sort()).toEqual([NATIONAL_DEFENSE, SOCIAL_SECURITY].sort());
+  });
+
+  it("renders an honest empty ranked list — never a zero row — for a month whose total is ingested but whose categories aren't yet", async () => {
+    const data = await getFrontDoorData({ spendMonth: "2026-05-31" });
+    expect(data.outlays.stepper!.currentPeriodEnd).toBe("2026-05-31");
+    expect(data.outlays.periods.month!.totalWhole).toBe("700000000000.0000"); // the total IS there
+    expect(data.outlays.periods.month!.rows).toHaveLength(0); // the category breakdown is not, yet
+  });
+
+  it("falls back to the latest month for an invalid/unknown request, never an error", async () => {
+    const data = await getFrontDoorData({ spendMonth: "1999-01-31" });
+    expect(data.outlays.stepper!.currentPeriodEnd).toBe("2026-07-31");
+  });
+
+  it("does not affect Act II's receipts view, which stays pinned to the latest month regardless of the Act I stepper", async () => {
+    const data = await getFrontDoorData({ spendMonth: "2026-05-31" });
+    expect(data.receipts.periods.month!.periodLabel).toContain("July");
+  });
+});
+
+// The v2 history line chart (beat 1, "HISTORY PANELS v2") is no longer part
+// of getFrontDoorData's output at all — it moved to GET
+// /api/category-history, fetched lazily per category by
+// components/ranked-bar-chart.tsx only for the row a reader expands, instead
+// of being computed for all ~27 categories on every "/" request (see that
+// route's own doc comment). Its DB-to-shape wiring is covered end to end by
+// test/category-history-route.test.ts now; buildCategoryHistoryLineSeries's
+// own pure logic is covered by test/front-door-transform.test.ts.

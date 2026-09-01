@@ -1,0 +1,89 @@
+id: fiscal.dts.withdrawals_operating_excl_debt
+label: Daily operating cash withdrawals (excl. debt redemptions)
+definition: >
+  The cash the Treasury paid out of its checking account at the Federal
+  Reserve on a single business day — benefit checks, payroll, interest on
+  the debt, agency program payments, and other operating outflows — with
+  that day's public debt cash redemptions (maturing Treasury securities
+  paid off that day) excluded. Reported daily, from the Daily Treasury
+  Statement's cash ledger — a different accounting basis from the Monthly
+  Treasury Statement's monthly outlays figure (see notes).
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Daily Treasury Statement, Table II — Deposits and Withdrawals of Operating Cash
+dataset_url: https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/deposits-and-withdrawals-of-operating-cash
+unit: usd
+magnitude: millions
+accounting_concept: cash_withdrawal
+cadence: daily
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Daily
+  Treasury Statement, Table II, "Deposits and Withdrawals of Operating
+  Cash" — Treasury General Account Total Withdrawals minus Public Debt
+  Cash Redemptions (Table IIIB). Accessed {access_date}.
+
+revision_policy:
+  status: final
+  note: Published once per business day; not subsequently revised.
+
+notes:
+  - >
+    Derivation, exact and declared: this series equals the day's published
+    "Treasury General Account Total Withdrawals" row minus that same day's
+    "Public Debt Cash Redemp. (Table IIIB)" row — both read directly from
+    Table II (account_type = "Treasury General Account Total Withdrawals",
+    and account_type = "Treasury General Account (TGA)" with
+    transaction_catg = "Public Debt Cash Redemp. (Table IIIB)",
+    respectively; verified live 2026-08-29 — see packages/ingest's
+    fiscaldata/deposits-withdrawals.ts). Never re-summed from Table II's
+    ~100 individual withdrawal-category rows instead: those round
+    independently to the nearest published million and can differ from
+    the published total row by a few million dollars on a given day (a
+    Treasury rounding artifact, confirmed in the committed raw fixtures)
+    — subtracting the two published aggregate rows avoids compounding
+    that.
+  - >
+    The exclusion is deliberate and load-bearing, not incidental: on days
+    when a large volume of bills matures, Public Debt Cash Redemptions can
+    be many times the size of every operational withdrawal combined (see
+    fiscal.dts.public_debt_cash_redemptions — $274.2B of debt redemption
+    against $23.0B of every other withdrawal combined on 2026-08-27, a
+    verified live example). Repaying maturing debt is not a budget outlay;
+    folding it in would make "how much operating cash went out today"
+    unreadable.
+  - >
+    A different accounting basis from fiscal.mts.outlays.total, not the
+    same figure at daily granularity: this is a cash-basis DAILY Treasury
+    General Account withdrawal figure from the DTS; MTS outlays is a
+    budget-basis MONTHLY figure with its own timing and classification
+    rules (and includes some netting/reclassification the DTS withdrawal
+    ledger does not). The two do not reconcile to the dollar even summed
+    over a full month — never compared or summed without accounting for
+    the basis difference (see not_comparable_with).
+  - >
+    Values are reported as positive magnitudes (a gross outflow), exactly
+    as Treasury publishes them — never stored as a negative number here.
+    Any "money out" sign convention is applied only at the presentation
+    boundary.
+  - >
+    No value publishes on weekends and federal holidays — render those
+    days as a gap, never a zero or a carried-forward prior value.
+  - >
+    Treasury reports this table's dollar amounts as whole millions
+    (verified live: dataFormats "$1,000,000", no decimal places) — do not
+    expect sub-million precision.
+
+not_comparable_with:
+  - series: fiscal.mts.outlays.total
+    reason: >
+      Cash-basis daily Treasury General Account withdrawals (DTS) vs.
+      budget-basis monthly outlays (MTS) — different accounting bases and
+      publication cadences; the two will not reconcile to the dollar even
+      summed over a full month.
+  - series: fiscal.tga.closing_balance
+    reason: >
+      A daily cash-basis FLOW (this series) vs. the TGA's outstanding
+      BALANCE at a point in time — stock and flow, never combined without a
+      declared bridge. The TGA closing balance moves with Treasury's TOTAL
+      daily withdrawals, including the debt redemptions this series
+      deliberately excludes, so the two do not move together day for day.

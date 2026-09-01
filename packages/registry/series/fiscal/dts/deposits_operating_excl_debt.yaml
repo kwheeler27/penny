@@ -1,0 +1,83 @@
+id: fiscal.dts.deposits_operating_excl_debt
+label: Daily operating cash deposits (excl. debt issuance)
+definition: >
+  The cash the Treasury deposited into its checking account at the Federal
+  Reserve on a single business day — tax deposits, agency fee and program
+  collections, and other operating inflows — with that day's public debt
+  cash issues (newly issued Treasury securities settling that day)
+  excluded. Reported daily, from the Daily Treasury Statement's cash
+  ledger — a different accounting basis from the Monthly Treasury
+  Statement's monthly receipts figure (see notes).
+
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: Daily Treasury Statement, Table II — Deposits and Withdrawals of Operating Cash
+dataset_url: https://fiscaldata.treasury.gov/datasets/daily-treasury-statement/deposits-and-withdrawals-of-operating-cash
+unit: usd
+magnitude: millions
+accounting_concept: cash_deposit
+cadence: daily
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service, Daily
+  Treasury Statement, Table II, "Deposits and Withdrawals of Operating
+  Cash" — Treasury General Account Total Deposits minus Public Debt Cash
+  Issues (Table IIIB). Accessed {access_date}.
+
+revision_policy:
+  status: final
+  note: Published once per business day; not subsequently revised.
+
+notes:
+  - >
+    Derivation, exact and declared: this series equals the day's published
+    "Treasury General Account Total Deposits" row minus that same day's
+    "Public Debt Cash Issues (Table IIIB)" row — both read directly from
+    Table II (account_type = "Treasury General Account Total Deposits", and
+    account_type = "Treasury General Account (TGA)" with
+    transaction_catg = "Public Debt Cash Issues (Table IIIB)",
+    respectively; verified live 2026-08-29 — see packages/ingest's
+    fiscaldata/deposits-withdrawals.ts). Never re-summed from Table II's
+    ~80 individual deposit-category rows instead: those round
+    independently to the nearest published million and can differ from
+    the published total row by a few million dollars on a given day (a
+    Treasury rounding artifact, confirmed in the committed raw fixtures)
+    — subtracting the two published aggregate rows avoids compounding
+    that.
+  - >
+    The exclusion is deliberate and load-bearing, not incidental: on
+    settlement days for large bill auctions, Public Debt Cash Issues can
+    be many times the size of every operational deposit combined (see
+    fiscal.dts.public_debt_cash_issues — $278.8B of debt issuance against
+    $9.8B of every other deposit combined on 2026-08-27, a verified live
+    example). Borrowing proceeds are not a receipt; folding them in would
+    make "how much operating cash came in today" unreadable.
+  - >
+    A different accounting basis from fiscal.mts.receipts.total, not the
+    same figure at daily granularity: this is a cash-basis DAILY Treasury
+    General Account deposit figure from the DTS; MTS receipts is a
+    budget-basis MONTHLY figure with its own timing and classification
+    rules (and includes some netting/reclassification the DTS deposit
+    ledger does not). The two do not reconcile to the dollar even summed
+    over a full month — never compared or summed without accounting for
+    the basis difference (see not_comparable_with).
+  - >
+    No value publishes on weekends and federal holidays — render those
+    days as a gap, never a zero or a carried-forward prior value.
+  - >
+    Treasury reports this table's dollar amounts as whole millions
+    (verified live: dataFormats "$1,000,000", no decimal places) — do not
+    expect sub-million precision.
+
+not_comparable_with:
+  - series: fiscal.mts.receipts.total
+    reason: >
+      Cash-basis daily Treasury General Account deposits (DTS) vs.
+      budget-basis monthly receipts (MTS) — different accounting bases and
+      publication cadences; the two will not reconcile to the dollar even
+      summed over a full month.
+  - series: fiscal.tga.closing_balance
+    reason: >
+      A daily cash-basis FLOW (this series) vs. the TGA's outstanding
+      BALANCE at a point in time — stock and flow, never combined without a
+      declared bridge. The TGA closing balance moves with Treasury's TOTAL
+      daily deposits, including the debt issuance this series deliberately
+      excludes, so the two do not move together day for day.

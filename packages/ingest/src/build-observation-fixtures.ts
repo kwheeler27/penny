@@ -26,6 +26,8 @@ import { dtsDepositsWithdrawalsResponseSchema } from "./fiscaldata/deposits-with
 import { interestExpenseResponseSchema } from "./fiscaldata/interest-expense";
 import { blsResponseSchema } from "./bls/cpi";
 import { parseCboBaselineCsv } from "./cbo/baseline-deficit";
+import { parseCboBaselineOutlaysCsv } from "./cbo/baseline-outlays";
+import { parseCboBaselineRevenuesCsv } from "./cbo/baseline-revenues";
 import { parseMtsReceipts, parseMtsOutlaysByFunction, extractOwnPeriodMtsTotals, assertReceiptsCategoriesPresent } from "./jobs/mts-monthly";
 import { parseDebtToPenny } from "./jobs/debt-daily";
 import { parseTgaClosingBalance } from "./jobs/tga-daily";
@@ -33,6 +35,8 @@ import { parseDtsDepositsWithdrawals } from "./jobs/dts-cadence-daily";
 import { parseInterestExpense } from "./jobs/interest-expense-monthly";
 import { parseCpi } from "./jobs/cpi-monthly";
 import { parseCboBaselineRows, CBO_BASELINE_CSV_PATH, CBO_BASELINE_PUBLICATION_DATE } from "./jobs/cbo-baseline";
+import { parseCboBaselineOutlaysRows, CBO_BASELINE_OUTLAYS_CSV_PATH, CBO_BASELINE_OUTLAYS_PUBLICATION_DATE } from "./jobs/cbo-baseline-outlays";
+import { parseCboBaselineRevenuesRows, CBO_BASELINE_REVENUES_CSV_PATH, CBO_BASELINE_REVENUES_PUBLICATION_DATE } from "./jobs/cbo-baseline-revenues";
 import type { RawObservation } from "./lib/types";
 import { readFileSync } from "node:fs";
 
@@ -139,6 +143,14 @@ function main() {
   const cboRows = parseCboBaselineCsv(readFileSync(CBO_BASELINE_CSV_PATH, "utf8"));
   const cbo = parseCboBaselineRows(cboRows, CBO_BASELINE_PUBLICATION_DATE);
   write("cbo-baseline-deficit.json", cbo);
+
+  const cboOutlaysRows = parseCboBaselineOutlaysCsv(readFileSync(CBO_BASELINE_OUTLAYS_CSV_PATH, "utf8"));
+  const cboOutlays = parseCboBaselineOutlaysRows(cboOutlaysRows, CBO_BASELINE_OUTLAYS_PUBLICATION_DATE);
+  write("cbo-baseline-outlays.json", cboOutlays);
+
+  const cboRevenuesRows = parseCboBaselineRevenuesCsv(readFileSync(CBO_BASELINE_REVENUES_CSV_PATH, "utf8"));
+  const cboRevenues = parseCboBaselineRevenuesRows(cboRevenuesRows, CBO_BASELINE_REVENUES_PUBLICATION_DATE);
+  write("cbo-baseline-revenues.json", cboRevenues);
 }
 
 main();

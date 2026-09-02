@@ -1,0 +1,54 @@
+id: projection.cbo.baseline.revenues
+label: CBO baseline revenues projection
+definition: >
+  The Congressional Budget Office's projection of total federal revenues
+  (receipts) for a future fiscal year, under current law ("baseline" means
+  no assumed policy changes) — CBO's estimate, not an observed outcome.
+  Published for each fiscal year in CBO's 10-year budget outlook window.
+
+agency: Congressional Budget Office
+dataset: The Budget and Economic Outlook — baseline budget projections
+dataset_url: https://www.cbo.gov/about/products/budget-economic-data#4
+unit: usd
+magnitude: billions
+accounting_concept: projection
+cadence: annual
+citation: >
+  Congressional Budget Office, The Budget and Economic Outlook: baseline
+  budget projections. Accessed {access_date}.
+
+revision_policy:
+  status: mixed
+  note: >
+    CBO has no API; figures come from a batch CSV/Excel baseline refresh
+    roughly twice a year (a new full baseline in winter/spring, an update in
+    late summer). Treat every CBO figure's staleness as a displayed fact
+    (PLAN.md §6) — show the baseline's publication date, not just "as of
+    today."
+
+notes:
+  - >
+    This is CBO's attributed projection, not Penny's own forecast — Penny
+    builds no forecasting model (ORCHESTRATION_PROMPT.md: explicitly not
+    built in any phase without a separate brief). Any chart or sentence
+    using this series must name CBO as the source of the number in the
+    prose itself, not just in a citation footnote.
+  - >
+    accounting_concept is `projection`, not `receipt`, specifically so
+    nothing downstream can sum or chart this against
+    fiscal.mts.receipts.total without the incomparabilityReason() guard
+    firing.
+  - >
+    Extracted from the same Table 1-1 workbook, the same download, as
+    projection.cbo.baseline.deficit and projection.cbo.baseline.outlays —
+    see db/fixtures/raw/cbo/baseline_revenues/SOURCE.md for the
+    reconciliation check (this series minus outlays equals the deficit
+    series, to the workbook's own rounding, for every fiscal year).
+
+not_comparable_with:
+  - series: fiscal.mts.receipts.total
+    reason: >
+      One is Treasury's observed, already-happened receipts; the other is
+      CBO's projection of a future year's revenues under baseline
+      assumptions. Never sum, difference, or plot on the same trace without
+      labeling which is which.

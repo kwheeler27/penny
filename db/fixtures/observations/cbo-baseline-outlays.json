@@ -1,0 +1,101 @@
+[
+  {
+    "seriesId": "projection.cbo.baseline.outlays",
+    "periodType": "year",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2026-09-30",
+    "fiscalYear": 2026,
+    "value": "7448.619",
+    "publicationTime": "2026-02-11T00:00:00Z"
+  },
+  {
+    "seriesId": "projection.cbo.baseline.outlays",
+    "periodType": "year",
+    "periodStart": "2026-10-01",
+    "periodEnd": "2027-09-30",
+    "fiscalYear": 2027,
+    "value": "7772.401",
+    "publicationTime": "2026-02-11T00:00:00Z"
+  },
+  {
+    "seriesId": "projection.cbo.baseline.outlays",
+    "periodType": "year",
+    "periodStart": "2027-10-01",
+    "periodEnd": "2028-09-30",
+    "fiscalYear": 2028,
+    "value": "8151.126",
+    "publicationTime": "2026-02-11T00:00:00Z"
+  },
+  {
+    "seriesId": "projection.cbo.baseline.outlays",
+    "periodType": "year",
+    "periodStart": "2028-10-01",
+    "periodEnd": "2029-09-30",
+    "fiscalYear": 2029,
+    "value": "8339.504",
+    "publicationTime": "2026-02-11T00:00:00Z"
+  },
+  {
+    "seriesId": "projection.cbo.baseline.outlays",
+    "periodType": "year",
+    "periodStart": "2029-10-01",
+    "periodEnd": "2030-09-30",
+    "fiscalYear": 2030,
+    "value": "8795.641",
+    "publicationTime": "2026-02-11T00:00:00Z"
+  },
+  {
+    "seriesId": "projection.cbo.baseline.outlays",
+    "periodType": "year",
+    "periodStart": "2030-10-01",
+    "periodEnd": "2031-09-30",
+    "fiscalYear": 2031,
+    "value": "9155.188",
+    "publicationTime": "2026-02-11T00:00:00Z"
+  },
+  {
+    "seriesId": "projection.cbo.baseline.outlays",
+    "periodType": "year",
+    "periodStart": "2031-10-01",
+    "periodEnd": "2032-09-30",
+    "fiscalYear": 2032,
+    "value": "9569.100",
+    "publicationTime": "2026-02-11T00:00:00Z"
+  },
+  {
+    "seriesId": "projection.cbo.baseline.outlays",
+    "periodType": "year",
+    "periodStart": "2032-10-01",
+    "periodEnd": "2033-09-30",
+    "fiscalYear": 2033,
+    "value": "10172.211",
+    "publicationTime": "2026-02-11T00:00:00Z"
+  },
+  {
+    "seriesId": "projection.cbo.baseline.outlays",
+    "periodType": "year",
+    "periodStart": "2033-10-01",
+    "periodEnd": "2034-09-30",
+    "fiscalYear": 2034,
+    "value": "10487.423",
+    "publicationTime": "2026-02-11T00:00:00Z"
+  },
+  {
+    "seriesId": "projection.cbo.baseline.outlays",
+    "periodType": "year",
+    "periodStart": "2034-10-01",
+    "periodEnd": "2035-09-30",
+    "fiscalYear": 2035,
+    "value": "10750.897",
+    "publicationTime": "2026-02-11T00:00:00Z"
+  },
+  {
+    "seriesId": "projection.cbo.baseline.outlays",
+    "periodType": "year",
+    "periodStart": "2035-10-01",
+    "periodEnd": "2036-09-30",
+    "fiscalYear": 2036,
+    "value": "11416.142",
+    "publicationTime": "2026-02-11T00:00:00Z"
+  }
+]

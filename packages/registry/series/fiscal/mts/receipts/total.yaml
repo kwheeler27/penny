@@ -30,3 +30,14 @@ notes:
     The category series under fiscal.mts.receipts.category.* must sum to
     this total for the same month, to the dollar — CI-enforced
     reconciliation (ORCHESTRATION_PROMPT.md Core flow 1).
+  - >
+    Never mix with projection.cbo.baseline.revenues (a different accounting
+    concept: observed vs. projected) — see that series' not_comparable_with.
+
+not_comparable_with:
+  - series: projection.cbo.baseline.revenues
+    reason: >
+      One is Treasury's observed, already-happened receipts; the other is
+      CBO's projection of a future year's revenues under baseline
+      assumptions. Never sum, difference, or plot on the same trace without
+      labeling which is which.

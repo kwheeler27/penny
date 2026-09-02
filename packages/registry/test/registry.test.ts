@@ -17,6 +17,8 @@ describe("@penny/registry generated catalog", () => {
       "fiscal.tga.closing_balance",
       "price.cpi_u.all_items",
       "projection.cbo.baseline.deficit",
+      "projection.cbo.baseline.outlays",
+      "projection.cbo.baseline.revenues",
       "census.population.resident_total",
       "census.households.total",
     ];
@@ -61,6 +63,25 @@ describe("@penny/registry generated catalog", () => {
     const reason = incomparabilityReason("projection.cbo.baseline.deficit", "fiscal.mts.deficit.total");
     expect(reason).toBeTruthy();
     expect(reason).toMatch(/projection|observed/i);
+  });
+
+  it("flags CBO's outlays projection as incomparable with MTS's observed outlays total", () => {
+    const reason = incomparabilityReason("projection.cbo.baseline.outlays", "fiscal.mts.outlays.total");
+    expect(reason).toBeTruthy();
+    expect(reason).toMatch(/projection|observed/i);
+  });
+
+  it("flags CBO's revenues projection as incomparable with MTS's observed receipts total", () => {
+    const reason = incomparabilityReason("projection.cbo.baseline.revenues", "fiscal.mts.receipts.total");
+    expect(reason).toBeTruthy();
+    expect(reason).toMatch(/projection|observed/i);
+  });
+
+  it("CBO's outlays/revenues/deficit projections are magnitude billions, matching the deficit series' existing convention", () => {
+    expect(SERIES["projection.cbo.baseline.outlays"].magnitude).toBe("billions");
+    expect(SERIES["projection.cbo.baseline.revenues"].magnitude).toBe("billions");
+    expect(SERIES["projection.cbo.baseline.outlays"].accountingConcept).toBe("projection");
+    expect(SERIES["projection.cbo.baseline.revenues"].accountingConcept).toBe("projection");
   });
 
   it("flags gross interest expense as incomparable with the net-interest outlay function", () => {

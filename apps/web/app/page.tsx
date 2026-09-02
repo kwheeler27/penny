@@ -69,7 +69,7 @@ export default async function Home({ searchParams }: HomeProps) {
         </p>
       </div>
 
-      <HeroStrip cells={data.heroCells} />
+      <HeroStrip topline={data.topline} secondary={data.secondaryCells} />
 
       <section className="act">
         <div className="prose-width">

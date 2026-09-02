@@ -14,6 +14,10 @@ import { parseInterestExpense } from "../src/jobs/interest-expense-monthly";
 import { parseCpi } from "../src/jobs/cpi-monthly";
 import { parseCboBaselineCsv } from "../src/cbo/baseline-deficit";
 import { parseCboBaselineRows, CBO_BASELINE_CSV_PATH, CBO_BASELINE_PUBLICATION_DATE } from "../src/jobs/cbo-baseline";
+import { parseCboBaselineOutlaysCsv } from "../src/cbo/baseline-outlays";
+import { parseCboBaselineOutlaysRows, CBO_BASELINE_OUTLAYS_CSV_PATH, CBO_BASELINE_OUTLAYS_PUBLICATION_DATE } from "../src/jobs/cbo-baseline-outlays";
+import { parseCboBaselineRevenuesCsv } from "../src/cbo/baseline-revenues";
+import { parseCboBaselineRevenuesRows, CBO_BASELINE_REVENUES_CSV_PATH, CBO_BASELINE_REVENUES_PUBLICATION_DATE } from "../src/jobs/cbo-baseline-revenues";
 import { loadRawFixture } from "./helpers";
 
 describe("Debt to the Penny", () => {
@@ -123,5 +127,67 @@ describe("CBO baseline deficit projection (batch CSV, not a cron)", () => {
 
   it("every projected year is negative (a projected deficit, not a surplus) for this baseline", () => {
     expect(observations.every((o) => o.value.startsWith("-"))).toBe(true);
+  });
+});
+
+describe("CBO baseline outlays projection (batch CSV, not a cron)", () => {
+  const csv = readFileSync(CBO_BASELINE_OUTLAYS_CSV_PATH, "utf8");
+  const rows = parseCboBaselineOutlaysCsv(csv);
+  const observations = parseCboBaselineOutlaysRows(rows, CBO_BASELINE_OUTLAYS_PUBLICATION_DATE);
+
+  it("loads 11 projected fiscal years (2026-2036), excluding CBO's 'Actual,' 2025 column", () => {
+    expect(observations).toHaveLength(11);
+    expect(observations.every((o) => o.periodType === "year")).toBe(true);
+    expect(observations.find((o) => o.fiscalYear === 2025)).toBeUndefined();
+  });
+
+  it("known-value spot checks, in CBO's own published magnitude (billions)", () => {
+    const fy2026 = observations.find((o) => o.fiscalYear === 2026);
+    expect(fy2026?.value).toBe("7448.619");
+    const fy2030 = observations.find((o) => o.fiscalYear === 2030);
+    expect(fy2030?.value).toBe("8795.641");
+    expect(fy2030?.periodStart).toBe("2029-10-01");
+    expect(fy2030?.periodEnd).toBe("2030-09-30");
+  });
+
+  it("every projected year is positive (outlays are always positive in this baseline)", () => {
+    expect(observations.every((o) => !o.value.startsWith("-"))).toBe(true);
+  });
+
+  it("reconciles with the deficit series: revenues - outlays = deficit for every fiscal year, to the workbook's own rounding", () => {
+    const deficitCsv = readFileSync(CBO_BASELINE_CSV_PATH, "utf8");
+    const deficitObservations = parseCboBaselineRows(parseCboBaselineCsv(deficitCsv), CBO_BASELINE_PUBLICATION_DATE);
+    const revenuesCsv = readFileSync(CBO_BASELINE_REVENUES_CSV_PATH, "utf8");
+    const revenuesObservations = parseCboBaselineRevenuesRows(parseCboBaselineRevenuesCsv(revenuesCsv), CBO_BASELINE_REVENUES_PUBLICATION_DATE);
+    for (const outlays of observations) {
+      const revenues = revenuesObservations.find((o) => o.fiscalYear === outlays.fiscalYear)!;
+      const deficit = deficitObservations.find((o) => o.fiscalYear === outlays.fiscalYear)!;
+      expect(Number(revenues.value) - Number(outlays.value)).toBeCloseTo(Number(deficit.value), 3);
+    }
+  });
+});
+
+describe("CBO baseline revenues projection (batch CSV, not a cron)", () => {
+  const csv = readFileSync(CBO_BASELINE_REVENUES_CSV_PATH, "utf8");
+  const rows = parseCboBaselineRevenuesCsv(csv);
+  const observations = parseCboBaselineRevenuesRows(rows, CBO_BASELINE_REVENUES_PUBLICATION_DATE);
+
+  it("loads 11 projected fiscal years (2026-2036), excluding CBO's 'Actual,' 2025 column", () => {
+    expect(observations).toHaveLength(11);
+    expect(observations.every((o) => o.periodType === "year")).toBe(true);
+    expect(observations.find((o) => o.fiscalYear === 2025)).toBeUndefined();
+  });
+
+  it("known-value spot checks, in CBO's own published magnitude (billions)", () => {
+    const fy2026 = observations.find((o) => o.fiscalYear === 2026);
+    expect(fy2026?.value).toBe("5595.916");
+    const fy2030 = observations.find((o) => o.fiscalYear === 2030);
+    expect(fy2030?.value).toBe("6594.999");
+    expect(fy2030?.periodStart).toBe("2029-10-01");
+    expect(fy2030?.periodEnd).toBe("2030-09-30");
+  });
+
+  it("every projected year is positive (revenues are always positive in this baseline)", () => {
+    expect(observations.every((o) => !o.value.startsWith("-"))).toBe(true);
   });
 });

@@ -457,8 +457,8 @@ export interface BridgeData {
  * when either total, or the debt reading, is a gap.
  *
  * Never assumes outlays > receipts: `direction` is derived from the sign of
- * the gap the same way the hero strip's own deficit/surplus cell is (see
- * lib/front-door-data.ts's buildHeroCells), and the two cosmetic
+ * the gap the same way the topline strip's own borrowed/surplus cell is
+ * (see buildBorrowedCell below), and the two cosmetic
  * percentages are built from Math.abs/Math.min/Math.max so they are always
  * in [0, 100] — a receipts-exceeded-outlays period never produces a
  * negative CSS width.
@@ -499,6 +499,156 @@ export function buildBridge(outlaysTotal: Reading | null, receiptsTotal: Reading
     debtTrillionsDisplay: trillions,
     debtAsOfDisplay: formatDateShort(debt.periodEnd),
   };
+}
+
+// ---------- front-door topline strip (spending / revenue / borrowed) ----------
+// The dek promises "where federal money goes, where it comes from, and how
+// the difference is borrowed" — these three cells answer exactly that, in
+// exactly that order, each pairing Treasury's OBSERVED fiscal-year-to-date
+// figure with CBO's PROJECTED full-year figure, side by side, never blended
+// (CLAUDE.md: accounting concepts never mix silently — observed vs.
+// projection is always a labeled pairing here, never a single number).
+
+export interface ToplineCell {
+  /** e.g. "Spending, FY 2026" — never asserts a direction the observed
+   * reading doesn't actually have (see buildBorrowedCell). */
+  label: string;
+  /** e.g. "$6,284.2B so far" — null is a real gap (no MTS report ingested
+   * yet for this fiscal year), never a "$0". */
+  observedDisplay: string | null;
+  /** e.g. "Monthly Treasury Statement · through July" — always present,
+   * even for a gap (then it names what's missing instead). */
+  observedSourceLine: string;
+  /** e.g. "CBO projected $7,448.6B for the full year (Feb 2026 baseline)" —
+   * carries the projection's own vintage inline, per CLAUDE.md's "every
+   * displayed number carries source, as-of date, and unit." Null is a real
+   * gap (the projection series has no reading in the DB yet) — the caller
+   * renders a graceful fallback line, never a fabricated figure. */
+  projectedLine: string | null;
+  href: string;
+}
+
+const TOPLINE_HREF = "/now";
+
+/** The vintage a CBO projection reading carries — "Feb 2026", read from the
+ * reading's own publicationTime (CBO's real release date, not today).
+ * publicationTime is already a fixed ISO string (lib/types.ts) — slicing its
+ * own digits is not a `Date` round-trip, just reading the calendar date it
+ * already encodes. */
+function projectionVintageLabel(reading: Reading): string {
+  return formatMonthYearShort(reading.publicationTime.slice(0, 10));
+}
+
+/** A CBO projection reading -> its whole-dollar exact decimal string, at
+ * its own registry-declared magnitude (billions) — never assumed, always
+ * read off getSeries so a magnitude typo in the registry would break this
+ * loudly rather than silently mis-scale the figure. */
+function projectionWhole(reading: Reading): string {
+  const def = getSeries(reading.seriesId);
+  return formatSeriesUsd(reading.value, def?.magnitude ?? "billions").exact;
+}
+
+function gapToplineCell(label: string): ToplineCell {
+  return {
+    label,
+    observedDisplay: null,
+    observedSourceLine: "Monthly Treasury Statement — not yet ingested.",
+    projectedLine: null,
+    href: TOPLINE_HREF,
+  };
+}
+
+/** "Spending, FY 2026" — FYTD outlays vs. CBO's projected full-year outlays. */
+function buildSpendingCell(outlaysFytd: Reading | null, outlaysProjection: Reading | null): ToplineCell {
+  if (!outlaysFytd) return gapToplineCell("Spending, fiscal year to date");
+  const def = getSeries(outlaysFytd.seriesId);
+  const whole = formatSeriesUsd(outlaysFytd.value, def?.magnitude ?? "ones").exact;
+  return {
+    label: `Spending, FY ${outlaysFytd.fiscalYear ?? ""}`,
+    observedDisplay: `${formatUsdScale(whole, "B", 1)} so far`,
+    observedSourceLine: `Monthly Treasury Statement · through ${formatMonthName(outlaysFytd.periodEnd)}`,
+    projectedLine: outlaysProjection
+      ? `CBO projected ${formatUsdScale(projectionWhole(outlaysProjection), "B", 1)} for the full year (${projectionVintageLabel(outlaysProjection)} baseline)`
+      : null,
+    href: TOPLINE_HREF,
+  };
+}
+
+/** "Revenue, FY 2026" — FYTD receipts vs. CBO's projected full-year revenues. */
+function buildRevenueCell(receiptsFytd: Reading | null, receiptsProjection: Reading | null): ToplineCell {
+  if (!receiptsFytd) return gapToplineCell("Revenue, fiscal year to date");
+  const def = getSeries(receiptsFytd.seriesId);
+  const whole = formatSeriesUsd(receiptsFytd.value, def?.magnitude ?? "ones").exact;
+  return {
+    label: `Revenue, FY ${receiptsFytd.fiscalYear ?? ""}`,
+    observedDisplay: `${formatUsdScale(whole, "B", 1)} so far`,
+    observedSourceLine: `Monthly Treasury Statement · through ${formatMonthName(receiptsFytd.periodEnd)}`,
+    projectedLine: receiptsProjection
+      ? `CBO projected ${formatUsdScale(projectionWhole(receiptsProjection), "B", 1)} for the full year (${projectionVintageLabel(receiptsProjection)} baseline)`
+      : null,
+    href: TOPLINE_HREF,
+  };
+}
+
+/**
+ * "Borrowed to cover the gap, FY 2026" — FYTD deficit vs. CBO's projected
+ * full-year deficit, sign-neutral (the same direction-aware wording the
+ * standalone deficit hero cell already learned: never call a surplus period
+ * "borrowed"). The observed and projected directions are derived
+ * independently from their OWN reading's sign — never one assumed from the
+ * other, since they are different accounting concepts (CLAUDE.md).
+ */
+function buildBorrowedCell(deficitFytd: Reading | null, deficitProjection: Reading | null): ToplineCell {
+  if (!deficitFytd) return gapToplineCell("Borrowed to cover the gap, fiscal year to date");
+  const def = getSeries(deficitFytd.seriesId);
+  const whole = formatSeriesUsd(deficitFytd.value, def?.magnitude ?? "ones").exact;
+  const fy = deficitFytd.fiscalYear ?? "";
+  const isDeficit = isNegativeDecimal(whole);
+  const isSurplus = !isDeficit && compareDecimal(whole, "0") > 0;
+  const label = isDeficit ? `Borrowed to cover the gap, FY ${fy}` : isSurplus ? `Surplus, FY ${fy} so far` : `Balanced, FY ${fy} so far`;
+  const observedDisplay = isDeficit
+    ? `${formatUsdScale(absDecimal(whole), "B", 1)} borrowed so far`
+    : isSurplus
+      ? `${formatUsdScale(absDecimal(whole), "B", 1)} left over so far`
+      : "Nothing borrowed so far";
+  const projectedLine = deficitProjection
+    ? (() => {
+        const projWhole = projectionWhole(deficitProjection);
+        const projDeficit = isNegativeDecimal(projWhole);
+        const verb = projDeficit ? "borrowed" : "left over";
+        return `CBO projected ${formatUsdScale(absDecimal(projWhole), "B", 1)} ${verb} for the full year (${projectionVintageLabel(deficitProjection)} baseline)`;
+      })()
+    : null;
+  return {
+    label,
+    observedDisplay,
+    observedSourceLine: `Monthly Treasury Statement · through ${formatMonthName(deficitFytd.periodEnd)}`,
+    projectedLine,
+    href: TOPLINE_HREF,
+  };
+}
+
+/**
+ * The front door's three topline cells, in the dek's own order: spending,
+ * revenue, then the borrowed gap. Each `*Projection` reading is the SAME
+ * fiscal year as its observed sibling (the caller looks it up by that exact
+ * fiscal year — see lib/front-door-data.ts) — never just "whatever CBO
+ * fiscal year happens to be latest," which would silently pair this year's
+ * observed figure against a different year's projection.
+ */
+export function buildToplineCells(
+  outlaysFytd: Reading | null,
+  outlaysProjection: Reading | null,
+  receiptsFytd: Reading | null,
+  receiptsProjection: Reading | null,
+  deficitFytd: Reading | null,
+  deficitProjection: Reading | null,
+): ToplineCell[] {
+  return [
+    buildSpendingCell(outlaysFytd, outlaysProjection),
+    buildRevenueCell(receiptsFytd, receiptsProjection),
+    buildBorrowedCell(deficitFytd, deficitProjection),
+  ];
 }
 
 // ---------- "for scale" facts ----------

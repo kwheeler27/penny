@@ -14,10 +14,15 @@ was produced and what it covers.
   the Zod schemas in `packages/ingest/src/fiscaldata/*.ts`,
   `src/bls/*.ts`, and `src/cbo/*.ts`, and used as the reconciliation
   fixtures (MTS category-sums-to-total, FYTD identity, known-value spot
-  checks). `raw/cbo/baseline_deficit/` holds a hand-extracted CSV instead of
-  a captured JSON response — CBO has no API (PLAN.md §6) — with its
-  `SOURCE.md` documenting the exact workbook, sheet, row, and retrieval
-  method (cbo.gov's own site blocks scripted requests; see that file).
+  checks). `raw/cbo/baseline_deficit/`, `raw/cbo/baseline_outlays/`, and
+  `raw/cbo/baseline_revenues/` each hold a hand-extracted CSV instead of a
+  captured JSON response — CBO has no API (PLAN.md §6) — with a `SOURCE.md`
+  documenting the exact workbook, sheet, row, and retrieval method (cbo.gov's
+  own site blocks scripted requests; see those files). All three CSVs come
+  from the same Table 1-1 workbook (the Feb 2026 baseline); the
+  outlays/revenues SOURCE.md files document the reconciliation check
+  (revenues − outlays = deficit, per fiscal year, to the workbook's own
+  rounding).
 - `observations/*.json` — pre-transformed rows ready to insert into the
   `observation` table, one JSON array per file, each element shaped like
   `NewObservation` from `@penny/db` (`seriesId`, `periodType`, `periodStart`,

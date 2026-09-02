@@ -58,6 +58,8 @@ pnpm --filter @penny/ingest run ingest:tga         # live: TGA closing balance
 pnpm --filter @penny/ingest run ingest:interest    # live: interest expense
 pnpm --filter @penny/ingest run ingest:cpi         # live: BLS CPI-U
 pnpm --filter @penny/ingest run ingest:cbo         # batch: CBO baseline deficit (from the committed CSV, not live)
+pnpm --filter @penny/ingest run ingest:cbo-outlays   # batch: CBO baseline outlays (from the committed CSV, not live)
+pnpm --filter @penny/ingest run ingest:cbo-revenues  # batch: CBO baseline revenues (from the committed CSV, not live)
 pnpm --filter @penny/ingest run ingest:auctions-resulted  # live: recent resulted TreasuryDirect auctions (last 14 days)
 pnpm --filter @penny/ingest run ingest:auctions-upcoming  # live: the published auction calendar
 pnpm --filter @penny/ingest run backfill:auctions         # live: FULL auction history, chunked + resumable (see below)

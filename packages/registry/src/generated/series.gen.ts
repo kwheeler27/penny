@@ -26,7 +26,7 @@ export interface SeriesDef {
   readonly notComparableWith: readonly { readonly series: string; readonly reason: string }[];
 }
 
-export type SeriesId = "census.households.total" | "census.population.resident_total" | "fiscal.debt.interest_expense_total" | "fiscal.debt.total_public_debt_outstanding" | "fiscal.dts.deposits_operating_excl_debt" | "fiscal.dts.public_debt_cash_issues" | "fiscal.dts.public_debt_cash_redemptions" | "fiscal.dts.withdrawals_operating_excl_debt" | "fiscal.mts.deficit.total" | "fiscal.mts.outlays.category.administration_of_justice" | "fiscal.mts.outlays.category.agriculture" | "fiscal.mts.outlays.category.allowances" | "fiscal.mts.outlays.category.commerce_and_housing_credit" | "fiscal.mts.outlays.category.community_and_regional_development" | "fiscal.mts.outlays.category.education_training_employment_social_services" | "fiscal.mts.outlays.category.energy" | "fiscal.mts.outlays.category.general_government" | "fiscal.mts.outlays.category.general_science_space_technology" | "fiscal.mts.outlays.category.health" | "fiscal.mts.outlays.category.income_security" | "fiscal.mts.outlays.category.international_affairs" | "fiscal.mts.outlays.category.medicare" | "fiscal.mts.outlays.category.national_defense" | "fiscal.mts.outlays.category.natural_resources_and_environment" | "fiscal.mts.outlays.category.net_interest" | "fiscal.mts.outlays.category.social_security" | "fiscal.mts.outlays.category.transportation" | "fiscal.mts.outlays.category.undistributed_offsetting_receipts" | "fiscal.mts.outlays.category.veterans_benefits_and_services" | "fiscal.mts.outlays.total" | "fiscal.mts.receipts.category.corporation_income_tax" | "fiscal.mts.receipts.category.customs_duties" | "fiscal.mts.receipts.category.estate_and_gift_taxes" | "fiscal.mts.receipts.category.excise_taxes" | "fiscal.mts.receipts.category.individual_income_tax" | "fiscal.mts.receipts.category.miscellaneous_receipts" | "fiscal.mts.receipts.category.social_insurance_retirement" | "fiscal.mts.receipts.total" | "fiscal.tga.closing_balance" | "price.cpi_u.all_items" | "projection.cbo.baseline.deficit";
+export type SeriesId = "census.households.total" | "census.population.resident_total" | "fiscal.debt.interest_expense_total" | "fiscal.debt.total_public_debt_outstanding" | "fiscal.dts.deposits_operating_excl_debt" | "fiscal.dts.public_debt_cash_issues" | "fiscal.dts.public_debt_cash_redemptions" | "fiscal.dts.withdrawals_operating_excl_debt" | "fiscal.mts.deficit.total" | "fiscal.mts.outlays.category.administration_of_justice" | "fiscal.mts.outlays.category.agriculture" | "fiscal.mts.outlays.category.allowances" | "fiscal.mts.outlays.category.commerce_and_housing_credit" | "fiscal.mts.outlays.category.community_and_regional_development" | "fiscal.mts.outlays.category.education_training_employment_social_services" | "fiscal.mts.outlays.category.energy" | "fiscal.mts.outlays.category.general_government" | "fiscal.mts.outlays.category.general_science_space_technology" | "fiscal.mts.outlays.category.health" | "fiscal.mts.outlays.category.income_security" | "fiscal.mts.outlays.category.international_affairs" | "fiscal.mts.outlays.category.medicare" | "fiscal.mts.outlays.category.national_defense" | "fiscal.mts.outlays.category.natural_resources_and_environment" | "fiscal.mts.outlays.category.net_interest" | "fiscal.mts.outlays.category.social_security" | "fiscal.mts.outlays.category.transportation" | "fiscal.mts.outlays.category.undistributed_offsetting_receipts" | "fiscal.mts.outlays.category.veterans_benefits_and_services" | "fiscal.mts.outlays.total" | "fiscal.mts.receipts.category.corporation_income_tax" | "fiscal.mts.receipts.category.customs_duties" | "fiscal.mts.receipts.category.estate_and_gift_taxes" | "fiscal.mts.receipts.category.excise_taxes" | "fiscal.mts.receipts.category.individual_income_tax" | "fiscal.mts.receipts.category.miscellaneous_receipts" | "fiscal.mts.receipts.category.social_insurance_retirement" | "fiscal.mts.receipts.total" | "fiscal.tga.closing_balance" | "price.cpi_u.all_items" | "projection.cbo.baseline.deficit" | "projection.cbo.baseline.outlays" | "projection.cbo.baseline.revenues";
 
 export const SERIES: Record<SeriesId, SeriesDef> = {
   "census.households.total": {
@@ -715,9 +715,15 @@ export const SERIES: Record<SeriesId, SeriesDef> = {
     "revisionNote": "Each MTS is a snapshot; a later month's report can carry a restated comparable-prior-period figure — ingest as a new observation row, never an in-place update.",
     "notes": [
       "The category series under fiscal.mts.outlays.category.* (by budget function) must sum to this total for the same month, to the dollar — CI-enforced reconciliation (ORCHESTRATION_PROMPT.md Core flow 1).",
-      "Outlays are a different accounting concept than obligations (USASpending's unit) or budget authority — never mixed without a declared bridge."
+      "Outlays are a different accounting concept than obligations (USASpending's unit) or budget authority — never mixed without a declared bridge.",
+      "Never mix with projection.cbo.baseline.outlays (a different accounting concept: observed vs. projected) — see that series' not_comparable_with."
     ],
-    "notComparableWith": []
+    "notComparableWith": [
+      {
+        "series": "projection.cbo.baseline.outlays",
+        "reason": "One is Treasury's observed, already-happened outlays; the other is CBO's projection of a future year's outlays under baseline assumptions. Never sum, difference, or plot on the same trace without labeling which is which."
+      }
+    ]
   },
   "fiscal.mts.receipts.category.corporation_income_tax": {
     "id": "fiscal.mts.receipts.category.corporation_income_tax",
@@ -875,9 +881,15 @@ export const SERIES: Record<SeriesId, SeriesDef> = {
     "revisionStatus": "provisional",
     "revisionNote": "Each MTS is a snapshot; Treasury does not revise a published month's MTS figures in place. A later month's report can carry a restated comparable-prior-period figure — ingest that as a new observation row, never as an in-place update of the original.",
     "notes": [
-      "The category series under fiscal.mts.receipts.category.* must sum to this total for the same month, to the dollar — CI-enforced reconciliation (ORCHESTRATION_PROMPT.md Core flow 1)."
+      "The category series under fiscal.mts.receipts.category.* must sum to this total for the same month, to the dollar — CI-enforced reconciliation (ORCHESTRATION_PROMPT.md Core flow 1).",
+      "Never mix with projection.cbo.baseline.revenues (a different accounting concept: observed vs. projected) — see that series' not_comparable_with."
     ],
-    "notComparableWith": []
+    "notComparableWith": [
+      {
+        "series": "projection.cbo.baseline.revenues",
+        "reason": "One is Treasury's observed, already-happened receipts; the other is CBO's projection of a future year's revenues under baseline assumptions. Never sum, difference, or plot on the same trace without labeling which is which."
+      }
+    ]
   },
   "fiscal.tga.closing_balance": {
     "id": "fiscal.tga.closing_balance",
@@ -944,6 +956,60 @@ export const SERIES: Record<SeriesId, SeriesDef> = {
       {
         "series": "fiscal.mts.deficit.total",
         "reason": "One is Treasury's observed, already-happened deficit; the other is CBO's projection of a future deficit under baseline assumptions. Never sum, difference, or plot on the same trace without labeling which is which."
+      }
+    ]
+  },
+  "projection.cbo.baseline.outlays": {
+    "id": "projection.cbo.baseline.outlays",
+    "label": "CBO baseline outlays projection",
+    "definition": "The Congressional Budget Office's projection of total federal outlays (spending) for a future fiscal year, under current law (\"baseline\" means no assumed policy changes) — CBO's estimate, not an observed outcome. Published for each fiscal year in CBO's 10-year budget outlook window.",
+    "aliases": [],
+    "agency": "Congressional Budget Office",
+    "dataset": "The Budget and Economic Outlook — baseline budget projections",
+    "datasetUrl": "https://www.cbo.gov/about/products/budget-economic-data#4",
+    "unit": "usd",
+    "magnitude": "billions",
+    "accountingConcept": "projection",
+    "cadence": "annual",
+    "citation": "Congressional Budget Office, The Budget and Economic Outlook: baseline budget projections. Accessed {access_date}.",
+    "revisionStatus": "mixed",
+    "revisionNote": "CBO has no API; figures come from a batch CSV/Excel baseline refresh roughly twice a year (a new full baseline in winter/spring, an update in late summer). Treat every CBO figure's staleness as a displayed fact (PLAN.md §6) — show the baseline's publication date, not just \"as of today.\"",
+    "notes": [
+      "This is CBO's attributed projection, not Penny's own forecast — Penny builds no forecasting model (ORCHESTRATION_PROMPT.md: explicitly not built in any phase without a separate brief). Any chart or sentence using this series must name CBO as the source of the number in the prose itself, not just in a citation footnote.",
+      "accounting_concept is `projection`, not `outlay`, specifically so nothing downstream can sum or chart this against fiscal.mts.outlays.total without the incomparabilityReason() guard firing.",
+      "Extracted from the same Table 1-1 workbook, the same download, as projection.cbo.baseline.deficit and projection.cbo.baseline.revenues — see db/fixtures/raw/cbo/baseline_outlays/SOURCE.md for the reconciliation check (revenues minus outlays equals the deficit series, to the workbook's own rounding, for every fiscal year)."
+    ],
+    "notComparableWith": [
+      {
+        "series": "fiscal.mts.outlays.total",
+        "reason": "One is Treasury's observed, already-happened outlays; the other is CBO's projection of a future year's outlays under baseline assumptions. Never sum, difference, or plot on the same trace without labeling which is which."
+      }
+    ]
+  },
+  "projection.cbo.baseline.revenues": {
+    "id": "projection.cbo.baseline.revenues",
+    "label": "CBO baseline revenues projection",
+    "definition": "The Congressional Budget Office's projection of total federal revenues (receipts) for a future fiscal year, under current law (\"baseline\" means no assumed policy changes) — CBO's estimate, not an observed outcome. Published for each fiscal year in CBO's 10-year budget outlook window.",
+    "aliases": [],
+    "agency": "Congressional Budget Office",
+    "dataset": "The Budget and Economic Outlook — baseline budget projections",
+    "datasetUrl": "https://www.cbo.gov/about/products/budget-economic-data#4",
+    "unit": "usd",
+    "magnitude": "billions",
+    "accountingConcept": "projection",
+    "cadence": "annual",
+    "citation": "Congressional Budget Office, The Budget and Economic Outlook: baseline budget projections. Accessed {access_date}.",
+    "revisionStatus": "mixed",
+    "revisionNote": "CBO has no API; figures come from a batch CSV/Excel baseline refresh roughly twice a year (a new full baseline in winter/spring, an update in late summer). Treat every CBO figure's staleness as a displayed fact (PLAN.md §6) — show the baseline's publication date, not just \"as of today.\"",
+    "notes": [
+      "This is CBO's attributed projection, not Penny's own forecast — Penny builds no forecasting model (ORCHESTRATION_PROMPT.md: explicitly not built in any phase without a separate brief). Any chart or sentence using this series must name CBO as the source of the number in the prose itself, not just in a citation footnote.",
+      "accounting_concept is `projection`, not `receipt`, specifically so nothing downstream can sum or chart this against fiscal.mts.receipts.total without the incomparabilityReason() guard firing.",
+      "Extracted from the same Table 1-1 workbook, the same download, as projection.cbo.baseline.deficit and projection.cbo.baseline.outlays — see db/fixtures/raw/cbo/baseline_revenues/SOURCE.md for the reconciliation check (this series minus outlays equals the deficit series, to the workbook's own rounding, for every fiscal year)."
+    ],
+    "notComparableWith": [
+      {
+        "series": "fiscal.mts.receipts.total",
+        "reason": "One is Treasury's observed, already-happened receipts; the other is CBO's projection of a future year's revenues under baseline assumptions. Never sum, difference, or plot on the same trace without labeling which is which."
       }
     ]
   },

@@ -21,6 +21,8 @@
     "ingest:interest": "tsx src/jobs/interest-expense-monthly.ts",
     "ingest:cpi": "tsx src/jobs/cpi-monthly.ts",
     "ingest:cbo": "tsx src/jobs/cbo-baseline.ts",
+    "ingest:cbo-outlays": "tsx src/jobs/cbo-baseline-outlays.ts",
+    "ingest:cbo-revenues": "tsx src/jobs/cbo-baseline-revenues.ts",
     "ingest:census": "tsx src/jobs/census-batch.ts",
     "ingest:auctions-resulted": "tsx src/jobs/auctions-resulted.ts",
     "ingest:auctions-upcoming": "tsx src/jobs/auctions-upcoming.ts",

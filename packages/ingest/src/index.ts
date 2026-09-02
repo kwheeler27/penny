@@ -11,6 +11,8 @@ export * from "./fiscaldata/deposits-withdrawals";
 export * from "./fiscaldata/interest-expense";
 export * from "./bls/cpi";
 export * from "./cbo/baseline-deficit";
+export * from "./cbo/baseline-outlays";
+export * from "./cbo/baseline-revenues";
 export * from "./treasurydirect/auction";
 
 export * from "./lib/types";
@@ -30,6 +32,8 @@ export * from "./jobs/dts-cadence-daily";
 export * from "./jobs/interest-expense-monthly";
 export * from "./jobs/cpi-monthly";
 export * from "./jobs/cbo-baseline";
+export * from "./jobs/cbo-baseline-outlays";
+export * from "./jobs/cbo-baseline-revenues";
 export * from "./jobs/auctions-resulted";
 export * from "./jobs/auctions-upcoming";
 export * from "./jobs/auctions-backfill";

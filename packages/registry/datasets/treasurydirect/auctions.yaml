@@ -1,0 +1,32 @@
+id: treasurydirect.auctions
+label: TreasuryDirect auction results
+agency: U.S. Department of the Treasury, Bureau of the Fiscal Service
+dataset: TreasuryDirect Securities Auctions Data API
+dataset_url: https://www.treasurydirect.gov/auctions/auction-query/
+citation: >
+  U.S. Department of the Treasury, Bureau of the Fiscal Service,
+  TreasuryDirect Securities Auctions Data API. Accessed {access_date}.
+
+notes:
+  - >
+    Backs the `auction` table (packages/db) — one row per (cusip,
+    auction_date), covering Bills, Notes, Bonds, TIPS, FRNs, and Cash
+    Management Bills. An announced auction and its later results are the
+    SAME row (upserted, never a second row) — this dataset does not have
+    @penny/registry's usual per-value revision model, because an auction
+    isn't a republished figure, it's one real-world event known
+    incompletely and then completely.
+  - >
+    Live endpoints, all keyless: /TA_WS/securities/auctioned (recent
+    results), /TA_WS/securities/upcoming (the published calendar),
+    /TA_WS/securities/search (arbitrary date range — /auctioned's `days`
+    parameter caps at 250 rows regardless of how large `days` is set;
+    /search has no such cap and is what the backfill job uses).
+  - >
+    TreasuryDirect's `securityType` field (Bill/Note/Bond only) is NOT the
+    field this dataset uses for a row's security_type — it would silently
+    collapse TIPS into Note/Bond and FRN into Note. The finer `type` field
+    (Bill/Note/Bond/TIPS/FRN/CMB) is what's stored. See schema.ts's doc
+    comment on `auction.originalSecurityTerm` for the further Bill-specific
+    grouping caveat (a "17-Week" original-term family mixes 4-Week, 8-Week,
+    and 17-Week rows).

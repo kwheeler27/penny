@@ -29,6 +29,18 @@ the PR description) for a full account of what was found and fixed.
 - `src/jobs/*.ts` — one file per source: a pure parser (`parseXxx`, no I/O,
   fully covered by fixture-driven tests) plus a live wrapper
   (`runXxxJob`) a cron or `tsx src/jobs/xxx.ts` actually invokes.
+- `src/treasurydirect/auction.ts` — TreasuryDirect's shared 120-field record
+  schema (one Zod schema covers `/auctioned`, `/upcoming`, and `/search`
+  identically — verified live) and the pure `RawAuction` mapper.
+- `src/lib/treasurydirect-client.ts` — TreasuryDirect fetch client (keyless).
+- `src/lib/upsert-auctions.ts` — the `auction` table's idempotency contract:
+  UPDATE the existing (cusip, auction_date) row, never insert a second one —
+  deliberately NOT `lib/upsert.ts`'s insert-a-revision-row model, because an
+  auction is one event known incompletely then completely, not a republished
+  value. See that file's doc comment.
+- `src/lib/time.ts` — America/New_York wall-clock -> UTC conversion (DST-
+  aware, via `Intl.DateTimeFormat`), for TreasuryDirect's offset-less
+  `updatedTimestamp`.
 - `src/build-observation-fixtures.ts` — regenerates
   `db/fixtures/observations/*.json` from `db/fixtures/raw/*` (run after
   touching a parser or refreshing a raw fixture).
@@ -46,6 +58,9 @@ pnpm --filter @penny/ingest run ingest:tga         # live: TGA closing balance
 pnpm --filter @penny/ingest run ingest:interest    # live: interest expense
 pnpm --filter @penny/ingest run ingest:cpi         # live: BLS CPI-U
 pnpm --filter @penny/ingest run ingest:cbo         # batch: CBO baseline deficit (from the committed CSV, not live)
+pnpm --filter @penny/ingest run ingest:auctions-resulted  # live: recent resulted TreasuryDirect auctions (last 14 days)
+pnpm --filter @penny/ingest run ingest:auctions-upcoming  # live: the published auction calendar
+pnpm --filter @penny/ingest run backfill:auctions         # live: FULL auction history, chunked + resumable (see below)
 ```
 
 Every `ingest:*` live command needs `DATABASE_URL` set (Neon) — with it
@@ -163,3 +178,65 @@ families until the registry YAML is fixed. **Flagged as the top blocking
 finding in the ingest handoff report** — this is exactly the silent-unit-
 mixing bug CLAUDE.md's hard rules exist to prevent, and needs a decision
 before any UI trusts `series.magnitude` to scale a displayed number.
+
+## TreasuryDirect auctions (Phase 2)
+
+`src/treasurydirect/auction.ts` + `src/jobs/auctions-{resulted,upcoming,backfill}.ts`
++ `src/lib/upsert-auctions.ts` write to the `auction` table (`@penny/db`) —
+NOT the `series`/`observation` model: one auction event is many columns, not
+one value per period, and an announced auction and its later results are the
+SAME row (upserted), never a revision-appended one.
+
+Load-bearing findings from fetching live data (2026-09-01), each documented
+at the point of use and covered by `test/treasurydirect-auction.test.ts` /
+`test/auction.test.ts` (in `@penny/db`):
+
+1. **`type`, not `securityType`, is the real security-type discriminator.**
+   TreasuryDirect's `securityType` field only takes `Bill`/`Note`/`Bond` —
+   it silently collapses a 10-Year TIPS into the same bucket as a 10-Year
+   nominal Note, and a 2-Year FRN into the same bucket as a 2-Year nominal
+   Note. The finer `type` field (`Bill`/`Note`/`Bond`/`TIPS`/`FRN`/`CMB`) is
+   what `auction.security_type` stores. `CMB` (Cash Management Bill) is a
+   sixth real value not in the original five-value assumption — found only
+   because the fixture was fetched over a wide-enough window (2.7 years,
+   1,176 rows) to catch an irregular security type; a narrower sample
+   (430 days) missed it entirely. See `db/fixtures/raw/treasurydirect/auctioned/SOURCE.md`.
+2. **`original_security_term` alone is not a safe "same security" grouping
+   key for Bills.** A `"17-Week"` original-term family contains `4-Week`,
+   `8-Week`, AND `17-Week` `security_term` rows in roughly equal numbers
+   (140/140/140 across the live sample) — three different points on the
+   bill curve sharing one CUSIP-reopening lineage, not the same instrument
+   aging. Notes/Bonds/TIPS/FRNs don't have this problem (a reopening's
+   `security_term` genuinely is the same security, just shorter). See
+   `packages/db/src/schema.ts`'s doc comment on `auction.originalSecurityTerm`
+   and `packages/db/src/queries/auctions.ts`'s `auctionFamilyKey` — this is
+   THE finding most likely to bite a page built against this table without
+   reading that function first.
+3. **`updatedTimestamp` is America/New_York wall-clock, not UTC.** Same-day
+   bill results (11:30am ET competitive close) show values like
+   `"...T11:33:19"`; read as UTC that's 7:33am ET — before the close,
+   impossible for an already-published result. `src/lib/time.ts` converts
+   correctly (DST-aware, via `Intl.DateTimeFormat`, not a hand-rolled
+   offset table).
+4. **`/securities/auctioned?days=N` caps at 250 rows no matter how large
+   `N` is** (tested `days=1000` and `days=20000`: identical 250-row
+   responses). Fine for the daily cron; the backfill job
+   (`jobs/auctions-backfill.ts`) uses `/securities/search?startDate=...
+   &endDate=...` instead, which showed no such cap up to 1,111 rows in
+   testing.
+5. **`announcement_date`/`issue_date` are populated even before the real
+   announcement** — TreasuryDirect projects them from the standing auction
+   calendar on `/upcoming` rows that are still TBA (`offering_amount`
+   empty). This is why those two columns are `NOT NULL` on `auction` while
+   every result column is nullable.
+
+**Backfill checkpoint caution — same shape as `jobs/mts-backfill.ts`'s:**
+`.backfill-state/auctions-backfill-progress.json` (gitignored) records which
+date range is done, but not WHICH DATABASE it was done against. Point
+`backfill:auctions` at a different `DATABASE_URL` without deleting that file
+first, and it will skip years as "already done" that the new target has
+never actually received — a silent gap, not a loud failure. Delete (or
+move) the checkpoint file any time the target database changes. (This same
+target-blindness applies to `mts-backfill.ts`'s own checkpoint file, though
+it isn't spelled out in that file's doc comment today — worth the same
+one-line warning there next time that file is touched.)

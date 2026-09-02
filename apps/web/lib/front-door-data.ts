@@ -7,6 +7,7 @@
  * ever receives a bare number that didn't come through this path.
  */
 import { getSeries, type SeriesId } from "@penny/registry";
+import { getLatestAuctionSummary } from "./auctions-data";
 import {
   getCategoryMonthlyHistory,
   getFullMonthlyHistory,
@@ -113,7 +114,12 @@ function gapCell(label: string, seriesId: SeriesId, href: string): HeroCell {
   };
 }
 
-async function buildHeroCells(debt: Reading | null, tga: Reading | null, deficitFytd: Reading | null): Promise<HeroCell[]> {
+async function buildHeroCells(
+  debt: Reading | null,
+  tga: Reading | null,
+  deficitFytd: Reading | null,
+  latestAuction: Awaited<ReturnType<typeof getLatestAuctionSummary>>,
+): Promise<HeroCell[]> {
   const debtDef = getSeries(DEBT_ID);
   const tgaDef = getSeries(TGA_ID);
   const deficitDef = getSeries(DEFICIT_ID);
@@ -150,7 +156,16 @@ async function buildHeroCells(debt: Reading | null, tga: Reading | null, deficit
     deficitCell = gapCell("Deficit, fiscal year to date", DEFICIT_ID, "/now");
   }
 
-  return [debtCell, tgaCell, deficitCell];
+  const auctionCell: HeroCell = latestAuction
+    ? {
+        label: "Latest auction high yield",
+        valueDisplay: latestAuction.highYieldDisplay,
+        sourceLine: `${latestAuction.datasetLabel} · ${latestAuction.securityLabel} · ${formatDateShort(latestAuction.auctionDate)}`,
+        href: "/auctions",
+      }
+    : { label: "Latest auction high yield", valueDisplay: null, sourceLine: "TreasuryDirect — not yet ingested.", href: "/auctions" };
+
+  return [debtCell, tgaCell, deficitCell, auctionCell];
 }
 
 function buildToggleLabels(fytdFlow: MtsFlow, monthFlow: MtsFlow): { fytd: string; month: string } {
@@ -217,7 +232,7 @@ export interface FrontDoorDataOptions {
 }
 
 export async function getFrontDoorData(options: FrontDoorDataOptions = {}): Promise<FrontDoorData> {
-  const [fytdFlow, monthFlow, debt, tga, deficitFytd, deficitMonthlyHistory, population, households, outlaysTotalHistory] = await Promise.all([
+  const [fytdFlow, monthFlow, debt, tga, deficitFytd, deficitMonthlyHistory, population, households, outlaysTotalHistory, latestAuction] = await Promise.all([
     getMtsFlow("fiscal_ytd"),
     getMtsFlow("month"),
     getLatestReading(DEBT_ID, "day"),
@@ -227,9 +242,10 @@ export async function getFrontDoorData(options: FrontDoorDataOptions = {}): Prom
     getLatestReading(CENSUS_POPULATION_ID),
     getLatestReading(CENSUS_HOUSEHOLDS_ID),
     getFullMonthlyHistory(OUTLAYS_TOTAL_ID),
+    getLatestAuctionSummary(),
   ]);
 
-  const heroCells = await buildHeroCells(debt, tga, deficitFytd);
+  const heroCells = await buildHeroCells(debt, tga, deficitFytd, latestAuction);
   const toggle = { outlays: buildToggleLabels(fytdFlow, monthFlow), receipts: buildToggleLabels(fytdFlow, monthFlow) };
   // Act I's month tab is now a browsable stepper, not just "the latest
   // month" — its tab label stays generic (the stepper pill itself shows

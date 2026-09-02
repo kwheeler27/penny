@@ -135,7 +135,7 @@ export default async function Home({ searchParams }: HomeProps) {
         </div>
       </section>
 
-      <section className="act">
+      <section className="act" id="cadence">
         <div className="prose-width">
           <div className="act-kicker act-kicker--cadence">Act III · Cadence</div>
           <h2>When does the money move?</h2>

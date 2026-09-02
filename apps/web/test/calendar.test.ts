@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { dayOfWeek, daysInMonth, everyDayInMonth, isLeapYear, isWeekday, monthPrefixOf, parseMonthPrefix } from "../lib/calendar";
+import { addDays, dayOfWeek, daysBetween, daysInMonth, everyDayInMonth, isLeapYear, isWeekday, monthPrefixOf, parseMonthPrefix } from "../lib/calendar";
 
 describe("isLeapYear", () => {
   it("follows the standard Gregorian rule", () => {
@@ -56,6 +56,62 @@ describe("dayOfWeek / isWeekday", () => {
     expect(isWeekday("2026-06-05")).toBe(true); // Fri
     expect(isWeekday("2026-06-06")).toBe(false); // Sat
     expect(isWeekday("2026-06-07")).toBe(false); // Sun
+  });
+});
+
+describe("daysBetween", () => {
+  it("matches simple within-month and cross-month spans", () => {
+    expect(daysBetween("2026-08-01", "2026-08-31")).toBe(30);
+    expect(daysBetween("2026-08-27", "2026-08-27")).toBe(0);
+    expect(daysBetween("2026-07-29", "2026-08-28")).toBe(30);
+  });
+
+  it("counts a leap-day span correctly", () => {
+    // 2024 is a leap year: Feb 1 -> Mar 1 spans 29 days, not 28.
+    expect(daysBetween("2024-02-01", "2024-03-01")).toBe(29);
+    expect(daysBetween("2023-02-01", "2023-03-01")).toBe(28);
+  });
+
+  it("counts a full non-leap and a full leap year correctly", () => {
+    expect(daysBetween("2025-01-01", "2026-01-01")).toBe(365);
+    // 2024 is a leap year, so the span from Mar 1 2023 to Mar 1 2024 crosses
+    // Feb 29 2024 and is 366 days, not 365.
+    expect(daysBetween("2023-03-01", "2024-03-01")).toBe(366);
+    expect(daysBetween("2024-03-01", "2025-03-01")).toBe(365);
+  });
+
+  it("is negative when toDate precedes fromDate, and antisymmetric", () => {
+    expect(daysBetween("2026-08-27", "2025-07-29")).toBe(-daysBetween("2025-07-29", "2026-08-27"));
+  });
+
+  it("matches the real 7-year auction window from the approved mockup (Jul 29 2025 -> Aug 27 2026)", () => {
+    expect(daysBetween("2025-07-29", "2026-08-27")).toBe(394);
+    expect(daysBetween("2025-07-29", "2026-08-27")).toBeGreaterThanOrEqual(365);
+  });
+});
+
+describe("addDays", () => {
+  it("adds within a month and across a month boundary", () => {
+    expect(addDays("2026-08-27", 3)).toBe("2026-08-30");
+    expect(addDays("2026-08-27", 5)).toBe("2026-09-01");
+  });
+
+  it("subtracts (negative delta) across a month and year boundary", () => {
+    expect(addDays("2026-08-27", -30)).toBe("2026-07-28");
+    expect(addDays("2026-01-05", -10)).toBe("2025-12-26");
+  });
+
+  it("handles a leap-day crossing correctly", () => {
+    expect(addDays("2024-02-28", 1)).toBe("2024-02-29");
+    expect(addDays("2024-02-29", 1)).toBe("2024-03-01");
+    expect(addDays("2023-02-28", 1)).toBe("2023-03-01"); // no Feb 29 in a non-leap year
+  });
+
+  it("round-trips exactly through daysBetween for a range of deltas", () => {
+    for (const delta of [-400, -30, -1, 0, 1, 30, 366]) {
+      const result = addDays("2026-08-27", delta);
+      expect(daysBetween("2026-08-27", result)).toBe(delta);
+    }
   });
 });
 

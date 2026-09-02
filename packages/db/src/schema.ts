@@ -180,3 +180,131 @@ export type Observation = typeof observation.$inferSelect;
 export type NewObservation = typeof observation.$inferInsert;
 export type IngestRun = typeof ingestRun.$inferSelect;
 export type NewIngestRun = typeof ingestRun.$inferInsert;
+
+// ---------- auction (Phase 2 — TreasuryDirect) ----------
+
+/**
+ * A row's lifecycle: TreasuryDirect's `/securities/upcoming` publishes an
+ * announced auction with its terms and (once announced) offering size but no
+ * results; `/securities/auctioned` (or `/securities/search`) later publishes
+ * the same (cusip, auction_date) with results filled in. This is a status
+ * TRANSITION on the SAME row (upsert, via lib/upsert-auctions.ts in
+ * @penny/ingest) — deliberately NOT the `observation` table's
+ * insert-new-revision-row model. An auction is one real-world event known
+ * incompletely and then completely, not a republished/restated value; there
+ * is nothing to preserve a "prior version" of.
+ */
+export const auctionStatusEnum = pgEnum("auction_status", ["announced", "resulted"]);
+
+/**
+ * TreasuryDirect's OWN fine-grained discriminator — the API's `type` field,
+ * deliberately NOT its coarser `securityType` field. Verified live
+ * 2026-09-01 against 2.7 years of real auction results
+ * (2023-12-20..2026-08-27, 1,176 rows): `securityType` takes only
+ * Bill/Note/Bond and would silently collapse a 10-Year TIPS into the same
+ * bucket as a 10-Year nominal Note, and a 2-Year FRN into the same bucket as
+ * a 2-Year nominal Note — a real, present-in-the-data collision, not a
+ * hypothetical. `type` instead takes exactly these six values and keeps
+ * every one of those apart. `CMB` = Cash Management Bill, an
+ * irregular/opportunistic short bill (a 2-Day CMB appears in the same live
+ * sample) — real, must not be dropped, but rarely meaningful to compare
+ * against a "family" history the way a regular bill/note/bond is.
+ */
+export const auctionSecurityTypeEnum = pgEnum("auction_security_type", ["Bill", "Note", "Bond", "TIPS", "FRN", "CMB"]);
+
+/**
+ * One row per auction event, keyed (cusip, auction_date) — see the unique
+ * index below, which is both the referential identity TreasuryDirect itself
+ * uses and this table's idempotency key (upsert target).
+ *
+ * `original_security_term` groups a reopening into its issuing family
+ * ("family" = the same security re-auctioned) EXCEPT for Bills, where it
+ * silently mixes genuinely different tenors: verified live 2026-09-01, a
+ * "17-Week" original-term family contains 4-Week, 8-Week, AND 17-Week
+ * securityTerm rows in roughly equal numbers (140/140/140 across the same
+ * 2.7-year sample) — three different points on the bill curve, not the same
+ * instrument aging. The correct "this security's own trailing auctions"
+ * comparison key is therefore security-type-dependent:
+ *   - Bill (and CMB): group by `security_term` (the actual current tenor).
+ *   - Note/Bond/TIPS/FRN: group by `original_security_term` (the issuing
+ *     family) — this IS the same security across reopenings for these types.
+ * See `auctionFamilyKey()` / `getAuctionFamilyHistory()` in
+ * `./queries/auctions.ts`, which encode this rule rather than leaving every
+ * caller to rediscover it.
+ *
+ * Nullable numerics: a row starts as `status: "announced"` with every result
+ * column null (genuinely unknown yet, never a placeholder zero), then an
+ * upsert from the resulted endpoint fills them in. Even once resulted, only
+ * ONE of high_yield / high_discount_rate / high_discount_margin is ever
+ * populated on a given row — which one depends on security_type (Bills:
+ * high_discount_rate; Notes/Bonds/TIPS: high_yield; FRNs:
+ * high_discount_margin) — never derived from another; store exactly what
+ * TreasuryDirect published for that row and leave the other two null.
+ */
+export const auction = pgTable(
+  "auction",
+  {
+    id: integer("id").primaryKey().generatedAlwaysAsIdentity(),
+
+    cusip: text("cusip").notNull(),
+    securityType: auctionSecurityTypeEnum("security_type").notNull(),
+    /** Current tenor exactly as published, e.g. "4-Week", "9-Year 11-Month". */
+    securityTerm: text("security_term").notNull(),
+    /** The issuing family's original tenor, e.g. "17-Week", "10-Year" — see the table doc comment on why this alone is not a safe Bill grouping key. */
+    originalSecurityTerm: text("original_security_term").notNull(),
+
+    auctionDate: date("auction_date").notNull(),
+    issueDate: date("issue_date").notNull(),
+    /** Populated even before the real announcement (TreasuryDirect projects it from the standing calendar) — verified live on /securities/upcoming rows still showing offering_amount TBA. Never null. */
+    announcementDate: date("announcement_date").notNull(),
+
+    /** Null until announced (TBA). */
+    offeringAmount: numeric("offering_amount", { precision: 20, scale: 2 }),
+    /** Null until resulted. */
+    totalAccepted: numeric("total_accepted", { precision: 20, scale: 2 }),
+    bidToCover: numeric("bid_to_cover", { precision: 12, scale: 6 }),
+    highYield: numeric("high_yield", { precision: 12, scale: 6 }),
+    highDiscountRate: numeric("high_discount_rate", { precision: 12, scale: 6 }),
+    highDiscountMargin: numeric("high_discount_margin", { precision: 12, scale: 6 }),
+    primaryDealerAccepted: numeric("primary_dealer_accepted", { precision: 20, scale: 2 }),
+    directBidderAccepted: numeric("direct_bidder_accepted", { precision: 20, scale: 2 }),
+    indirectBidderAccepted: numeric("indirect_bidder_accepted", { precision: 20, scale: 2 }),
+    noncompetitiveAccepted: numeric("noncompetitive_accepted", { precision: 20, scale: 2 }),
+    /** The Fed's SOMA add-on, accepted on top of the announced offering — genuinely 0 on many auctions (not a gap; verified live), null only pre-results. */
+    somaAccepted: numeric("soma_accepted", { precision: 20, scale: 2 }),
+
+    status: auctionStatusEnum("status").notNull(),
+    /** The exact TA_WS request URL this row's CURRENT data came from — updated on every substantive change, per lib/upsert-auctions.ts. */
+    sourceUrl: text("source_url").notNull(),
+    /**
+     * When TreasuryDirect published the data THIS ROW CURRENTLY HOLDS —
+     * derived from the API's own `updatedTimestamp` field (a wall-clock
+     * time with no explicit UTC offset), converted from America/New_York
+     * local time via lib/time.ts's DST-aware helper. NOT bumped by a
+     * re-ingest that changes nothing (see lib/upsert-auctions.ts) — this is
+     * "as of when the data changed," not "as of when we last checked."
+     */
+    publicationTime: timestamp("publication_time", { withTimezone: true }).notNull(),
+    ingestedAt: timestamp("ingested_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [
+    // Idempotency + referential identity: TreasuryDirect itself identifies
+    // one auction event by (cusip, auction_date). The announced->resulted
+    // transition upserts THIS row (see lib/upsert-auctions.ts) rather than
+    // ever inserting a second row for the same event.
+    uniqueIndex("auction_identity").on(t.cusip, t.auctionDate),
+    // Family-history query (the site's core "compare against this
+    // security's own trailing auctions" chart) — see the table doc comment
+    // for why callers must pick security_term vs original_security_term by
+    // security_type rather than always using one or the other.
+    index("auction_family_term_idx").on(t.securityType, t.originalSecurityTerm, t.auctionDate),
+    index("auction_family_security_term_idx").on(t.securityType, t.securityTerm, t.auctionDate),
+    // "Coming up" / "last month of auctions" queries, both ordered by date within a status.
+    index("auction_status_date_idx").on(t.status, t.auctionDate),
+  ],
+);
+
+export type Auction = typeof auction.$inferSelect;
+export type NewAuction = typeof auction.$inferInsert;
+export type AuctionStatus = (typeof auctionStatusEnum.enumValues)[number];
+export type AuctionSecurityType = (typeof auctionSecurityTypeEnum.enumValues)[number];

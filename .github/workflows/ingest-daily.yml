@@ -1,4 +1,4 @@
-name: Ingest — daily (Debt to the Penny, TGA, DTS cadence)
+name: Ingest — daily (Debt to the Penny, TGA, DTS cadence, TreasuryDirect auctions)
 
 # Debt to the Penny, the Daily Treasury Statement TGA closing balance, and
 # the Daily Treasury Statement's Deposits & Withdrawals of Operating Cash
@@ -7,6 +7,12 @@ name: Ingest — daily (Debt to the Penny, TGA, DTS cadence)
 # run that finds nothing new is a no-op (lib/upsert.ts compares against
 # the latest known value per period), which is simpler than trying to
 # encode federal holidays into the schedule.
+#
+# The two TreasuryDirect auction steps below follow the same "run daily,
+# rely on the upsert's own idempotency" shape (lib/upsert-auctions.ts) —
+# resulted auctions publish results same-day (bills close for competitive
+# bidding at 11:30am ET; results typically post within the hour), and the
+# published calendar changes a few times a week, never on a fixed schedule.
 
 on:
   schedule:
@@ -46,5 +52,17 @@ jobs:
       - name: DTS deposits & withdrawals of operating cash (cadence + public debt cash flows)
         working-directory: packages/ingest
         run: pnpm run ingest:dts
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: TreasuryDirect — resulted auctions
+        working-directory: packages/ingest
+        run: pnpm run ingest:auctions-resulted
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+      - name: TreasuryDirect — upcoming auction calendar
+        working-directory: packages/ingest
+        run: pnpm run ingest:auctions-upcoming
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kwheeler27/penny/packages/registry/schema/dataset.schema.json",
+  "title": "Penny dataset citation",
+  "description": "Single source of truth for a dataset-level citation — for data that reaches a page as full rows (e.g. one auction event's many columns) rather than as a single @penny/registry `series` value per period. A page's citation line for such data may only render through a dataset id defined here (CLAUDE.md hard rule: objectivity is load-bearing), the same registry-only-path rule series.schema.json enforces for per-value figures.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "label", "agency", "dataset", "dataset_url", "citation"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*){1,6}$",
+      "description": "Stable dot-namespaced id, e.g. treasurydirect.auctions. Never reused; renames require an alias."
+    },
+    "label": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 80,
+      "description": "Short plain-language name shown in the UI, e.g. \"TreasuryDirect auction results\"."
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Former ids that resolve to this dataset."
+    },
+    "agency": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Source agency of record, e.g. \"U.S. Department of the Treasury, Bureau of the Fiscal Service\"."
+    },
+    "dataset": {
+      "type": "string",
+      "minLength": 2,
+      "description": "Dataset/API name as published by the agency, e.g. \"TreasuryDirect Securities Auctions Data API\"."
+    },
+    "dataset_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Canonical URL for the dataset (the citation link)."
+    },
+    "citation": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Full citation string, in the form a reader could paste into a bibliography. May contain the token {access_date}, substituted at render time."
+    },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Caveats a reader or an engineer needs about this dataset as a whole."
+    }
+  }
+}

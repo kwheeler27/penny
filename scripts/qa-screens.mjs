@@ -34,6 +34,9 @@ const SHOTS = [
   { path: "/report/where-the-money-goes", viewport: "1440,900", file: "chapter-1-desktop.png" },
   { path: "/report/where-the-money-goes", viewport: "375,812", file: "chapter-1-mobile.png" },
   { path: "/", viewport: "1440,900", file: "front-door-desktop-dark.png", colorScheme: "dark" },
+  { path: "/auctions", viewport: "1440,900", file: "auctions-desktop.png" },
+  { path: "/auctions", viewport: "375,812", file: "auctions-mobile.png" },
+  { path: "/auctions", viewport: "1440,900", file: "auctions-desktop-dark.png", colorScheme: "dark" },
 ];
 
 function waitForServer(url, timeoutMs = 30_000) {

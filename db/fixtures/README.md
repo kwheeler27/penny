@@ -65,6 +65,36 @@ was produced and what it covers.
   blocked `pnpm seed` from loading this directory's data — flagged here for
   whoever owns `packages/db` to review.
 
+- `raw/treasurydirect/{auctioned,upcoming}/*.json` — real TreasuryDirect
+  Securities Auctions Data API snapshots (Phase 2), each with a sibling
+  `SOURCE.md` documenting the exact request and the verified facts the
+  snapshot is evidence for (the `type`-vs-`securityType` field mismatch, the
+  Bill original-term-mixing gotcha, the America/New_York `updatedTimestamp`
+  convention). `auctioned/2023-12-20_to_2026-08-27.json` is 2.7 years / 1,176
+  rows — every security type present (Bill, Note, Bond, TIPS, FRN, and one
+  irregular CMB), wide enough that every coupon family has a full trailing
+  year to compare against.
+- `auctions/auctions.json` — pre-transformed rows ready to insert into the
+  `auction` table, shaped like `NewAuction` from `@penny/db` (the `auction`
+  analogue of `observations/*.json` above — NOT the same table/model:
+  `auction` is one row per full auction event with dozens of columns, not
+  one value per period). Regenerated from `raw/treasurydirect/` by
+  `pnpm --filter @penny/ingest run build-auction-fixtures`
+  (`packages/ingest/src/build-auction-fixtures.ts`) — re-run that after
+  changing `treasurydirect/auction.ts`'s mapping or refreshing
+  `raw/treasurydirect/`, never hand-edit this file. `packages/db`'s
+  `pnpm seed` picks it up automatically via `seedAuctionFixtures()`. Contains
+  the full real history (both endpoints, 1,185 rows) — small enough at this
+  dataset's volume to seed everything rather than a trimmed subset.
+
+  **A CUSIP is reused across auctions — the (cusip, auction_date) pair, not
+  cusip alone, is the real identity.** Verified in this exact fixture:
+  `912797VG9` results once as a new 26-Week bill (auction_date 2026-06-08)
+  and is reopened again months later (auction_date 2026-09-08, still TBA at
+  capture time, `status: "announced"`) — a lookup by cusip alone returns
+  both rows. Always query through `getAuctionByCusipAndDate` (or filter on
+  both columns) — see `packages/db/src/queries/auctions.ts`.
+
 ## Rules
 
 - Snapshots are real responses (or a trimmed subset of one), not

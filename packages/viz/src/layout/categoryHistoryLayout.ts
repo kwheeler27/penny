@@ -29,13 +29,28 @@ export interface YearTick {
   readonly label: string;
 }
 
+/** A y-axis guide value ("$500B" style) — one of exactly three per chart
+ * (the data-fit domain's high/mid/low), never a "nice round number" scale:
+ * the domain stays data-fit (no padding, no area fill implying a zero
+ * baseline), matching computeCategoryHistoryGeometry's own y-domain math
+ * exactly. `value` (the raw float the label was derived from) is exposed
+ * for a test that wants it — never re-derive the domain from it. */
+export interface HistoryValueTick {
+  readonly y: number;
+  readonly value: number;
+  readonly label: string;
+}
+
 export interface CategoryHistoryGeometry {
   readonly monthlyPath: string;
+  /** The 12-month total's path — a monotone-x cubic spline (see
+   * `monotonePath` below), never a fitted/smoothed curve: it passes through
+   * every point exactly, matching `totalPoints` digit for digit. */
   readonly totalPath: string;
   readonly monthlyPoints: readonly PositionedHistoryPoint[];
   readonly totalPoints: readonly PositionedHistoryPoint[];
   readonly yearTicks: readonly YearTick[];
-  readonly zeroY: number | null;
+  readonly valueTicks: readonly HistoryValueTick[];
   readonly width: number;
   readonly height: number;
 }
@@ -85,7 +100,7 @@ export function computeCategoryHistoryGeometry(
 ): CategoryHistoryGeometry {
   const { width, height, padLeft, padRight, padTop, padBottom } = opts;
   if (monthly.length === 0) {
-    return { monthlyPath: "", totalPath: "", monthlyPoints: [], totalPoints: [], yearTicks: [], zeroY: null, width, height };
+    return { monthlyPath: "", totalPath: "", monthlyPoints: [], totalPoints: [], yearTicks: [], valueTicks: [], width, height };
   }
 
   const firstIdx = monthIndexOf(monthly[0]!.periodEnd);
@@ -143,9 +158,230 @@ export function computeCategoryHistoryGeometry(
     yearTicks.push(tick);
   }
 
-  const zeroY = lo <= 0 && hi >= 0 ? yFor("0") : null;
+  // Three y-axis guides — the data-fit domain's high/mid/low, never a
+  // "nice round number" scale (the domain stays exactly what the data
+  // spans; no padding, matching the "no area fill" rule this chart follows
+  // since a data-fit domain has no meaningful zero baseline to anchor a
+  // fill to). Deduplicated by y-position (a flat, single-valued series would
+  // otherwise emit three identical, overlapping labels).
+  const rawTicks = [hi, (hi + lo) / 2, lo].map((v) => ({ y: yFor(String(v)), value: v, label: formatAxisUsd(v) }));
+  const valueTicks: HistoryValueTick[] = rawTicks.filter((t, i) => i === 0 || Math.abs(t.y - rawTicks[i - 1]!.y) > 0.5);
 
-  return { monthlyPath: toPath(monthlyPoints), totalPath: toPath(totalPoints), monthlyPoints, totalPoints, yearTicks, zeroY, width, height };
+  // The 12-month total is drawn as a smooth monotone-x spline (never a
+  // fitted curve — it passes through every point exactly); the monthly line
+  // stays straight segments, per this chart's own visual hierarchy (thin,
+  // muted, "as published" vs. bold, smoothed "12-month total").
+  return { monthlyPath: toPath(monthlyPoints), totalPath: monotonePath(totalPoints), monthlyPoints, totalPoints, yearTicks, valueTicks, width, height };
+}
+
+/** Cosmetic-only y-axis guide label ("$500B" / "$1,384.4B" style) — mirrors
+ * apps/web's lib/format.ts `formatUsdScale`'s OUTPUT SHAPE (a fixed "B"
+ * scale, comma-grouped, one decimal — CLAUDE.md: values keep their unit,
+ * never silently switch magnitude, so this never flips to "$1.4T" for a
+ * large 12-month total) without importing it: this package stays
+ * dependency-free of apps/web (matching auctionSeriesLayout.ts's own small
+ * local axis-tick formatter). `Number`-based, like every other cosmetic
+ * pixel/guide computation in this module — never used for a displayed,
+ * asserted-exact figure (those always arrive as a precomputed string from
+ * the caller, per this module's own top-of-file doc comment). */
+function formatAxisUsd(value: number): string {
+  const billions = value / 1_000_000_000;
+  const rounded = Math.round(Math.abs(billions) * 10) / 10;
+  if (rounded === 0) return "$0";
+  const grouped = rounded.toLocaleString("en-US", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  return `${billions < 0 ? "−" : ""}$${grouped}B`;
+}
+
+// ---------- monotone-x cubic interpolation (the 12-month total's curve) ----------
+
+export interface BezierSegment {
+  readonly cp1: { readonly x: number; readonly y: number };
+  readonly cp2: { readonly x: number; readonly y: number };
+  readonly end: { readonly x: number; readonly y: number };
+}
+
+/**
+ * Fritsch–Carlson monotone cubic Hermite interpolation, converted to cubic
+ * Bezier segments. This is an INTERPOLATING spline — the resulting curve
+ * passes through every input point exactly (never a least-squares fit, so a
+ * value is never visually distorted) — with tangents chosen so the curve
+ * never overshoots a local max/min the way a plain Catmull-Rom spline can:
+ * per point, the tangent is clamped so each segment's Bezier control points
+ * stay within [min(y0,y1), max(y0,y1)] of that segment's own two endpoints
+ * (proof sketch: the clamp keeps a=m0/slope and b=m1/slope in [0,3], and a
+ * cubic Hermite's control points are p0 + (a/3)(p1-p0) and p1 - (b/3)(p1-p0)
+ * — both convex combinations of p0/p1 whenever a,b in [0,3]).
+ *
+ * Requires `points` sorted by strictly increasing x (this package's own
+ * convention — see this module's top-of-file doc comment). Fewer than 2
+ * points returns no segments (nothing to interpolate between).
+ */
+export function computeMonotoneSegments(points: readonly { readonly x: number; readonly y: number }[]): BezierSegment[] {
+  const n = points.length;
+  if (n < 2) return [];
+
+  // Secant slope of each interval [i, i+1].
+  const dx: number[] = [];
+  const slope: number[] = [];
+  for (let i = 0; i < n - 1; i++) {
+    const d = points[i + 1]!.x - points[i]!.x;
+    dx.push(d);
+    slope.push(d === 0 ? 0 : (points[i + 1]!.y - points[i]!.y) / d);
+  }
+
+  // Initial tangent at each point: the adjacent secant at an endpoint, the
+  // average of both adjacent secants at an interior point.
+  const m: number[] = new Array(n);
+  m[0] = slope[0]!;
+  m[n - 1] = slope[n - 2]!;
+  for (let i = 1; i < n - 1; i++) m[i] = (slope[i - 1]! + slope[i]!) / 2;
+
+  // A flat interval (slope 0) forces both its tangents to 0 — otherwise an
+  // averaged tangent from a neighboring non-flat interval would put a
+  // visible bump on what should be a dead-flat run.
+  for (let i = 0; i < n - 1; i++) {
+    if (slope[i] === 0) {
+      m[i] = 0;
+      m[i + 1] = 0;
+    }
+  }
+
+  // The Fritsch–Carlson clamp: for each interval, α = m[i]/slope, β =
+  // m[i+1]/slope must both be non-negative (a negative value means the
+  // tangent points the "wrong way" relative to this interval's own secant —
+  // exactly the sign-change case at a local max/min — so it's zeroed), and
+  // α²+β² must not exceed 9 (otherwise both are rescaled onto that circle).
+  // This is what guarantees the control-point bound in this function's own
+  // doc comment above.
+  for (let i = 0; i < n - 1; i++) {
+    const s = slope[i]!;
+    if (s === 0) continue;
+    let a = m[i]! / s;
+    let b = m[i + 1]! / s;
+    if (a < 0) {
+      m[i] = 0;
+      a = 0;
+    }
+    if (b < 0) {
+      m[i + 1] = 0;
+      b = 0;
+    }
+    const sumSq = a * a + b * b;
+    if (sumSq > 9) {
+      const tau = 3 / Math.sqrt(sumSq);
+      m[i] = tau * a * s;
+      m[i + 1] = tau * b * s;
+    }
+  }
+
+  const segments: BezierSegment[] = [];
+  for (let i = 0; i < n - 1; i++) {
+    const p0 = points[i]!;
+    const p1 = points[i + 1]!;
+    const d = dx[i]!;
+    segments.push({
+      cp1: { x: p0.x + d / 3, y: p0.y + (m[i]! * d) / 3 },
+      cp2: { x: p1.x - d / 3, y: p1.y - (m[i + 1]! * d) / 3 },
+      end: { x: p1.x, y: p1.y },
+    });
+  }
+  return segments;
+}
+
+/** An SVG path string for `points`, using `computeMonotoneSegments` above —
+ * the 12-month total line's own path (see computeCategoryHistoryGeometry).
+ * Degenerates to a single "M" (no line) for 0-1 points, matching `toPath`'s
+ * own convention for the monthly line. */
+export function monotonePath(points: readonly { readonly x: number; readonly y: number }[]): string {
+  if (points.length === 0) return "";
+  const first = points[0]!;
+  let d = `M${first.x.toFixed(1)},${first.y.toFixed(1)}`;
+  for (const seg of computeMonotoneSegments(points)) {
+    d += ` C${seg.cp1.x.toFixed(1)},${seg.cp1.y.toFixed(1)} ${seg.cp2.x.toFixed(1)},${seg.cp2.y.toFixed(1)} ${seg.end.x.toFixed(1)},${seg.end.y.toFixed(1)}`;
+  }
+  return d;
+}
+
+// ---------- hover/focus: nearest-point hit-testing (pure pixel math) ----------
+
+export interface NearestHistoryPoint {
+  readonly series: "monthly" | "total";
+  /** Index into whichever of `monthlyPoints`/`totalPoints` `series` names —
+   * same array the caller already has, so it can look up that point's own
+   * precomputed display strings without this module knowing about them. */
+  readonly index: number;
+}
+
+/**
+ * Finds the point a pointer at (`pointerX`, `pointerY`) — in the same SVG
+ * viewBox pixel space as `monthlyPoints`/`totalPoints` — is closest to, for
+ * the chart's hover tooltip and its focus-driven equivalent. Two-step, per
+ * the chart's own visual model (one line thin-and-muted, the other
+ * bold-and-smoothed, both sharing one x-axis): first the nearest MONTH by x
+ * (monthlyPoints is always the superset of periodEnds — every total point's
+ * period is also a monthly point), then, if a 12-month total exists at that
+ * same month, whichever of the two lines' y at that month is closer to
+ * `pointerY`. A linear scan is deliberate — this package's charts top out at
+ * a couple hundred points, nowhere near where a binary search would matter.
+ * Returns null only when there are no monthly points to hit-test at all.
+ */
+export function findNearestHistoryPoint(
+  monthlyPoints: readonly PositionedHistoryPoint[],
+  totalPoints: readonly PositionedHistoryPoint[],
+  pointerX: number,
+  pointerY: number,
+): NearestHistoryPoint | null {
+  if (monthlyPoints.length === 0) return null;
+
+  let nearestIdx = 0;
+  let bestDx = Math.abs(monthlyPoints[0]!.x - pointerX);
+  for (let i = 1; i < monthlyPoints.length; i++) {
+    const dx = Math.abs(monthlyPoints[i]!.x - pointerX);
+    if (dx < bestDx) {
+      bestDx = dx;
+      nearestIdx = i;
+    }
+  }
+  const monthlyPoint = monthlyPoints[nearestIdx]!;
+
+  const totalIdx = totalPoints.findIndex((p) => p.periodEnd === monthlyPoint.periodEnd);
+  if (totalIdx === -1) return { series: "monthly", index: nearestIdx };
+
+  const totalPoint = totalPoints[totalIdx]!;
+  const dMonthly = Math.abs(monthlyPoint.y - pointerY);
+  const dTotal = Math.abs(totalPoint.y - pointerY);
+  return dTotal <= dMonthly ? { series: "total", index: totalIdx } : { series: "monthly", index: nearestIdx };
+}
+
+// ---------- in-chart end labels: a collision guard ----------
+
+export interface EndLabelPositions {
+  readonly totalY: number | null;
+  readonly monthlyY: number;
+}
+
+/** Minimum vertical gap (px) between the "12-month total" and "monthly"
+ * end-of-line labels before they'd visually collide. */
+const MIN_END_LABEL_GAP = 12;
+
+/**
+ * Nudges the two right-edge line labels ("12-month total", "monthly") apart
+ * when their natural y-positions (each line's own last point) would put
+ * them within `minGap` of each other — never swapping which is on top,
+ * since each label still needs to read as belonging to its own line. A tie
+ * (both lines ending at the exact same y) is broken by putting the total
+ * label above, matching the common case (a 12-month total is a larger
+ * magnitude than any single month, so it plots higher — smaller y — on this
+ * inverted-y SVG axis). Returns `monthlyY` unchanged, `totalY: null`, when
+ * there is no 12-month total line to place at all.
+ */
+export function placeEndLabels(totalY: number | null, monthlyY: number, minGap: number = MIN_END_LABEL_GAP): EndLabelPositions {
+  if (totalY === null) return { totalY: null, monthlyY };
+  const gap = Math.abs(totalY - monthlyY);
+  if (gap >= minGap) return { totalY, monthlyY };
+  const mid = (totalY + monthlyY) / 2;
+  const half = minGap / 2;
+  return totalY <= monthlyY ? { totalY: mid - half, monthlyY: mid + half } : { totalY: mid + half, monthlyY: mid - half };
 }
 
 // ---------- time-window selector (1Y / 5Y / 10Y / All) ----------

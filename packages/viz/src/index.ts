@@ -59,14 +59,22 @@ export { chooseOrientation, VERTICAL_BREAKPOINT_PX, type FlowOrientation } from 
 export {
   computeCategoryHistoryGeometry,
   filterHistoryToWindow,
+  findNearestHistoryPoint,
+  placeEndLabels,
+  computeMonotoneSegments,
+  monotonePath,
   HISTORY_WINDOWS,
   type HistoryLayoutPoint,
   type PositionedHistoryPoint,
   type YearTick,
+  type HistoryValueTick,
   type CategoryHistoryGeometry,
   type CategoryHistoryLayoutOptions,
   type HistoryWindow,
   type HistoryWindowResult,
+  type NearestHistoryPoint,
+  type EndLabelPositions,
+  type BezierSegment,
 } from "./layout/categoryHistoryLayout";
 export {
   computeDailyCadenceGeometry,

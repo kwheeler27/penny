@@ -1,5 +1,6 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import Link from "next/link";
 import ChapterBody from "@/components/chapter-body";
 import SankeyEmbed from "@/components/sankey-embed";
 import { parseChapter } from "@/lib/chapter/parse";
@@ -42,6 +43,12 @@ export default async function WhereTheMoneyGoesPage() {
             <a href="/now">/now</a> and every source is indexed on <a href="/data">/data</a>.
           </p>
         </div>
+        <div className="section tile-grid">
+          <Link href="/report/where-dollars-come-from" className="tile">
+            <span className="tile-label">Next</span>
+            <p>Where do dollars come from? — the four-ledger walkthrough behind every number on this page.</p>
+          </Link>
+        </div>
       </div>
     );
   }
@@ -65,6 +72,19 @@ export default async function WhereTheMoneyGoesPage() {
       </div>
 
       <ChapterBody blocks={blocks} />
+
+      {/* Closing hand-off (not part of the narrative agent's own
+          content/chapter-1.mdx — apps/web/content/ stays outside this
+          agent's ownership, so this link lives in the page shell instead,
+          same as the Sankey embed above it): beat 4's auctions financed the
+          gap this chapter just walked through; beat 5 answers where the
+          dollars behind all of it actually come from. */}
+      <div className="section tile-grid">
+        <Link href="/report/where-dollars-come-from" className="tile">
+          <span className="tile-label">Next</span>
+          <p>Where do dollars come from? — the four-ledger walkthrough behind every number on this page.</p>
+        </Link>
+      </div>
     </div>
   );
 }

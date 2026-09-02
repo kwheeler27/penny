@@ -1,0 +1,5474 @@
+[
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-01-07",
+    "periodEnd": "2015-01-07",
+    "fiscalYear": null,
+    "value": "2710273",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-01-14",
+    "periodEnd": "2015-01-14",
+    "fiscalYear": null,
+    "value": "2760384",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-01-21",
+    "periodEnd": "2015-01-21",
+    "fiscalYear": null,
+    "value": "2671704",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-01-28",
+    "periodEnd": "2015-01-28",
+    "fiscalYear": null,
+    "value": "2662575",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-02-04",
+    "periodEnd": "2015-02-04",
+    "fiscalYear": null,
+    "value": "2708811",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-02-11",
+    "periodEnd": "2015-02-11",
+    "fiscalYear": null,
+    "value": "2558213",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-02-18",
+    "periodEnd": "2015-02-18",
+    "fiscalYear": null,
+    "value": "2445901",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-02-25",
+    "periodEnd": "2015-02-25",
+    "fiscalYear": null,
+    "value": "2346998",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-03-04",
+    "periodEnd": "2015-03-04",
+    "fiscalYear": null,
+    "value": "2554669",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-03-11",
+    "periodEnd": "2015-03-11",
+    "fiscalYear": null,
+    "value": "2692693",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-03-18",
+    "periodEnd": "2015-03-18",
+    "fiscalYear": null,
+    "value": "2726319",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-03-25",
+    "periodEnd": "2015-03-25",
+    "fiscalYear": null,
+    "value": "2737802",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-04-01",
+    "periodEnd": "2015-04-01",
+    "fiscalYear": null,
+    "value": "2667663",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-04-08",
+    "periodEnd": "2015-04-08",
+    "fiscalYear": null,
+    "value": "2792912",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-04-15",
+    "periodEnd": "2015-04-15",
+    "fiscalYear": null,
+    "value": "2748955",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-04-22",
+    "periodEnd": "2015-04-22",
+    "fiscalYear": null,
+    "value": "2617379",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-04-29",
+    "periodEnd": "2015-04-29",
+    "fiscalYear": null,
+    "value": "2581067",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-05-06",
+    "periodEnd": "2015-05-06",
+    "fiscalYear": null,
+    "value": "2610056",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-05-13",
+    "periodEnd": "2015-05-13",
+    "fiscalYear": null,
+    "value": "2643845",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-05-20",
+    "periodEnd": "2015-05-20",
+    "fiscalYear": null,
+    "value": "2588146",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-05-27",
+    "periodEnd": "2015-05-27",
+    "fiscalYear": null,
+    "value": "2536919",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-06-03",
+    "periodEnd": "2015-06-03",
+    "fiscalYear": null,
+    "value": "2490044",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-06-10",
+    "periodEnd": "2015-06-10",
+    "fiscalYear": null,
+    "value": "2661659",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-06-17",
+    "periodEnd": "2015-06-17",
+    "fiscalYear": null,
+    "value": "2575506",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-06-24",
+    "periodEnd": "2015-06-24",
+    "fiscalYear": null,
+    "value": "2493529",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-07-01",
+    "periodEnd": "2015-07-01",
+    "fiscalYear": null,
+    "value": "2504532",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-07-08",
+    "periodEnd": "2015-07-08",
+    "fiscalYear": null,
+    "value": "2585343",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-07-15",
+    "periodEnd": "2015-07-15",
+    "fiscalYear": null,
+    "value": "2655145",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-07-22",
+    "periodEnd": "2015-07-22",
+    "fiscalYear": null,
+    "value": "2645456",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-07-29",
+    "periodEnd": "2015-07-29",
+    "fiscalYear": null,
+    "value": "2632830",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-08-05",
+    "periodEnd": "2015-08-05",
+    "fiscalYear": null,
+    "value": "2624012",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-08-12",
+    "periodEnd": "2015-08-12",
+    "fiscalYear": null,
+    "value": "2555790",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-08-19",
+    "periodEnd": "2015-08-19",
+    "fiscalYear": null,
+    "value": "2553587",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-08-26",
+    "periodEnd": "2015-08-26",
+    "fiscalYear": null,
+    "value": "2705163",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-09-02",
+    "periodEnd": "2015-09-02",
+    "fiscalYear": null,
+    "value": "2694817",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-09-09",
+    "periodEnd": "2015-09-09",
+    "fiscalYear": null,
+    "value": "2734650",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-09-16",
+    "periodEnd": "2015-09-16",
+    "fiscalYear": null,
+    "value": "2643764",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-09-23",
+    "periodEnd": "2015-09-23",
+    "fiscalYear": null,
+    "value": "2602196",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-09-30",
+    "periodEnd": "2015-09-30",
+    "fiscalYear": null,
+    "value": "2197657",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-10-07",
+    "periodEnd": "2015-10-07",
+    "fiscalYear": null,
+    "value": "2678794",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-10-14",
+    "periodEnd": "2015-10-14",
+    "fiscalYear": null,
+    "value": "2719980",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-10-21",
+    "periodEnd": "2015-10-21",
+    "fiscalYear": null,
+    "value": "2675588",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-10-28",
+    "periodEnd": "2015-10-28",
+    "fiscalYear": null,
+    "value": "2668187",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-11-04",
+    "periodEnd": "2015-11-04",
+    "fiscalYear": null,
+    "value": "2689851",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-11-11",
+    "periodEnd": "2015-11-11",
+    "fiscalYear": null,
+    "value": "2659338",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-11-18",
+    "periodEnd": "2015-11-18",
+    "fiscalYear": null,
+    "value": "2611966",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-11-25",
+    "periodEnd": "2015-11-25",
+    "fiscalYear": null,
+    "value": "2574961",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-12-02",
+    "periodEnd": "2015-12-02",
+    "fiscalYear": null,
+    "value": "2532190",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-12-09",
+    "periodEnd": "2015-12-09",
+    "fiscalYear": null,
+    "value": "2510015",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-12-16",
+    "periodEnd": "2015-12-16",
+    "fiscalYear": null,
+    "value": "2460053",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-12-23",
+    "periodEnd": "2015-12-23",
+    "fiscalYear": null,
+    "value": "2371078",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2015-12-30",
+    "periodEnd": "2015-12-30",
+    "fiscalYear": null,
+    "value": "2208681",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-01-06",
+    "periodEnd": "2016-01-06",
+    "fiscalYear": null,
+    "value": "2353501",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-01-13",
+    "periodEnd": "2016-01-13",
+    "fiscalYear": null,
+    "value": "2450827",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-01-20",
+    "periodEnd": "2016-01-20",
+    "fiscalYear": null,
+    "value": "2412078",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-01-27",
+    "periodEnd": "2016-01-27",
+    "fiscalYear": null,
+    "value": "2399266",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-02-03",
+    "periodEnd": "2016-02-03",
+    "fiscalYear": null,
+    "value": "2441276",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-02-10",
+    "periodEnd": "2016-02-10",
+    "fiscalYear": null,
+    "value": "2483140",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-02-17",
+    "periodEnd": "2016-02-17",
+    "fiscalYear": null,
+    "value": "2490021",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-02-24",
+    "periodEnd": "2016-02-24",
+    "fiscalYear": null,
+    "value": "2426047",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-03-02",
+    "periodEnd": "2016-03-02",
+    "fiscalYear": null,
+    "value": "2496582",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-03-09",
+    "periodEnd": "2016-03-09",
+    "fiscalYear": null,
+    "value": "2533225",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-03-16",
+    "periodEnd": "2016-03-16",
+    "fiscalYear": null,
+    "value": "2455521",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-03-23",
+    "periodEnd": "2016-03-23",
+    "fiscalYear": null,
+    "value": "2431826",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-03-30",
+    "periodEnd": "2016-03-30",
+    "fiscalYear": null,
+    "value": "2336085",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-04-06",
+    "periodEnd": "2016-04-06",
+    "fiscalYear": null,
+    "value": "2467091",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-04-13",
+    "periodEnd": "2016-04-13",
+    "fiscalYear": null,
+    "value": "2509842",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-04-20",
+    "periodEnd": "2016-04-20",
+    "fiscalYear": null,
+    "value": "2404665",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-04-27",
+    "periodEnd": "2016-04-27",
+    "fiscalYear": null,
+    "value": "2353257",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-05-04",
+    "periodEnd": "2016-05-04",
+    "fiscalYear": null,
+    "value": "2383369",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-05-11",
+    "periodEnd": "2016-05-11",
+    "fiscalYear": null,
+    "value": "2409768",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-05-18",
+    "periodEnd": "2016-05-18",
+    "fiscalYear": null,
+    "value": "2399629",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-05-25",
+    "periodEnd": "2016-05-25",
+    "fiscalYear": null,
+    "value": "2339987",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-06-01",
+    "periodEnd": "2016-06-01",
+    "fiscalYear": null,
+    "value": "2400969",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-06-08",
+    "periodEnd": "2016-06-08",
+    "fiscalYear": null,
+    "value": "2448818",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-06-15",
+    "periodEnd": "2016-06-15",
+    "fiscalYear": null,
+    "value": "2404901",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-06-22",
+    "periodEnd": "2016-06-22",
+    "fiscalYear": null,
+    "value": "2318595",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-06-29",
+    "periodEnd": "2016-06-29",
+    "fiscalYear": null,
+    "value": "2199118",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-07-06",
+    "periodEnd": "2016-07-06",
+    "fiscalYear": null,
+    "value": "2308282",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-07-13",
+    "periodEnd": "2016-07-13",
+    "fiscalYear": null,
+    "value": "2327301",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-07-20",
+    "periodEnd": "2016-07-20",
+    "fiscalYear": null,
+    "value": "2318251",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-07-27",
+    "periodEnd": "2016-07-27",
+    "fiscalYear": null,
+    "value": "2332237",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-08-03",
+    "periodEnd": "2016-08-03",
+    "fiscalYear": null,
+    "value": "2403064",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-08-10",
+    "periodEnd": "2016-08-10",
+    "fiscalYear": null,
+    "value": "2382780",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-08-17",
+    "periodEnd": "2016-08-17",
+    "fiscalYear": null,
+    "value": "2335873",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-08-24",
+    "periodEnd": "2016-08-24",
+    "fiscalYear": null,
+    "value": "2341218",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-08-31",
+    "periodEnd": "2016-08-31",
+    "fiscalYear": null,
+    "value": "2230607",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-09-07",
+    "periodEnd": "2016-09-07",
+    "fiscalYear": null,
+    "value": "2382028",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-09-14",
+    "periodEnd": "2016-09-14",
+    "fiscalYear": null,
+    "value": "2349288",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-09-21",
+    "periodEnd": "2016-09-21",
+    "fiscalYear": null,
+    "value": "2170319",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-09-28",
+    "periodEnd": "2016-09-28",
+    "fiscalYear": null,
+    "value": "2085237",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-10-05",
+    "periodEnd": "2016-10-05",
+    "fiscalYear": null,
+    "value": "2063383",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-10-12",
+    "periodEnd": "2016-10-12",
+    "fiscalYear": null,
+    "value": "2162086",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-10-19",
+    "periodEnd": "2016-10-19",
+    "fiscalYear": null,
+    "value": "2105811",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-10-26",
+    "periodEnd": "2016-10-26",
+    "fiscalYear": null,
+    "value": "2065020",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-11-02",
+    "periodEnd": "2016-11-02",
+    "fiscalYear": null,
+    "value": "2137209",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-11-09",
+    "periodEnd": "2016-11-09",
+    "fiscalYear": null,
+    "value": "2190082",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-11-16",
+    "periodEnd": "2016-11-16",
+    "fiscalYear": null,
+    "value": "2177585",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-11-23",
+    "periodEnd": "2016-11-23",
+    "fiscalYear": null,
+    "value": "2103184",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-11-30",
+    "periodEnd": "2016-11-30",
+    "fiscalYear": null,
+    "value": "2015312",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-12-07",
+    "periodEnd": "2016-12-07",
+    "fiscalYear": null,
+    "value": "2133602",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-12-14",
+    "periodEnd": "2016-12-14",
+    "fiscalYear": null,
+    "value": "2123554",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-12-21",
+    "periodEnd": "2016-12-21",
+    "fiscalYear": null,
+    "value": "1962755",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2016-12-28",
+    "periodEnd": "2016-12-28",
+    "fiscalYear": null,
+    "value": "1942975",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-01-04",
+    "periodEnd": "2017-01-04",
+    "fiscalYear": null,
+    "value": "1998165",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-01-11",
+    "periodEnd": "2017-01-11",
+    "fiscalYear": null,
+    "value": "2110927",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-01-18",
+    "periodEnd": "2017-01-18",
+    "fiscalYear": null,
+    "value": "2118818",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-01-25",
+    "periodEnd": "2017-01-25",
+    "fiscalYear": null,
+    "value": "2137012",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-02-01",
+    "periodEnd": "2017-02-01",
+    "fiscalYear": null,
+    "value": "2172093",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-02-08",
+    "periodEnd": "2017-02-08",
+    "fiscalYear": null,
+    "value": "2237460",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-02-15",
+    "periodEnd": "2017-02-15",
+    "fiscalYear": null,
+    "value": "2254271",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-02-22",
+    "periodEnd": "2017-02-22",
+    "fiscalYear": null,
+    "value": "2243156",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-03-01",
+    "periodEnd": "2017-03-01",
+    "fiscalYear": null,
+    "value": "2307954",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-03-08",
+    "periodEnd": "2017-03-08",
+    "fiscalYear": null,
+    "value": "2351131",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-03-15",
+    "periodEnd": "2017-03-15",
+    "fiscalYear": null,
+    "value": "2368120",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-03-22",
+    "periodEnd": "2017-03-22",
+    "fiscalYear": null,
+    "value": "2313962",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-03-29",
+    "periodEnd": "2017-03-29",
+    "fiscalYear": null,
+    "value": "2269984",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-04-05",
+    "periodEnd": "2017-04-05",
+    "fiscalYear": null,
+    "value": "2337776",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-04-12",
+    "periodEnd": "2017-04-12",
+    "fiscalYear": null,
+    "value": "2367767",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-04-19",
+    "periodEnd": "2017-04-19",
+    "fiscalYear": null,
+    "value": "2256670",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-04-26",
+    "periodEnd": "2017-04-26",
+    "fiscalYear": null,
+    "value": "2200670",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-05-03",
+    "periodEnd": "2017-05-03",
+    "fiscalYear": null,
+    "value": "2200821",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-05-10",
+    "periodEnd": "2017-05-10",
+    "fiscalYear": null,
+    "value": "2219918",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-05-17",
+    "periodEnd": "2017-05-17",
+    "fiscalYear": null,
+    "value": "2247673",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-05-24",
+    "periodEnd": "2017-05-24",
+    "fiscalYear": null,
+    "value": "2206163",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-05-31",
+    "periodEnd": "2017-05-31",
+    "fiscalYear": null,
+    "value": "2129606",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-06-07",
+    "periodEnd": "2017-06-07",
+    "fiscalYear": null,
+    "value": "2270846",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-06-14",
+    "periodEnd": "2017-06-14",
+    "fiscalYear": null,
+    "value": "2231204",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-06-21",
+    "periodEnd": "2017-06-21",
+    "fiscalYear": null,
+    "value": "2164616",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-06-28",
+    "periodEnd": "2017-06-28",
+    "fiscalYear": null,
+    "value": "2118108",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-07-05",
+    "periodEnd": "2017-07-05",
+    "fiscalYear": null,
+    "value": "2169650",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-07-12",
+    "periodEnd": "2017-07-12",
+    "fiscalYear": null,
+    "value": "2238951",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-07-19",
+    "periodEnd": "2017-07-19",
+    "fiscalYear": null,
+    "value": "2250646",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-07-26",
+    "periodEnd": "2017-07-26",
+    "fiscalYear": null,
+    "value": "2293616",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-08-02",
+    "periodEnd": "2017-08-02",
+    "fiscalYear": null,
+    "value": "2291576",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-08-09",
+    "periodEnd": "2017-08-09",
+    "fiscalYear": null,
+    "value": "2336315",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-08-16",
+    "periodEnd": "2017-08-16",
+    "fiscalYear": null,
+    "value": "2364971",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-08-23",
+    "periodEnd": "2017-08-23",
+    "fiscalYear": null,
+    "value": "2338169",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-08-30",
+    "periodEnd": "2017-08-30",
+    "fiscalYear": null,
+    "value": "2331956",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-09-06",
+    "periodEnd": "2017-09-06",
+    "fiscalYear": null,
+    "value": "2357048",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-09-13",
+    "periodEnd": "2017-09-13",
+    "fiscalYear": null,
+    "value": "2360190",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-09-20",
+    "periodEnd": "2017-09-20",
+    "fiscalYear": null,
+    "value": "2229409",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-09-27",
+    "periodEnd": "2017-09-27",
+    "fiscalYear": null,
+    "value": "2178836",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-10-04",
+    "periodEnd": "2017-10-04",
+    "fiscalYear": null,
+    "value": "2228518",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-10-11",
+    "periodEnd": "2017-10-11",
+    "fiscalYear": null,
+    "value": "2267739",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-10-18",
+    "periodEnd": "2017-10-18",
+    "fiscalYear": null,
+    "value": "2255104",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-10-25",
+    "periodEnd": "2017-10-25",
+    "fiscalYear": null,
+    "value": "2241618",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-11-01",
+    "periodEnd": "2017-11-01",
+    "fiscalYear": null,
+    "value": "2281472",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-11-08",
+    "periodEnd": "2017-11-08",
+    "fiscalYear": null,
+    "value": "2317610",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-11-15",
+    "periodEnd": "2017-11-15",
+    "fiscalYear": null,
+    "value": "2357806",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-11-22",
+    "periodEnd": "2017-11-22",
+    "fiscalYear": null,
+    "value": "2329834",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-11-29",
+    "periodEnd": "2017-11-29",
+    "fiscalYear": null,
+    "value": "2271171",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-12-06",
+    "periodEnd": "2017-12-06",
+    "fiscalYear": null,
+    "value": "2325293",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-12-13",
+    "periodEnd": "2017-12-13",
+    "fiscalYear": null,
+    "value": "2322762",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-12-20",
+    "periodEnd": "2017-12-20",
+    "fiscalYear": null,
+    "value": "2237141",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2017-12-27",
+    "periodEnd": "2017-12-27",
+    "fiscalYear": null,
+    "value": "2176452",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-01-03",
+    "periodEnd": "2018-01-03",
+    "fiscalYear": null,
+    "value": "2194651",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-01-10",
+    "periodEnd": "2018-01-10",
+    "fiscalYear": null,
+    "value": "2257894",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-01-17",
+    "periodEnd": "2018-01-17",
+    "fiscalYear": null,
+    "value": "2234452",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-01-24",
+    "periodEnd": "2018-01-24",
+    "fiscalYear": null,
+    "value": "2182220",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-01-31",
+    "periodEnd": "2018-01-31",
+    "fiscalYear": null,
+    "value": "2142376",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-02-07",
+    "periodEnd": "2018-02-07",
+    "fiscalYear": null,
+    "value": "2240014",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-02-14",
+    "periodEnd": "2018-02-14",
+    "fiscalYear": null,
+    "value": "2255967",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-02-21",
+    "periodEnd": "2018-02-21",
+    "fiscalYear": null,
+    "value": "2215339",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-02-28",
+    "periodEnd": "2018-02-28",
+    "fiscalYear": null,
+    "value": "2208308",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-03-07",
+    "periodEnd": "2018-03-07",
+    "fiscalYear": null,
+    "value": "2261352",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-03-14",
+    "periodEnd": "2018-03-14",
+    "fiscalYear": null,
+    "value": "2190143",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-03-21",
+    "periodEnd": "2018-03-21",
+    "fiscalYear": null,
+    "value": "2135068",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-03-28",
+    "periodEnd": "2018-03-28",
+    "fiscalYear": null,
+    "value": "2119005",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-04-04",
+    "periodEnd": "2018-04-04",
+    "fiscalYear": null,
+    "value": "2098731",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-04-11",
+    "periodEnd": "2018-04-11",
+    "fiscalYear": null,
+    "value": "2128844",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-04-18",
+    "periodEnd": "2018-04-18",
+    "fiscalYear": null,
+    "value": "2067159",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-04-25",
+    "periodEnd": "2018-04-25",
+    "fiscalYear": null,
+    "value": "2010948",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-05-02",
+    "periodEnd": "2018-05-02",
+    "fiscalYear": null,
+    "value": "1991823",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-05-09",
+    "periodEnd": "2018-05-09",
+    "fiscalYear": null,
+    "value": "2046775",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-05-16",
+    "periodEnd": "2018-05-16",
+    "fiscalYear": null,
+    "value": "2022661",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-05-23",
+    "periodEnd": "2018-05-23",
+    "fiscalYear": null,
+    "value": "2040545",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-05-30",
+    "periodEnd": "2018-05-30",
+    "fiscalYear": null,
+    "value": "2005886",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-06-06",
+    "periodEnd": "2018-06-06",
+    "fiscalYear": null,
+    "value": "2031965",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-06-13",
+    "periodEnd": "2018-06-13",
+    "fiscalYear": null,
+    "value": "2063038",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-06-20",
+    "periodEnd": "2018-06-20",
+    "fiscalYear": null,
+    "value": "1952143",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-06-27",
+    "periodEnd": "2018-06-27",
+    "fiscalYear": null,
+    "value": "1940916",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-07-04",
+    "periodEnd": "2018-07-04",
+    "fiscalYear": null,
+    "value": "1954210",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-07-11",
+    "periodEnd": "2018-07-11",
+    "fiscalYear": null,
+    "value": "1980868",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-07-18",
+    "periodEnd": "2018-07-18",
+    "fiscalYear": null,
+    "value": "1949944",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-07-25",
+    "periodEnd": "2018-07-25",
+    "fiscalYear": null,
+    "value": "1947287",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-08-01",
+    "periodEnd": "2018-08-01",
+    "fiscalYear": null,
+    "value": "1966432",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-08-08",
+    "periodEnd": "2018-08-08",
+    "fiscalYear": null,
+    "value": "1966103",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-08-15",
+    "periodEnd": "2018-08-15",
+    "fiscalYear": null,
+    "value": "1918744",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-08-22",
+    "periodEnd": "2018-08-22",
+    "fiscalYear": null,
+    "value": "1902785",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-08-29",
+    "periodEnd": "2018-08-29",
+    "fiscalYear": null,
+    "value": "1880507",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-09-05",
+    "periodEnd": "2018-09-05",
+    "fiscalYear": null,
+    "value": "1897901",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-09-12",
+    "periodEnd": "2018-09-12",
+    "fiscalYear": null,
+    "value": "1924008",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-09-19",
+    "periodEnd": "2018-09-19",
+    "fiscalYear": null,
+    "value": "1822718",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-09-26",
+    "periodEnd": "2018-09-26",
+    "fiscalYear": null,
+    "value": "1837874",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-10-03",
+    "periodEnd": "2018-10-03",
+    "fiscalYear": null,
+    "value": "1837587",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-10-10",
+    "periodEnd": "2018-10-10",
+    "fiscalYear": null,
+    "value": "1878887",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-10-17",
+    "periodEnd": "2018-10-17",
+    "fiscalYear": null,
+    "value": "1831618",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-10-24",
+    "periodEnd": "2018-10-24",
+    "fiscalYear": null,
+    "value": "1825009",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-10-31",
+    "periodEnd": "2018-10-31",
+    "fiscalYear": null,
+    "value": "1771541",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-11-07",
+    "periodEnd": "2018-11-07",
+    "fiscalYear": null,
+    "value": "1828825",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-11-14",
+    "periodEnd": "2018-11-14",
+    "fiscalYear": null,
+    "value": "1799528",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-11-21",
+    "periodEnd": "2018-11-21",
+    "fiscalYear": null,
+    "value": "1757502",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-11-28",
+    "periodEnd": "2018-11-28",
+    "fiscalYear": null,
+    "value": "1758681",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-12-05",
+    "periodEnd": "2018-12-05",
+    "fiscalYear": null,
+    "value": "1736305",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-12-12",
+    "periodEnd": "2018-12-12",
+    "fiscalYear": null,
+    "value": "1751413",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-12-19",
+    "periodEnd": "2018-12-19",
+    "fiscalYear": null,
+    "value": "1649163",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2018-12-26",
+    "periodEnd": "2018-12-26",
+    "fiscalYear": null,
+    "value": "1660932",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-01-02",
+    "periodEnd": "2019-01-02",
+    "fiscalYear": null,
+    "value": "1607335",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-01-09",
+    "periodEnd": "2019-01-09",
+    "fiscalYear": null,
+    "value": "1664186",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-01-16",
+    "periodEnd": "2019-01-16",
+    "fiscalYear": null,
+    "value": "1625501",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-01-23",
+    "periodEnd": "2019-01-23",
+    "fiscalYear": null,
+    "value": "1611716",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-01-30",
+    "periodEnd": "2019-01-30",
+    "fiscalYear": null,
+    "value": "1609140",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-02-06",
+    "periodEnd": "2019-02-06",
+    "fiscalYear": null,
+    "value": "1658863",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-02-13",
+    "periodEnd": "2019-02-13",
+    "fiscalYear": null,
+    "value": "1634417",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-02-20",
+    "periodEnd": "2019-02-20",
+    "fiscalYear": null,
+    "value": "1619745",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-02-27",
+    "periodEnd": "2019-02-27",
+    "fiscalYear": null,
+    "value": "1682210",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-03-06",
+    "periodEnd": "2019-03-06",
+    "fiscalYear": null,
+    "value": "1736547",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-03-13",
+    "periodEnd": "2019-03-13",
+    "fiscalYear": null,
+    "value": "1707125",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-03-20",
+    "periodEnd": "2019-03-20",
+    "fiscalYear": null,
+    "value": "1623812",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-03-27",
+    "periodEnd": "2019-03-27",
+    "fiscalYear": null,
+    "value": "1632788",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-04-03",
+    "periodEnd": "2019-04-03",
+    "fiscalYear": null,
+    "value": "1630987",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-04-10",
+    "periodEnd": "2019-04-10",
+    "fiscalYear": null,
+    "value": "1646560",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-04-17",
+    "periodEnd": "2019-04-17",
+    "fiscalYear": null,
+    "value": "1524297",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-04-24",
+    "periodEnd": "2019-04-24",
+    "fiscalYear": null,
+    "value": "1472812",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-05-01",
+    "periodEnd": "2019-05-01",
+    "fiscalYear": null,
+    "value": "1460010",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-05-08",
+    "periodEnd": "2019-05-08",
+    "fiscalYear": null,
+    "value": "1490680",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-05-15",
+    "periodEnd": "2019-05-15",
+    "fiscalYear": null,
+    "value": "1516418",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-05-22",
+    "periodEnd": "2019-05-22",
+    "fiscalYear": null,
+    "value": "1532833",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-05-29",
+    "periodEnd": "2019-05-29",
+    "fiscalYear": null,
+    "value": "1534792",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-06-05",
+    "periodEnd": "2019-06-05",
+    "fiscalYear": null,
+    "value": "1559710",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-06-12",
+    "periodEnd": "2019-06-12",
+    "fiscalYear": null,
+    "value": "1609738",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-06-19",
+    "periodEnd": "2019-06-19",
+    "fiscalYear": null,
+    "value": "1501524",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-06-26",
+    "periodEnd": "2019-06-26",
+    "fiscalYear": null,
+    "value": "1508451",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-07-03",
+    "periodEnd": "2019-07-03",
+    "fiscalYear": null,
+    "value": "1485213",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-07-10",
+    "periodEnd": "2019-07-10",
+    "fiscalYear": null,
+    "value": "1525352",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-07-17",
+    "periodEnd": "2019-07-17",
+    "fiscalYear": null,
+    "value": "1515067",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-07-24",
+    "periodEnd": "2019-07-24",
+    "fiscalYear": null,
+    "value": "1525340",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-07-31",
+    "periodEnd": "2019-07-31",
+    "fiscalYear": null,
+    "value": "1490546",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-08-07",
+    "periodEnd": "2019-08-07",
+    "fiscalYear": null,
+    "value": "1551621",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-08-14",
+    "periodEnd": "2019-08-14",
+    "fiscalYear": null,
+    "value": "1511264",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-08-21",
+    "periodEnd": "2019-08-21",
+    "fiscalYear": null,
+    "value": "1517820",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-08-28",
+    "periodEnd": "2019-08-28",
+    "fiscalYear": null,
+    "value": "1504243",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-09-04",
+    "periodEnd": "2019-09-04",
+    "fiscalYear": null,
+    "value": "1454454",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-09-11",
+    "periodEnd": "2019-09-11",
+    "fiscalYear": null,
+    "value": "1458666",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-09-18",
+    "periodEnd": "2019-09-18",
+    "fiscalYear": null,
+    "value": "1385426",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-09-25",
+    "periodEnd": "2019-09-25",
+    "fiscalYear": null,
+    "value": "1427289",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-10-02",
+    "periodEnd": "2019-10-02",
+    "fiscalYear": null,
+    "value": "1486710",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-10-09",
+    "periodEnd": "2019-10-09",
+    "fiscalYear": null,
+    "value": "1528394",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-10-16",
+    "periodEnd": "2019-10-16",
+    "fiscalYear": null,
+    "value": "1469871",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-10-23",
+    "periodEnd": "2019-10-23",
+    "fiscalYear": null,
+    "value": "1451555",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-10-30",
+    "periodEnd": "2019-10-30",
+    "fiscalYear": null,
+    "value": "1484718",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-11-06",
+    "periodEnd": "2019-11-06",
+    "fiscalYear": null,
+    "value": "1528757",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-11-13",
+    "periodEnd": "2019-11-13",
+    "fiscalYear": null,
+    "value": "1542664",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-11-20",
+    "periodEnd": "2019-11-20",
+    "fiscalYear": null,
+    "value": "1530158",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-11-27",
+    "periodEnd": "2019-11-27",
+    "fiscalYear": null,
+    "value": "1559719",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-12-04",
+    "periodEnd": "2019-12-04",
+    "fiscalYear": null,
+    "value": "1593719",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-12-11",
+    "periodEnd": "2019-12-11",
+    "fiscalYear": null,
+    "value": "1671196",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-12-18",
+    "periodEnd": "2019-12-18",
+    "fiscalYear": null,
+    "value": "1631448",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2019-12-25",
+    "periodEnd": "2019-12-25",
+    "fiscalYear": null,
+    "value": "1648238",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-01-01",
+    "periodEnd": "2020-01-01",
+    "fiscalYear": null,
+    "value": "1548849",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-01-08",
+    "periodEnd": "2020-01-08",
+    "fiscalYear": null,
+    "value": "1656629",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-01-15",
+    "periodEnd": "2020-01-15",
+    "fiscalYear": null,
+    "value": "1673362",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-01-22",
+    "periodEnd": "2020-01-22",
+    "fiscalYear": null,
+    "value": "1609594",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-01-29",
+    "periodEnd": "2020-01-29",
+    "fiscalYear": null,
+    "value": "1612223",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-02-05",
+    "periodEnd": "2020-02-05",
+    "fiscalYear": null,
+    "value": "1652873",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-02-12",
+    "periodEnd": "2020-02-12",
+    "fiscalYear": null,
+    "value": "1695082",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-02-19",
+    "periodEnd": "2020-02-19",
+    "fiscalYear": null,
+    "value": "1659021",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-02-26",
+    "periodEnd": "2020-02-26",
+    "fiscalYear": null,
+    "value": "1680070",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-03-04",
+    "periodEnd": "2020-03-04",
+    "fiscalYear": null,
+    "value": "1735005",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-03-11",
+    "periodEnd": "2020-03-11",
+    "fiscalYear": null,
+    "value": "1779990",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-03-18",
+    "periodEnd": "2020-03-18",
+    "fiscalYear": null,
+    "value": "1945393",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-03-25",
+    "periodEnd": "2020-03-25",
+    "fiscalYear": null,
+    "value": "2347747",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-04-01",
+    "periodEnd": "2020-04-01",
+    "fiscalYear": null,
+    "value": "2684398",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-04-08",
+    "periodEnd": "2020-04-08",
+    "fiscalYear": null,
+    "value": "2774503",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-04-15",
+    "periodEnd": "2020-04-15",
+    "fiscalYear": null,
+    "value": "3069872",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-04-22",
+    "periodEnd": "2020-04-22",
+    "fiscalYear": null,
+    "value": "3099980",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-04-29",
+    "periodEnd": "2020-04-29",
+    "fiscalYear": null,
+    "value": "3163512",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-05-06",
+    "periodEnd": "2020-05-06",
+    "fiscalYear": null,
+    "value": "3165605",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-05-13",
+    "periodEnd": "2020-05-13",
+    "fiscalYear": null,
+    "value": "3263431",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-05-20",
+    "periodEnd": "2020-05-20",
+    "fiscalYear": null,
+    "value": "3304221",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-05-27",
+    "periodEnd": "2020-05-27",
+    "fiscalYear": null,
+    "value": "3317688",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-06-03",
+    "periodEnd": "2020-06-03",
+    "fiscalYear": null,
+    "value": "3257435",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-06-10",
+    "periodEnd": "2020-06-10",
+    "fiscalYear": null,
+    "value": "3190654",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-06-17",
+    "periodEnd": "2020-06-17",
+    "fiscalYear": null,
+    "value": "3069439",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-06-24",
+    "periodEnd": "2020-06-24",
+    "fiscalYear": null,
+    "value": "2937657",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-07-01",
+    "periodEnd": "2020-07-01",
+    "fiscalYear": null,
+    "value": "2863196",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-07-08",
+    "periodEnd": "2020-07-08",
+    "fiscalYear": null,
+    "value": "2813296",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-07-15",
+    "periodEnd": "2020-07-15",
+    "fiscalYear": null,
+    "value": "2732649",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-07-22",
+    "periodEnd": "2020-07-22",
+    "fiscalYear": null,
+    "value": "2659658",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-07-29",
+    "periodEnd": "2020-07-29",
+    "fiscalYear": null,
+    "value": "2685376",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-08-05",
+    "periodEnd": "2020-08-05",
+    "fiscalYear": null,
+    "value": "2753531",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-08-12",
+    "periodEnd": "2020-08-12",
+    "fiscalYear": null,
+    "value": "2828170",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-08-19",
+    "periodEnd": "2020-08-19",
+    "fiscalYear": null,
+    "value": "2821849",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-08-26",
+    "periodEnd": "2020-08-26",
+    "fiscalYear": null,
+    "value": "2875399",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-09-02",
+    "periodEnd": "2020-09-02",
+    "fiscalYear": null,
+    "value": "2850600",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-09-09",
+    "periodEnd": "2020-09-09",
+    "fiscalYear": null,
+    "value": "2906853",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-09-16",
+    "periodEnd": "2020-09-16",
+    "fiscalYear": null,
+    "value": "2869309",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-09-23",
+    "periodEnd": "2020-09-23",
+    "fiscalYear": null,
+    "value": "2848082",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-09-30",
+    "periodEnd": "2020-09-30",
+    "fiscalYear": null,
+    "value": "2743245",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-10-07",
+    "periodEnd": "2020-10-07",
+    "fiscalYear": null,
+    "value": "2863357",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-10-14",
+    "periodEnd": "2020-10-14",
+    "fiscalYear": null,
+    "value": "2907734",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-10-21",
+    "periodEnd": "2020-10-21",
+    "fiscalYear": null,
+    "value": "2890130",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-10-28",
+    "periodEnd": "2020-10-28",
+    "fiscalYear": null,
+    "value": "2947256",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-11-04",
+    "periodEnd": "2020-11-04",
+    "fiscalYear": null,
+    "value": "2979537",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-11-11",
+    "periodEnd": "2020-11-11",
+    "fiscalYear": null,
+    "value": "2992098",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-11-18",
+    "periodEnd": "2020-11-18",
+    "fiscalYear": null,
+    "value": "3033228",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-11-25",
+    "periodEnd": "2020-11-25",
+    "fiscalYear": null,
+    "value": "3143863",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-12-02",
+    "periodEnd": "2020-12-02",
+    "fiscalYear": null,
+    "value": "3101235",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-12-09",
+    "periodEnd": "2020-12-09",
+    "fiscalYear": null,
+    "value": "3147656",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-12-16",
+    "periodEnd": "2020-12-16",
+    "fiscalYear": null,
+    "value": "3168826",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-12-23",
+    "periodEnd": "2020-12-23",
+    "fiscalYear": null,
+    "value": "3177306",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2020-12-30",
+    "periodEnd": "2020-12-30",
+    "fiscalYear": null,
+    "value": "3142970",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-01-06",
+    "periodEnd": "2021-01-06",
+    "fiscalYear": null,
+    "value": "3163778",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-01-13",
+    "periodEnd": "2021-01-13",
+    "fiscalYear": null,
+    "value": "3200869",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-01-20",
+    "periodEnd": "2021-01-20",
+    "fiscalYear": null,
+    "value": "3149807",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-01-27",
+    "periodEnd": "2021-01-27",
+    "fiscalYear": null,
+    "value": "3228751",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-02-03",
+    "periodEnd": "2021-02-03",
+    "fiscalYear": null,
+    "value": "3202722",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-02-10",
+    "periodEnd": "2021-02-10",
+    "fiscalYear": null,
+    "value": "3298639",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-02-17",
+    "periodEnd": "2021-02-17",
+    "fiscalYear": null,
+    "value": "3407871",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-02-24",
+    "periodEnd": "2021-02-24",
+    "fiscalYear": null,
+    "value": "3384183",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-03-03",
+    "periodEnd": "2021-03-03",
+    "fiscalYear": null,
+    "value": "3564850",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-03-10",
+    "periodEnd": "2021-03-10",
+    "fiscalYear": null,
+    "value": "3646732",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-03-17",
+    "periodEnd": "2021-03-17",
+    "fiscalYear": null,
+    "value": "3873323",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-03-24",
+    "periodEnd": "2021-03-24",
+    "fiscalYear": null,
+    "value": "3809139",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-03-31",
+    "periodEnd": "2021-03-31",
+    "fiscalYear": null,
+    "value": "3672702",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-04-07",
+    "periodEnd": "2021-04-07",
+    "fiscalYear": null,
+    "value": "3944055",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-04-14",
+    "periodEnd": "2021-04-14",
+    "fiscalYear": null,
+    "value": "3936454",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-04-21",
+    "periodEnd": "2021-04-21",
+    "fiscalYear": null,
+    "value": "3767454",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-04-28",
+    "periodEnd": "2021-04-28",
+    "fiscalYear": null,
+    "value": "3889018",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-05-05",
+    "periodEnd": "2021-05-05",
+    "fiscalYear": null,
+    "value": "3900803",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-05-12",
+    "periodEnd": "2021-05-12",
+    "fiscalYear": null,
+    "value": "3955864",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-05-19",
+    "periodEnd": "2021-05-19",
+    "fiscalYear": null,
+    "value": "3823979",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-05-26",
+    "periodEnd": "2021-05-26",
+    "fiscalYear": null,
+    "value": "3851623",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-06-02",
+    "periodEnd": "2021-06-02",
+    "fiscalYear": null,
+    "value": "3848262",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-06-09",
+    "periodEnd": "2021-06-09",
+    "fiscalYear": null,
+    "value": "3916725",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-06-16",
+    "periodEnd": "2021-06-16",
+    "fiscalYear": null,
+    "value": "3905735",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-06-23",
+    "periodEnd": "2021-06-23",
+    "fiscalYear": null,
+    "value": "3765713",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-06-30",
+    "periodEnd": "2021-06-30",
+    "fiscalYear": null,
+    "value": "3511630",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-07-07",
+    "periodEnd": "2021-07-07",
+    "fiscalYear": null,
+    "value": "3856203",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-07-14",
+    "periodEnd": "2021-07-14",
+    "fiscalYear": null,
+    "value": "3944700",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-07-21",
+    "periodEnd": "2021-07-21",
+    "fiscalYear": null,
+    "value": "3974547",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-07-28",
+    "periodEnd": "2021-07-28",
+    "fiscalYear": null,
+    "value": "4001061",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-08-04",
+    "periodEnd": "2021-08-04",
+    "fiscalYear": null,
+    "value": "4045893",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-08-11",
+    "periodEnd": "2021-08-11",
+    "fiscalYear": null,
+    "value": "4127290",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-08-18",
+    "periodEnd": "2021-08-18",
+    "fiscalYear": null,
+    "value": "4162165",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-08-25",
+    "periodEnd": "2021-08-25",
+    "fiscalYear": null,
+    "value": "4203475",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-09-01",
+    "periodEnd": "2021-09-01",
+    "fiscalYear": null,
+    "value": "4206449",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-09-08",
+    "periodEnd": "2021-09-08",
+    "fiscalYear": null,
+    "value": "4259603",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-09-15",
+    "periodEnd": "2021-09-15",
+    "fiscalYear": null,
+    "value": "4244677",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-09-22",
+    "periodEnd": "2021-09-22",
+    "fiscalYear": null,
+    "value": "4137919",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-09-29",
+    "periodEnd": "2021-09-29",
+    "fiscalYear": null,
+    "value": "4094809",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-10-06",
+    "periodEnd": "2021-10-06",
+    "fiscalYear": null,
+    "value": "4167544",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-10-13",
+    "periodEnd": "2021-10-13",
+    "fiscalYear": null,
+    "value": "4204509",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-10-20",
+    "periodEnd": "2021-10-20",
+    "fiscalYear": null,
+    "value": "4050343",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-10-27",
+    "periodEnd": "2021-10-27",
+    "fiscalYear": null,
+    "value": "4123154",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-11-03",
+    "periodEnd": "2021-11-03",
+    "fiscalYear": null,
+    "value": "4149830",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-11-10",
+    "periodEnd": "2021-11-10",
+    "fiscalYear": null,
+    "value": "4178586",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-11-17",
+    "periodEnd": "2021-11-17",
+    "fiscalYear": null,
+    "value": "4188837",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-11-24",
+    "periodEnd": "2021-11-24",
+    "fiscalYear": null,
+    "value": "4172807",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-12-01",
+    "periodEnd": "2021-12-01",
+    "fiscalYear": null,
+    "value": "4266022",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-12-08",
+    "periodEnd": "2021-12-08",
+    "fiscalYear": null,
+    "value": "4255599",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-12-15",
+    "periodEnd": "2021-12-15",
+    "fiscalYear": null,
+    "value": "4273634",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-12-22",
+    "periodEnd": "2021-12-22",
+    "fiscalYear": null,
+    "value": "4104914",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2021-12-29",
+    "periodEnd": "2021-12-29",
+    "fiscalYear": null,
+    "value": "4039860",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-01-05",
+    "periodEnd": "2022-01-05",
+    "fiscalYear": null,
+    "value": "4028460",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-01-12",
+    "periodEnd": "2022-01-12",
+    "fiscalYear": null,
+    "value": "3928933",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-01-19",
+    "periodEnd": "2022-01-19",
+    "fiscalYear": null,
+    "value": "3821743",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-01-26",
+    "periodEnd": "2022-01-26",
+    "fiscalYear": null,
+    "value": "3825076",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-02-02",
+    "periodEnd": "2022-02-02",
+    "fiscalYear": null,
+    "value": "3756617",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-02-09",
+    "periodEnd": "2022-02-09",
+    "fiscalYear": null,
+    "value": "3794977",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-02-16",
+    "periodEnd": "2022-02-16",
+    "fiscalYear": null,
+    "value": "3796720",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-02-23",
+    "periodEnd": "2022-02-23",
+    "fiscalYear": null,
+    "value": "3745976",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-03-02",
+    "periodEnd": "2022-03-02",
+    "fiscalYear": null,
+    "value": "3919484",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-03-09",
+    "periodEnd": "2022-03-09",
+    "fiscalYear": null,
+    "value": "3953650",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-03-16",
+    "periodEnd": "2022-03-16",
+    "fiscalYear": null,
+    "value": "3893412",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-03-23",
+    "periodEnd": "2022-03-23",
+    "fiscalYear": null,
+    "value": "3769046",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-03-30",
+    "periodEnd": "2022-03-30",
+    "fiscalYear": null,
+    "value": "3773466",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-04-06",
+    "periodEnd": "2022-04-06",
+    "fiscalYear": null,
+    "value": "3849872",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-04-13",
+    "periodEnd": "2022-04-13",
+    "fiscalYear": null,
+    "value": "3793317",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-04-20",
+    "periodEnd": "2022-04-20",
+    "fiscalYear": null,
+    "value": "3326857",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-04-27",
+    "periodEnd": "2022-04-27",
+    "fiscalYear": null,
+    "value": "3327548",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-05-04",
+    "periodEnd": "2022-05-04",
+    "fiscalYear": null,
+    "value": "3313993",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-05-11",
+    "periodEnd": "2022-05-11",
+    "fiscalYear": null,
+    "value": "3295680",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-05-18",
+    "periodEnd": "2022-05-18",
+    "fiscalYear": null,
+    "value": "3297142",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-05-25",
+    "periodEnd": "2022-05-25",
+    "fiscalYear": null,
+    "value": "3315018",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-06-01",
+    "periodEnd": "2022-06-01",
+    "fiscalYear": null,
+    "value": "3357395",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-06-08",
+    "periodEnd": "2022-06-08",
+    "fiscalYear": null,
+    "value": "3292602",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-06-15",
+    "periodEnd": "2022-06-15",
+    "fiscalYear": null,
+    "value": "3189605",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-06-22",
+    "periodEnd": "2022-06-22",
+    "fiscalYear": null,
+    "value": "3115589",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-06-29",
+    "periodEnd": "2022-06-29",
+    "fiscalYear": null,
+    "value": "3118611",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-07-06",
+    "periodEnd": "2022-07-06",
+    "fiscalYear": null,
+    "value": "3222930",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-07-13",
+    "periodEnd": "2022-07-13",
+    "fiscalYear": null,
+    "value": "3306518",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-07-20",
+    "periodEnd": "2022-07-20",
+    "fiscalYear": null,
+    "value": "3235172",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-07-27",
+    "periodEnd": "2022-07-27",
+    "fiscalYear": null,
+    "value": "3275609",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-08-03",
+    "periodEnd": "2022-08-03",
+    "fiscalYear": null,
+    "value": "3342517",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-08-10",
+    "periodEnd": "2022-08-10",
+    "fiscalYear": null,
+    "value": "3357493",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-08-17",
+    "periodEnd": "2022-08-17",
+    "fiscalYear": null,
+    "value": "3333695",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-08-24",
+    "periodEnd": "2022-08-24",
+    "fiscalYear": null,
+    "value": "3270912",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-08-31",
+    "periodEnd": "2022-08-31",
+    "fiscalYear": null,
+    "value": "3115846",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-09-07",
+    "periodEnd": "2022-09-07",
+    "fiscalYear": null,
+    "value": "3271336",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-09-14",
+    "periodEnd": "2022-09-14",
+    "fiscalYear": null,
+    "value": "3158694",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-09-21",
+    "periodEnd": "2022-09-21",
+    "fiscalYear": null,
+    "value": "3003721",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-09-28",
+    "periodEnd": "2022-09-28",
+    "fiscalYear": null,
+    "value": "2983206",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-10-05",
+    "periodEnd": "2022-10-05",
+    "fiscalYear": null,
+    "value": "3076450",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-10-12",
+    "periodEnd": "2022-10-12",
+    "fiscalYear": null,
+    "value": "3090307",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-10-19",
+    "periodEnd": "2022-10-19",
+    "fiscalYear": null,
+    "value": "3040777",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-10-26",
+    "periodEnd": "2022-10-26",
+    "fiscalYear": null,
+    "value": "3108146",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-11-02",
+    "periodEnd": "2022-11-02",
+    "fiscalYear": null,
+    "value": "3046975",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-11-09",
+    "periodEnd": "2022-11-09",
+    "fiscalYear": null,
+    "value": "3071230",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-11-16",
+    "periodEnd": "2022-11-16",
+    "fiscalYear": null,
+    "value": "3176796",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-11-23",
+    "periodEnd": "2022-11-23",
+    "fiscalYear": null,
+    "value": "3168849",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-11-30",
+    "periodEnd": "2022-11-30",
+    "fiscalYear": null,
+    "value": "3052233",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-12-07",
+    "periodEnd": "2022-12-07",
+    "fiscalYear": null,
+    "value": "3149088",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-12-14",
+    "periodEnd": "2022-12-14",
+    "fiscalYear": null,
+    "value": "3170805",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-12-21",
+    "periodEnd": "2022-12-21",
+    "fiscalYear": null,
+    "value": "3049325",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2022-12-28",
+    "periodEnd": "2022-12-28",
+    "fiscalYear": null,
+    "value": "2979738",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-01-04",
+    "periodEnd": "2023-01-04",
+    "fiscalYear": null,
+    "value": "3041928",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-01-11",
+    "periodEnd": "2023-01-11",
+    "fiscalYear": null,
+    "value": "3116831",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-01-18",
+    "periodEnd": "2023-01-18",
+    "fiscalYear": null,
+    "value": "3118236",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-01-25",
+    "periodEnd": "2023-01-25",
+    "fiscalYear": null,
+    "value": "3000541",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-02-01",
+    "periodEnd": "2023-02-01",
+    "fiscalYear": null,
+    "value": "3030286",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-02-08",
+    "periodEnd": "2023-02-08",
+    "fiscalYear": null,
+    "value": "3033560",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-02-15",
+    "periodEnd": "2023-02-15",
+    "fiscalYear": null,
+    "value": "3107419",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-02-22",
+    "periodEnd": "2023-02-22",
+    "fiscalYear": null,
+    "value": "2983553",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-03-01",
+    "periodEnd": "2023-03-01",
+    "fiscalYear": null,
+    "value": "3027967",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-03-08",
+    "periodEnd": "2023-03-08",
+    "fiscalYear": null,
+    "value": "3003676",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-03-15",
+    "periodEnd": "2023-03-15",
+    "fiscalYear": null,
+    "value": "3444208",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-03-22",
+    "periodEnd": "2023-03-22",
+    "fiscalYear": null,
+    "value": "3369986",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-03-29",
+    "periodEnd": "2023-03-29",
+    "fiscalYear": null,
+    "value": "3401800",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-04-05",
+    "periodEnd": "2023-04-05",
+    "fiscalYear": null,
+    "value": "3381350",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-04-12",
+    "periodEnd": "2023-04-12",
+    "fiscalYear": null,
+    "value": "3347553",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-04-19",
+    "periodEnd": "2023-04-19",
+    "fiscalYear": null,
+    "value": "3164881",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-04-26",
+    "periodEnd": "2023-04-26",
+    "fiscalYear": null,
+    "value": "3132099",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-05-03",
+    "periodEnd": "2023-05-03",
+    "fiscalYear": null,
+    "value": "3166236",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-05-10",
+    "periodEnd": "2023-05-10",
+    "fiscalYear": null,
+    "value": "3225311",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-05-17",
+    "periodEnd": "2023-05-17",
+    "fiscalYear": null,
+    "value": "3279987",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-05-24",
+    "periodEnd": "2023-05-24",
+    "fiscalYear": null,
+    "value": "3250771",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-05-31",
+    "periodEnd": "2023-05-31",
+    "fiscalYear": null,
+    "value": "3205526",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-06-07",
+    "periodEnd": "2023-06-07",
+    "fiscalYear": null,
+    "value": "3306154",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-06-14",
+    "periodEnd": "2023-06-14",
+    "fiscalYear": null,
+    "value": "3306311",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-06-21",
+    "periodEnd": "2023-06-21",
+    "fiscalYear": null,
+    "value": "3203951",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-06-28",
+    "periodEnd": "2023-06-28",
+    "fiscalYear": null,
+    "value": "3176029",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-07-05",
+    "periodEnd": "2023-07-05",
+    "fiscalYear": null,
+    "value": "3179646",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-07-12",
+    "periodEnd": "2023-07-12",
+    "fiscalYear": null,
+    "value": "3162124",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-07-19",
+    "periodEnd": "2023-07-19",
+    "fiscalYear": null,
+    "value": "3220590",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-07-26",
+    "periodEnd": "2023-07-26",
+    "fiscalYear": null,
+    "value": "3166767",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-08-02",
+    "periodEnd": "2023-08-02",
+    "fiscalYear": null,
+    "value": "3217397",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-08-09",
+    "periodEnd": "2023-08-09",
+    "fiscalYear": null,
+    "value": "3228582",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-08-16",
+    "periodEnd": "2023-08-16",
+    "fiscalYear": null,
+    "value": "3228952",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-08-23",
+    "periodEnd": "2023-08-23",
+    "fiscalYear": null,
+    "value": "3177380",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-08-30",
+    "periodEnd": "2023-08-30",
+    "fiscalYear": null,
+    "value": "3196542",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-09-06",
+    "periodEnd": "2023-09-06",
+    "fiscalYear": null,
+    "value": "3290475",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-09-13",
+    "periodEnd": "2023-09-13",
+    "fiscalYear": null,
+    "value": "3310525",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-09-20",
+    "periodEnd": "2023-09-20",
+    "fiscalYear": null,
+    "value": "3144404",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-09-27",
+    "periodEnd": "2023-09-27",
+    "fiscalYear": null,
+    "value": "3168502",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-10-04",
+    "periodEnd": "2023-10-04",
+    "fiscalYear": null,
+    "value": "3240707",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-10-11",
+    "periodEnd": "2023-10-11",
+    "fiscalYear": null,
+    "value": "3315650",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-10-18",
+    "periodEnd": "2023-10-18",
+    "fiscalYear": null,
+    "value": "3250230",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-10-25",
+    "periodEnd": "2023-10-25",
+    "fiscalYear": null,
+    "value": "3263971",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-11-01",
+    "periodEnd": "2023-11-01",
+    "fiscalYear": null,
+    "value": "3314630",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-11-08",
+    "periodEnd": "2023-11-08",
+    "fiscalYear": null,
+    "value": "3360426",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-11-15",
+    "periodEnd": "2023-11-15",
+    "fiscalYear": null,
+    "value": "3483325",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-11-22",
+    "periodEnd": "2023-11-22",
+    "fiscalYear": null,
+    "value": "3455063",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-11-29",
+    "periodEnd": "2023-11-29",
+    "fiscalYear": null,
+    "value": "3395396",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-12-06",
+    "periodEnd": "2023-12-06",
+    "fiscalYear": null,
+    "value": "3496754",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-12-13",
+    "periodEnd": "2023-12-13",
+    "fiscalYear": null,
+    "value": "3567772",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-12-20",
+    "periodEnd": "2023-12-20",
+    "fiscalYear": null,
+    "value": "3477288",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2023-12-27",
+    "periodEnd": "2023-12-27",
+    "fiscalYear": null,
+    "value": "3434213",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-01-03",
+    "periodEnd": "2024-01-03",
+    "fiscalYear": null,
+    "value": "3459408",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-01-10",
+    "periodEnd": "2024-01-10",
+    "fiscalYear": null,
+    "value": "3537383",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-01-17",
+    "periodEnd": "2024-01-17",
+    "fiscalYear": null,
+    "value": "3592326",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-01-24",
+    "periodEnd": "2024-01-24",
+    "fiscalYear": null,
+    "value": "3489709",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-01-31",
+    "periodEnd": "2024-01-31",
+    "fiscalYear": null,
+    "value": "3411717",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-02-07",
+    "periodEnd": "2024-02-07",
+    "fiscalYear": null,
+    "value": "3555738",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-02-14",
+    "periodEnd": "2024-02-14",
+    "fiscalYear": null,
+    "value": "3537469",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-02-21",
+    "periodEnd": "2024-02-21",
+    "fiscalYear": null,
+    "value": "3523095",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-02-28",
+    "periodEnd": "2024-02-28",
+    "fiscalYear": null,
+    "value": "3540982",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-03-06",
+    "periodEnd": "2024-03-06",
+    "fiscalYear": null,
+    "value": "3620689",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-03-13",
+    "periodEnd": "2024-03-13",
+    "fiscalYear": null,
+    "value": "3573153",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-03-20",
+    "periodEnd": "2024-03-20",
+    "fiscalYear": null,
+    "value": "3489577",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-03-27",
+    "periodEnd": "2024-03-27",
+    "fiscalYear": null,
+    "value": "3472403",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-04-03",
+    "periodEnd": "2024-04-03",
+    "fiscalYear": null,
+    "value": "3541167",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-04-10",
+    "periodEnd": "2024-04-10",
+    "fiscalYear": null,
+    "value": "3615691",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-04-17",
+    "periodEnd": "2024-04-17",
+    "fiscalYear": null,
+    "value": "3329532",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-04-24",
+    "periodEnd": "2024-04-24",
+    "fiscalYear": null,
+    "value": "3271706",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-05-01",
+    "periodEnd": "2024-05-01",
+    "fiscalYear": null,
+    "value": "3316943",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-05-08",
+    "periodEnd": "2024-05-08",
+    "fiscalYear": null,
+    "value": "3330687",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-05-15",
+    "periodEnd": "2024-05-15",
+    "fiscalYear": null,
+    "value": "3416386",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-05-22",
+    "periodEnd": "2024-05-22",
+    "fiscalYear": null,
+    "value": "3375014",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-05-29",
+    "periodEnd": "2024-05-29",
+    "fiscalYear": null,
+    "value": "3391075",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-06-05",
+    "periodEnd": "2024-06-05",
+    "fiscalYear": null,
+    "value": "3457738",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-06-12",
+    "periodEnd": "2024-06-12",
+    "fiscalYear": null,
+    "value": "3434032",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-06-19",
+    "periodEnd": "2024-06-19",
+    "fiscalYear": null,
+    "value": "3366166",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-06-26",
+    "periodEnd": "2024-06-26",
+    "fiscalYear": null,
+    "value": "3268895",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-07-03",
+    "periodEnd": "2024-07-03",
+    "fiscalYear": null,
+    "value": "3322165",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-07-10",
+    "periodEnd": "2024-07-10",
+    "fiscalYear": null,
+    "value": "3341046",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-07-17",
+    "periodEnd": "2024-07-17",
+    "fiscalYear": null,
+    "value": "3322446",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-07-24",
+    "periodEnd": "2024-07-24",
+    "fiscalYear": null,
+    "value": "3275885",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-07-31",
+    "periodEnd": "2024-07-31",
+    "fiscalYear": null,
+    "value": "3178700",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-08-07",
+    "periodEnd": "2024-08-07",
+    "fiscalYear": null,
+    "value": "3372916",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-08-14",
+    "periodEnd": "2024-08-14",
+    "fiscalYear": null,
+    "value": "3338916",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-08-21",
+    "periodEnd": "2024-08-21",
+    "fiscalYear": null,
+    "value": "3359078",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-08-28",
+    "periodEnd": "2024-08-28",
+    "fiscalYear": null,
+    "value": "3244959",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-09-04",
+    "periodEnd": "2024-09-04",
+    "fiscalYear": null,
+    "value": "3264604",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-09-11",
+    "periodEnd": "2024-09-11",
+    "fiscalYear": null,
+    "value": "3359741",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-09-18",
+    "periodEnd": "2024-09-18",
+    "fiscalYear": null,
+    "value": "3216822",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-09-25",
+    "periodEnd": "2024-09-25",
+    "fiscalYear": null,
+    "value": "3141565",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-10-02",
+    "periodEnd": "2024-10-02",
+    "fiscalYear": null,
+    "value": "3097210",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-10-09",
+    "periodEnd": "2024-10-09",
+    "fiscalYear": null,
+    "value": "3197045",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-10-16",
+    "periodEnd": "2024-10-16",
+    "fiscalYear": null,
+    "value": "3228838",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-10-23",
+    "periodEnd": "2024-10-23",
+    "fiscalYear": null,
+    "value": "3228462",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-10-30",
+    "periodEnd": "2024-10-30",
+    "fiscalYear": null,
+    "value": "3215794",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-11-06",
+    "periodEnd": "2024-11-06",
+    "fiscalYear": null,
+    "value": "3255532",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-11-13",
+    "periodEnd": "2024-11-13",
+    "fiscalYear": null,
+    "value": "3192048",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-11-20",
+    "periodEnd": "2024-11-20",
+    "fiscalYear": null,
+    "value": "3267319",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-11-27",
+    "periodEnd": "2024-11-27",
+    "fiscalYear": null,
+    "value": "3234035",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-12-04",
+    "periodEnd": "2024-12-04",
+    "fiscalYear": null,
+    "value": "3216149",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-12-11",
+    "periodEnd": "2024-12-11",
+    "fiscalYear": null,
+    "value": "3273805",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-12-18",
+    "periodEnd": "2024-12-18",
+    "fiscalYear": null,
+    "value": "3237459",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2024-12-25",
+    "periodEnd": "2024-12-25",
+    "fiscalYear": null,
+    "value": "3218476",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-01-01",
+    "periodEnd": "2025-01-01",
+    "fiscalYear": null,
+    "value": "2892359",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-01-08",
+    "periodEnd": "2025-01-08",
+    "fiscalYear": null,
+    "value": "3332435",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-01-15",
+    "periodEnd": "2025-01-15",
+    "fiscalYear": null,
+    "value": "3359041",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-01-22",
+    "periodEnd": "2025-01-22",
+    "fiscalYear": null,
+    "value": "3331196",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-01-29",
+    "periodEnd": "2025-01-29",
+    "fiscalYear": null,
+    "value": "3200654",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-02-05",
+    "periodEnd": "2025-02-05",
+    "fiscalYear": null,
+    "value": "3233328",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-02-12",
+    "periodEnd": "2025-02-12",
+    "fiscalYear": null,
+    "value": "3255407",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-02-19",
+    "periodEnd": "2025-02-19",
+    "fiscalYear": null,
+    "value": "3276141",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-02-26",
+    "periodEnd": "2025-02-26",
+    "fiscalYear": null,
+    "value": "3380755",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-03-05",
+    "periodEnd": "2025-03-05",
+    "fiscalYear": null,
+    "value": "3381174",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-03-12",
+    "periodEnd": "2025-03-12",
+    "fiscalYear": null,
+    "value": "3459687",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-03-19",
+    "periodEnd": "2025-03-19",
+    "fiscalYear": null,
+    "value": "3425713",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-03-26",
+    "periodEnd": "2025-03-26",
+    "fiscalYear": null,
+    "value": "3450550",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-04-02",
+    "periodEnd": "2025-04-02",
+    "fiscalYear": null,
+    "value": "3427049",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-04-09",
+    "periodEnd": "2025-04-09",
+    "fiscalYear": null,
+    "value": "3484345",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-04-16",
+    "periodEnd": "2025-04-16",
+    "fiscalYear": null,
+    "value": "3280845",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-04-23",
+    "periodEnd": "2025-04-23",
+    "fiscalYear": null,
+    "value": "3208915",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-04-30",
+    "periodEnd": "2025-04-30",
+    "fiscalYear": null,
+    "value": "3000277",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-05-07",
+    "periodEnd": "2025-05-07",
+    "fiscalYear": null,
+    "value": "3200619",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-05-14",
+    "periodEnd": "2025-05-14",
+    "fiscalYear": null,
+    "value": "3235715",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-05-21",
+    "periodEnd": "2025-05-21",
+    "fiscalYear": null,
+    "value": "3283765",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-05-28",
+    "periodEnd": "2025-05-28",
+    "fiscalYear": null,
+    "value": "3294014",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-06-04",
+    "periodEnd": "2025-06-04",
+    "fiscalYear": null,
+    "value": "3361938",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-06-11",
+    "periodEnd": "2025-06-11",
+    "fiscalYear": null,
+    "value": "3429675",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-06-18",
+    "periodEnd": "2025-06-18",
+    "fiscalYear": null,
+    "value": "3322991",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-06-25",
+    "periodEnd": "2025-06-25",
+    "fiscalYear": null,
+    "value": "3347274",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-07-02",
+    "periodEnd": "2025-07-02",
+    "fiscalYear": null,
+    "value": "3256502",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-07-09",
+    "periodEnd": "2025-07-09",
+    "fiscalYear": null,
+    "value": "3341999",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-07-16",
+    "periodEnd": "2025-07-16",
+    "fiscalYear": null,
+    "value": "3375036",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-07-23",
+    "periodEnd": "2025-07-23",
+    "fiscalYear": null,
+    "value": "3358382",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-07-30",
+    "periodEnd": "2025-07-30",
+    "fiscalYear": null,
+    "value": "3299696",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-08-06",
+    "periodEnd": "2025-08-06",
+    "fiscalYear": null,
+    "value": "3330372",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-08-13",
+    "periodEnd": "2025-08-13",
+    "fiscalYear": null,
+    "value": "3328346",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-08-20",
+    "periodEnd": "2025-08-20",
+    "fiscalYear": null,
+    "value": "3297635",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-08-27",
+    "periodEnd": "2025-08-27",
+    "fiscalYear": null,
+    "value": "3216851",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-09-03",
+    "periodEnd": "2025-09-03",
+    "fiscalYear": null,
+    "value": "3167905",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-09-10",
+    "periodEnd": "2025-09-10",
+    "fiscalYear": null,
+    "value": "3150913",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-09-17",
+    "periodEnd": "2025-09-17",
+    "fiscalYear": null,
+    "value": "3020352",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-09-24",
+    "periodEnd": "2025-09-24",
+    "fiscalYear": null,
+    "value": "2999692",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-10-01",
+    "periodEnd": "2025-10-01",
+    "fiscalYear": null,
+    "value": "2979594",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-10-08",
+    "periodEnd": "2025-10-08",
+    "fiscalYear": null,
+    "value": "3033855",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-10-15",
+    "periodEnd": "2025-10-15",
+    "fiscalYear": null,
+    "value": "2988202",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-10-22",
+    "periodEnd": "2025-10-22",
+    "fiscalYear": null,
+    "value": "2929637",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-10-29",
+    "periodEnd": "2025-10-29",
+    "fiscalYear": null,
+    "value": "2827909",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-11-05",
+    "periodEnd": "2025-11-05",
+    "fiscalYear": null,
+    "value": "2851923",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-11-12",
+    "periodEnd": "2025-11-12",
+    "fiscalYear": null,
+    "value": "2883340",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-11-19",
+    "periodEnd": "2025-11-19",
+    "fiscalYear": null,
+    "value": "2917531",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-11-26",
+    "periodEnd": "2025-11-26",
+    "fiscalYear": null,
+    "value": "2897987",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-12-03",
+    "periodEnd": "2025-12-03",
+    "fiscalYear": null,
+    "value": "2878164",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-12-10",
+    "periodEnd": "2025-12-10",
+    "fiscalYear": null,
+    "value": "2973767",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-12-17",
+    "periodEnd": "2025-12-17",
+    "fiscalYear": null,
+    "value": "2933652",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-12-24",
+    "periodEnd": "2025-12-24",
+    "fiscalYear": null,
+    "value": "2980514",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2025-12-31",
+    "periodEnd": "2025-12-31",
+    "fiscalYear": null,
+    "value": "2853441",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-01-07",
+    "periodEnd": "2026-01-07",
+    "fiscalYear": null,
+    "value": "3022997",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-01-14",
+    "periodEnd": "2026-01-14",
+    "fiscalYear": null,
+    "value": "3061760",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-01-21",
+    "periodEnd": "2026-01-21",
+    "fiscalYear": null,
+    "value": "2956525",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-01-28",
+    "periodEnd": "2026-01-28",
+    "fiscalYear": null,
+    "value": "2882940",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-02-04",
+    "periodEnd": "2026-02-04",
+    "fiscalYear": null,
+    "value": "2937493",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-02-11",
+    "periodEnd": "2026-02-11",
+    "fiscalYear": null,
+    "value": "2958493",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-02-18",
+    "periodEnd": "2026-02-18",
+    "fiscalYear": null,
+    "value": "2959961",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-02-25",
+    "periodEnd": "2026-02-25",
+    "fiscalYear": null,
+    "value": "3004429",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-03-04",
+    "periodEnd": "2026-03-04",
+    "fiscalYear": null,
+    "value": "3013716",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-03-11",
+    "periodEnd": "2026-03-11",
+    "fiscalYear": null,
+    "value": "3073151",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-03-18",
+    "periodEnd": "2026-03-18",
+    "fiscalYear": null,
+    "value": "2998809",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-03-25",
+    "periodEnd": "2026-03-25",
+    "fiscalYear": null,
+    "value": "3036073",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-04-01",
+    "periodEnd": "2026-04-01",
+    "fiscalYear": null,
+    "value": "3064460",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-04-08",
+    "periodEnd": "2026-04-08",
+    "fiscalYear": null,
+    "value": "3183533",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-04-15",
+    "periodEnd": "2026-04-15",
+    "fiscalYear": null,
+    "value": "2980186",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-04-22",
+    "periodEnd": "2026-04-22",
+    "fiscalYear": null,
+    "value": "2914576",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-04-29",
+    "periodEnd": "2026-04-29",
+    "fiscalYear": null,
+    "value": "2919153",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-05-06",
+    "periodEnd": "2026-05-06",
+    "fiscalYear": null,
+    "value": "3051481",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-05-13",
+    "periodEnd": "2026-05-13",
+    "fiscalYear": null,
+    "value": "3117367",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-05-20",
+    "periodEnd": "2026-05-20",
+    "fiscalYear": null,
+    "value": "3106715",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-05-27",
+    "periodEnd": "2026-05-27",
+    "fiscalYear": null,
+    "value": "3067025",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-06-03",
+    "periodEnd": "2026-06-03",
+    "fiscalYear": null,
+    "value": "3045654",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-06-10",
+    "periodEnd": "2026-06-10",
+    "fiscalYear": null,
+    "value": "3111454",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-06-17",
+    "periodEnd": "2026-06-17",
+    "fiscalYear": null,
+    "value": "2936355",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-06-24",
+    "periodEnd": "2026-06-24",
+    "fiscalYear": null,
+    "value": "2954465",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-07-01",
+    "periodEnd": "2026-07-01",
+    "fiscalYear": null,
+    "value": "3077019",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-07-08",
+    "periodEnd": "2026-07-08",
+    "fiscalYear": null,
+    "value": "3137377",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-07-15",
+    "periodEnd": "2026-07-15",
+    "fiscalYear": null,
+    "value": "3100448",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-07-22",
+    "periodEnd": "2026-07-22",
+    "fiscalYear": null,
+    "value": "3064896",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-07-29",
+    "periodEnd": "2026-07-29",
+    "fiscalYear": null,
+    "value": "2944541",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-08-05",
+    "periodEnd": "2026-08-05",
+    "fiscalYear": null,
+    "value": "3002731",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-08-12",
+    "periodEnd": "2026-08-12",
+    "fiscalYear": null,
+    "value": "2947630",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-08-19",
+    "periodEnd": "2026-08-19",
+    "fiscalYear": null,
+    "value": "2930817",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  },
+  {
+    "seriesId": "monetary.fed.reserve_balances",
+    "periodType": "day",
+    "periodStart": "2026-08-26",
+    "periodEnd": "2026-08-26",
+    "fiscalYear": null,
+    "value": "2916824",
+    "publicationTime": "2026-09-02T00:00:00Z"
+  }
+]

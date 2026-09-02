@@ -327,3 +327,24 @@ export async function getDailyReadingsInRange(id: string, startDate: string, end
   );
   return latestPerPeriod(rows).sort((a, b) => (a.periodEnd < b.periodEnd ? -1 : a.periodEnd > b.periodEnd ? 1 : 0));
 }
+
+/**
+ * Every `day`-type reading of one series, UNBOUNDED (the whole ingested
+ * history), latest revision per period, ascending — the daily counterpart to
+ * getFullMonthlyHistory above, for a chart that wants "everything backfilled
+ * so far" rather than one caller-chosen date window. Used by beat 5's
+ * TGA<->reserves chart (lib/money-creation-data.ts), which needs the TGA's
+ * complete history and, once it exists, the Fed's reserve-balances series'
+ * complete history, side by side. `id` is a plain string (not `SeriesId`) —
+ * the same not-yet-registered-series accommodation as
+ * getDistinctDayMonths/getDailyReadingsInRange above: a series id with
+ * nothing ingested (or not yet registered at all) simply returns `[]`, the
+ * same shape as "registered but empty," never a thrown error.
+ */
+export async function getFullDailyHistory(id: string): Promise<Reading[]> {
+  const rows = await safely(
+    (db) => db.select().from(observation).where(and(eq(observation.seriesId, id), eq(observation.periodType, "day"))).orderBy(observation.publicationTime),
+    [] as Observation[],
+  );
+  return latestPerPeriod(rows).sort((a, b) => (a.periodEnd < b.periodEnd ? -1 : a.periodEnd > b.periodEnd ? 1 : 0));
+}

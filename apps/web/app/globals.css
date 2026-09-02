@@ -1754,3 +1754,238 @@ table.auc-table {
   color: var(--series-borrowing);
   margin-bottom: var(--space-2);
 }
+
+/* ---------- /report/where-dollars-come-from (beat 5) — hero ---------- */
+
+.mc-hero .page-lede {
+  max-width: 66ch;
+}
+.mc-kicker {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--series-borrowing);
+  margin-bottom: var(--space-2);
+}
+
+/* ---------- beat 5 — the four-ledger stepper ---------- */
+
+.ledger-wrap {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 14px;
+  padding: var(--space-6);
+}
+
+.ledger-steps-nav {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-1);
+}
+.ledger-steps-nav button {
+  font: inherit;
+  font-size: 0.82rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+}
+.ledger-steps-nav button[aria-pressed="true"] {
+  background: var(--text-primary);
+  color: var(--bg);
+  border-color: var(--text-primary);
+  font-weight: 600;
+}
+.ledger-steps-nav button:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+
+.ledger-step-story {
+  min-height: 4.6rem;
+  padding: var(--space-3) 0 var(--space-4);
+  max-width: 78ch;
+}
+.ledger-st-title {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: var(--space-1);
+  color: var(--text-primary);
+}
+.ledger-st-body {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+.ledger-st-money {
+  font-size: 0.86rem;
+  margin-top: var(--space-2);
+  color: var(--text-primary);
+}
+.ledger-st-money b {
+  color: var(--series-borrowing);
+}
+
+.ledger-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+.ledger-box {
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  padding: var(--space-4) var(--space-4);
+  background: var(--bg);
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.ledger-box.active {
+  border-color: var(--bxc);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--bxc) 18%, transparent);
+}
+.ledger-box h3 {
+  margin: 0 0 2px;
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.ledger-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bxc);
+  display: inline-block;
+}
+.ledger-box-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+.ledger-bal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: 5px 0;
+  border-top: 1px solid var(--gridline);
+  font-size: 0.86rem;
+}
+.ledger-bal:first-of-type {
+  border-top: 0;
+}
+.ledger-bl {
+  color: var(--text-secondary);
+}
+.ledger-bv {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.ledger-n {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--text-primary);
+}
+.ledger-bal.moved .ledger-n {
+  color: var(--bxc);
+}
+.ledger-delta {
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.ledger-bal.moved .ledger-delta {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ledger-delta {
+    transition: none;
+  }
+}
+.ledger-delta.up {
+  color: var(--series-borrowing);
+}
+.ledger-delta.down {
+  color: var(--series-outlays);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ledger-box {
+    transition: none;
+  }
+}
+@media (max-width: 680px) {
+  .ledger-boxes {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ledger-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  flex-wrap: wrap;
+}
+.ledger-pn {
+  display: flex;
+  gap: var(--space-2);
+}
+.ledger-pn button {
+  font: inherit;
+  font-size: 0.85rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 7px 16px;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+.ledger-pn button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.ledger-pn button:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 2px;
+}
+.ledger-foot-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.ledger-takeaway {
+  margin-top: var(--space-4);
+  border-left: 3px solid var(--series-borrowing);
+  padding: 4px 0 4px var(--space-4);
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  max-width: 76ch;
+}
+
+/* ---------- beat 5 — mechanics/interpretation attribution ---------- */
+
+.mc-attrib {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: var(--space-4) var(--space-6);
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  max-width: 78ch;
+}
+.mc-attrib b {
+  color: var(--text-primary);
+}

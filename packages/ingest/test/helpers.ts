@@ -14,6 +14,11 @@ export function loadRawFixture(relPath: string): unknown {
   return JSON.parse(readFileSync(join(FIXTURES_RAW_ROOT, relPath), "utf8"));
 }
 
+/** Load a captured raw fixture as plain text, for the (small number of) non-JSON raw snapshots — e.g. "fred/wrbwfrbl/2015-01-07_to_2026-08-26.csv". `relPath` is relative to db/fixtures/raw. */
+export function loadRawFixtureText(relPath: string): string {
+  return readFileSync(join(FIXTURES_RAW_ROOT, relPath), "utf8");
+}
+
 /** Load one of the committed, pre-transformed db/fixtures/observations/*.json files that `pnpm seed` loads into PGlite — e.g. "mts-totals.json". Reading these directly (rather than only re-deriving observations from raw/ in memory) guards against the SHIPPED file drifting from what the parsers currently produce (a stale regen, a hand-edit). */
 export function loadObservationFixture(filename: string): RawObservation[] {
   return JSON.parse(readFileSync(join(FIXTURES_OBSERVATIONS_ROOT, filename), "utf8")) as RawObservation[];

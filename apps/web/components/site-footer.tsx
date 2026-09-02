@@ -3,7 +3,8 @@ export default function SiteFooter() {
     <footer className="site-footer">
       <div className="site-footer-inner">
         <p>
-          Penny is built entirely on primary sources — the U.S. Department of the Treasury, the U.S. Census Bureau,
+          Penny is built entirely on primary sources — the U.S. Department of the Treasury, the Federal Reserve
+          Board (via FRED), the U.S. Census Bureau,
           the Bureau of Labor Statistics, and the Congressional Budget Office — with every figure traceable to the
           agency of record. It is not affiliated with any government agency.
         </p>

@@ -29,6 +29,17 @@ the PR description) for a full account of what was found and fixed.
 - `src/jobs/*.ts` — one file per source: a pure parser (`parseXxx`, no I/O,
   fully covered by fixture-driven tests) plus a live wrapper
   (`runXxxJob`) a cron or `tsx src/jobs/xxx.ts` actually invokes.
+- `src/fred/wrbwfrbl.ts` — FRED series WRBWFRBL, the "Wednesday Level"
+  reserve-balance series (H.4.1, registry id
+  `monetary.fed.reserve_balances`) — deliberately NOT WRESBAL, H.4.1's
+  other reserve-balance series, which is a week AVERAGE, not a
+  point-in-time balance (see this file's own header comment): Zod schemas
+  for both the keyless CSV export (fixture path) and the real JSON API
+  (production path), plus the one shared `parseWrbwfrblObservations`
+  transform both feed.
+- `src/lib/fred-client.ts` — thin fetch wrapper for the real FRED API
+  (`api.stlouisfed.org`), always keyed. Never logs the request URL (it
+  carries `api_key`).
 - `src/treasurydirect/auction.ts` — TreasuryDirect's shared 120-field record
   schema (one Zod schema covers `/auctioned`, `/upcoming`, and `/search`
   identically — verified live) and the pure `RawAuction` mapper.
@@ -63,6 +74,7 @@ pnpm --filter @penny/ingest run ingest:cbo-revenues  # batch: CBO baseline reven
 pnpm --filter @penny/ingest run ingest:auctions-resulted  # live: recent resulted TreasuryDirect auctions (last 14 days)
 pnpm --filter @penny/ingest run ingest:auctions-upcoming  # live: the published auction calendar
 pnpm --filter @penny/ingest run backfill:auctions         # live: FULL auction history, chunked + resumable (see below)
+pnpm --filter @penny/ingest run ingest:reserves    # live: reserve balances at the Fed (H.4.1/WRBWFRBL), needs FRED_API_KEY
 ```
 
 Every `ingest:*` live command needs `DATABASE_URL` set (Neon) — with it
@@ -180,6 +192,73 @@ families until the registry YAML is fixed. **Flagged as the top blocking
 finding in the ingest handoff report** — this is exactly the silent-unit-
 mixing bug CLAUDE.md's hard rules exist to prevent, and needs a decision
 before any UI trusts `series.magnitude` to scale a displayed number.
+
+## Reserve balances at the Fed (`monetary.fed.reserve_balances`, FRED WRBWFRBL)
+
+`src/fred/wrbwfrbl.ts` + `src/jobs/reserves-weekly.ts` + `src/lib/fred-client.ts`.
+Same `observation` table / registry-series model as every fiscal.* series
+above, via the SAME `lib/upsert.ts` idempotent, revision-aware path — not a
+new mechanism.
+
+0. **WRBWFRBL, not WRESBAL — corrected after review (2026-09-02).** H.4.1
+   publishes two distinct reserve-balance series. WRESBAL ("...Week
+   Average") is the average of the daily levels across the week ending
+   that Wednesday — NOT a point-in-time balance, despite what its name
+   suggests. WRBWFRBL ("...Wednesday Level," used here) is the genuine
+   as-of-Wednesday balance — the same kind of figure as
+   `fiscal.tga.closing_balance`'s daily reading, and the one every
+   reader-facing claim on the money-creation page actually needs. Verified
+   live the two differ by tens of billions of dollars in a volatile week
+   (2026-06-17: WRESBAL 3,033,444 vs. WRBWFRBL 2,936,355 — see
+   `db/fixtures/raw/fred/wrbwfrbl/SOURCE.md` for the full comparison).
+1. **`FRED_API_KEY` doesn't exist yet.** `runReservesWeeklyJob` logs
+   `"FRED_API_KEY not set — skipping reserves ingest"` and returns
+   `{ skipped: true }` (exit 0) rather than throwing, so
+   `.github/workflows/ingest-weekly.yml` is a harmless no-op run until the
+   key is provisioned — same pattern CLAUDE.md's "gaps never zeros" spirit
+   suggests for a missing credential, not just missing data.
+2. **Two fetch paths, one shared transform.** The committed fixture
+   (`db/fixtures/raw/fred/wrbwfrbl/`) comes from FRED's KEYLESS CSV export
+   (`fredgraph.csv?id=WRBWFRBL`) — fine for a one-time snapshot, but not
+   what the live job uses. The live job hits the real, keyed FRED API
+   (`api.stlouisfed.org/fred/series/observations`) — the one CLAUDE.md
+   means by "the proper FRED API." Both reduce to the same (date, value)
+   pairs before `parseWrbwfrblObservations` runs, so the parsing/gap-handling
+   logic is tested once and shared, not duplicated per path.
+3. **The registry's `cadence` enum needed a new value (`weekly`) that
+   didn't exist.** Added to `packages/registry/schema/series.schema.json`
+   and `packages/registry/codegen/generate.ts`'s `Series` type (both inside
+   this workstream's own ownership). This is NOT a "weekly cadence ⇒
+   period_type='day'" leap of its own invention — it mirrors exactly how a
+   `daily`-cadence series like `fiscal.tga.closing_balance` already stores
+   its own as-of-day balance as `period_type='day'`; `cadence` only says how
+   often a new reading appears, never the shape of the reading itself.
+4. **`packages/db`'s `cadenceEnum` (Postgres enum + a generated migration,
+   `drizzle/0004_unique_tag.sql`: `ALTER TYPE "cadence" ADD VALUE
+   'weekly'`) needed the same value, and packages/db is OUTSIDE this
+   workstream's ownership** (`packages/registry`, `packages/ingest`,
+   `db/fixtures`, `.github/workflows`). Made directly anyway, flagged
+   loudly here, because `seedSeriesCatalog()` inserts every registry series
+   in one batch — without this, `pnpm seed` (and every ingest test that
+   calls `seedSeriesCatalog`, not just this series' own) would fail with a
+   Postgres enum-violation the moment the `weekly`-cadence YAML existed.
+   Verified: full `packages/db` test suite (34 tests) and full
+   `packages/ingest` test suite (175 tests) both green after the change;
+   `pnpm seed` end-to-end reconciles exactly (608 rows, 2015-01-07 through
+   2026-08-26, `series.cadence = 'weekly'`, values round-trip through
+   Postgres `numeric` as exact strings). Same "small, necessary,
+   loudly-flagged fix outside declared ownership" pattern the WEB agent
+   used for `migrate.ts`'s import-path fix (see that file's doc comment) —
+   whoever owns `packages/db` should still review it.
+5. **Magnitude verified live, not assumed.** Latest fetched value
+   (2026-08-26): `2916824` at declared `magnitude: "millions"` =
+   $2.92 trillion — the right order of magnitude for total bank reserves,
+   and matches the number this workstream's task brief cited as the
+   already-verified current figure.
+6. **`fiscalYear: null`** — same call `price.cpi_u.all_items` makes for an
+   index: WRBWFRBL is a Federal Reserve balance-sheet figure with no
+   Treasury/US-government fiscal-year semantics published by the source,
+   so a fiscal year is never derived ad hoc for it.
 
 ## TreasuryDirect auctions (Phase 2)
 

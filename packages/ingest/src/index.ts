@@ -14,6 +14,7 @@ export * from "./cbo/baseline-deficit";
 export * from "./cbo/baseline-outlays";
 export * from "./cbo/baseline-revenues";
 export * from "./treasurydirect/auction";
+export * from "./fred/wrbwfrbl";
 
 export * from "./lib/types";
 export * from "./lib/decimal";
@@ -23,6 +24,7 @@ export * from "./lib/upsert";
 export * from "./lib/upsert-auctions";
 export * from "./lib/fiscaldata-client";
 export * from "./lib/treasurydirect-client";
+export * from "./lib/fred-client";
 
 export * from "./jobs/mts-monthly";
 export * from "./jobs/mts-backfill";
@@ -37,3 +39,4 @@ export * from "./jobs/cbo-baseline-revenues";
 export * from "./jobs/auctions-resulted";
 export * from "./jobs/auctions-upcoming";
 export * from "./jobs/auctions-backfill";
+export * from "./jobs/reserves-weekly";

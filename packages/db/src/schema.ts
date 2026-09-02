@@ -55,7 +55,19 @@ export const accountingConceptEnum = pgEnum("accounting_concept", [
   "cash_withdrawal",
 ]);
 
-export const cadenceEnum = pgEnum("cadence", ["daily", "monthly", "annual"]);
+/**
+ * `weekly` added by the RESERVES-DATA workstream for
+ * monetary.fed.reserve_balances (H.4.1/WRBWFRBL, Wednesday-as-of) — see
+ * @penny/registry's `series.schema.json` cadence description. packages/db
+ * is outside that workstream's own ownership (packages/registry,
+ * packages/ingest, db/fixtures, .github/workflows); this one-value addition
+ * plus its migration is made directly because `seedSeriesCatalog()` would
+ * otherwise fail its Postgres enum check for every registry series (not
+ * just the new one) the moment a "weekly" cadence YAML exists — flagged
+ * loudly here, same pattern the WEB agent used for migrate.ts's import-path
+ * fix (see that file's doc comment).
+ */
+export const cadenceEnum = pgEnum("cadence", ["daily", "weekly", "monthly", "annual"]);
 
 /**
  * The granularity/kind of one observation's period, independent of the

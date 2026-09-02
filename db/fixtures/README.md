@@ -34,6 +34,12 @@ was produced and what it covers.
   `raw/`, never hand-edit these files. `packages/db`'s `pnpm seed` picks up
   every file here automatically via `seedObservationFixtures()`.
 
+  `fed-reserve-balances.json` (608 rows, `monetary.fed.reserve_balances`,
+  2015-01-07 through 2026-08-26) is generated the same way, from
+  `raw/fred/wresbal/` — see that raw directory's entry above for what makes
+  this one source's raw snapshot different from the others (fixture path ≠
+  production path).
+
   `mts-totals.json` / `mts-receipts-categories.json` /
   `mts-outlays-categories.json` now carry the FULL MTS history (2026-09-01
   backfill): every month from 2015-03 through the latest published report,
@@ -70,6 +76,21 @@ was produced and what it covers.
   blocked `pnpm seed` from loading this directory's data — flagged here for
   whoever owns `packages/db` to review.
 
+- `raw/fred/wrbwfrbl/` — real FRED keyless-CSV-export snapshot for
+  `monetary.fed.reserve_balances` (H.4.1's weekly bank-reserves balance,
+  FRED series WRBWFRBL — the genuine as-of-Wednesday "Wednesday Level," not
+  the week-average WRESBAL; see `packages/ingest/src/fred/wrbwfrbl.ts`'s
+  header comment for why the series choice matters), with a `SOURCE.md`
+  documenting the exact request, retrieval date, and a hand-verified known
+  value. Trimmed to `2015-01-07_to_2026-08-26.csv` (608 weekly rows) — the
+  same 2015-forward window every other full-history backfill here uses —
+  from FRED's full history (which actually starts 2002-12-18). This is the
+  ONLY raw snapshot in this directory not used by that source's own
+  production ingest job: the live `ingest:reserves` job
+  (`packages/ingest/src/jobs/reserves-weekly.ts`) hits the real, keyed FRED
+  API (`api.stlouisfed.org`), never this keyless CSV export — see that
+  job's doc comment and `packages/ingest/src/fred/wrbwfrbl.ts` for why both
+  paths still share one tested transform function.
 - `raw/treasurydirect/{auctioned,upcoming}/*.json` — real TreasuryDirect
   Securities Auctions Data API snapshots (Phase 2), each with a sibling
   `SOURCE.md` documenting the exact request and the verified facts the

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { AuctionDatasetCitation } from "@/lib/auctions-data";
 import type { AuctionRecord } from "@/lib/auction-types";
 import { securityLabel, HIGH_YIELD_SUBTITLE, type BuyerMix, type BuyerMixSegment, type LatestAuctionTiles } from "@/lib/auction-transform";
@@ -140,7 +141,11 @@ export default function LatestAuctionCard({ latest, tiles, buyerMix, takeaway, c
             <dt>Noncompetitive</dt>
             <dd>Bidders who accept whatever yield the auction sets rather than naming one; guaranteed their full amount.</dd>
             <dt>SOMA add-on</dt>
-            <dd>The Fed rolling over maturing holdings into the new security, added on top of the announced offering — it doesn&rsquo;t compete for it.</dd>
+            <dd>
+              The Fed rolling over maturing holdings into the new security, added on top of the announced offering —
+              it doesn&rsquo;t compete for it.{" "}
+              <Link href="/report/where-dollars-come-from">How the Fed&rsquo;s own purchases create new money →</Link>
+            </dd>
           </dl>
         </details>
       </div>

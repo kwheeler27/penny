@@ -26,7 +26,8 @@
     "ingest:census": "tsx src/jobs/census-batch.ts",
     "ingest:auctions-resulted": "tsx src/jobs/auctions-resulted.ts",
     "ingest:auctions-upcoming": "tsx src/jobs/auctions-upcoming.ts",
-    "backfill:auctions": "tsx src/jobs/auctions-backfill.ts"
+    "backfill:auctions": "tsx src/jobs/auctions-backfill.ts",
+    "ingest:reserves": "tsx src/jobs/reserves-weekly.ts"
   },
   "dependencies": {
     "@penny/db": "workspace:*",

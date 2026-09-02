@@ -58,11 +58,15 @@ export { summarizeFlows } from "./layout/summarize";
 export { chooseOrientation, VERTICAL_BREAKPOINT_PX, type FlowOrientation } from "./layout/orientation";
 export {
   computeCategoryHistoryGeometry,
+  filterHistoryToWindow,
+  HISTORY_WINDOWS,
   type HistoryLayoutPoint,
   type PositionedHistoryPoint,
   type YearTick,
   type CategoryHistoryGeometry,
   type CategoryHistoryLayoutOptions,
+  type HistoryWindow,
+  type HistoryWindowResult,
 } from "./layout/categoryHistoryLayout";
 export {
   computeDailyCadenceGeometry,

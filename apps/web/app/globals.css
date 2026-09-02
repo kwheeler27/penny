@@ -608,20 +608,41 @@ table.citation-table {
   max-width: 62ch;
 }
 
-/* ---------- front door (/) — hero strip ---------- */
+/* ---------- front door (/) — hero strip ----------
+ * Two tiers (the redesign that made the dek's own promise — "where federal
+ * money goes, where it comes from, and how the difference is borrowed" —
+ * the topline's literal content, in that order):
+ *   .hero-strip--topline    3 cells: spending / revenue / the borrowed gap,
+ *                           each an observed-vs.-CBO-projected pairing.
+ *   .hero-strip--secondary  a visually lighter row: debt / TGA / latest
+ *                           auction — dated point-in-time figures, not this
+ *                           fiscal year's flow.
+ */
+
+.hero-strip-wrap {
+  margin: var(--space-8) 0 0;
+  max-width: var(--wide-width);
+}
 
 .hero-strip {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  margin: var(--space-8) 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
-  max-width: var(--wide-width);
+}
+
+.hero-strip--topline {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.hero-strip--secondary {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: var(--space-3);
 }
 
 .hero-strip li {
@@ -630,11 +651,9 @@ table.citation-table {
 
 .hero-strip-cell {
   background: var(--surface);
-  padding: var(--space-3) var(--space-4);
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 2px;
   text-decoration: none;
   color: inherit;
   transition: background-color 0.15s ease;
@@ -643,11 +662,38 @@ table.citation-table {
   background: var(--panel);
 }
 
+.hero-strip-cell--topline {
+  padding: var(--space-4);
+  gap: 3px;
+}
+
+.hero-strip-cell--secondary {
+  padding: var(--space-2) var(--space-3);
+  gap: 2px;
+}
+
 .hero-strip-k {
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted);
+}
+
+/* The topline strip's three kickers borrow the SAME three series colors the
+   Act I/II/IV kickers already use below on this same page (.act-kicker--spend/
+   --rev/--gap) — spending/revenue/the-gap is one visual system told twice,
+   once as this summary strip, once as the full narrative. Order is fixed by
+   buildToplineCells (spending, revenue, borrowed), never re-derived from cell
+   content, so this is a plain structural (nth-child) match, not a class the
+   data layer has to know about. */
+.hero-strip--topline li:nth-child(1) .hero-strip-k {
+  color: var(--series-outlays);
+}
+.hero-strip--topline li:nth-child(2) .hero-strip-k {
+  color: var(--series-receipts);
+}
+.hero-strip--topline li:nth-child(3) .hero-strip-k {
+  color: var(--series-borrowing);
 }
 
 .hero-strip-v {
@@ -658,27 +704,61 @@ table.citation-table {
   color: var(--text-primary);
 }
 
+/* The secondary row is deliberately lighter and smaller than the topline
+   strip above it (CLAUDE.md-adjacent product rule for this redesign: the
+   topline cells are the dek's own claim; debt/TGA/auction are supporting
+   context, not equal billing). */
+.hero-strip-cell--secondary .hero-strip-v {
+  font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+  font-weight: 600;
+}
+
 .hero-strip-v--gap {
   color: var(--text-muted);
   font-style: italic;
   font-weight: 400;
   font-size: 1rem;
 }
+.hero-strip-cell--secondary .hero-strip-v--gap {
+  font-size: 0.85rem;
+}
 
 .hero-strip-s {
   font-size: 0.75rem;
   color: var(--text-muted);
 }
+.hero-strip-cell--secondary .hero-strip-s {
+  font-size: 0.7rem;
+}
 
-/* Four cells: 2x2 at mid widths (beat 4 added a fourth "Latest auction"
-   cell) before collapsing to a single column on narrow phones. */
+/* The topline cell's second accounting concept — CBO's full-year
+   projection — set off from the observed figure/caption above it by a
+   thin rule, never just another line of the same size (the concept
+   boundary CLAUDE.md requires must be visible, not just textual). */
+.hero-strip-proj {
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+  margin-top: 3px;
+  padding-top: 6px;
+}
+.hero-strip-proj--gap {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Topline cells carry the most text (a full observed figure + a full CBO
+   sentence) — stack to one column earlier than the lighter secondary row. */
 @media (max-width: 900px) {
-  .hero-strip {
-    grid-template-columns: repeat(2, 1fr);
+  .hero-strip--topline {
+    grid-template-columns: 1fr;
   }
 }
-@media (max-width: 480px) {
-  .hero-strip {
+/* Secondary row: "one line high on desktop; stack gracefully at 375px" —
+   stays 3-across through ordinary tablet widths, one column only on phones. */
+@media (max-width: 640px) {
+  .hero-strip--secondary {
     grid-template-columns: 1fr;
   }
 }

@@ -33,6 +33,9 @@ const INDIVIDUAL_INCOME_TAX = "fiscal.mts.receipts.category.individual_income_ta
 const NET_INTEREST = "fiscal.mts.outlays.category.net_interest" as SeriesId;
 const DEBT_ID = "fiscal.debt.total_public_debt_outstanding" as SeriesId;
 const TGA_ID = "fiscal.tga.closing_balance" as SeriesId;
+const OUTLAYS_PROJECTION = "projection.cbo.baseline.outlays" as SeriesId;
+const RECEIPTS_PROJECTION = "projection.cbo.baseline.revenues" as SeriesId;
+const DEFICIT_PROJECTION = "projection.cbo.baseline.deficit" as SeriesId;
 
 const NEEDED_IDS: SeriesId[] = [
   OUTLAYS_TOTAL,
@@ -46,6 +49,9 @@ const NEEDED_IDS: SeriesId[] = [
   NET_INTEREST,
   DEBT_ID,
   TGA_ID,
+  OUTLAYS_PROJECTION,
+  RECEIPTS_PROJECTION,
+  DEFICIT_PROJECTION,
 ];
 
 beforeAll(async () => {
@@ -63,11 +69,12 @@ beforeAll(async () => {
         dataset: s.dataset,
         datasetUrl: s.datasetUrl,
         citation: s.citation,
-        // Both casts are safe: every id in NEEDED_IDS is a fiscal.* series
-        // (unit "usd", a fiscal accountingConcept), never one of the
-        // census.* ids this scoped seed deliberately omits (see header
-        // comment) — narrower than packages/db's actual enum values, which
-        // now also accept "persons"/"households"/"population".
+        // Both casts are safe: every id in NEEDED_IDS is a fiscal.* or
+        // projection.cbo.* series (unit "usd", an accountingConcept in the
+        // union below), never one of the census.* ids this scoped seed
+        // deliberately omits (see header comment) — narrower than
+        // packages/db's actual enum values, which now also accept
+        // "persons"/"households"/"population".
         unit: s.unit as "usd",
         magnitude: s.magnitude,
         accountingConcept: s.accountingConcept as "receipt" | "outlay" | "deficit" | "debt" | "balance" | "interest" | "price_index" | "projection",
@@ -154,6 +161,41 @@ beforeAll(async () => {
     // null, exercising the "full backfill" path on the SAME fixture that
     // exercises the today's-4-period dot-plot path for every other category.
     { seriesId: NATIONAL_DEFENSE, periodType: "month", periodStart: "2023-09-01", periodEnd: "2023-09-30", fiscalYear: 2023, value: "70000000000", publicationTime },
+
+    // CBO's Feb-2026 baseline projection for THIS same fiscal year (FY2026)
+    // — period_type "year", real figures from the actual committed CSVs
+    // (db/fixtures/raw/cbo/baseline_{outlays,revenues,deficit}/), so the
+    // topline strip's observed-vs.-projected pairing test below exercises
+    // real numbers, not invented ones. publicationTime is CBO's own release
+    // date, deliberately NOT `publicationTime` (the MTS report's own date
+    // above) — the two accounting concepts carry different as-of dates.
+    {
+      seriesId: OUTLAYS_PROJECTION,
+      periodType: "year",
+      periodStart: "2025-10-01",
+      periodEnd: "2026-09-30",
+      fiscalYear: 2026,
+      value: "7448.619",
+      publicationTime: new Date("2026-02-11T00:00:00Z"),
+    },
+    {
+      seriesId: RECEIPTS_PROJECTION,
+      periodType: "year",
+      periodStart: "2025-10-01",
+      periodEnd: "2026-09-30",
+      fiscalYear: 2026,
+      value: "5595.916",
+      publicationTime: new Date("2026-02-11T00:00:00Z"),
+    },
+    {
+      seriesId: DEFICIT_PROJECTION,
+      periodType: "year",
+      periodStart: "2025-10-01",
+      periodEnd: "2026-09-30",
+      fiscalYear: 2026,
+      value: "-1852.703",
+      publicationTime: new Date("2026-02-11T00:00:00Z"),
+    },
   ]);
 });
 
@@ -220,12 +262,34 @@ describe("getFrontDoorData", () => {
     expect(data.forScale.interestPerTaxDollar!.valueDisplay).toBe("39¢ per $1");
   });
 
-  it("renders hero cells from seeded debt/TGA/deficit readings", async () => {
+  it("renders the secondary row's cells from seeded debt/TGA readings", async () => {
     const data = await getFrontDoorData();
-    const debtCell = data.heroCells.find((c) => c.label === "Total public debt")!;
+    const debtCell = data.secondaryCells.find((c) => c.label === "Total public debt")!;
     expect(debtCell.valueDisplay).toBe("$40,077,529,831,942.94");
-    const tgaCell = data.heroCells.find((c) => c.label === "Treasury cash (TGA)")!;
+    const tgaCell = data.secondaryCells.find((c) => c.label === "Treasury cash (TGA)")!;
     expect(tgaCell.valueDisplay).toBe("$950.8B");
+    // The deficit/surplus cell moved into the topline strip — the secondary
+    // row is debt/TGA/auction only, 3 cells, never a 4th deficit cell.
+    expect(data.secondaryCells).toHaveLength(3);
+  });
+
+  it("renders the topline strip end to end: observed FYTD figures paired with CBO's real Feb-2026 baseline for the same fiscal year", async () => {
+    const data = await getFrontDoorData();
+    expect(data.topline).toHaveLength(3);
+    const [spending, revenue, borrowed] = data.topline;
+
+    expect(spending!.label).toBe("Spending, FY 2026");
+    expect(spending!.observedDisplay).toBe("$6,284.2B so far");
+    expect(spending!.observedSourceLine).toBe("Monthly Treasury Statement · through July");
+    expect(spending!.projectedLine).toBe("CBO projected $7,448.6B for the full year (Feb 2026 baseline)");
+
+    expect(revenue!.label).toBe("Revenue, FY 2026");
+    expect(revenue!.observedDisplay).toBe("$4,485.4B so far");
+    expect(revenue!.projectedLine).toBe("CBO projected $5,595.9B for the full year (Feb 2026 baseline)");
+
+    expect(borrowed!.label).toBe("Borrowed to cover the gap, FY 2026");
+    expect(borrowed!.observedDisplay).toBe("$1,798.8B borrowed so far");
+    expect(borrowed!.projectedLine).toBe("CBO projected $1,852.7B borrowed for the full year (Feb 2026 baseline)");
   });
 });
 

@@ -18,6 +18,7 @@ import {
   buildMonthStepper,
   buildPerHouseholdSpendFact,
   buildRankedPeriod,
+  buildToplineCells,
 } from "../lib/front-door-transform";
 
 const SOCIAL_SECURITY = "fiscal.mts.outlays.category.social_security" as SeriesId;
@@ -31,6 +32,22 @@ const NET_INTEREST = "fiscal.mts.outlays.category.net_interest" as SeriesId;
 const INDIVIDUAL_INCOME_TAX = "fiscal.mts.receipts.category.individual_income_tax" as SeriesId;
 const HOUSEHOLDS = "census.households.total" as SeriesId;
 const POPULATION = "census.population.resident_total" as SeriesId;
+const OUTLAYS_PROJECTION = "projection.cbo.baseline.outlays" as SeriesId;
+const RECEIPTS_PROJECTION = "projection.cbo.baseline.revenues" as SeriesId;
+const DEFICIT_PROJECTION = "projection.cbo.baseline.deficit" as SeriesId;
+
+/** A CBO baseline projection reading — period_type "year", the Feb 2026
+ * baseline's own publication date, unless overridden. */
+function projectionReading(seriesId: SeriesId, value: string, overrides: Partial<Reading> = {}): Reading {
+  return reading(seriesId, value, {
+    periodType: "year",
+    periodStart: "2025-10-01",
+    periodEnd: "2026-09-30",
+    fiscalYear: 2026,
+    publicationTime: "2026-02-11T00:00:00.000Z",
+    ...overrides,
+  });
+}
 
 function reading(seriesId: SeriesId, value: string, overrides: Partial<Reading> = {}): Reading {
   return {
@@ -370,6 +387,86 @@ describe("buildBridge", () => {
 
   it("returns null when any input is a gap", () => {
     expect(buildBridge(null, reading(RECEIPTS_TOTAL, "1"), reading(DEBT_ID, "1"))).toBeNull();
+  });
+});
+
+describe("buildToplineCells", () => {
+  it("pairs each observed FYTD figure with CBO's same-fiscal-year projection, in dek order (spending, revenue, borrowed)", () => {
+    const cells = buildToplineCells(
+      reading(OUTLAYS_TOTAL, "6284235715734.18"),
+      projectionReading(OUTLAYS_PROJECTION, "7448.619"),
+      reading(RECEIPTS_TOTAL, "4485419503881.15"),
+      projectionReading(RECEIPTS_PROJECTION, "5595.916"),
+      reading(DEFICIT_TOTAL, "-1798816211853.03"),
+      projectionReading(DEFICIT_PROJECTION, "-1852.703"),
+    );
+    expect(cells).toHaveLength(3);
+
+    const [spending, revenue, borrowed] = cells;
+    expect(spending!.label).toBe("Spending, FY 2026");
+    expect(spending!.observedDisplay).toBe("$6,284.2B so far");
+    expect(spending!.observedSourceLine).toBe("Monthly Treasury Statement · through July");
+    expect(spending!.projectedLine).toBe("CBO projected $7,448.6B for the full year (Feb 2026 baseline)");
+
+    expect(revenue!.label).toBe("Revenue, FY 2026");
+    expect(revenue!.observedDisplay).toBe("$4,485.4B so far");
+    expect(revenue!.projectedLine).toBe("CBO projected $5,595.9B for the full year (Feb 2026 baseline)");
+
+    expect(borrowed!.label).toBe("Borrowed to cover the gap, FY 2026");
+    expect(borrowed!.observedDisplay).toBe("$1,798.8B borrowed so far");
+    expect(borrowed!.projectedLine).toBe("CBO projected $1,852.7B borrowed for the full year (Feb 2026 baseline)");
+  });
+
+  it("never claims a surplus period 'borrowed' anything — sign-neutral label and phrasing, like the standalone deficit cell already learned", () => {
+    const cells = buildToplineCells(
+      reading(OUTLAYS_TOTAL, "4485419503881.15"),
+      null,
+      reading(RECEIPTS_TOTAL, "6284235715734.18"),
+      null,
+      reading(DEFICIT_TOTAL, "1798816211853.03"), // receipts exceeded outlays: a surplus, not a deficit
+      null,
+    );
+    const borrowed = cells[2]!;
+    expect(borrowed.label).toBe("Surplus, FY 2026 so far");
+    expect(borrowed.observedDisplay).toBe("$1,798.8B left over so far");
+    expect(borrowed.observedDisplay).not.toMatch(/borrowed/);
+  });
+
+  it("a balanced period (outlays == receipts) never claims a borrowed OR a surplus", () => {
+    const cells = buildToplineCells(reading(OUTLAYS_TOTAL, "1000"), null, reading(RECEIPTS_TOTAL, "1000"), null, reading(DEFICIT_TOTAL, "0"), null);
+    const borrowed = cells[2]!;
+    expect(borrowed.label).toBe("Balanced, FY 2026 so far");
+    expect(borrowed.observedDisplay).toBe("Nothing borrowed so far");
+  });
+
+  it("derives the projected direction independently from the observed direction — an observed deficit against a (hypothetical) projected surplus never gets mislabeled", () => {
+    const cells = buildToplineCells(
+      reading(OUTLAYS_TOTAL, "6284235715734.18"),
+      null,
+      reading(RECEIPTS_TOTAL, "4485419503881.15"),
+      null,
+      reading(DEFICIT_TOTAL, "-1798816211853.03"), // observed: a deficit
+      projectionReading(DEFICIT_PROJECTION, "500"), // projected: a (hypothetical) surplus — independent sign
+    );
+    const borrowed = cells[2]!;
+    expect(borrowed.label).toBe("Borrowed to cover the gap, FY 2026"); // observed direction, unaffected by the projection
+    expect(borrowed.projectedLine).toBe("CBO projected $500.0B left over for the full year (Feb 2026 baseline)");
+  });
+
+  it("renders a graceful gap on the projected line — never a zero, never a fabricated figure — when the projection series has no reading yet", () => {
+    const cells = buildToplineCells(reading(OUTLAYS_TOTAL, "6284235715734.18"), null, reading(RECEIPTS_TOTAL, "4485419503881.15"), null, reading(DEFICIT_TOTAL, "-1798816211853.03"), null);
+    expect(cells.every((c) => c.projectedLine === null)).toBe(true);
+    // The observed side still renders in full — a MISSING projection is not treated as a missing observed figure.
+    expect(cells[0]!.observedDisplay).toBe("$6,284.2B so far");
+  });
+
+  it("renders a graceful gap on the OBSERVED side too — never a zero — when no MTS report has been ingested for this fiscal year at all", () => {
+    const cells = buildToplineCells(null, projectionReading(OUTLAYS_PROJECTION, "7448.619"), null, null, null, null);
+    const spending = cells[0]!;
+    expect(spending.observedDisplay).toBeNull();
+    expect(spending.observedSourceLine).toContain("not yet ingested");
+    // A gap cell never renders the projection either — there is no fiscal year to pair it against.
+    expect(spending.projectedLine).toBeNull();
   });
 });
 

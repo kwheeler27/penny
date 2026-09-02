@@ -27,6 +27,7 @@ import {
   buildMonthStepper,
   buildPerHouseholdSpendFact,
   buildRankedPeriod,
+  buildToplineCells,
   isFiscalYearEndMonth,
   type BridgeData,
   type CategoryHistoryPanel,
@@ -35,17 +36,9 @@ import {
   type MonthStepperData,
   type RankedPeriod,
   type RankedRow,
+  type ToplineCell,
 } from "./front-door-transform";
-import {
-  absDecimalString as absDecimal,
-  compareDecimalStrings as compareDecimal,
-  formatDateShort,
-  formatMonthName,
-  formatMonthYear,
-  formatSeriesUsd,
-  formatUsdScale,
-  isNegativeDecimalString as isNegativeDecimal,
-} from "./format";
+import { formatDateShort, formatMonthName, formatMonthYear, formatSeriesUsd, formatUsdScale } from "./format";
 import type { Reading } from "./types";
 
 const DEBT_ID = "fiscal.debt.total_public_debt_outstanding" as SeriesId;
@@ -57,6 +50,13 @@ const DEFICIT_ID = "fiscal.mts.deficit.total" as SeriesId;
 const OUTLAYS_TOTAL_ID = "fiscal.mts.outlays.total" as SeriesId;
 const NET_INTEREST_ID = "fiscal.mts.outlays.category.net_interest" as SeriesId;
 const INDIVIDUAL_INCOME_TAX_ID = "fiscal.mts.receipts.category.individual_income_tax" as SeriesId;
+
+// CBO's Feb-2026 baseline (PLAN.md §6: batch-loaded, not a live API) — the
+// front door's topline strip pairs each of these against its observed MTS
+// sibling above, same fiscal year, never blended (CLAUDE.md).
+const OUTLAYS_PROJECTION_ID = "projection.cbo.baseline.outlays" as SeriesId;
+const RECEIPTS_PROJECTION_ID = "projection.cbo.baseline.revenues" as SeriesId;
+const DEFICIT_PROJECTION_ID = "projection.cbo.baseline.deficit" as SeriesId;
 
 const CENSUS_POPULATION_ID: SeriesId = "census.population.resident_total";
 const CENSUS_HOUSEHOLDS_ID: SeriesId = "census.households.total";
@@ -114,15 +114,18 @@ function gapCell(label: string, seriesId: SeriesId, href: string): HeroCell {
   };
 }
 
-async function buildHeroCells(
-  debt: Reading | null,
-  tga: Reading | null,
-  deficitFytd: Reading | null,
-  latestAuction: Awaited<ReturnType<typeof getLatestAuctionSummary>>,
-): Promise<HeroCell[]> {
+/**
+ * The secondary slim row beneath the front door's topline strip: debt, TGA,
+ * and the latest auction — dated stock/point-in-time figures, visually
+ * de-emphasized relative to the three topline flow cells above them (which
+ * carry the dek's own promise: spending, revenue, the borrowed gap). The
+ * fiscal-year-to-date deficit/surplus itself moved INTO the topline row
+ * (see buildToplineCells's buildBorrowedCell) — this function no longer
+ * builds a deficit cell at all.
+ */
+async function buildSecondaryCells(debt: Reading | null, tga: Reading | null, latestAuction: Awaited<ReturnType<typeof getLatestAuctionSummary>>): Promise<HeroCell[]> {
   const debtDef = getSeries(DEBT_ID);
   const tgaDef = getSeries(TGA_ID);
-  const deficitDef = getSeries(DEFICIT_ID);
 
   const debtCell: HeroCell = debt
     ? {
@@ -142,20 +145,6 @@ async function buildHeroCells(
       }
     : gapCell("Treasury cash (TGA)", TGA_ID, "/now");
 
-  let deficitCell: HeroCell;
-  if (deficitFytd) {
-    const exact = formatSeriesUsd(deficitFytd.value, deficitDef?.magnitude ?? "ones").exact;
-    const direction = isNegativeDecimal(exact) ? "Deficit" : compareDecimal(exact, "0") > 0 ? "Surplus" : "Balanced";
-    deficitCell = {
-      label: `${direction}, FY ${deficitFytd.fiscalYear ?? ""} so far`,
-      valueDisplay: formatUsdScale(absDecimal(exact), "B", 1),
-      sourceLine: `${datasetShort(deficitDef?.dataset ?? "Monthly Treasury Statement")} · through ${formatMonthName(deficitFytd.periodEnd)}`,
-      href: "/now",
-    };
-  } else {
-    deficitCell = gapCell("Deficit, fiscal year to date", DEFICIT_ID, "/now");
-  }
-
   const auctionCell: HeroCell = latestAuction
     ? {
         label: "Latest auction high yield",
@@ -165,7 +154,17 @@ async function buildHeroCells(
       }
     : { label: "Latest auction high yield", valueDisplay: null, sourceLine: "TreasuryDirect — not yet ingested.", href: "/auctions" };
 
-  return [debtCell, tgaCell, deficitCell, auctionCell];
+  return [debtCell, tgaCell, auctionCell];
+}
+
+/** FY{fiscalYear}'s own end-of-year calendar date ("2026-09-30" for FY2026,
+ * Oct 1–Sep 30) — plain integer-to-string formatting, never a `Date`
+ * round-trip, matching packages/ingest/src/lib/period.ts's lastDayOfMonth
+ * convention for the exact same fiscal-year-end date. Used to look up a
+ * CBO projection.cbo.baseline.* reading for the SAME fiscal year an
+ * observed MTS figure covers (period_type "year"). */
+function fiscalYearEnd(fiscalYear: number): string {
+  return `${fiscalYear}-09-30`;
 }
 
 function buildToggleLabels(fytdFlow: MtsFlow, monthFlow: MtsFlow): { fytd: string; month: string } {
@@ -202,7 +201,11 @@ export interface FrontDoorData {
    * never leaves the year ambiguous in a citation. */
   latestMonthYearLabel: string | null;
   sources: SourceLines;
-  heroCells: HeroCell[];
+  /** The three topline cells the dek promises, in order: spending, revenue,
+   * borrowed gap — each observed-vs.-CBO-projected, side by side. */
+  topline: ToplineCell[];
+  /** The slim row beneath the topline strip: debt, TGA, latest auction. */
+  secondaryCells: HeroCell[];
   outlays: {
     toggleLabels: { fytd: string; month: string };
     periods: { fytd: RankedPeriod | null; month: RankedPeriod | null };
@@ -245,7 +248,24 @@ export async function getFrontDoorData(options: FrontDoorDataOptions = {}): Prom
     getLatestAuctionSummary(),
   ]);
 
-  const heroCells = await buildHeroCells(debt, tga, deficitFytd, latestAuction);
+  // CBO's projection.cbo.baseline.* readings for the SAME fiscal year the
+  // observed FYTD figures above cover — period_type "year", looked up by
+  // that exact fiscal year's end date, never "whichever CBO year is
+  // latest" (the baseline spans 11 future fiscal years; only one of them
+  // is THIS year). A gap (no MTS report ingested at all yet) means there's
+  // no fiscal year to look a projection up against either.
+  const projectionIds: SeriesId[] = [OUTLAYS_PROJECTION_ID, RECEIPTS_PROJECTION_ID, DEFICIT_PROJECTION_ID];
+  const projections = fytdFlow.fiscalYear != null ? await getReadingsAt(projectionIds, "year", fiscalYearEnd(fytdFlow.fiscalYear)) : new Map<SeriesId, Reading>();
+
+  const topline = buildToplineCells(
+    fytdFlow.outlays.total,
+    projections.get(OUTLAYS_PROJECTION_ID) ?? null,
+    fytdFlow.receipts.total,
+    projections.get(RECEIPTS_PROJECTION_ID) ?? null,
+    deficitFytd,
+    projections.get(DEFICIT_PROJECTION_ID) ?? null,
+  );
+  const secondaryCells = await buildSecondaryCells(debt, tga, latestAuction);
   const toggle = { outlays: buildToggleLabels(fytdFlow, monthFlow), receipts: buildToggleLabels(fytdFlow, monthFlow) };
   // Act I's month tab is now a browsable stepper, not just "the latest
   // month" — its tab label stays generic (the stepper pill itself shows
@@ -349,7 +369,8 @@ export async function getFrontDoorData(options: FrontDoorDataOptions = {}): Prom
     latestMonthName: anchorPeriodEnd ? formatMonthName(anchorPeriodEnd) : null,
     latestMonthYearLabel: anchorPeriodEnd ? formatMonthYear(anchorPeriodEnd) : null,
     sources: buildSourceLines(),
-    heroCells,
+    topline,
+    secondaryCells,
     outlays: {
       toggleLabels: outlaysToggleLabels,
       periods: { fytd: outlaysFytdPeriod, month: outlaysMonthPeriod },

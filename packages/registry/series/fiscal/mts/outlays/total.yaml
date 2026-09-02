@@ -33,3 +33,14 @@ notes:
     Outlays are a different accounting concept than obligations
     (USASpending's unit) or budget authority — never mixed without a
     declared bridge.
+  - >
+    Never mix with projection.cbo.baseline.outlays (a different accounting
+    concept: observed vs. projected) — see that series' not_comparable_with.
+
+not_comparable_with:
+  - series: projection.cbo.baseline.outlays
+    reason: >
+      One is Treasury's observed, already-happened outlays; the other is
+      CBO's projection of a future year's outlays under baseline
+      assumptions. Never sum, difference, or plot on the same trace without
+      labeling which is which.

@@ -142,12 +142,14 @@ function HistoryPanel({ label, panel }: { label: string; panel: CategoryHistoryP
 export function HistoryPanelV2({ label, series, colorVar }: { label: string; series: CategoryHistoryLineSeries; colorVar: RankedBarChartProps["colorVar"] }) {
   const [windowKey, setWindowKey] = useState<HistoryWindow>("all");
   const windowed = filterHistoryToWindow(series.monthly, series.twelveMonthTotal, windowKey);
-  // `display` here becomes the chart's native SVG hover title — it must be
-  // the full-precision exactDisplay (matching row.exactDisplay's own "exact,
-  // as published" hover a screen over), never the fixed-billions
-  // scaledDisplay, which the caption below promises is NOT what's shown.
-  const monthly = windowed.monthly.map((p) => ({ periodEnd: p.periodEnd, valueWhole: p.valueWhole, display: p.exactDisplay, label: p.monthLabel }));
-  const total = windowed.total.map((p) => ({ periodEnd: p.periodEnd, valueWhole: p.valueWhole, display: p.exactDisplay, label: p.monthLabel }));
+  // `display` becomes the chart's ACCESSIBLE name (native SVG hover title,
+  // aria-label, and screen-reader table fallback) — always the
+  // full-precision exactDisplay, never rounded. `scaledDisplay` is the new
+  // hover/focus tooltip's large primary line ("$XX.XB" style); the tooltip
+  // still shows `display` (the exact figure) below it, muted — the exact
+  // figure is never dropped, only demoted to a secondary line.
+  const monthly = windowed.monthly.map((p) => ({ periodEnd: p.periodEnd, valueWhole: p.valueWhole, display: p.exactDisplay, scaledDisplay: p.scaledDisplay, label: p.monthLabel }));
+  const total = windowed.total.map((p) => ({ periodEnd: p.periodEnd, valueWhole: p.valueWhole, display: p.exactDisplay, scaledDisplay: p.scaledDisplay, label: p.monthLabel }));
   const first = windowed.monthly[0]!;
   const last = windowed.monthly[windowed.monthly.length - 1]!;
 
@@ -166,8 +168,8 @@ export function HistoryPanelV2({ label, series, colorVar }: { label: string; ser
       <CategoryHistoryChart monthly={monthly} total={total} color={`var(${colorVar})`} />
       <div className="rank-hist-note">
         {series.twelveMonthTotal.length > 0
-          ? "Thin line: each month, as published (lumpy — payment dates shift across month boundaries). Bold line: the trailing 12-month total, which smooths that out. Hover or tab to either line for the exact figure."
-          : "Thin line: each month, as published (lumpy — payment dates shift across month boundaries). A 12-month rolling total appears once 12 consecutive months are ingested. Hover or tab to the line for the exact figure."}
+          ? "Monthly figures are lumpy — payment dates shift across month boundaries — which the bold 12-month total line smooths out."
+          : "Monthly figures are lumpy — payment dates shift across month boundaries — a 12-month total appears once 12 consecutive months are ingested."}
       </div>
     </div>
   );

@@ -50,10 +50,10 @@ describe("CategoryHistoryChart — marker removal", () => {
     expect(html).toBe("");
   });
 
-  it("draws the monthly series as a thin (1.5px), low-opacity (0.4) polyline", () => {
+  it("draws the monthly series as a thin (1.25px), low-opacity (0.35) polyline", () => {
     const html = renderToStaticMarkup(<CategoryHistoryChart monthly={MONTHLY_14} total={TOTAL_3} color={COLOR} />);
-    expect(html).toContain('stroke-width="1.5"');
-    expect(html).toContain('stroke-opacity="0.4"');
+    expect(html).toContain('stroke-width="1.25"');
+    expect(html).toContain('stroke-opacity="0.35"');
   });
 
   it("draws the 12-month total as a bold (2.5px), full-opacity polyline once it exists", () => {
@@ -61,10 +61,10 @@ describe("CategoryHistoryChart — marker removal", () => {
     expect(html).toContain('stroke-width="2.5"');
   });
 
-  it("paints exactly one visible marker on the whole chart — the total line's own latest point — when a 12-month total exists", () => {
+  it("paints exactly one visible marker CIRCLE on the whole chart — the total line's own latest point — when a 12-month total exists (the new bold end-of-line label also carries the series color, but as text, not a circle, so it's excluded from this count)", () => {
     const html = renderToStaticMarkup(<CategoryHistoryChart monthly={MONTHLY_14} total={TOTAL_3} color={COLOR} />);
-    const visibleMarkers = (html.match(new RegExp(`fill="${COLOR}"`, "g")) || []).length;
-    expect(visibleMarkers).toBe(1);
+    const visibleMarkerCircles = (html.match(new RegExp(`<circle[^>]*fill="${COLOR}"`, "g")) || []).length;
+    expect(visibleMarkerCircles).toBe(1);
     expect(html).toContain('r="3.5"');
     expect(html).toContain("Jul 2026, 12-month total: $2000 (latest)");
     // No other point — on either line — is that color.
@@ -73,8 +73,8 @@ describe("CategoryHistoryChart — marker removal", () => {
 
   it("falls back to the monthly line's own latest point as the one visible marker when there is no 12-month total yet", () => {
     const html = renderToStaticMarkup(<CategoryHistoryChart monthly={MONTHLY_14} total={[]} color={COLOR} />);
-    const visibleMarkers = (html.match(new RegExp(`fill="${COLOR}"`, "g")) || []).length;
-    expect(visibleMarkers).toBe(1);
+    const visibleMarkerCircles = (html.match(new RegExp(`<circle[^>]*fill="${COLOR}"`, "g")) || []).length;
+    expect(visibleMarkerCircles).toBe(1);
     expect(html).toContain("Jul 2026: $230 (latest)");
   });
 
@@ -118,5 +118,48 @@ describe("CategoryHistoryChart — hover AND keyboard access preserved (issue #7
     const html = renderToStaticMarkup(<CategoryHistoryChart monthly={MONTHLY_14} total={[]} color={COLOR} />);
     expect((html.match(/<table/g) || []).length).toBe(1);
     expect(html).not.toContain("12-month rolling total");
+  });
+
+  it("suppresses the browser's default focus outline on every hit-target circle (Kevin's 'focus-ring blob' report) — the only focus/hover indicator is the dedicated dot+ring overlay, which paints nothing by default (no hover/focus state on first render)", () => {
+    const html = renderToStaticMarkup(<CategoryHistoryChart monthly={MONTHLY_14} total={TOTAL_3} color={COLOR} />);
+    const circleCount = (html.match(/<circle/g) || []).length;
+    const outlineNoneCount = (html.match(/outline:none/g) || []).length;
+    expect(outlineNoneCount).toBe(circleCount);
+  });
+
+  it("renders no hover/focus tooltip and no dot+ring overlay by default (no hover or focus state yet)", () => {
+    const html = renderToStaticMarkup(<CategoryHistoryChart monthly={MONTHLY_14} total={TOTAL_3} color={COLOR} />);
+    expect(html).not.toContain("Trailing 12-month total");
+    expect(html).not.toContain("Monthly, as published");
+  });
+});
+
+describe("CategoryHistoryChart — y-axis gridlines + value labels", () => {
+  it("draws exactly three faint horizontal gridlines with tabular-nums $-value labels", () => {
+    const html = renderToStaticMarkup(<CategoryHistoryChart monthly={MONTHLY_14} total={TOTAL_3} color={COLOR} />);
+    const gridlines = (html.match(/stroke="currentColor" stroke-opacity="0.15"/g) || []).length;
+    expect(gridlines).toBe(3);
+    expect(html).toContain("font-variant-numeric:tabular-nums");
+  });
+
+  it("keeps the year x-ticks unchanged alongside the new y-axis ticks", () => {
+    const html = renderToStaticMarkup(<CategoryHistoryChart monthly={MONTHLY_14} total={TOTAL_3} color={COLOR} />);
+    expect(html).toContain(">2025<");
+    expect(html).toContain(">2026<");
+  });
+});
+
+describe("CategoryHistoryChart — direct in-chart end-of-line labels", () => {
+  it('labels the bold line "12-month total" in the series color, and the thin line "monthly" muted, when a 12-month total exists', () => {
+    const html = renderToStaticMarkup(<CategoryHistoryChart monthly={MONTHLY_14} total={TOTAL_3} color={COLOR} />);
+    expect(html).toContain(">12-month total<");
+    expect(html).toContain(">monthly<");
+    expect(html).toContain(`fill="${COLOR}"`); // the bold label
+  });
+
+  it('labels only "monthly" — never a fabricated "12-month total" label — when no 12-month total exists yet', () => {
+    const html = renderToStaticMarkup(<CategoryHistoryChart monthly={MONTHLY_14} total={[]} color={COLOR} />);
+    expect(html).not.toContain(">12-month total<");
+    expect(html).toContain(">monthly<");
   });
 });

@@ -20,7 +20,7 @@
  */
 import type { CSSProperties } from "react";
 import { useEffect, useRef, useState } from "react";
-import { CategoryHistoryChart } from "@penny/viz";
+import { CategoryHistoryChart, filterHistoryToWindow, HISTORY_WINDOWS, type HistoryWindow } from "@penny/viz";
 import type { CategoryHistoryLineSeries, CategoryHistoryPanel, HistoryPoint, RankedPeriod } from "@/lib/front-door-transform";
 import { formatUsdScale } from "@/lib/format";
 import MonthStepper from "./month-stepper";
@@ -131,28 +131,43 @@ function HistoryPanel({ label, panel }: { label: string; panel: CategoryHistoryP
  * v2"): the real @penny/viz CategoryHistoryChart, shown instead of the
  * four-period dot plot above once a category's ingested history exceeds
  * four months (see lib/front-door-transform.ts's buildCategoryHistoryLineSeries,
- * which returns null — never rendering this — until then).
+ * which returns null — never rendering this — until then). Owns the
+ * [1Y · 5Y · 10Y · All] time-window toggle itself (client-only UI state,
+ * defaulting to "All" — the original, unfiltered behavior): the window only
+ * narrows which already-computed points are shown, via @penny/viz's
+ * filterHistoryToWindow — it never recomputes the 12-month total from a
+ * truncated window (that would silently fabricate a different smoothing
+ * near the window's left edge; see that function's own doc comment).
  */
-function HistoryPanelV2({ label, series, colorVar }: { label: string; series: CategoryHistoryLineSeries; colorVar: RankedBarChartProps["colorVar"] }) {
+export function HistoryPanelV2({ label, series, colorVar }: { label: string; series: CategoryHistoryLineSeries; colorVar: RankedBarChartProps["colorVar"] }) {
+  const [windowKey, setWindowKey] = useState<HistoryWindow>("all");
+  const windowed = filterHistoryToWindow(series.monthly, series.twelveMonthTotal, windowKey);
   // `display` here becomes the chart's native SVG hover title — it must be
   // the full-precision exactDisplay (matching row.exactDisplay's own "exact,
   // as published" hover a screen over), never the fixed-billions
   // scaledDisplay, which the caption below promises is NOT what's shown.
-  const monthly = series.monthly.map((p) => ({ periodEnd: p.periodEnd, valueWhole: p.valueWhole, display: p.exactDisplay, label: p.monthLabel }));
-  const total = series.twelveMonthTotal.map((p) => ({ periodEnd: p.periodEnd, valueWhole: p.valueWhole, display: p.exactDisplay, label: p.monthLabel }));
-  const first = series.monthly[0]!;
-  const last = series.monthly[series.monthly.length - 1]!;
+  const monthly = windowed.monthly.map((p) => ({ periodEnd: p.periodEnd, valueWhole: p.valueWhole, display: p.exactDisplay, label: p.monthLabel }));
+  const total = windowed.total.map((p) => ({ periodEnd: p.periodEnd, valueWhole: p.valueWhole, display: p.exactDisplay, label: p.monthLabel }));
+  const first = windowed.monthly[0]!;
+  const last = windowed.monthly[windowed.monthly.length - 1]!;
 
   return (
     <div className="rank-hist">
       <div className="rank-hist-title">
-        {label} — {series.monthly.length} months, {first.monthLabel} through {last.monthLabel}
+        {label} — {windowed.monthly.length} months, {first.monthLabel} through {last.monthLabel}
+      </div>
+      <div className="rank-hist-window" role="group" aria-label={`Time window — ${label}`}>
+        {HISTORY_WINDOWS.map((opt) => (
+          <button key={opt.key} type="button" aria-pressed={windowKey === opt.key} onClick={() => setWindowKey(opt.key)}>
+            {opt.label}
+          </button>
+        ))}
       </div>
       <CategoryHistoryChart monthly={monthly} total={total} color={`var(${colorVar})`} />
       <div className="rank-hist-note">
         {series.twelveMonthTotal.length > 0
-          ? "Thin line: each month, as published (lumpy — payment dates shift across month boundaries). Bold line: the trailing 12-month total, which smooths that out. Hover either line for the exact figure."
-          : "Thin line: each month, as published (lumpy — payment dates shift across month boundaries). A 12-month rolling total appears once 12 consecutive months are ingested. Hover the line for the exact figure."}
+          ? "Thin line: each month, as published (lumpy — payment dates shift across month boundaries). Bold line: the trailing 12-month total, which smooths that out. Hover or tab to either line for the exact figure."
+          : "Thin line: each month, as published (lumpy — payment dates shift across month boundaries). A 12-month rolling total appears once 12 consecutive months are ingested. Hover or tab to the line for the exact figure."}
       </div>
     </div>
   );

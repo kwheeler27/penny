@@ -61,6 +61,11 @@ function calendarYearOf(periodEnd: string): string {
   return periodEnd.slice(0, 4);
 }
 
+/** Minimum horizontal spacing (in the same SVG viewBox units as the year
+ * ticks' own `fontSize={10}`) between two adjacent year-tick labels before
+ * one is dropped as illegible — see the year-ticks block below. */
+const MIN_YEAR_TICK_GAP_PX = 26;
+
 /**
  * Computes the SVG geometry for one category's history chart. `monthly` and
  * `total` must each be sorted ascending by `periodEnd` (the caller's job —
@@ -111,17 +116,82 @@ export function computeCategoryHistoryGeometry(
   // second tick there produced two adjacent, overlapping "2026" labels when
   // the series happened to end partway through its final year (found via a
   // real-data screenshot, 137-month Medicare history, Mar 2015-Jul 2026).
-  const yearTicks: YearTick[] = [];
+  const rawYearTicks: YearTick[] = [];
   let lastYear: string | null = null;
   for (const p of monthlyPoints) {
     const year = calendarYearOf(p.periodEnd);
     if (year !== lastYear) {
-      yearTicks.push({ x: p.x, label: year });
+      rawYearTicks.push({ x: p.x, label: year });
       lastYear = year;
     }
+  }
+  // Drop any tick (other than the first, which always survives) that lands
+  // too close to the previous KEPT tick to be legible as two separate
+  // 4-digit labels — the same collision the comment above already found at
+  // the series' own right edge, but reachable at the LEFT edge too once the
+  // time-window selector (1Y/5Y/10Y) can start the visible series mid-year:
+  // e.g. a 10-year window beginning August 2016 puts "2016" and the
+  // following "2017" (only 5 months later) close enough to visually merge
+  // (found via a real-data screenshot of the front door's 10Y window on a
+  // 137-month Medicare history). `MIN_YEAR_TICK_GAP_PX` is expressed in the
+  // same SVG viewBox units as the tick labels' own `fontSize={10}`, so it
+  // scales however the caller's `width` does.
+  const yearTicks: YearTick[] = [];
+  for (const tick of rawYearTicks) {
+    const previous = yearTicks[yearTicks.length - 1];
+    if (previous && tick.x - previous.x < MIN_YEAR_TICK_GAP_PX) continue;
+    yearTicks.push(tick);
   }
 
   const zeroY = lo <= 0 && hi >= 0 ? yFor("0") : null;
 
   return { monthlyPath: toPath(monthlyPoints), totalPath: toPath(totalPoints), monthlyPoints, totalPoints, yearTicks, zeroY, width, height };
+}
+
+// ---------- time-window selector (1Y / 5Y / 10Y / All) ----------
+
+export type HistoryWindow = "1y" | "5y" | "10y" | "all";
+
+/** Canonical [1Y · 5Y · 10Y · All] option list, in display order — shared by
+ * whatever host renders the selector buttons, so the button labels and the
+ * filtering logic below can never drift apart. */
+export const HISTORY_WINDOWS: ReadonlyArray<{ readonly key: HistoryWindow; readonly label: string }> = [
+  { key: "1y", label: "1Y" },
+  { key: "5y", label: "5Y" },
+  { key: "10y", label: "10Y" },
+  { key: "all", label: "All" },
+];
+
+export interface HistoryWindowResult<T> {
+  readonly monthly: readonly T[];
+  readonly total: readonly T[];
+}
+
+/**
+ * Narrows a full, already-computed history to the trailing N years, anchored
+ * on the MONTHLY series' own last point (never today's wall-clock date, so
+ * the window follows whatever data is actually loaded — same convention
+ * `computeCategoryHistoryGeometry` uses of trusting the caller's data over
+ * any external clock).
+ *
+ * This is a pure CLIP, never a recompute: `total` must already be the
+ * trailing-12-month total computed from the FULL series (e.g.
+ * lib/front-door-transform.ts's buildCategoryHistoryLineSeries in apps/web),
+ * and this function only narrows which of its already-correct entries fall
+ * inside the window. Recomputing the rolling total from a truncated monthly
+ * window instead would silently produce a DIFFERENT (wrong) smoothing near
+ * the window's left edge — exactly the kind of fabrication CLAUDE.md
+ * forbids — because a trailing-12-month sum needs the 11 real months before
+ * the window even starts, which a truncated recompute wouldn't have.
+ *
+ * `"all"` (the default) returns both inputs completely unfiltered.
+ */
+export function filterHistoryToWindow<T extends HistoryLayoutPoint>(monthly: readonly T[], total: readonly T[], window: HistoryWindow): HistoryWindowResult<T> {
+  if (window === "all" || monthly.length === 0) return { monthly, total };
+  const years = window === "1y" ? 1 : window === "5y" ? 5 : 10;
+  const spanMonths = years * 12;
+  const anchorIdx = monthIndexOf(monthly[monthly.length - 1]!.periodEnd);
+  const cutoffIdx = anchorIdx - spanMonths + 1;
+  const clip = (points: readonly T[]) => points.filter((p) => monthIndexOf(p.periodEnd) >= cutoffIdx);
+  return { monthly: clip(monthly), total: clip(total) };
 }

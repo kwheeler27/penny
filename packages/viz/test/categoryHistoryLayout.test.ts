@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { computeCategoryHistoryGeometry, type HistoryLayoutPoint } from "../src/layout/categoryHistoryLayout";
+import { computeCategoryHistoryGeometry, filterHistoryToWindow, HISTORY_WINDOWS, type HistoryLayoutPoint } from "../src/layout/categoryHistoryLayout";
 import { addDecimal, sumDecimal } from "../src/money/decimal";
 
 const OPTS = { width: 560, height: 130, padLeft: 8, padRight: 8, padTop: 18, padBottom: 20 };
@@ -136,6 +136,111 @@ describe("computeCategoryHistoryGeometry — year ticks", () => {
     const years = geometry.yearTicks.map((t) => t.label);
     expect(years).toEqual([...new Set(years)]); // no duplicates anywhere, not just adjacent
     expect(years[years.length - 1]).toBe("2026");
+  });
+
+  it('drops a year tick that would visually collide with the one before it — regression: a real 10Y time-window starting mid-year (Aug 2016) put "2016" and "2017" (only 5 months later) close enough to merge into one illegible label', () => {
+    const periodEnds: string[] = [];
+    let y = 2016;
+    let m = 8;
+    for (let i = 0; i < 120; i++) {
+      periodEnds.push(`${y}-${String(m).padStart(2, "0")}-${String(lastDayOfMonth(y, m)).padStart(2, "0")}`);
+      m += 1;
+      if (m > 12) {
+        m = 1;
+        y += 1;
+      }
+    }
+    const points = monthly(periodEnds, periodEnds.map(() => "100"));
+    const geometry = computeCategoryHistoryGeometry(points, [], OPTS);
+    const years = geometry.yearTicks.map((t) => t.label);
+    // The series' own first year always ticks...
+    expect(years[0]).toBe("2016");
+    // ...but "2017" — only 5 months later — is close enough to collide with
+    // it that it's dropped rather than rendered overlapping.
+    expect(years).not.toContain("2017");
+    // Ticking resumes normally once the gap is wide enough again (every
+    // later calendar year is a full 12 months apart).
+    expect(years).toEqual(expect.arrayContaining(["2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026"]));
+    // No two consecutive kept ticks ever land within a few pixels of each
+    // other, matching the same legibility guarantee visually confirmed via
+    // real-browser screenshots at 1440px (CLAUDE.md: curl is not
+    // verification for anything visual — this test guards the underlying
+    // pixel math the screenshot spot-checked).
+    for (let i = 1; i < geometry.yearTicks.length; i++) {
+      expect(geometry.yearTicks[i]!.x - geometry.yearTicks[i - 1]!.x).toBeGreaterThanOrEqual(26);
+    }
+  });
+});
+
+describe("filterHistoryToWindow — window math and clipping (never recomputing)", () => {
+  // 46 months (Oct 2022 - Jul 2026) with a real, exactly-computed trailing
+  // 12-month total (35 entries, i.e. months 12..46) — mirrors the "12-month
+  // window math" describe block above, so this section's fixture is known
+  // correct before any windowing happens.
+  const points = monthly(FULL_MONTHS, FULL_MONTHS.map((_, i) => String(1000 + i)));
+  const fullTotal: HistoryLayoutPoint[] = [];
+  for (let i = 11; i < points.length; i++) {
+    fullTotal.push({ periodEnd: points[i]!.periodEnd, valueWhole: sumDecimal(points.slice(i - 11, i + 1).map((p) => p.valueWhole)) });
+  }
+
+  it("HISTORY_WINDOWS lists exactly [1Y, 5Y, 10Y, All] in that order — the buttons' own labels, kept in sync with the filtering keys", () => {
+    expect(HISTORY_WINDOWS.map((w) => w.key)).toEqual(["1y", "5y", "10y", "all"]);
+    expect(HISTORY_WINDOWS.map((w) => w.label)).toEqual(["1Y", "5Y", "10Y", "All"]);
+  });
+
+  it('"all" returns both series completely unfiltered — the default, current behavior', () => {
+    const windowed = filterHistoryToWindow(points, fullTotal, "all");
+    expect(windowed.monthly).toEqual(points);
+    expect(windowed.total).toEqual(fullTotal);
+  });
+
+  it('"1y" keeps exactly the trailing 12 months, anchored on the series’ own last point', () => {
+    const windowed = filterHistoryToWindow(points, fullTotal, "1y");
+    expect(windowed.monthly).toHaveLength(12);
+    expect(windowed.monthly[0]!.periodEnd).toBe(points[points.length - 12]!.periodEnd);
+    expect(windowed.monthly[windowed.monthly.length - 1]!.periodEnd).toBe(points[points.length - 1]!.periodEnd);
+  });
+
+  it(
+    "clips the trailing-12-month total from the FULL-series computation rather than recomputing it on the truncated window — the clipped values equal the full-series computation exactly, digit for digit (CLAUDE.md: never fabricate)",
+    () => {
+      const windowed = filterHistoryToWindow(points, fullTotal, "1y");
+      // A recompute on only the truncated 12-month window could produce at
+      // most ONE valid trailing-12-month sum (the window's own last month —
+      // the only one with 11 real preceding months inside the truncated
+      // set); every earlier month in the window would be missing its
+      // preceding context. The correct behavior — a clip of the full-series
+      // computation — instead has all 12 entries, and they must be
+      // BIT-FOR-BIT the same values the full, untruncated computation
+      // produced (fullTotal's own last 12 entries).
+      expect(windowed.total).toHaveLength(12);
+      expect(windowed.total).toEqual(fullTotal.slice(-12));
+    },
+  );
+
+  it('"5y" and "10y" both return everything on a 46-month (< 4-year) series — the window never trims more than the data actually spans', () => {
+    const fiveYear = filterHistoryToWindow(points, fullTotal, "5y");
+    const tenYear = filterHistoryToWindow(points, fullTotal, "10y");
+    expect(fiveYear.monthly).toEqual(points);
+    expect(fiveYear.total).toEqual(fullTotal);
+    expect(tenYear.monthly).toEqual(points);
+    expect(tenYear.total).toEqual(fullTotal);
+  });
+
+  it("returns empty for both series when the monthly input is empty, regardless of window", () => {
+    const windowed = filterHistoryToWindow([], [], "1y");
+    expect(windowed.monthly).toHaveLength(0);
+    expect(windowed.total).toHaveLength(0);
+  });
+
+  it("clips the total to empty when the window predates any 12-month total (fewer than 12 months in the window)", () => {
+    // A 6-month-old total series (no 12-month window has ever completed) —
+    // clipping to "1y" must not fabricate total entries that were never
+    // computed.
+    const shortPoints = points.slice(0, 6);
+    const windowed = filterHistoryToWindow(shortPoints, [], "1y");
+    expect(windowed.monthly).toHaveLength(6);
+    expect(windowed.total).toHaveLength(0);
   });
 });
 

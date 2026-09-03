@@ -91,6 +91,7 @@ export default async function Home({ searchParams }: HomeProps) {
             defaultPeriod="month"
             stepper={spendStepper}
             stageVerb="spent"
+            compareBigFive
             footNote="Percentages are each category’s share of the period’s net total. Rows below the zero line are net offsets — money that flowed back to the government — so their shares are negative. Chart labels are rounded to $0.1 billion; hover any bar for the exact published figure."
           />
           <div className="for-scale-grid">

@@ -9,6 +9,7 @@ import {
   negateDecimal,
   scaleByMagnitude,
   toWholeDollarsBigInt,
+  divideDecimalByInt,
 } from "../src/money/decimal";
 
 describe("decimal arithmetic (exact, never through JS float)", () => {
@@ -74,5 +75,42 @@ describe("decimal arithmetic (exact, never through JS float)", () => {
     expect(toWholeDollarsBigInt("100.50")).toBe(101n);
     expect(toWholeDollarsBigInt("-100.50")).toBe(-101n);
     expect(toWholeDollarsBigInt("36345909729842.98")).toBe(36345909729843n);
+  });
+
+  describe("divideDecimalByInt — BigInt long division for a rolling average's sum/N (packages/viz/src/layout/averagedHistoryLayout.ts)", () => {
+    it("divides evenly, carrying `extraScale` trailing zero digits (default 6)", () => {
+      expect(divideDecimalByInt("120", 12)).toBe("10.000000");
+    });
+
+    it("rounds a genuinely repeating decimal half-up, at exactly the requested extra precision — never via float division (which would silently accumulate error at scale)", () => {
+      // 1/3 has no finite decimal representation at all; the classic
+      // float trap (1/3 in JS is 0.3333333333333333, already an
+      // approximation) never enters this path.
+      expect(divideDecimalByInt("1", 3, 4)).toBe("0.3333");
+      expect(divideDecimalByInt("2", 3, 4)).toBe("0.6667"); // 0.6666... rounds up
+    });
+
+    it("preserves the exact same digits Number()-based division would already get wrong on a large debt-to-the-penny-scale value", () => {
+      // The exact value packages/db/test/db.test.ts asserts survives with
+      // no float round-trip; dividing it by a small integer must stay
+      // exact too, not just addition.
+      const exact = "36345909729842.9800";
+      const half = divideDecimalByInt(exact, 2);
+      // scale is the INPUT's own scale (4, from ".9800") plus extraScale
+      // (default 6) = 10 total fractional digits.
+      expect(half).toBe("18172954864921.4900000000");
+    });
+
+    it("preserves sign, and never returns a negative zero", () => {
+      expect(divideDecimalByInt("-9", 3)).toBe("-3.000000");
+      expect(divideDecimalByInt("-1", 1_000_000, 2)).not.toBe("-0.00");
+      expect(divideDecimalByInt("0", 7)).toBe("0.000000");
+    });
+
+    it("rejects a zero, negative, or non-integer count", () => {
+      expect(() => divideDecimalByInt("10", 0)).toThrow();
+      expect(() => divideDecimalByInt("10", -1)).toThrow();
+      expect(() => divideDecimalByInt("10", 1.1)).toThrow();
+    });
   });
 });

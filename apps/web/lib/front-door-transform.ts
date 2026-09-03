@@ -12,7 +12,7 @@
  * widths), matching packages/viz/src/money/decimal.ts's own documented
  * convention.
  */
-import { getSeries, type SeriesId } from "@penny/registry";
+import { getSeries, type Magnitude, type SeriesId } from "@penny/registry";
 import type { CategoryFlow, CategoryHistoryPoint } from "./series-data";
 import type { Reading } from "./types";
 import {
@@ -279,24 +279,18 @@ function monthIndexOf(periodEnd: string): number {
 }
 
 /**
- * The full-history line-chart form of a category's monthly figures (beat 1,
- * "HISTORY PANELS v2"): every ingested month, plus a 12-month rolling total
- * that only starts once 12 consecutive calendar months actually exist.
- * Returns null when there are 4 or fewer points — the existing four-period
- * dot plot (components/ranked-bar-chart.tsx's HistoryPanel) handles that
- * case instead, and the caller (lib/front-door-data.ts) decides which form
- * to render from this null-ness, never both. This is exactly what makes the
- * page render correctly on today's 4-period-per-category seed AND on the
- * full MTS backfill without any code change: the moment a category's
- * ingested history grows past 4 months, this function stops returning null.
+ * Converts raw registry-magnitude points into HistoryLinePoint form (exact
+ * decimal display via formatSeriesUsd + fixed-billions scaledDisplay) —
+ * extracted from buildCategoryHistoryLineSeries below (beat 1, "HISTORY
+ * PANELS v2") so lib/category-compare-transform.ts's per-category
+ * conversion (the "Compare the big five" chart, spending-history-scrub) can
+ * share exactly the same rule rather than re-deriving it: every category's
+ * monthly figure is stamped through ONE formatSeriesUsd/formatUsdScale call
+ * site, magnitude-aware, never assuming "ones" outside the two places that
+ * already documented that assumption.
  */
-export function buildCategoryHistoryLineSeries(id: SeriesId, rawPoints: CategoryHistoryPoint[]): CategoryHistoryLineSeries | null {
-  if (rawPoints.length <= 4) return null;
-  const def = getSeries(id);
-  const magnitude = def?.magnitude ?? "ones";
-
-  const decimals = defaultUsdDecimals(magnitude);
-  const monthly: HistoryLinePoint[] = rawPoints.map((p) => {
+export function buildHistoryLinePoints(rawPoints: readonly CategoryHistoryPoint[], magnitude: Magnitude): HistoryLinePoint[] {
+  return rawPoints.map((p) => {
     const { exact, display } = formatSeriesUsd(p.value, magnitude);
     return {
       periodEnd: p.periodEnd,
@@ -306,7 +300,24 @@ export function buildCategoryHistoryLineSeries(id: SeriesId, rawPoints: Category
       exactDisplay: display,
     };
   });
+}
 
+/**
+ * Rolling 12-month total over an ascending, already-whole-dollar
+ * HistoryLinePoint series (e.g. buildHistoryLinePoints's own output) — only
+ * entries where 12 CONSECUTIVE calendar months actually exist land here; a
+ * gap in the backfill skips every window that would span it (never
+ * fabricated — CLAUDE.md). Extracted from buildCategoryHistoryLineSeries
+ * below so lib/category-compare-transform.ts's "everything else" aggregate
+ * and its per-contributor deltas (the "Compare the big five" chart) reuse
+ * this EXACT gap-skipping rule rather than re-deriving it — the one thing
+ * this refactor must never change is buildCategoryHistoryLineSeries's own
+ * observable behavior (test/front-door-transform.test.ts's
+ * buildCategoryHistoryLineSeries suite is the guard). `decimals` controls
+ * exactDisplay's rounding, same as every other exact-figure display in this
+ * file — pass the caller's own defaultUsdDecimals(magnitude).
+ */
+export function rollingTwelveMonthTotal(monthly: readonly HistoryLinePoint[], decimals: number): HistoryLinePoint[] {
   const twelveMonthTotal: HistoryLinePoint[] = [];
   for (let i = 11; i < monthly.length; i++) {
     const windowStart = monthly[i - 11]!;
@@ -323,6 +334,28 @@ export function buildCategoryHistoryLineSeries(id: SeriesId, rawPoints: Category
       exactDisplay: formatExactUsd(totalWhole, decimals),
     });
   }
+  return twelveMonthTotal;
+}
+
+/**
+ * The full-history line-chart form of a category's monthly figures (beat 1,
+ * "HISTORY PANELS v2"): every ingested month, plus a 12-month rolling total
+ * that only starts once 12 consecutive calendar months actually exist.
+ * Returns null when there are 4 or fewer points — the existing four-period
+ * dot plot (components/ranked-bar-chart.tsx's HistoryPanel) handles that
+ * case instead, and the caller (lib/front-door-data.ts) decides which form
+ * to render from this null-ness, never both. This is exactly what makes the
+ * page render correctly on today's 4-period-per-category seed AND on the
+ * full MTS backfill without any code change: the moment a category's
+ * ingested history grows past 4 months, this function stops returning null.
+ */
+export function buildCategoryHistoryLineSeries(id: SeriesId, rawPoints: CategoryHistoryPoint[]): CategoryHistoryLineSeries | null {
+  if (rawPoints.length <= 4) return null;
+  const def = getSeries(id);
+  const magnitude = def?.magnitude ?? "ones";
+
+  const monthly = buildHistoryLinePoints(rawPoints, magnitude);
+  const twelveMonthTotal = rollingTwelveMonthTotal(monthly, defaultUsdDecimals(magnitude));
 
   return { monthly, twelveMonthTotal };
 }

@@ -135,6 +135,44 @@ export function scaleByMagnitude(value: string, magnitude: MagnitudeName): strin
   return formatDecimal({ ...p, scale: p.scale - exp });
 }
 
+/**
+ * Exact-as-representable decimal division of `value` by a positive integer
+ * `count` (a trailing N-month rolling average's sum / N — see
+ * layout/averagedHistoryLayout.ts's `rollingAverage`) — BigInt long
+ * division, never Number()/parseFloat.
+ *
+ * A quotient like sum/12 is, in general, a REPEATING decimal (12 = 4*3, and
+ * no power of 3 ever divides a power of 10) — it cannot be written as a
+ * finite decimal string at all, so SOME rounding is mathematically
+ * unavoidable to return one. This function performs exactly that one
+ * rounding step, half-up on the magnitude, at `extraScale` digits past
+ * `value`'s OWN decimal scale (default 6 — comfortably finer than any
+ * number this package ever displays, which rounds to whole dollars at
+ * coarsest; see money/format.ts's `formatUsd`). That is deliberately NOT
+ * the "display boundary" a caller's own doc comment may refer to: this
+ * result still carries several more digits of precision than a reader ever
+ * sees, so a caller formatting it for display (via `formatUsd`) is doing
+ * the FIRST rounding a human actually notices, not a second one stacked on
+ * top of a display-precision value already thrown away here.
+ */
+export function divideDecimalByInt(value: string, count: number, extraScale: number = 6): string {
+  if (!Number.isInteger(count) || count <= 0) {
+    throw new Error(`divideDecimalByInt: count must be a positive integer, got ${count}`);
+  }
+  const p = parseDecimal(value);
+  const scale = p.scale + extraScale;
+  const scaledDigits = p.digits * 10n ** BigInt(extraScale);
+  const bigCount = BigInt(count);
+  const quotient = scaledDigits / bigCount;
+  const remainder = scaledDigits % bigCount;
+  // Half-up on the magnitude (matches toWholeDollarsBigInt's own
+  // half-away-from-zero convention below) — compare 2x the remainder
+  // against the divisor rather than dividing again, so this stays exact
+  // BigInt arithmetic throughout.
+  const roundedDigits = remainder * 2n >= bigCount ? quotient + 1n : quotient;
+  return formatDecimal({ sign: roundedDigits === 0n ? 1 : p.sign, digits: roundedDigits, scale });
+}
+
 /** Converts an exact whole-dollar decimal string to a BigInt of whole dollars, rounding the fractional part half-away-from-zero. Never uses Number()/parseFloat. */
 export function toWholeDollarsBigInt(value: string): bigint {
   const p = parseDecimal(value);

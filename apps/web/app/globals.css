@@ -40,6 +40,21 @@
      and the click-to-expand history panel's own background. */
   --panel: #f1f0ea;
 
+  /* "Compare the big five" chart (Frame B, spending-history-scrub) — one
+     fixed color per FIXED category (never cycled, never reassigned as
+     ranking shifts) plus a muted gray for the "everything else" aggregate.
+     Values are the approved mockup's own (penny-history-scrub.html):
+     CVD-validated in both light and dark, matching how --series-* above is
+     documented. Deliberately a SEPARATE token set from --series-outlays
+     (this chart plots categories, not the outlays/receipts/borrowing
+     three-way split those tokens are reserved for). */
+  --cat-medicare: #d4653e;
+  --cat-social-security: #3d6fb4;
+  --cat-net-interest: #0d8f6b;
+  --cat-national-defense: #8a4f9e;
+  --cat-health: #a07d1f;
+  --cat-rest: #6b6963;
+
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -70,6 +85,12 @@
     --series-borrowing: #2aa18a;
     --negative-hatch: rgba(235, 232, 223, 0.07);
     --panel: #221f1c;
+    --cat-medicare: #d17a52;
+    --cat-social-security: #5b8cc9;
+    --cat-net-interest: #2aa16f;
+    --cat-national-defense: #a678b8;
+    --cat-health: #ab8a35;
+    --cat-rest: #a5a29a;
   }
 }
 
@@ -88,6 +109,12 @@
   --series-borrowing: #2aa18a;
   --negative-hatch: rgba(235, 232, 223, 0.07);
   --panel: #221f1c;
+  --cat-medicare: #d17a52;
+  --cat-social-security: #5b8cc9;
+  --cat-net-interest: #2aa16f;
+  --cat-national-defense: #a678b8;
+  --cat-health: #ab8a35;
+  --cat-rest: #a5a29a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1151,6 +1178,45 @@ a.month-stepper-btn:hover {
   color: var(--text-muted);
   margin-top: var(--space-2);
   max-width: 44rem;
+}
+
+/* A history panel with more than one toggle group on one row (the
+   [1Y·5Y·10Y·All] time window alongside the [12-mo·6-mo] average window,
+   HistoryPanelV2) — both `.rank-hist-window` groups sit side by side here,
+   same convention the approved mockup's own `.controls` row uses. */
+.rank-hist-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+/* ---------- front door — "Compare the big five" (Act I only) ---------- */
+
+.rank-compare {
+  margin-top: var(--space-4);
+}
+.rank-compare-toggle {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.rank-compare-toggle[aria-expanded="true"] {
+  background: var(--text-primary);
+  color: var(--bg);
+  font-weight: 600;
+}
+.rank-compare-toggle:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: -2px;
+}
+.rank-compare-panel {
+  margin-top: var(--space-3);
 }
 
 /* ---------- front door — "for scale" facts ---------- */

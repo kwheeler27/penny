@@ -119,8 +119,8 @@ function HistoryPanel({ label, panel }: { label: string; panel: CategoryHistoryP
       )}
       <div className="rank-hist-note">
         Monthly figures are lumpy — payment dates shift across month boundaries, so a single month can swing sharply
-        without a policy change. The full monthly history (FiscalData serves every month back to 2015) arrives with
-        the backfill; this panel then becomes a real line chart with 12-month smoothing.
+        without a policy change. Showing the periods the latest statement publishes; the full monthly line chart
+        appears when this category&rsquo;s history is available.
       </div>
     </div>
   );
@@ -265,6 +265,13 @@ export default function RankedBarChart({
             const expanded = expandedId === row.id;
             const panel = histories[row.id];
             const lineSeries = fetchedFull[row.id];
+            // `undefined` = the lazy /api/category-history fetch hasn't
+            // resolved yet; `null` = it resolved with no full series. Only
+            // the resolved-null case falls back to the sparse dot plot —
+            // rendering it while the fetch is in flight flashed a whole
+            // different chart for ~a second before the real one replaced it
+            // (Kevin's 2026-09-02 screen recording).
+            const historyResolved = row.id in fetchedFull;
             return (
               <div key={row.id}>
                 <button type="button" className="rank-row" aria-expanded={expanded} onClick={() => setExpandedId(expanded ? null : row.id)}>
@@ -284,6 +291,12 @@ export default function RankedBarChart({
                 {expanded &&
                   (lineSeries ? (
                     <HistoryPanelV2 label={row.label} series={lineSeries} colorVar={colorVar} />
+                  ) : !historyResolved ? (
+                    // Sized to roughly the v2 panel's rendered height so the
+                    // swap-in doesn't jump the page either.
+                    <div className="rank-hist rank-hist--pending" aria-busy="true">
+                      Loading {row.label}&rsquo;s monthly history…
+                    </div>
                   ) : panel ? (
                     <HistoryPanel label={row.label} panel={panel} />
                   ) : (

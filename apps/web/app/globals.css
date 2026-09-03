@@ -1048,6 +1048,20 @@ a.month-stepper-btn:hover {
   font-size: 0.85rem;
 }
 
+/* The lazy category-history fetch's in-flight state. min-height approximates
+   the v2 line-chart panel it resolves into (560×130 chart at full panel
+   width, plus title/window-buttons/note) so neither the placeholder's
+   appearance nor the chart's swap-in jumps the page. */
+.rank-hist--pending {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
 .rank-hist-title {
   font-size: 0.8rem;
   font-weight: 600;

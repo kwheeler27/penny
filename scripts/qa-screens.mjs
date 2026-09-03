@@ -2,9 +2,11 @@
 /**
  * QA screenshots for manual visual review — NOT a test (no assertions).
  * Builds/starts `next start` against the seeded local PGlite DB, captures
- * full-page screenshots of / and /report/where-the-money-goes at desktop
- * (1440x900) and mobile (375x812), plus one dark-mode shot of /, then kills
- * the server unconditionally (8GB-RAM rule: never leave a server running).
+ * full-page screenshots of /, /report/where-the-money-goes, /auctions, and
+ * /report/where-dollars-come-from at desktop (1440x900) and mobile
+ * (375x812), plus a dark-mode shot of each of /, /auctions, and
+ * /report/where-dollars-come-from, then kills the server unconditionally
+ * (8GB-RAM rule: never leave a server running).
  *
  * Usage: `pnpm qa:screens` (root script) or `node scripts/qa-screens.mjs`.
  * Requires `pnpm --filter @penny/web build` to have already produced
@@ -37,6 +39,9 @@ const SHOTS = [
   { path: "/auctions", viewport: "1440,900", file: "auctions-desktop.png" },
   { path: "/auctions", viewport: "375,812", file: "auctions-mobile.png" },
   { path: "/auctions", viewport: "1440,900", file: "auctions-desktop-dark.png", colorScheme: "dark" },
+  { path: "/report/where-dollars-come-from", viewport: "1440,900", file: "money-creation-desktop.png" },
+  { path: "/report/where-dollars-come-from", viewport: "375,812", file: "money-creation-mobile.png" },
+  { path: "/report/where-dollars-come-from", viewport: "1440,900", file: "money-creation-desktop-dark.png", colorScheme: "dark" },
 ];
 
 function waitForServer(url, timeoutMs = 30_000) {

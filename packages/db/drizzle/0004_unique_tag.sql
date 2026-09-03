@@ -1,0 +1,1 @@
+ALTER TYPE "public"."cadence" ADD VALUE 'weekly' BEFORE 'monthly';

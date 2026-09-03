@@ -37,6 +37,7 @@ import { parseCpi } from "./jobs/cpi-monthly";
 import { parseCboBaselineRows, CBO_BASELINE_CSV_PATH, CBO_BASELINE_PUBLICATION_DATE } from "./jobs/cbo-baseline";
 import { parseCboBaselineOutlaysRows, CBO_BASELINE_OUTLAYS_CSV_PATH, CBO_BASELINE_OUTLAYS_PUBLICATION_DATE } from "./jobs/cbo-baseline-outlays";
 import { parseCboBaselineRevenuesRows, CBO_BASELINE_REVENUES_CSV_PATH, CBO_BASELINE_REVENUES_PUBLICATION_DATE } from "./jobs/cbo-baseline-revenues";
+import { parseWrbwfrblCsv, parseWrbwfrblObservations } from "./fred/wrbwfrbl";
 import type { RawObservation } from "./lib/types";
 import { readFileSync } from "node:fs";
 
@@ -151,6 +152,17 @@ function main() {
   const cboRevenuesRows = parseCboBaselineRevenuesCsv(readFileSync(CBO_BASELINE_REVENUES_CSV_PATH, "utf8"));
   const cboRevenues = parseCboBaselineRevenuesRows(cboRevenuesRows, CBO_BASELINE_REVENUES_PUBLICATION_DATE);
   write("cbo-baseline-revenues.json", cboRevenues);
+
+  // Reserve balances at the Fed (H.4.1, FRED WRBWFRBL — "Wednesday Level,"
+  // not the week-average WRESBAL; see fred/wrbwfrbl.ts's header comment) —
+  // see db/fixtures/raw/fred/wrbwfrbl/SOURCE.md for the exact fetch and the
+  // spot-checked known value. asOf is the raw snapshot's own retrieval
+  // date (see this file's doc comment on why WRBWFRBL has no honest
+  // per-point publish date to derive from instead — same reasoning as the
+  // CPI-U fixture's fetchedAt above).
+  const wrbwfrblRows = parseWrbwfrblCsv(readFileSync(join(RAW_ROOT, "fred", "wrbwfrbl", "2015-01-07_to_2026-08-26.csv"), "utf8"));
+  const wrbwfrbl = parseWrbwfrblObservations(wrbwfrblRows, "2026-09-02T00:00:00Z");
+  write("fed-reserve-balances.json", wrbwfrbl);
 }
 
 main();

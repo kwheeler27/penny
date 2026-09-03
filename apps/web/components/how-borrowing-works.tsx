@@ -53,8 +53,11 @@ export default function HowBorrowingWorks() {
         any additional Treasuries in the secondary market. That distinction matters later.)
       </div>
       <div className="how-segue">
-        Step 4 raises the real question: if everyone is paying with dollars, <em>where do dollars come from in the
-        first place?</em> That’s the money-creation story — the chapter Penny builds next, auction by auction.
+        Step 4 raises the real question: if everyone is paying with dollars,{" "}
+        <Link href="/report/where-dollars-come-from">
+          <em>where do dollars come from in the first place?</em>
+        </Link>{" "}
+        That’s the money-creation story — the chapter Penny builds next, auction by auction.
       </div>
       <p className="src">
         Sources:{" "}

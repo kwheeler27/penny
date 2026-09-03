@@ -4,7 +4,7 @@
 export type Unit = "usd" | "index_point" | "persons" | "households";
 export type Magnitude = "ones" | "thousands" | "millions" | "billions";
 export type AccountingConcept = "receipt" | "outlay" | "deficit" | "debt" | "balance" | "interest" | "price_index" | "projection" | "population" | "households" | "cash_deposit" | "cash_withdrawal";
-export type Cadence = "daily" | "monthly" | "annual";
+export type Cadence = "daily" | "weekly" | "monthly" | "annual";
 export type RevisionStatus = "provisional" | "final" | "mixed";
 
 export interface SeriesDef {
@@ -26,7 +26,7 @@ export interface SeriesDef {
   readonly notComparableWith: readonly { readonly series: string; readonly reason: string }[];
 }
 
-export type SeriesId = "census.households.total" | "census.population.resident_total" | "fiscal.debt.interest_expense_total" | "fiscal.debt.total_public_debt_outstanding" | "fiscal.dts.deposits_operating_excl_debt" | "fiscal.dts.public_debt_cash_issues" | "fiscal.dts.public_debt_cash_redemptions" | "fiscal.dts.withdrawals_operating_excl_debt" | "fiscal.mts.deficit.total" | "fiscal.mts.outlays.category.administration_of_justice" | "fiscal.mts.outlays.category.agriculture" | "fiscal.mts.outlays.category.allowances" | "fiscal.mts.outlays.category.commerce_and_housing_credit" | "fiscal.mts.outlays.category.community_and_regional_development" | "fiscal.mts.outlays.category.education_training_employment_social_services" | "fiscal.mts.outlays.category.energy" | "fiscal.mts.outlays.category.general_government" | "fiscal.mts.outlays.category.general_science_space_technology" | "fiscal.mts.outlays.category.health" | "fiscal.mts.outlays.category.income_security" | "fiscal.mts.outlays.category.international_affairs" | "fiscal.mts.outlays.category.medicare" | "fiscal.mts.outlays.category.national_defense" | "fiscal.mts.outlays.category.natural_resources_and_environment" | "fiscal.mts.outlays.category.net_interest" | "fiscal.mts.outlays.category.social_security" | "fiscal.mts.outlays.category.transportation" | "fiscal.mts.outlays.category.undistributed_offsetting_receipts" | "fiscal.mts.outlays.category.veterans_benefits_and_services" | "fiscal.mts.outlays.total" | "fiscal.mts.receipts.category.corporation_income_tax" | "fiscal.mts.receipts.category.customs_duties" | "fiscal.mts.receipts.category.estate_and_gift_taxes" | "fiscal.mts.receipts.category.excise_taxes" | "fiscal.mts.receipts.category.individual_income_tax" | "fiscal.mts.receipts.category.miscellaneous_receipts" | "fiscal.mts.receipts.category.social_insurance_retirement" | "fiscal.mts.receipts.total" | "fiscal.tga.closing_balance" | "price.cpi_u.all_items" | "projection.cbo.baseline.deficit" | "projection.cbo.baseline.outlays" | "projection.cbo.baseline.revenues";
+export type SeriesId = "census.households.total" | "census.population.resident_total" | "fiscal.debt.interest_expense_total" | "fiscal.debt.total_public_debt_outstanding" | "fiscal.dts.deposits_operating_excl_debt" | "fiscal.dts.public_debt_cash_issues" | "fiscal.dts.public_debt_cash_redemptions" | "fiscal.dts.withdrawals_operating_excl_debt" | "fiscal.mts.deficit.total" | "fiscal.mts.outlays.category.administration_of_justice" | "fiscal.mts.outlays.category.agriculture" | "fiscal.mts.outlays.category.allowances" | "fiscal.mts.outlays.category.commerce_and_housing_credit" | "fiscal.mts.outlays.category.community_and_regional_development" | "fiscal.mts.outlays.category.education_training_employment_social_services" | "fiscal.mts.outlays.category.energy" | "fiscal.mts.outlays.category.general_government" | "fiscal.mts.outlays.category.general_science_space_technology" | "fiscal.mts.outlays.category.health" | "fiscal.mts.outlays.category.income_security" | "fiscal.mts.outlays.category.international_affairs" | "fiscal.mts.outlays.category.medicare" | "fiscal.mts.outlays.category.national_defense" | "fiscal.mts.outlays.category.natural_resources_and_environment" | "fiscal.mts.outlays.category.net_interest" | "fiscal.mts.outlays.category.social_security" | "fiscal.mts.outlays.category.transportation" | "fiscal.mts.outlays.category.undistributed_offsetting_receipts" | "fiscal.mts.outlays.category.veterans_benefits_and_services" | "fiscal.mts.outlays.total" | "fiscal.mts.receipts.category.corporation_income_tax" | "fiscal.mts.receipts.category.customs_duties" | "fiscal.mts.receipts.category.estate_and_gift_taxes" | "fiscal.mts.receipts.category.excise_taxes" | "fiscal.mts.receipts.category.individual_income_tax" | "fiscal.mts.receipts.category.miscellaneous_receipts" | "fiscal.mts.receipts.category.social_insurance_retirement" | "fiscal.mts.receipts.total" | "fiscal.tga.closing_balance" | "monetary.fed.reserve_balances" | "price.cpi_u.all_items" | "projection.cbo.baseline.deficit" | "projection.cbo.baseline.outlays" | "projection.cbo.baseline.revenues";
 
 export const SERIES: Record<SeriesId, SeriesDef> = {
   "census.households.total": {
@@ -912,6 +912,40 @@ export const SERIES: Record<SeriesId, SeriesDef> = {
       "Balance (a stock, like debt) is a different accounting concept from deficit or outlay (flows) — never summed or compared without a declared bridge."
     ],
     "notComparableWith": []
+  },
+  "monetary.fed.reserve_balances": {
+    "id": "monetary.fed.reserve_balances",
+    "label": "Reserve balances with Federal Reserve Banks",
+    "definition": "What commercial banks and other depository institutions hold on deposit at the Federal Reserve — the Fed's own liability to them, and the balance banks use to settle payments with each other. Reported weekly, as of the close of business each Wednesday. Rises when the Fed buys securities in the open market or the Treasury spends from its account; falls when the Fed sells securities or the Treasury's account balance grows — the same dollar moving between two lines on the Fed's own balance sheet.",
+    "aliases": [],
+    "agency": "Federal Reserve Board",
+    "dataset": "H.4.1 Factors Affecting Reserve Balances — Reserve Balances with Federal Reserve Banks: Wednesday Level (via FRED, series WRBWFRBL)",
+    "datasetUrl": "https://fred.stlouisfed.org/series/WRBWFRBL",
+    "unit": "usd",
+    "magnitude": "millions",
+    "accountingConcept": "balance",
+    "cadence": "weekly",
+    "citation": "Board of Governors of the Federal Reserve System, H.4.1, \"Factors Affecting Reserve Balances,\" Reserve Balances with Federal Reserve Banks: Wednesday Level, via Federal Reserve Bank of St. Louis, FRED series WRBWFRBL. Accessed {access_date}.",
+    "revisionStatus": "mixed",
+    "revisionNote": "Published weekly, once per release; H.4.1 occasionally restates a recently published week in a later release (a small correction, not a routine benchmark revision). FRED's default series endpoint returns the latest vintage per date — ingest treats a changed value for an already-known week as a genuine revision (a new row), never an in-place update, same as every other series here.",
+    "notes": [
+      "FRED publishes TWO distinct H.4.1 reserve-balance series, and this is deliberately the Wednesday-Level one, not the other. WRESBAL (\"...Week Average\") is the average of the daily levels across the week ending that Wednesday — NOT a point-in-time balance, despite the superficially similar name. WRBWFRBL (\"...Wednesday Level,\" used here) is the genuine as-of-Wednesday balance. Verified live 2026-09-02 the two differ by tens of billions of dollars in a volatile week (e.g. 2026-06-17: WRESBAL 3,033,444 vs. WRBWFRBL 2,936,355, a $97.1B gap) — every claim below, and every reader-facing label on the money-creation page, is true of WRBWFRBL and would NOT be true of WRESBAL.",
+      "Published weekly as of the close of business each Wednesday (verified live 2026-09-02 against the full WRBWFRBL history: 1,237 of 1,237 rows fall on a Wednesday). FRED's own missing-value sentinel is the literal string \".\" — never a zero or a carried-forward prior value; a week FRED has not yet published, or has withdrawn, renders as a gap.",
+      "Magnitude verified against a live fetch (2026-09-02): the latest reading, 2026-08-26, is 2916824 at magnitude \"millions\" — $2.92 trillion, the right order of magnitude for total bank reserves at the Fed. Per CLAUDE.md, this is checked against a live sample, not assumed from the series' label.",
+      "This is the money-creation ledger's \"reserves owed to banks\" line (the Fed box's mirror of a bank's own reserve account) at national balance-sheet scale — the $1,000 worked example on that page is a mechanism illustration, not this series.",
+      "A stock (a balance at a point in time), not a flow — never summed or differenced against a period flow (an MTS outlay, receipt, or deficit total) without a declared bridge; see not_comparable_with below. It is the same class of figure as fiscal.tga.closing_balance (both are point-in-time balances on the Fed's ledger), so the two may be read side by side — which the money-creation page's TGA-vs-reserves chart does — but their observation cadences differ (this series: Wednesday close, weekly; the TGA: every business day's close), so any chart pairing them must render each at its own cadence, never resampling one to fake the other's.",
+      "Fed Board data is sourced via FRED series IDs only, never the Board's own (retired) Data Download Program — CLAUDE.md hard rule."
+    ],
+    "notComparableWith": [
+      {
+        "series": "fiscal.mts.deficit.total",
+        "reason": "Reserve balances are a stock (the Fed's balance-sheet liability to banks at a point in time); the deficit is a flow (outlays minus receipts accumulated over a fiscal period). A change in reserves between two dates and a deficit over the same span are driven by different, only partly overlapping mechanics (Fed asset purchases/sales, TGA swings, currency in circulation) — never summed or directly compared without a declared bridge."
+      },
+      {
+        "series": "fiscal.mts.outlays.total",
+        "reason": "Same stock-vs-flow distinction as the deficit edge above: reserve balances are a point-in-time Fed balance-sheet figure; monthly outlays are a budget-basis flow accumulated over a period. Not comparable even after unit/magnitude conversion."
+      }
+    ]
   },
   "price.cpi_u.all_items": {
     "id": "price.cpi_u.all_items",

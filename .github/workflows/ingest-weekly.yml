@@ -1,0 +1,45 @@
+name: Ingest — weekly (Fed reserve balances)
+
+# H.4.1 / FRED series WRBWFRBL, "Wednesday Level" (monetary.fed.reserve_balances)
+# — not WRESBAL, H.4.1's other reserve-balance series, which is a week
+# average, not a point-in-time balance (see packages/ingest/src/fred/
+# wrbwfrbl.ts's header comment). Publishes once per week, as of the close
+# of business each Wednesday, typically
+# released the following Thursday. This runs Fridays, safely after that.
+# A run that finds nothing new is a no-op (lib/upsert.ts compares against
+# the latest known value per period), same as every other ingest-*.yml here.
+#
+# FRED_API_KEY is not provisioned yet (.env.example / PLAN.md §5):
+# jobs/reserves-weekly.ts logs "FRED_API_KEY not set — skipping reserves
+# ingest" and exits 0 when the secret referenced below is unset, so this
+# workflow is a harmless no-op — never a failing run — until the key exists.
+
+on:
+  schedule:
+    # 15:00 UTC Friday = 10:00am ET (9:00am during EST) — safely after
+    # Thursday's H.4.1 release.
+    - cron: "0 15 * * 5"
+  workflow_dispatch: {}
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Reserve balances at the Fed (H.4.1, FRED WRBWFRBL)
+        working-directory: packages/ingest
+        run: pnpm run ingest:reserves
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}

@@ -71,7 +71,7 @@ interface Series {
     | "projection"
     | "population"
     | "households";
-  cadence: "daily" | "monthly" | "annual";
+  cadence: "daily" | "weekly" | "monthly" | "annual";
   citation: string;
   revision_policy?: RevisionPolicy;
   notes?: string[];

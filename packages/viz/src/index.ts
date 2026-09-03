@@ -99,6 +99,17 @@ export {
   type AuctionSeriesGeometry,
   type AuctionSeriesLayoutOptions,
 } from "./layout/auctionSeriesLayout";
+export {
+  computeDualHistoryGeometry,
+  findNearestDualPoint,
+  type DualHistoryLayoutPoint,
+  type PositionedDualPoint,
+  type DualHistoryValueTick,
+  type DualHistoryDateTick,
+  type DualHistoryGeometry,
+  type DualHistoryLayoutOptions,
+  type NearestDualPoint,
+} from "./layout/dualCadenceHistoryLayout";
 
 // ---- scrollytelling primitives ----
 export { pickActiveStep, type StepIntersection } from "./scroll/pickActiveStep";
@@ -115,6 +126,7 @@ export { DailyCadenceChart, type DailyCadenceChartDay, type DailyCadenceChartPro
 export { TgaMonthChart, type TgaMonthChartDay, type TgaMonthChartProps } from "./components/TgaMonthChart";
 export { AuctionDotChart, type AuctionDotChartPoint, type AuctionDotChartProps } from "./components/AuctionDotChart";
 export { AuctionLineChart, type AuctionLineChartPoint, type AuctionLineChartProps } from "./components/AuctionLineChart";
+export { DualCadenceHistoryChart, type DualCadenceSeriesPoint, type DualCadenceLineSpec, type DualCadenceHistoryChartProps } from "./components/DualCadenceHistoryChart";
 
 // ---- demo / fixture harness (exercise the component without apps/web) ----
 export { fiscalFlowFixture, fiscalFlowSeriesCatalog } from "./demo/fixtures";

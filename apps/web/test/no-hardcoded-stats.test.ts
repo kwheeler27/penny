@@ -99,3 +99,35 @@ describe("no hardcoded statistics on the auction page (beat 4)", () => {
     }
   });
 });
+
+// Beat 5 (the money-creation page) sweep — a third, separately-scoped list
+// per this test file's own convention. lib/money-creation-transform.ts is
+// EXCLUDED for the same generic-math-layer reason lib/format.ts and
+// lib/front-door-transform.ts are above.
+//
+// lib/ledger-steps.ts is EXCLUDED too, but for a DIFFERENT reason than the
+// generic-math-layer files: it's the one deliberate, explicit exception
+// CLAUDE.md's own hard rule doesn't forbid — the four-ledger stepper's
+// entire content IS a labeled $1,000 worked example (a mechanism
+// illustration, "amounts are illustrative" per the page's own citation
+// line), never presented as a real statistic. Every one of its numbers
+// (1000, 5000, 10000, 20000, 30000, ...) is short enough that LONG_DIGIT_RUN
+// (6+ digits) wouldn't even catch it — this exclusion documents the
+// exemption explicitly anyway, rather than relying on an accident of the
+// regex's own threshold.
+const MONEY_CREATION_PAGE_FILES = [
+  "app/report/where-dollars-come-from/page.tsx",
+  "lib/money-creation-data.ts",
+  "components/money-creation-ledger.tsx",
+  "components/money-creation-chart-client.tsx",
+];
+
+describe("no hardcoded statistics on the money-creation page (beat 5)", () => {
+  for (const relPath of MONEY_CREATION_PAGE_FILES) {
+    it(`${relPath} contains no long hardcoded numeric literal`, () => {
+      const source = readFileSync(join(ROOT, relPath), "utf8");
+      const match = source.match(LONG_DIGIT_RUN);
+      expect(match, match ? `found "${match[0]}" in ${relPath} — every non-worked-example figure must come from lib/money-creation-data.ts, never a literal` : undefined).toBeNull();
+    });
+  }
+});

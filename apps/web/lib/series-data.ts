@@ -67,6 +67,39 @@ export async function getLatestReading(id: SeriesId, periodType?: PeriodType): P
 }
 
 /**
+ * The most recent `count` readings of one series with DISTINCT period_ends —
+ * one reading per period, the latest publication of each (revisions are new
+ * rows sharing a period_end, so a plain LIMIT n would happily return the
+ * same period twice). Powers the /now tiles' computed takeaways, which need
+ * "latest vs the reading before it". Over-fetches (count * 4 rows) to ride
+ * past superseded revisions; a period with more revisions than that headroom
+ * would truncate the result — fine for a takeaway, which just falls back to
+ * rendering nothing (a takeaway is a claim, and no data means no claim).
+ */
+export async function getLatestDistinctReadings(id: SeriesId, periodType: PeriodType, count = 2): Promise<Reading[]> {
+  const rows = await safely(
+    (db) =>
+      db
+        .select()
+        .from(observation)
+        .where(and(eq(observation.seriesId, id), eq(observation.periodType, periodType)))
+        .orderBy(desc(observation.periodEnd), desc(observation.publicationTime))
+        .limit(count * 4),
+    [] as Observation[],
+  );
+  const out: Reading[] = [];
+  let lastPeriodEnd: string | null = null;
+  for (const row of rows) {
+    const reading = toReading(row);
+    if (reading.periodEnd === lastPeriodEnd) continue;
+    out.push(reading);
+    lastPeriodEnd = reading.periodEnd;
+    if (out.length === count) break;
+  }
+  return out;
+}
+
+/**
  * One Reading per id in `ids`, keyed by series id, for the single shared
  * `(periodType, periodEnd)` — the shape a Sankey/comparison view needs so
  * every figure it draws is from the same reporting period (never mixing,

@@ -65,7 +65,7 @@ export default function CadenceSection({ data }: { data: CadenceData }) {
 
       <div className="cadence-chart">
         <div className="cadence-chart-title">The Treasury General Account through {monthLabel}</div>
-        <TgaMonthChartClient days={tga.days} color="var(--series-borrowing)" />
+        <TgaMonthChartClient days={tga.days} color="var(--series-tga)" />
         <div className="cadence-axis">
           <span>1st</span>
           <span>15th</span>

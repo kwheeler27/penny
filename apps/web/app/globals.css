@@ -31,6 +31,16 @@
   --series-outlays: #d4653e;
   --series-receipts: #3d6fb4;
   --series-borrowing: #0d8f6b;
+  /* Entity hues for the plumbing series (docs/DESIGN_PRINCIPLES.md §7: an
+     entity keeps its hue on every chart; the hue space is finite, so these
+     values are deliberately shared pairwise with outlay-category hues whose
+     entities can never appear on the same surface — TGA with the National
+     defense function, bank reserves with the Health function. The one pair
+     that DOES share a chart (TGA + reserves, the money-creation page)
+     passes the CVD validator in both modes: deutan ΔE 21.9 light / 17.9
+     dark). */
+  --series-tga: #8a4f9e;
+  --series-reserves: #a07d1f;
   /* Diagonal-hatch tint for a negative bar segment (Act I/II rows) — the
      ink color at low opacity, never a status/alert color (CLAUDE.md:
      "the deficit is red" is exactly the editorializing the neutral-register
@@ -68,6 +78,8 @@
     --series-outlays: #d17a52;
     --series-receipts: #5b8cc9;
     --series-borrowing: #2aa18a;
+    --series-tga: #a678b8;
+    --series-reserves: #ab8a35;
     --negative-hatch: rgba(235, 232, 223, 0.07);
     --panel: #221f1c;
   }
@@ -86,6 +98,8 @@
   --series-outlays: #d17a52;
   --series-receipts: #5b8cc9;
   --series-borrowing: #2aa18a;
+  --series-tga: #a678b8;
+  --series-reserves: #ab8a35;
   --negative-hatch: rgba(235, 232, 223, 0.07);
   --panel: #221f1c;
 }

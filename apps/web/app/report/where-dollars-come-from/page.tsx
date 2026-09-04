@@ -134,8 +134,8 @@ export default async function WhereDollarsComeFromPage() {
             <div className="cadence-chart">
               <div className="cadence-chart-title">Two lines, one $ axis: bank reserves &amp; the TGA</div>
               <DualCadenceHistoryChartClient
-                a={{ points: chart.tga.points, color: "var(--series-receipts)", label: chart.tga.label, cadenceLabel: chart.tga.cadenceLabel }}
-                b={{ points: chart.reserves.points, color: "var(--series-borrowing)", label: chart.reserves.label, cadenceLabel: chart.reserves.cadenceLabel }}
+                a={{ points: chart.tga.points, color: "var(--series-tga)", label: chart.tga.label, cadenceLabel: chart.tga.cadenceLabel }}
+                b={{ points: chart.reserves.points, color: "var(--series-reserves)", label: chart.reserves.label, cadenceLabel: chart.reserves.cadenceLabel }}
               />
               <div className="cadence-cap">
                 {windowStart && windowEnd ? (

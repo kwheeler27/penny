@@ -78,8 +78,12 @@ function calendarYearOf(periodEnd: string): string {
 
 /** Minimum horizontal spacing (in the same SVG viewBox units as the year
  * ticks' own `fontSize={10}`) between two adjacent year-tick labels before
- * one is dropped as illegible — see the year-ticks block below. */
-const MIN_YEAR_TICK_GAP_PX = 26;
+ * one is dropped as illegible — see the year-ticks block below. Exported so
+ * layout/compareLayout.ts's own year-tick collision guard (Frame B's
+ * multi-series chart, "Compare the big five") shares the identical
+ * legibility threshold rather than risking an independently-chosen number
+ * drifting from this one. */
+export const MIN_YEAR_TICK_GAP_PX = 26;
 
 /**
  * Computes the SVG geometry for one category's history chart. `monthly` and
@@ -183,8 +187,17 @@ export function computeCategoryHistoryGeometry(
  * local axis-tick formatter). `Number`-based, like every other cosmetic
  * pixel/guide computation in this module — never used for a displayed,
  * asserted-exact figure (those always arrive as a precomputed string from
- * the caller, per this module's own top-of-file doc comment). */
-function formatAxisUsd(value: number): string {
+ * the caller, per this module's own top-of-file doc comment).
+ *
+ * Exported so layout/compareLayout.ts's own axis ("Compare the big five",
+ * Frame B) reuses this SAME fixed-billions formatter rather than an
+ * independent auto-scaling one: that chart's end-of-line labels, hover
+ * labels, and annotation title all already arrive from the server as
+ * fixed-billions `scaledDisplay` strings (apps/web's formatUsdScale), so an
+ * axis that itself switched to trillions past $1,000B would put two
+ * different magnitudes on one chart — CLAUDE.md's "never silently mix
+ * magnitudes in a sum or a chart," found in review. */
+export function formatAxisUsd(value: number): string {
   const billions = value / 1_000_000_000;
   const rounded = Math.round(Math.abs(billions) * 10) / 10;
   if (rounded === 0) return "$0";

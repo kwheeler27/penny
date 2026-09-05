@@ -38,6 +38,7 @@ export {
   absDecimal,
   scaleByMagnitude,
   toWholeDollarsBigInt,
+  divideDecimalByInt,
   type MagnitudeName,
 } from "./money/decimal";
 export { formatSeriesValue, formatUsd, magnitudeLabel, type FormatUnit, type FormatValueOptions } from "./money/format";
@@ -110,6 +111,32 @@ export {
   type DualHistoryLayoutOptions,
   type NearestDualPoint,
 } from "./layout/dualCadenceHistoryLayout";
+export {
+  rollingAverage,
+  clipToWindow,
+  nudgeHoverLabelAwayFromAverage,
+  type HistoryChartPoint,
+} from "./layout/averagedHistoryLayout";
+export {
+  initialCompareVisibility,
+  isCompareSeriesVisible,
+  toggleCompareSeries,
+  computeVisibleValueDomain,
+  decollideEndLabels,
+  computeCompareGeometry,
+  findNearestCompareMonth,
+  type CompareSeriesInput,
+  type CompareVisibility,
+  type ValueDomain,
+  type EndLabelCandidate,
+  type CompareLayoutOptions,
+  type ComparePositionedPoint,
+  type CompareSeriesGeometry,
+  type CompareMonthTick,
+  type CompareYearTick,
+  type CompareValueTick,
+  type CompareGeometry,
+} from "./layout/compareLayout";
 
 // ---- scrollytelling primitives ----
 export { pickActiveStep, type StepIntersection } from "./scroll/pickActiveStep";
@@ -121,12 +148,13 @@ export { ScrollStepContainer, type ScrollStepContainerProps, type ScrollStepRend
 export { FiscalSankey, type FiscalSankeyProps } from "./components/FiscalSankey";
 export { DetailPanel, type DetailPanelProps } from "./components/DetailPanel";
 export { VisuallyHidden } from "./components/VisuallyHidden";
-export { CategoryHistoryChart, type CategoryHistoryChartPoint, type CategoryHistoryChartProps } from "./components/CategoryHistoryChart";
 export { DailyCadenceChart, type DailyCadenceChartDay, type DailyCadenceChartProps } from "./components/DailyCadenceChart";
 export { TgaMonthChart, type TgaMonthChartDay, type TgaMonthChartProps } from "./components/TgaMonthChart";
 export { AuctionDotChart, type AuctionDotChartPoint, type AuctionDotChartProps } from "./components/AuctionDotChart";
 export { AuctionLineChart, type AuctionLineChartPoint, type AuctionLineChartProps } from "./components/AuctionLineChart";
 export { DualCadenceHistoryChart, type DualCadenceSeriesPoint, type DualCadenceLineSpec, type DualCadenceHistoryChartProps } from "./components/DualCadenceHistoryChart";
+export { AveragedHistoryChart, type AveragedHistoryChartProps } from "./components/AveragedHistoryChart";
+export { CategoryCompareChart, type CategoryCompareSeriesSpec, type CategoryCompareAnnotation, type CategoryCompareChartProps } from "./components/CategoryCompareChart";
 
 // ---- demo / fixture harness (exercise the component without apps/web) ----
 export { fiscalFlowFixture, fiscalFlowSeriesCatalog } from "./demo/fixtures";

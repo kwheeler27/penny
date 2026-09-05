@@ -52,11 +52,12 @@ interface BoxDef {
 }
 
 // Verbatim from the mockup's own box markup — titles, sub-labels, and every
-// row label, in the mockup's own declaration order. Box colors reuse this
-// site's existing, already CVD-validated categorical tokens (the mockup's
-// own --ink3/--orange/--blue/--teal hex values are an exact match to this
-// site's --text-muted/--series-outlays/--series-receipts/--series-borrowing
-// in both light and dark, so no new tokens were needed).
+// row label, in the mockup's own declaration order. Box colors are BOX
+// identities, a separate registry from series hues (docs/DESIGN_PRINCIPLES.md
+// §7 "two registries, kept distinct"): You wears muted ink, Your bank the
+// outlays orange, The Fed the borrowing green — and The Treasury wears
+// --series-tga, the TGA's own entity hue, so this box rhymes with the TGA
+// line in the chart below it (the box IS the TGA — its sub says so).
 const BOX_DEFS: readonly BoxDef[] = [
   {
     id: "you",
@@ -84,7 +85,7 @@ const BOX_DEFS: readonly BoxDef[] = [
     id: "tsy",
     title: "The Treasury",
     sub: "the government’s checking account (beat 3’s TGA)",
-    colorVar: "var(--series-receipts)",
+    colorVar: "var(--series-tga)",
     rows: [{ key: "tsy.tga", label: "TGA balance at the Fed" }],
   },
   {

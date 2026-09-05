@@ -156,10 +156,9 @@ export function DualCadenceHistoryChart({ a, b, width = 640, height = 220 }: Dua
         ref={svgRef}
         viewBox={`0 0 ${width} ${height}`}
         width="100%"
-        height="auto"
         role="img"
         aria-label={ariaLabel}
-        style={{ overflow: "visible", display: "block", pointerEvents: "all" }}
+        style={{ height: "auto", overflow: "visible", display: "block", pointerEvents: "all" }}
         onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
       >

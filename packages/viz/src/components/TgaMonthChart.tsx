@@ -31,7 +31,7 @@ export function TgaMonthChart({ days, color, width = 640, height = 140 }: TgaMon
   const byDate = new Map(days.map((d) => [d.date, d]));
 
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} width="100%" height="auto" role="img" aria-label={`Treasury General Account balance across ${days.length} days`}>
+    <svg viewBox={`0 0 ${width} ${height}`} width="100%" style={{ height: "auto" }} role="img" aria-label={`Treasury General Account balance across ${days.length} days`}>
       <path d={geometry.path} fill="none" stroke={color} strokeWidth={2} />
       {geometry.points.map((p) => (
         <circle key={p.date} cx={p.x} cy={p.y} r={2.5} fill={color}>

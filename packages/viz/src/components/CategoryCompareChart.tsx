@@ -239,10 +239,9 @@ export function CategoryCompareChart({ series, annotation, width = 1016, height 
         ref={svgRef}
         viewBox={`0 0 ${width} ${height}`}
         width="100%"
-        height="auto"
         role="img"
         aria-label={`Compare spending categories, 12-month totals: ${series.map((s) => s.label).join(", ")}`}
-        style={{ overflow: "visible", display: "block", pointerEvents: "all" }}
+        style={{ height: "auto", overflow: "visible", display: "block", pointerEvents: "all" }}
         onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
       >

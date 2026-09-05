@@ -391,6 +391,14 @@ main {
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
+/* The computed takeaway heading (design principles §1) — the finding sits
+   between the kicker label and the figure, in emphasis weight, never in a
+   series color (text wears text colors, §9). */
+.tile-takeaway {
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: var(--text-primary);
+}
 
 .tile .rf-value {
   font-size: 1.9rem;

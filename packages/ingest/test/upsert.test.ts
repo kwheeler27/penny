@@ -7,7 +7,9 @@
  */
 import { describe, it, expect } from "vitest";
 import { createDb, runMigrations, seedSeriesCatalog } from "@penny/db";
-import { upsertObservation } from "../src/lib/upsert";
+import { upsertObservation, upsertObservations } from "../src/lib/upsert";
+import { eq } from "drizzle-orm";
+import { observation } from "@penny/db";
 import type { RawObservation } from "../src/lib/types";
 
 async function freshDb() {
@@ -72,5 +74,80 @@ describe("upsertObservation — mechanism edge cases", () => {
     expect(first.outcome).toBe("inserted");
     const flipped = await upsertObservation(db, { ...surplus, value: "-215024135197.77", publicationTime: "2026-09-01T00:00:00Z" });
     expect(flipped.outcome).toBe("revised");
+  });
+});
+
+describe("upsertObservation — history arriving after later data (the 2026-09-01 production backfill)", () => {
+  // The exact sequence that killed the monthly cron for six days: the July
+  // 2026 MTS (which restates October 2024) was on file first; the history
+  // backfill then stored the October 2024 report's own, different figure;
+  // the next live run of the July report crashed on the identity index.
+  const october2024: RawObservation = {
+    seriesId: "fiscal.mts.outlays.total",
+    periodType: "month",
+    periodStart: "2024-10-01",
+    periodEnd: "2024-10-31",
+    fiscalYear: 2025,
+    value: "584220273025.31",
+    publicationTime: "2026-07-31T00:00:00Z",
+  };
+  const october2024AsFirstPublished: RawObservation = { ...october2024, value: "584220579250.01", publicationTime: "2024-10-31T00:00:00Z" };
+
+  it("an older publication is stored as history ('backfilled') and never displaces the current reading", async () => {
+    const db = await freshDb();
+    const july = await upsertObservation(db, october2024);
+    expect(july.outcome).toBe("inserted");
+
+    const history = await upsertObservation(db, october2024AsFirstPublished);
+    expect(history.outcome).toBe("backfilled");
+    expect(history.id).not.toBe(july.id);
+
+    // The live job re-running the July report afterward is a no-op against
+    // the July row — this is the call that used to throw.
+    const rerun = await upsertObservation(db, october2024);
+    expect(rerun.outcome).toBe("unchanged");
+    expect(rerun.id).toBe(july.id);
+
+    // A still-newer report restating the July figure is likewise a no-op —
+    // "current" is the latest publication, not the highest id.
+    const august = await upsertObservation(db, { ...october2024, publicationTime: "2026-08-31T00:00:00Z" });
+    expect(august.outcome).toBe("unchanged");
+    expect(august.id).toBe(july.id);
+  });
+
+  it("replaying the same older publication is a no-op against its own history row", async () => {
+    const db = await freshDb();
+    await upsertObservation(db, october2024);
+    const history = await upsertObservation(db, october2024AsFirstPublished);
+    const replay = await upsertObservation(db, october2024AsFirstPublished);
+    expect(replay.outcome).toBe("unchanged");
+    expect(replay.id).toBe(history.id);
+  });
+
+  it("a genuine revision after a backfill still chains to the current reading, not to the history row", async () => {
+    const db = await freshDb();
+    const july = await upsertObservation(db, october2024);
+    await upsertObservation(db, october2024AsFirstPublished);
+    const revised = await upsertObservation(db, { ...october2024, value: "584220273000.00", publicationTime: "2026-08-31T00:00:00Z" });
+    expect(revised.outcome).toBe("revised");
+    const rows = await db.select().from(observation).where(eq(observation.id, revised.id));
+    expect(rows[0]?.revisionOf).toBe(july.id);
+  });
+
+  it("one publication cannot carry two values: same publication time, different value, is an error — for the current reading and for history alike", async () => {
+    const db = await freshDb();
+    await upsertObservation(db, october2024);
+    await expect(upsertObservation(db, { ...october2024, value: "1.00" })).rejects.toThrow(/SAME publication time/);
+    await upsertObservation(db, october2024AsFirstPublished);
+    await expect(upsertObservation(db, { ...october2024AsFirstPublished, value: "1.00" })).rejects.toThrow(/SAME publication time/);
+  });
+
+  it("upsertObservations counts backfilled rows separately from inserts and revisions", async () => {
+    const db = await freshDb();
+    const summary = await upsertObservations(db, [october2024, october2024AsFirstPublished, october2024]);
+    expect(summary.inserted).toBe(1);
+    expect(summary.backfilled).toBe(1);
+    expect(summary.unchanged).toBe(1);
+    expect(summary.revised).toBe(0);
   });
 });

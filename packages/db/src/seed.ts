@@ -19,7 +19,7 @@
 import { fileURLToPath } from "node:url";
 import { readdirSync, readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
-import { sql } from "drizzle-orm";
+import { inArray, sql } from "drizzle-orm";
 import { SERIES, SERIES_IDS } from "@penny/registry";
 import { getDb, type PennyDb } from "./client";
 import { runMigrations } from "./migrate";
@@ -102,13 +102,38 @@ export async function seedObservationFixtures(db: PennyDb): Promise<number> {
       ...row,
       publicationTime: new Date(row.publicationTime),
     }));
-    for (let i = 0; i < rows.length; i += SEED_BATCH_SIZE) {
+    // Fixtures only ever ADD periods the table doesn't have yet. A period
+    // already on file — from a live ingest job, an earlier seed, a backfill —
+    // is never restated from a fixture: a fixture row carries no way to tell
+    // whether its figure is newer or older than what is there, and the one
+    // write path that does (packages/ingest lib/upsert.ts) compares values
+    // and publication times row by row. Learned in production, 2026-09-01
+    // to 09-07: seeding the MTS history fixtures over a table that already
+    // held the July 2026 report inserted older-published rows at higher
+    // ids, and the live cron then died on the identity index for six days
+    // (see upsert.ts's doc comment). Re-running the seed is now a no-op for
+    // every period already present, on PGlite and Neon alike.
+    const seriesIds = [...new Set(rows.map((r) => r.seriesId))];
+    const known = await db
+      .select({ seriesId: observation.seriesId, periodType: observation.periodType, periodEnd: observation.periodEnd })
+      .from(observation)
+      .where(inArray(observation.seriesId, seriesIds));
+    const key = (r: { seriesId: string; periodType: string; periodEnd: string }) => `${r.seriesId}|${r.periodType}|${r.periodEnd}`;
+    const knownKeys = new Set(known.map(key));
+    const fresh = rows.filter((r) => !knownKeys.has(key(r)));
+    const skipped = rows.length - fresh.length;
+    if (skipped > 0) {
+      console.log(
+        `${file}: skipped ${skipped} row(s) whose period is already on file — fixtures only add missing periods; a restated figure goes through the ingest jobs`,
+      );
+    }
+    for (let i = 0; i < fresh.length; i += SEED_BATCH_SIZE) {
       await db
         .insert(observation)
-        .values(rows.slice(i, i + SEED_BATCH_SIZE))
+        .values(fresh.slice(i, i + SEED_BATCH_SIZE))
         .onConflictDoNothing();
     }
-    total += rows.length;
+    total += fresh.length;
   }
   return total;
 }

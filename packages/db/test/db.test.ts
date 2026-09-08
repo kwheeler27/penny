@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { createDb, type PennyDb } from "../src/client";
 import { runMigrations } from "../src/migrate";
 import { seedSeriesCatalog, seedObservationFixtures } from "../src/seed";
@@ -160,4 +160,36 @@ describe("@penny/db schema + migrations (PGlite)", () => {
     const rows = await db.select().from(observation).limit(1);
     expect(rows[0]?.publicationTime).toBeInstanceOf(Date);
   });
+});
+
+describe("seedObservationFixtures — fixtures only add missing periods", () => {
+  it("re-seeding inserts nothing, and a period already on file keeps its own row untouched", async () => {
+    const db = await freshDb();
+    await seedSeriesCatalog(db);
+    // A period the MTS totals fixture covers, pre-loaded the way the live cron
+    // would have: a different figure under a newer publication.
+    await db.insert(observation).values({
+      seriesId: "fiscal.mts.outlays.total",
+      periodType: "month",
+      periodStart: "2024-10-01",
+      periodEnd: "2024-10-31",
+      fiscalYear: 2025,
+      value: "1.00",
+      publicationTime: new Date("2026-07-31T00:00:00Z"),
+    });
+
+    const first = await seedObservationFixtures(db);
+    expect(first).toBeGreaterThan(0);
+
+    const october = await db
+      .select()
+      .from(observation)
+      .where(and(eq(observation.seriesId, "fiscal.mts.outlays.total"), eq(observation.periodType, "month"), eq(observation.periodEnd, "2024-10-31")));
+    expect(october).toHaveLength(1);
+    expect(october[0]?.value).toBe("1.0000");
+    expect(october[0]?.publicationTime.toISOString()).toBe("2026-07-31T00:00:00.000Z");
+
+    const second = await seedObservationFixtures(db);
+    expect(second).toBe(0);
+  }, 60_000);
 });

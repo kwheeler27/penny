@@ -30,7 +30,7 @@ export function DailyCadenceChart({ days, depositColor, withdrawalColor, width =
   const geometry = computeDailyCadenceGeometry(days, { width, height, padTop: 10, padBottom: 10 });
 
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} width="100%" height="auto" role="img" aria-label={`Daily deposits and withdrawals across ${days.length} days`}>
+    <svg viewBox={`0 0 ${width} ${height}`} width="100%" style={{ height: "auto" }} role="img" aria-label={`Daily deposits and withdrawals across ${days.length} days`}>
       <line x1={0} x2={width} y1={geometry.zeroY} y2={geometry.zeroY} stroke="currentColor" strokeOpacity={0.25} />
       {geometry.bars.map((b, i) => {
         const day = days[i]!;

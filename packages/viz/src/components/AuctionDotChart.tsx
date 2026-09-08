@@ -44,7 +44,7 @@ export function AuctionDotChart({ points, color, referenceValue, referenceLabel,
 
   return (
     <>
-      <svg viewBox={`0 0 ${width} ${height}`} width="100%" height="auto" role="img" aria-label={ariaLabel} style={{ overflow: "visible" }}>
+      <svg viewBox={`0 0 ${width} ${height}`} width="100%" role="img" aria-label={ariaLabel} style={{ height: "auto", overflow: "visible" }}>
         <line x1={PAD.padLeft} x2={width - PAD.padRight} y1={height - PAD.padBottom} y2={height - PAD.padBottom} stroke="currentColor" strokeOpacity={0.25} />
 
         {geometry.referenceY !== null && (

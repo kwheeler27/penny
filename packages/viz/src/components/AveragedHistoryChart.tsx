@@ -148,10 +148,9 @@ export function AveragedHistoryChart({ monthly, average, color, avgLabel, second
         ref={svgRef}
         viewBox={`0 0 ${width} ${height}`}
         width="100%"
-        height="auto"
         role="img"
         aria-label={`Monthly history and rolling average: ${monthly.map((p) => `${p.label} ${p.display}`).join(", ")}`}
-        style={{ overflow: "visible", display: "block", pointerEvents: "all" }}
+        style={{ height: "auto", overflow: "visible", display: "block", pointerEvents: "all" }}
         onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
       >

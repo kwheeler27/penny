@@ -222,17 +222,18 @@ export interface MtsBackfillResult {
   chunksProcessed: number;
   chunksSkippedViaCheckpoint: number;
   monthsCovered: number;
-  totals: { inserted: number; revised: number; unchanged: number };
-  receipts: { inserted: number; revised: number; unchanged: number };
-  outlays: { inserted: number; revised: number; unchanged: number };
+  totals: { inserted: number; revised: number; unchanged: number; backfilled: number };
+  receipts: { inserted: number; revised: number; unchanged: number; backfilled: number };
+  outlays: { inserted: number; revised: number; unchanged: number; backfilled: number };
   chunks: MtsBackfillChunkResult[];
 }
 
-function sumUpsert(summaries: UpsertManySummary[]): { inserted: number; revised: number; unchanged: number } {
+function sumUpsert(summaries: UpsertManySummary[]): { inserted: number; revised: number; unchanged: number; backfilled: number } {
   return {
     inserted: summaries.reduce((n, s) => n + s.inserted, 0),
     revised: summaries.reduce((n, s) => n + s.revised, 0),
     unchanged: summaries.reduce((n, s) => n + s.unchanged, 0),
+    backfilled: summaries.reduce((n, s) => n + s.backfilled, 0),
   };
 }
 
@@ -296,9 +297,9 @@ async function main() {
   console.log(
     `MTS backfill complete: ${result.fromRecordDate}..${result.toRecordDate}, ${result.monthsCovered} month(s) across ${result.chunksProcessed} chunk(s) (${result.chunksSkippedViaCheckpoint} skipped via checkpoint)`,
   );
-  console.log(`  totals: +${result.totals.inserted} ~${result.totals.revised} =${result.totals.unchanged}`);
-  console.log(`  receipts categories: +${result.receipts.inserted} ~${result.receipts.revised} =${result.receipts.unchanged}`);
-  console.log(`  outlay categories: +${result.outlays.inserted} ~${result.outlays.revised} =${result.outlays.unchanged}`);
+  console.log(`  totals: +${result.totals.inserted} ~${result.totals.revised} =${result.totals.unchanged} ↩${result.totals.backfilled}`);
+  console.log(`  receipts categories: +${result.receipts.inserted} ~${result.receipts.revised} =${result.receipts.unchanged} ↩${result.receipts.backfilled}`);
+  console.log(`  outlay categories: +${result.outlays.inserted} ~${result.outlays.revised} =${result.outlays.unchanged} ↩${result.outlays.backfilled}`);
 }
 
 if (process.argv[1] && import.meta.url === `file://${process.argv[1]}`) {

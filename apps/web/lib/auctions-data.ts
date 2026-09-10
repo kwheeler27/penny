@@ -285,8 +285,11 @@ export interface AuctionsPageData {
  * @penny/registry directly; every component below it receives already-
  * resolved data through props.
  */
-export async function getAuctionsPageData(): Promise<AuctionsPageData> {
-  const today = todayIso();
+/** `today` is the as-of calendar date (`YYYY-MM-DD`): it decides which
+ * announced auctions are "upcoming", where the 30-day recent window starts,
+ * and the citation's access date. Defaults to the wall clock; tests pass a
+ * fixed date so seeded fixtures never rot as real time moves past them. */
+export async function getAuctionsPageData(today: string = todayIso()): Promise<AuctionsPageData> {
   const citation = getAuctionDatasetCitation(today);
 
   const [latest, upcomingRaw, recentRaw] = await Promise.all([

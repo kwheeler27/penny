@@ -181,7 +181,11 @@ describe("getOriginalAuctionForReopening / getOriginalAuctionsForUpcomingReopeni
 
 describe("getAuctionsPageData", () => {
   it("assembles a complete page from real seeded rows: tiles, buyer mix, takeaway, 14-point history, recent and upcoming tables", async () => {
-    const data = await getAuctionsPageData();
+    // Pinned as-of date: the day after the fixture's latest resulted auction
+    // (2026-08-27) and before its announced ones (2026-09-02, 2026-09-09), so
+    // "upcoming" and the 30-day recent window are stable regardless of when
+    // the suite runs. Before this, the test started failing on 2026-09-10.
+    const data = await getAuctionsPageData("2026-08-28");
 
     expect(data.latest?.cusip).toBe("91282CJZ0");
     expect(data.tiles?.soldDisplay).toBe("$44.0B");

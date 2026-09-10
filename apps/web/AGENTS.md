@@ -1,3 +1,5 @@
+Repo contract: `../../AGENTS.md` applies here (hard rules, merge policy, commands).
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
